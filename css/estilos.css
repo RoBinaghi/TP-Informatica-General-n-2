@@ -1,10 +1,161 @@
+/*   Se carga DESPUÉS de Bootstrap para poder pisar sus estilos 
+   PARTE 1 — BASE, MENÚ Y PIE (todas las páginas)*/
+
+/* color, background-color, background-image, font-family
+  background-repeat y background-position */
 body {
-    background-color: #0d0d0f;
-    color: #f2ede4;
-    font-family: "Space Grotesk", sans-serif;
+  background-color: #0d0010;
+  background-image: url("../img/vida/fondo-estrellas.jpg");
+  background-repeat: repeat-y;
+  background-attachment: auto;
+  color: #fff3d6;
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
 }
 
+/* tipografía de los títulos */
 h1, h2, h3 {
-    font-family: "Anton", sans-serif;
-    text-transform: uppercase;  /* transforma en mayuscula */
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600;
+}
+
+/*  pseudo-clases de enlaces, en orden link, visited, hover, active */
+a:link {
+  color: #00ade3;
+}
+
+a:visited {
+  color: #00ade3;
+}
+
+a:hover {
+  color: #ff913f;
+}
+
+a:active {
+  color: #fff3d6;
+}
+
+/* Clase que usa JavaScript para esconder elementos display none).
+   No la borres: para usar en la guitarra, el filtro, las fichas y el formulario. */
+.oculto {
+  display: none;
+}
+
+/* ---------- MENÚ HAMBURGUESA (navbar de Bootstrap) ---------- */
+
+/* color de fondo /  borde */
+.barra {
+  background-color: #0d0010;
+  border-bottom: 2px solid #ff913f;
+}
+
+/* "Bowie" a la derecha : tipografía) */
+.barra .marca {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600;
+  font-size: 2rem;
+  color: #ff913f
+}
+
+/* Lo que se abre al tocar ☰  padding) */
+.barra .navbar-nav {
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+}
+
+/*  color y text-transform */
+.barra .nav-link {
+  color: #fff3d6;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/*  hover */
+.barra .nav-link:hover {
+  color: #ff913f;
+}
+
+/* La sección en la que estoy */
+.barra .nav-link.active {
+  color: #ff913f;
+}
+
+/* Los submenús (dropdown de Bootstrap) —  border */
+.barra .dropdown-menu {
+  background-color: #1d0a24;
+  border: none;
+  border-left: 3px solid #ff913f;
+}
+
+.barra .dropdown-item {
+  color: #fff3d6;
+}
+
+.barra .dropdown-item:hover {
+  background-color: #ff913f;
+  color: #0d0010;
+}
+
+/* La página en la que estoy, dentro del submenú */
+.barra .dropdown-item.active {
+  background-color: transparent;
+  color: #ff913f;
+  font-weight: 500;
+}
+
+
+/* ---------- TÍTULO Y TEXTO DE ENTRADA ---------- */
+
+/* Título grande de la página (tipografía /  border y padding) */
+.titulo-pagina {
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  font-size: 3rem;
+  color: #ffffff;
+  border-bottom: 3px solid #ff913f;
+  padding-top: 2.5rem;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.intro {
+  font-size: 1.15rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+}
+
+
+/* ---------- PIE DE PÁGINA ---------- */
+
+/* background-color, color, text-align / padding y margin */
+.pie {
+  background-color: #ff913f;
+  color: #0d0010;
+  text-align: center;
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
+  margin-top: 3rem;
+}
+
+.pie p {
+  margin-bottom: 0.2rem;
+}
+
+.pie a:link,
+.pie a:visited {
+  color: #0d0010;
+  font-weight: 500;
+}
+
+
+
+/* MEDIA QUERIES — siempre al final 
+ Mobile first: arriba, celular; acá se agranda con min-width.
+   Las reglas nuevas de cada página se agregan ADENTRO de estos
+   mismos bloques, sin repetirlos*/
+@media (min-width: 768px) {
+  .titulo-pagina {
+    font-size: 4.5rem;
+  }
 }
