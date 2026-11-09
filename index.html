@@ -18,10 +18,21 @@
   <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
+<!-- CONTENEDOR PRINCIPAL DE PORTADA -->
+  <div class="hero">
+    
+    <!-- Video de fondo -->
+    <video autoplay loop muted playsinline class="video-fondo">
+      <source src="video/portada.mp4" type="video/mp4">
+      Tu navegador no soporta videos HTML5.
+    </video>
+
+    <!-- Capa oscura de sobreposición (para mejorar la lectura del texto) -->
+    <div class="overlay"></div>
 
   <!-- MENÚ HAMBURGUESA (navbar de Bootstrap)
       Cada sección es un submenú (dropdown de Bootstrap). -->
-  <header>
+  <header class="header-portada">
     <nav class="navbar navbar-dark barra">
       <div class="container">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
@@ -45,37 +56,120 @@
               </ul>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Más allá de la música</a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="masalladelamusica.html">Más allá de la música</a></li>
+             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Otras discilplinas artísticas</a>
+              <ul class="dropdown-menu">      
                 <li><a class="dropdown-item" href="pinturas.html">Pinturas</a></li>
-                <li><a class="dropdown-item" href="teatro.html">Teatro</a></li>
-                <li><a class="dropdown-item" href="audiovisual.html">Audiovisual</a></li>
+                <li><a class="dropdown-item" href="actuacion.html">Actuación</a></li>
               </ul>
             </li>
             <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
             <li class="nav-item"><a class="nav-link" href="creditos.html">Créditos</a></li>
           </ul>
         </div>
-      </div>
+      </div>      
     </nav>
   </header>
+  <!-- Texto superpuesto en el centro -->
+    <div class="contenido-portada">
+   <h1 class="titulo-pagina">David Bowie</h1>
+   <h2>El Camaleón de la Cultura Pop </h2>
+    </div>
+
+  </div>
 
   <main class="container">
 
-    <h1 class="titulo-pagina">David Bowie</h1>
-    <p class="intro">Quién fue David Robert Jones y los personajes que inventó para convertirse en David Bowie.
-      Elegí una portada para entrar.</p>
+ 
+    <p class="intro">David Bowie (1947–2016) no fue solo un músico; fue una fuerza artística multidisciplinaria que redefinió los límites del rock, la moda, la actuación y la tecnología. 
+      A lo largo de más de cinco décadas de carrera, su constante capacidad de metamorfosis lo convirtió en uno de los creadores más influyentes e innovadores de la historia contemporánea. </p>
 
     
     <section class="">
 
       <div class="">
-       
-          </div>
-       
-    
+      <!-- Contenedor principal horizontal -->
+  <div class="contenedor-galeria">
 
+    <!-- Tarjeta biografia -->
+    <a href="biografia.html" class="tarjeta-enlace">
+      <article class="tarjeta-seccion">
+        <div class="contenedor-imagen">
+          <img src="img/biografia.jpg" alt="Biografía" class="card-img">
+          <div class="capa-texto">
+            <p class="texto-pantalla">Biografía</p>
+          </div>
+        </div>
+      </article>
+    </a>
+
+    <!-- Tarjeta biografia -->
+    <a href="alterego.html" class="tarjeta-enlace">
+      <article class="tarjeta-seccion">
+        <div class="contenedor-imagen">
+          <img src="img/alter-ego.jpg" alt="Alter Ego" class="card-img">
+          <div class="capa-texto">
+            <p class="texto-pantalla">Alter Ego</p>
+          </div>
+        </div>
+      </article>
+    </a>
+
+    
+    <!-- Tarjeta albumes -->
+    <a href="albumes.html" class="tarjeta-enlace">
+      <article class="tarjeta-seccion">
+        <div class="contenedor-imagen">
+          <img src="img/albumes.jpg" alt="albumes" class="card-img">
+          <div class="capa-texto">
+            <p class="texto-pantalla">Albumes</p>
+          </div>
+        </div>
+      </article>
+    </a>
+
+    
+    <!-- Tarjeta colaboracion -->
+    <a href="colaboracion.html" class="tarjeta-enlace">
+      <article class="tarjeta-seccion">
+        <div class="contenedor-imagen">
+          <img src="img/colaboracion.jpg" alt="David Bowie y Mick jagger class="card-img">
+          <div class="capa-texto">
+            <p class="texto-pantalla">Colaboraciones</p>
+          </div>
+        </div>
+      </article>
+    </a>
+
+    
+    <!-- Tarjeta pinturas -->
+    <a href="pinturas.html" class="tarjeta-enlace">
+      <article class="tarjeta-seccion">
+        <div class="contenedor-imagen">
+          <img src="img/pinturas.jpg" alt="pinturas de David Bowie" class="card-img">
+          <div class="capa-texto">
+            <p class="texto-pantalla">Pinturas</p>
+          </div>
+        </div>
+      </article>
+    </a>
+
+    
+    <!-- Tarjeta actuacion -->
+    <a href="actuacion.html" class="tarjeta-enlace">
+      <article class="tarjeta-seccion">
+        <div class="contenedor-imagen">
+          <img src="img/actuacion.jpg" alt="David Bowie en el laberinto" class="card-img">
+          <div class="capa-texto">
+            <p class="texto-pantalla">Actuación</p>
+          </div>
+        </div>
+      </article>
+    </a>
+
+
+  </div>
+
+          </div>
     </section>
   </main>
 
@@ -89,5 +183,6 @@
 
   <!-- JS de Bootstrap: hace funcionar el menú hamburguesa y los submenús -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+   <script src="js/index.js"></script>
 </body>
 </html>

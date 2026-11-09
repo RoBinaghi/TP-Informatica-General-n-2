@@ -148,8 +148,163 @@ a:active {
   font-weight: 500;
 }
 
+/* ==========================================
+   ESTILOS DE LA PORTADA CON VIDEO (HERO)
+   ========================================== */
 
+/* Contenedor principal de la portada */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Ocupa el 100% de la altura de la pantalla */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
 
+/* Video ajustado al tamaño de la pantalla */
+.video-fondo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 1; /* Queda al fondo de todo */
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+/* Capa translúcida negra para dar contraste a las letras */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.55); /* Oscurece levemente el video */
+  z-index: 2;
+}
+
+/* Header / Menú superpuesto en la parte superior */
+.header-portada {
+  position: relative;
+  z-index: 3; /* Queda por encima del video y del overlay */
+  width: 100%;
+  max-width: 960px;
+  margin-top: 20px;
+}
+
+/* Texto centrado superpuesto */
+.contenido-portada {
+  position: relative;
+  z-index: 3; /* Queda por encima del video */
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: auto;
+  margin-top: auto;
+  padding: 0 20px;
+}
+
+.titulo-portada {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #ffa500;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  margin-bottom: 10px;
+}
+
+.subtitulo-portada {
+  font-size: 1.2rem;
+  color: #ffffff;
+  margin-bottom: 25px;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+}
+
+/*index imagenes*/
+/* Contenedor principal en celular: apilado en columna */
+.contenedor-galeria {
+  display: flex;
+  flex-direction: column; /* Una debajo de otra en móvil */
+  gap: 1.25rem;
+  width: 100%;
+}
+
+/* En celular cada tarjeta ocupa el 100% de ancho */
+.tarjeta-enlace {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Tarjeta limpia sin bordes ni recuadros */
+.tarjeta-seccion {
+  width: 100%;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.3s ease;
+}
+
+.tarjeta-enlace:hover .tarjeta-seccion {
+  transform: translateY(-5px);
+}
+
+.contenedor-imagen {
+  position: relative;
+  width: 100%;
+  height: 15rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border: none;
+}
+
+.capa-texto {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.75rem;
+  text-align: center;
+}
+
+.texto-pantalla {
+  color: #ffffff;
+  font-size: 1.05rem;
+  font-weight: bold;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.tarjeta-seccion h3 {
+  color: #ffffff;
+  margin-top: 0.75rem;
+  margin-bottom: 0;
+  font-size: 1.1rem;
+  text-align: center;
+}
 /* MEDIA QUERIES — siempre al final 
  Mobile first: arriba, celular; acá se agranda con min-width.
    Las reglas nuevas de cada página se agregan ADENTRO de estos
@@ -158,4 +313,16 @@ a:active {
   .titulo-pagina {
     font-size: 4.5rem;
   }
+ .contenedor-galeria {
+    flex-direction: row;  /* Pasa a alineación horizontal */
+    flex-wrap: wrap;     /* Permite hileras de 3 en 3 */
+    justify-content: center;
+  }
+
+  .tarjeta-enlace {
+    /* 3 columnas por fila en PC (33.333% menos el espacio entre tarjetas) */
+    flex: 0 0 calc(33.333% - 1.25rem);
+    max-width: calc(33.333% - 1.25rem);
+  }
+
 }
