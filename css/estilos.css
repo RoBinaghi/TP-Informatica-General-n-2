@@ -226,85 +226,55 @@ a:active {
 }
 
 /*index imagenes*/
-/* Contenedor principal en celular: apilado en columna */
-.contenedor-galeria {
-  display: flex;
-  flex-direction: column; /* Una debajo de otra en móvil */
-  gap: 1.25rem;
-  width: 100%;
-}
 
-/* En celular cada tarjeta ocupa el 100% de ancho */
-.tarjeta-enlace {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-/* Tarjeta limpia sin bordes ni recuadros */
-.tarjeta-seccion {
-  width: 100%;
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  padding: 0;
+.tarjeta-interactiva {
   cursor: pointer;
-  user-select: none;
-  transition: transform 0.3s ease;
 }
 
-.tarjeta-enlace:hover .tarjeta-seccion {
-  transform: translateY(-5px);
+.tarjeta-interactiva .card-img {
+  transition: transform 0.35s ease;
 }
 
-.contenedor-imagen {
-  position: relative;
-  width: 100%;
-  height: 15rem;
-  border-radius: 0.5rem;
+/* Fondo ligeramente oscuro por defecto para que el título siempre se lea bien */
+.tarjeta-interactiva .capa-superpuesta {
+  background-color: rgba(0, 0, 0, 0.35);
+  transition: background-color 0.35s ease;
+}
+
+/* Estado oculto del texto extra y el botón */
+.tarjeta-interactiva .detalle-oculto {
+  max-height: 0;
+  opacity: 0;
   overflow: hidden;
-  background-color: transparent;
+  pointer-events: none; /* Evita clics accidentales cuando está oculto */
+  transition: max-height 0.35s ease, opacity 0.35s ease;
 }
 
-.card-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  border: none;
+/* Activación tanto al pasar el mouse (:hover) como al hacer clic (.activa) */
+.tarjeta-interactiva:hover .capa-superpuesta,
+.tarjeta-interactiva.activa .capa-superpuesta {
+  background-color: rgba(0, 0, 0, 0.72); /* Se oscurece más */
 }
 
-.capa-texto {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.65);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0.75rem;
-  text-align: center;
+.tarjeta-interactiva:hover .detalle-oculto,
+.tarjeta-interactiva.activa .detalle-oculto {
+  max-height: 200px; /* Espacio suficiente para el texto y el botón */
+  opacity: 1;
+  pointer-events: auto;
 }
 
-.texto-pantalla {
-  color: #ffffff;
-  font-size: 1.05rem;
-  font-weight: bold;
-  margin: 0;
-  transition: color 0.3s ease;
+.tarjeta-interactiva:hover .card-img,
+.tarjeta-interactiva.activa .card-img {
+  transform: scale(1.04);
 }
 
-.tarjeta-seccion h3 {
-  color: #ffffff;
-  margin-top: 0.75rem;
-  margin-bottom: 0;
-  font-size: 1.1rem;
-  text-align: center;
+.tarjeta-interactiva .card-img {
+  height: 300px; /* Ajusta la altura a tu gusto */
+  object-fit: cover; /* Recorta la imagen proporcionalmente sin estirarla */
+  transition: transform 0.35s ease;
 }
+
+
 /* MEDIA QUERIES — siempre al final 
  Mobile first: arriba, celular; acá se agranda con min-width.
    Las reglas nuevas de cada página se agregan ADENTRO de estos
@@ -313,16 +283,4 @@ a:active {
   .titulo-pagina {
     font-size: 4.5rem;
   }
- .contenedor-galeria {
-    flex-direction: row;  /* Pasa a alineación horizontal */
-    flex-wrap: wrap;     /* Permite hileras de 3 en 3 */
-    justify-content: center;
-  }
-
-  .tarjeta-enlace {
-    /* 3 columnas por fila en PC (33.333% menos el espacio entre tarjetas) */
-    flex: 0 0 calc(33.333% - 1.25rem);
-    max-width: calc(33.333% - 1.25rem);
-  }
-
 }
