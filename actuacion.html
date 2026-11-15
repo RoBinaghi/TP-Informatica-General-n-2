@@ -8,8 +8,6 @@
 
   <!-- 1) PRIMERO el CSS de Bootstrap ) -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- CSS Libreria https://flickity.metafizzy.co/ -->
-<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
 
   <!-- 2) Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -70,14 +68,75 @@
       Elegí una portada para entrar.</p>
 
     
-    <section class="">
-<div class="">
-  <img src="img/actuacion/just-a-gigolo.jpg" alt="Just a Gigolo">
-  <img src="img/actuacion/labyrinth.jpg" alt="Labyrinth">
-  <img src="img/actuacion/merry-christmas-mr-lawrence.jpg" alt="Merry Christmas Mr. Lawrence">
-  <img src="img/actuacion/the-hunger.jpg" alt="The Hunger">
-  <img src="img/actuacion/the-man-who-fell-to-earth.jpg" alt="The Man Who Fell to Earth">
+    <section>
+
+     <div class="my-5">
+<!-- CONTENEDOR CON POSICIÓN RELATIVA PARA UBICAR LAS FLECHAS -->
+  <div class="position-relative">
+    
+    <!-- Flecha Izquierda -->
+    <button type="button" id="btnPrev" class="btn btn-dark btn-flecha flecha-izq" aria-label="Anterior">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    </button>
+   
+    <!-- CARRUSEL HORIZONTAL CON 5 PÓSTERS -->
+    <div class="carrusel-vertical" id="carruselPosters">
+
+    <!-- Pelicula 1 The Man Who Fell to Earth-->
+    <div class="poster-item" >
+      <img src="img/actuacion/the-man-who-fell-to-earth.jpg" class="rounded shadow-sm" alt="The Man Who Fell to Earth">
+    </div>
+
+    <!--Pelicula 2 Just a gigolo"-->
+    <div class="poster-item ">
+      <img src="img/actuacion/just-a-gigolo.jpg" class="rounded shadow-sm" alt="Just a gigolo">
+    </div>
+
+    <!-- Pelicula 3 Merry Christmas, Mr. Lawrence -->
+    <div class="poster-item">
+      <img src="img/actuacion/merry-christmas-mr-lawrence.jpg" class="rounded shadow-sm" alt="Merry Christmas, Mr. Lawrence">
+    </div>
+
+    <!--Pelicula 4 The Hunger -->
+    <div class="poster-item ">
+      <img src="img/actuacion/the-hunger.jpg" class="rounded shadow-sm" alt="The Hunger">
+    </div>
+
+        <!--Pelicula 5 Labyrinth  -->
+    <div class="poster-item" >
+      <img src="img/actuacion/labyrinth.jpg" class="rounded shadow-sm" alt="Labyrinth">
+    </div>
+ </div>
+ <!-- Flecha Derecha -->
+    <button type="button" id="btnNext" class="btn btn-dark btn-flecha flecha-der" aria-label="Siguiente">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    </button>
+
 </div>
+
+<!-- PANEL DE DETALLE: Izquierda = Cartelera | Derecha = Título, Texto y Video abajo -->
+<div id="panelDetalle" class="card text-bg-dark border-secondary mt-4 p-4 d-none">
+  <div class="row g-4 align-items-start">
+    
+    <!-- COLUMNA IZQUIERDA: Cartelera / Póster -->
+    <div class="col-12 col-md-4 text-center">
+      <img id="detalleImg" src="" alt="" class="img-fluid rounded shadow w-100">
+    </div>
+
+    <!-- COLUMNA DERECHA: Título, Texto y Video debajo -->
+    <div class="col-12 col-md-8 d-flex flex-column">
+      <h3 id="detalleTitulo" class="fw-bold mb-2"></h3>
+      <p id="detalleTexto" class="mb-3"></p>
+      
+      <!-- Video debajo del texto (dentro de la misma columna derecha) -->
+      <div class="ratio ratio-16x9 mt-auto">
+        <iframe id="detalleVideo" src="" title="Video" allowfullscreen></iframe>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>  
 
     </section>
   </main>
@@ -93,6 +152,6 @@
   <!-- JS de Bootstrap: hace funcionar el menú hamburguesa y los submenús -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <!-- JavaScript Libreria-->
-<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+     <script src="js/actuacion.js"></script>
 </body>
 </html>
