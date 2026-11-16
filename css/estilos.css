@@ -380,3 +380,65 @@ a:active {
   }
   
 }
+/* ---------- ESTILOS DE LA PAGINA ALBUNMES---------- */
+/* Tarjeta de la galería inferior */
+/* Galería inferior de 28 álbumes */
+.tarjeta-album {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  cursor: pointer;
+  aspect-ratio: 1 / 1;
+}
+
+.tarjeta-album img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.overlay-album {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.78);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.25rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.tarjeta-album:hover img {
+  transform: scale(1.06);
+}
+
+.tarjeta-album:hover .overlay-album {
+  opacity: 1;
+}
+
+.badge-anio {
+  display: inline-block;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 0.75rem;
+  width: fit-content;
+}
+
+.tarjeta-album:hover .overlay-album {
+  opacity: 1;
+}
+
+/* Etiqueta tipo píldora para el año (similar a la referencia visual) */
+.badge-anio {
+  display: inline-block;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  width: fit-content;
+}
+

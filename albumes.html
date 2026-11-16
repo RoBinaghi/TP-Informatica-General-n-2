@@ -61,95 +61,121 @@
 
   <main class="container">
 
+<!-- 1. VIDEO SUPERIOR -->
+    <section class="my-4">
+      <div class="ratio ratio-16x9 rounded overflow-hidden shadow">
+        <video src="video/bowie-intro.mp4" autoplay muted loop playsinline class="w-100 h-100 object-fit-cover"></video>
+      </div>
+    </section>
+
     <h1 class="titulo-pagina">Álbumes</h1>
     <p class="intro">Quién fue David Robert Jones y los personajes que inventó para convertirse en David Bowie.
       Elegí una portada para entrar.</p>
 
-    
-    <section class="">
+    <!-- 2. CARRUSEL: LOS 10 ÁLBUMES DESTACADOS -->
+    <section class="my-5">
+      <div class="position-relative">
+        
+        <!-- Flecha Izquierda -->
+        <button type="button" id="btnPrev" class="btn btn-dark btn-flecha flecha-izq" aria-label="Anterior">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+       
+        <!-- CARRUSEL HORIZONTAL -->
+        <div class="carrusel-cuadrado" id="carruselPosters">
 
- <div class="my-5">
-<!-- CONTENEDOR CON POSICIÓN RELATIVA PARA UBICAR LAS FLECHAS -->
-  <div class="position-relative">
-    
-    <!-- Flecha Izquierda -->
-    <button type="button" id="btnPrev" class="btn btn-dark btn-flecha flecha-izq" aria-label="Anterior">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    </button>
-   
-    <!-- CARRUSEL HORIZONTAL CON 5 PÓSTERS -->
-    <div class="carrusel-cuadrado" id="carruselPosters">
+          <!-- 1 -->
+          <div class="poster-item">
+            <img src="img/albumes/1976_stationtostation_bnw.jpg" class="rounded shadow-sm" alt="Station to Station (1976)">
+          </div>
+          <!-- 2 -->
+          <div class="poster-item">
+            <img src="img/albumes/1977_low.jpg" class="rounded shadow-sm" alt="Low (1977)">
+          </div>
+          <!-- 3 -->
+          <div class="poster-item">
+            <img src="img/albumes/1972_ziggystardust.jpg" class="rounded shadow-sm" alt="The Rise and Fall of Ziggy Stardust and the Spiders from Mars (1972)">
+          </div>
+          <!-- 4 -->
+          <div class="poster-item">
+            <img src="img/albumes/1977_heroes.jpg" class="rounded shadow-sm" alt="Heroes (1977)">
+          </div>
+          <!-- 5 -->
+          <div class="poster-item">
+            <img src="img/albumes/1971_hunkydory.jpg" class="rounded shadow-sm" alt="Hunky Dory (1971)">
+          </div>
+          <!-- 6 -->
+          <div class="poster-item">
+            <img src="img/albumes/2016_blackstar.jpg" class="rounded shadow-sm" alt="Blackstar (2016)">
+          </div>
+          <!-- 7 -->
+          <div class="poster-item">
+            <img src="img/albumes/1980_scarymonsters.jpg" class="rounded shadow-sm" alt="Scary Monsters (and Super Creeps) (1980)">
+          </div>
+          <!-- 8 -->
+          <div class="poster-item">
+            <img src="img/albumes/1973_aladdinsane.jpg" class="rounded shadow-sm" alt="Aladdin Sane (1973)">
+          </div> 
+          <!-- 9 -->
+          <div class="poster-item">
+            <img src="img/albumes/1995_1outside.jpg" class="rounded shadow-sm" alt="1.Outside (1995)">
+          </div> 
+          <!-- 10 -->
+          <div class="poster-item">
+            <img src="img/albumes/1974_diamonddogs.jpg" class="rounded shadow-sm" alt="Diamond Dogs (1974)">
+          </div>  
 
-    <!-- 1 album 1976_stationtostation_bnw-->
-    <div class="poster-item" >
-      <img src="img/albumes/1976_stationtostation_bnw.jpg" class="rounded shadow-sm" alt="Station to Station (1976)">
-    </div>
-    <!-- 2 album Low (1977)-->
-    <div class="poster-item" >
-      <img src="img/albumes/1977_low.jpg" class="rounded shadow-sm" alt="Low (1977)">
-    </div>
-       <!-- 3 The Rise and Fall of Ziggy Stardust and the Spiders from Mars (1972)
--->
-    <div class="poster-item" >
-      <img src="img/albumes/1972_ziggystardust.jpg" class="rounded shadow-sm" alt="The Rise and Fall of Ziggy Stardust and the Spiders from Mars (1972)
-">
-    </div>
-        <!-- 4 album "Heroes" (1977)-->
-    <div class="poster-item" >
-      <img src="img/albumes/1977_heroes.jpg" class="rounded shadow-sm" alt="Heroes (1977)">
-    </div>
-        <!-- 5 Hunky Dory (1971)-->
-    <div class="poster-item" >
-      <img src="img/albumes/1971_hunkydory.jpg" class="rounded shadow-sm" alt="Hunky Dory (1971)">
-    </div>
-        <!-- 6 album Blackstar (2016)-->
-    <div class="poster-item" >
-      <img src="img/albumes/2016_blackstar.jpg" class="rounded shadow-sm" alt="Blackstar  (2016)
-">
-    </div>
-        <!-- 7 album Scary Monsters (and Super Creeps) (1980)-->
-    <div class="poster-item" >
-      <img src="img/albumes/1980_scarymonsters.jpg" class="rounded shadow-sm" alt="Scary Monsters (and Super Creeps) (1980)">
-    </div>
-        <!-- 8 album Aladdin Sane (1973)-->
-    <div class="poster-item" >
-      <img src="img/albumes/1973_aladdinsane.jpg" class="rounded shadow-sm" alt="Aladdin Sane (1973)">
-    </div> 
-           <!-- 9 album 1.Outside (1995)-->
-    <div class="poster-item" >
-      <img src="img/albumes/1995_1outside.jpg" class="rounded shadow-sm" alt="1. Outside (1995)">
-    </div> 
-            <!-- 10 album Diamond Dogs (1974)-->
-    <div class="poster-item" >
-      <img src="img/albumes/1974_diamonddogs.jpg" class="rounded shadow-sm" alt="Diamond Dogs (1974)">
-    </div>  
- </div>
- <!-- Flecha Derecha -->
-    <button type="button" id="btnNext" class="btn btn-dark btn-flecha flecha-der" aria-label="Siguiente">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    </button>
-  <!-- PANEL DE DETALLE: Izquierda = Cartelera | Derecha = Título, Texto y Video abajo -->
-<div id="panelDetalle" class="card text-bg-dark border-secondary mt-4 p-4 d-none">
-  <div class="row g-4 align-items-start">
-    
-    <!-- COLUMNA IZQUIERDA: Cartelera / Póster -->
-    <div class="col-12 col-md-4 text-center">
-      <img id="detalleImg" src="" alt="" class="img-fluid rounded shadow w-100">
-    </div>
+        </div>
 
-    <!-- COLUMNA DERECHA: Título, Texto y Video debajo -->
-    <div class="col-12 col-md-8 d-flex flex-column">
-      <h3 id="detalleTitulo" class="fw-bold mb-2"></h3>
-      <p id="detalleTexto" class="mb-3"></p>
+        <!-- Flecha Derecha -->
+        <button type="button" id="btnNext" class="btn btn-dark btn-flecha flecha-der" aria-label="Siguiente">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
 
-    </div>
-
-  </div>
-</div>
-</div>       
-    
-
+      </div>
     </section>
+  
+    <!-- 3. ÚNICO PANEL DE DETALLE (Se despliega al hacer clic en cualquier portada del carrusel o de la galería) -->
+    <div id="panelDetalle" class="card text-bg-dark border-secondary my-4 p-4 d-none">
+      <div class="d-flex justify-content-end mb-2">
+        <button type="button" id="btnCerrarDetalle" class="btn-close btn-close-white" aria-label="Cerrar"></button>
+      </div>
+      <div class="row g-4 align-items-start">
+        
+        <!-- COLUMNA IZQUIERDA: Portada y vinilo -->
+        <div class="col-12 col-md-4 text-center">
+          <div class="contenedor-vinilo position-relative d-inline-block">
+            <img id="detalleImg" src="" alt="" class="img-fluid rounded shadow w-100 portada-principal">
+            <img src="img/vinilo.png" alt="Disco de vinilo" class="disco-vinilo">
+          </div>
+        </div>
+
+        <!-- COLUMNA DERECHA: Título, Texto, Playlist y Plataformas -->
+        <div class="col-12 col-md-8 d-flex flex-column">
+          <h3 id="detalleTitulo" class="fw-bold mb-2"></h3>
+          <p id="detalleTexto" class="mb-3"></p>
+
+          <h4 class="h6 text-uppercase text-secondary mt-2">Lista de temas</h4>
+          <ol id="detallePlaylist" class="mb-4 ps-3"></ol>
+
+          <div class="d-flex flex-wrap gap-2 align-items-center mt-auto">
+            <span class="small text-secondary me-1">Escuchar en:</span>
+            <a id="linkSpotify" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light btn-sm">Spotify</a>
+            <a id="linkYoutube" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light btn-sm">YouTube Music</a>
+            <a id="linkApple" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light btn-sm">Apple Music</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 4. GALERÍA DE COLECCIÓN COMPLETA (4 columnas x 7 filas = 28 álbumes) -->
+    <section class="my-5">
+      <h2 class="h3 mb-4">Discografía completa</h2>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4" id="galeriaCompleta">
+      </div>
+    </section>
+
   </main>
 
   <!-- PIE DE PÁGINA ( footer y address) -->
@@ -162,6 +188,6 @@
 
   <!-- JS de Bootstrap: hace funcionar el menú hamburguesa y los submenús -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-     <script src="js/carrusel.info.js"></script>
+     <script src="js/albumesinfo.js"></script>
 </body>
 </html>
