@@ -39,6 +39,7 @@ const postersData = [
   }
 ];
 
+
 // 3. Mover carrusel con las flechas izquierda y derecha
 btnNext.addEventListener('click', () => {
   const paso = carrusel.querySelector('.poster-item').offsetWidth + 16;
@@ -65,34 +66,4 @@ posters.forEach((poster, index) => {
   });
 });
 
-  /*const btnPrev = document.getElementById('btnPrev');
-const btnNext = document.getElementById('btnNext');
-
-// 1. Mover carrusel con las flechas izquierda y derecha
-btnNext.addEventListener('click', () => {
-  // Desplaza el ancho de un póster aproximadamente
-  const paso = carrusel.querySelector('.poster-item').offsetWidth + 16;
-  carrusel.scrollBy({ left: paso, behavior: 'smooth' });
-});
-
-btnPrev.addEventListener('click', () => {
-  const paso = carrusel.querySelector('.poster-item').offsetWidth + 16;
-  carrusel.scrollBy({ left: -paso, behavior: 'smooth' });
-});
-
-// 2. Mostrar imagen, texto y video al hacer clic en un póster
-document.querySelectorAll('.poster-item').forEach(poster => {
-  poster.addEventListener('click', () => {
-    document.querySelectorAll('.poster-item').forEach(p => p.classList.remove('seleccionado'));
-    poster.classList.add('seleccionado');
-
-    document.getElementById('detalleTitulo').textContent = poster.dataset.titulo;
-    document.getElementById('detalleImg').src = poster.dataset.img;
-    document.getElementById('detalleImg').alt = poster.dataset.titulo;
-    document.getElementById('detalleTexto').textContent = poster.dataset.texto;
-    document.getElementById('detalleVideo').src = poster.dataset.video;
-
-    panel.classList.remove('d-none');
-    panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  });
-});*/
+ 
