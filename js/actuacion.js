@@ -66,4 +66,10 @@ posters.forEach((poster, index) => {
   });
 });
 
+ /*Boton ver mas*/
  
+ const btnVerMas = document.getElementById('btnVerMas');
+btnVerMas.addEventListener('click', () => {
+  const estaExpandido = btnVerMas.getAttribute('aria-expanded') === 'true';
+  btnVerMas.textContent = estaExpandido ? 'Ver menos' : 'Ver más';
+});
