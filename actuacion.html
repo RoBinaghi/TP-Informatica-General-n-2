@@ -2,9 +2,9 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <!--iewport, para que el sitio sea responsive en el celular -->
+  <!-- Clase 19: viewport, para que el sitio sea responsive en el celular -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>David Bowie | Audio</title>
+  <title>David Bowie | Actuación</title>
 
   <!-- 1) PRIMERO el CSS de Bootstrap ) -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -19,37 +19,42 @@
 </head>
 <body>
 
-  <!-- MENÚ HAMBURGUESA (navbar de Bootstrap)
-      Cada sección es un submenú (dropdown de Bootstrap). -->
-    
+
   <header>
-    <nav class="navbar navbar-dark barra">
+ 
+    <nav class="navbar navbar-expand-lg navbar-dark barra">
       <div class="container">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
                 aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand marca" href="index.html">Bowie</a>
+
+        
+        <a class="navbar-brand marca order-lg-last" href="index.html">Bowie</a>
 
         <div class="collapse navbar-collapse" id="menu">
-          <!--  el menú es una lista ul > li > a -->
-          <ul class="navbar-nav">
+          
+          <ul class="navbar-nav me-auto">
             <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-            <li class="nav-item"><a class="nav-link" href="biografia.html">Biografía</a></li>
-            <li class="nav-item"><a class="nav-link" href="alterego.html">Alter Ego</a></li>
-              <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Música</a>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Trayectoria e identidad</a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="musica.html">Música</a></li>
+                <li><a class="dropdown-item" href="biografia.html">Biografía</a></li>
+                <li><a class="dropdown-item" href="alterego.html">Alter ego</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Producción musical</a>
+              <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="albumes.html">Álbumes</a></li>
                 <li><a class="dropdown-item" href="colaboracion.html">Colaboraciones</a></li>
               </ul>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Otras discilplinas artísticas</a>
-              <ul class="dropdown-menu">      
+              <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Otras disciplinas artísticas</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item active" aria-current="page" href="actuacion.html">Actuación</a></li>
                 <li><a class="dropdown-item" href="pinturas.html">Pinturas</a></li>
-                <li><a class="dropdown-item" href="actuacion.html">Actuación</a></li>
               </ul>
             </li>
             <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
@@ -58,12 +63,11 @@
         </div>
       </div>
     </nav>
-    
   </header>
 
   <main class="container">
 
-    <h1 class="titulo-pagina">Audiovisual</h1>
+    <h1 class="titulo-pagina">Actuación</h1>
     <p class="intro">Quién fue David Robert Jones y los personajes que inventó para convertirse en David Bowie.
       Elegí una portada para entrar.</p>
 
@@ -71,64 +75,59 @@
     <section>
 <h2>Papeles protagónicos en el Cine</h2>
      <div class="my-5">
-<!-- CONTENEDOR CON POSICIÓN RELATIVA PARA UBICAR LAS FLECHAS -->
+
   <div class="position-relative">
     
-    <!-- Flecha Izquierda -->
+   
     <button type="button" id="btnPrev" class="btn btn-dark btn-flecha flecha-izq" aria-label="Anterior">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     </button>
    
-    <!-- CARRUSEL HORIZONTAL CON 5 PÓSTERS -->
     <div class="carrusel-vertical" id="carruselPosters">
 
-    <!-- Pelicula 1 The Man Who Fell to Earth-->
     <div class="poster-item" >
       <img src="img/actuacion/the-man-who-fell-to-earth.jpg" class="rounded shadow-sm" alt="The Man Who Fell to Earth">
     </div>
 
-    <!--Pelicula 2 Just a gigolo"-->
     <div class="poster-item ">
       <img src="img/actuacion/just-a-gigolo.jpg" class="rounded shadow-sm" alt="Just a gigolo">
     </div>
 
-    <!-- Pelicula 3 Merry Christmas, Mr. Lawrence -->
     <div class="poster-item">
       <img src="img/actuacion/merry-christmas-mr-lawrence.jpg" class="rounded shadow-sm" alt="Merry Christmas, Mr. Lawrence">
     </div>
 
-    <!--Pelicula 4 The Hunger -->
+    
     <div class="poster-item ">
       <img src="img/actuacion/the-hunger.jpg" class="rounded shadow-sm" alt="The Hunger">
     </div>
 
-        <!--Pelicula 5 Labyrinth  -->
+       
     <div class="poster-item" >
       <img src="img/actuacion/labyrinth.jpg" class="rounded shadow-sm" alt="Labyrinth">
     </div>
  </div>
- <!-- Flecha Derecha -->
+ 
     <button type="button" id="btnNext" class="btn btn-dark btn-flecha flecha-der" aria-label="Siguiente">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
     </button>
 
 </div>
 
-<!-- PANEL DE DETALLE: Izquierda = Cartelera | Derecha = Título, Texto y Video abajo -->
 <div id="panelDetalle" class="card text-bg-dark border-secondary mt-4 p-4 d-none">
   <div class="row g-4 align-items-start">
     
-    <!-- COLUMNA IZQUIERDA: Cartelera / Póster -->
+
     <div class="col-12 col-md-4 text-center">
       <img id="detalleImg" src="" alt="" class="img-fluid rounded shadow w-100">
     </div>
 
-    <!-- COLUMNA DERECHA: Título, Texto y Video debajo -->
+
     <div class="col-12 col-md-8 d-flex flex-column">
       <h3 id="detalleTitulo" class="fw-bold mb-2"></h3>
       <p id="detalleTexto" class="mb-3"></p>
       
-      <!-- Video debajo del texto (dentro de la misma columna derecha) -->
+ 
       <div class="ratio ratio-16x9 mt-auto">
         <iframe id="detalleVideo" src="" title="Video" allowfullscreen></iframe>
       </div>
@@ -148,9 +147,7 @@
   <!-- Contenedor único: acomoda automáticamente de a 4 por fila -->
   <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
 
-    <!-- ================= FILA 1 (Recuadros 1 a 4) ================= -->
 
-    <!-- Recuadro 1 -->
     <div class="col">
       <div class="card h-100">
         <div class="ratio ratio-1x1">

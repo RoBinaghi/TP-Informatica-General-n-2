@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <!--iewport, para que el sitio sea responsive en el celular -->
+  <!-- Clase 19: viewport, para que el sitio sea responsive en el celular -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>David Bowie | Colaboración</title>
 
@@ -19,36 +19,44 @@
 </head>
 <body>
 
-  <!-- MENÚ HAMBURGUESA (navbar de Bootstrap)
-      Cada sección es un submenú (dropdown de Bootstrap). -->
+ 
+
   <header>
-    <nav class="navbar navbar-dark barra">
+   
+    <nav class="navbar navbar-expand-lg navbar-dark barra">
       <div class="container">
+        
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
                 aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand marca" href="index.html">Bowie</a>
+
+       
+        <a class="navbar-brand marca order-lg-last" href="index.html">Bowie</a>
 
         <div class="collapse navbar-collapse" id="menu">
-          <!--  el menú es una lista ul > li > a -->
-          <ul class="navbar-nav">
+         
+          <ul class="navbar-nav me-auto">
             <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-            <li class="nav-item"><a class="nav-link" href="biografia.html">Biografía</a></li>
-            <li class="nav-item"><a class="nav-link" href="alterego.html">Alter Ego</a></li>
-              <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Música</a>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Trayectoria e identidad</a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="musica.html">Música</a></li>
-                <li><a class="dropdown-item" href="albumes.html">Álbumes</a></li>
-                <li><a class="dropdown-item" href="colaboracion.html">Colaboraciones</a></li>
+                <li><a class="dropdown-item" href="biografia.html">Biografía</a></li>
+                <li><a class="dropdown-item" href="alterego.html">Alter ego</a></li>
               </ul>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Otras discilplinas artísticas</a>
-              <ul class="dropdown-menu">      
-                <li><a class="dropdown-item" href="pinturas.html">Pinturas</a></li>
+              <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Producción musical</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="albumes.html">Álbumes</a></li>
+                <li><a class="dropdown-item active" aria-current="page" href="colaboracion.html">Colaboraciones</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Otras disciplinas artísticas</a>
+              <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="actuacion.html">Actuación</a></li>
+                <li><a class="dropdown-item" href="pinturas.html">Pinturas</a></li>
               </ul>
             </li>
             <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
