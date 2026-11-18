@@ -45,12 +45,10 @@
               </ul>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Más allá de la música</a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="masalladelamusica.html">Más allá de la música</a></li>
+                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Otras discilplinas artísticas</a>
+              <ul class="dropdown-menu">      
                 <li><a class="dropdown-item" href="pinturas.html">Pinturas</a></li>
-                <li><a class="dropdown-item" href="teatro.html">Teatro</a></li>
-                <li><a class="dropdown-item" href="audiovisual.html">Audiovisual</a></li>
+                <li><a class="dropdown-item" href="actuacion.html">Actuación</a></li>
               </ul>
             </li>
             <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
@@ -63,20 +61,138 @@
 
   <main class="container">
 
+<!-- 1. VIDEO SUPERIOR -->
+    <section class="my-4">
+      <div class="ratio ratio-16x9 rounded overflow-hidden shadow">
+        <video src="video/bowie-intro.mp4" autoplay muted loop playsinline class="w-100 h-100 object-fit-cover"></video>
+      </div>
+    </section>
+
     <h1 class="titulo-pagina">Álbumes</h1>
     <p class="intro">Quién fue David Robert Jones y los personajes que inventó para convertirse en David Bowie.
       Elegí una portada para entrar.</p>
 
-    
-    <section class="">
-
-      <div class="">
+    <!-- 2. CARRUSEL: LOS 10 ÁLBUMES DESTACADOS -->
+    <section class="my-5">
+      <div class="position-relative">
+        
+        <!-- Flecha Izquierda -->
+        <button type="button" id="btnPrev" class="btn btn-dark btn-flecha flecha-izq" aria-label="Anterior">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
        
+        <!-- CARRUSEL HORIZONTAL -->
+        <div class="carrusel-cuadrado" id="carruselPosters">
+
+          <!-- 1 -->
+          <div class="poster-item">
+            <img src="img/albumes/1976_stationtostation_bnw.jpg" class="rounded shadow-sm" alt="Station to Station (1976)">
           </div>
-       
-    
+          <!-- 2 -->
+          <div class="poster-item">
+            <img src="img/albumes/1977_low.jpg" class="rounded shadow-sm" alt="Low (1977)">
+          </div>
+          <!-- 3 -->
+          <div class="poster-item">
+            <img src="img/albumes/1972_ziggystardust.jpg" class="rounded shadow-sm" alt="The Rise and Fall of Ziggy Stardust and the Spiders from Mars (1972)">
+          </div>
+          <!-- 4 -->
+          <div class="poster-item">
+            <img src="img/albumes/1977_heroes.jpg" class="rounded shadow-sm" alt="Heroes (1977)">
+          </div>
+          <!-- 5 -->
+          <div class="poster-item">
+            <img src="img/albumes/1971_hunkydory.jpg" class="rounded shadow-sm" alt="Hunky Dory (1971)">
+          </div>
+          <!-- 6 -->
+          <div class="poster-item">
+            <img src="img/albumes/2016_blackstar.jpg" class="rounded shadow-sm" alt="Blackstar (2016)">
+          </div>
+          <!-- 7 -->
+          <div class="poster-item">
+            <img src="img/albumes/1980_scarymonsters.jpg" class="rounded shadow-sm" alt="Scary Monsters (and Super Creeps) (1980)">
+          </div>
+          <!-- 8 -->
+          <div class="poster-item">
+            <img src="img/albumes/1973_aladdinsane.jpg" class="rounded shadow-sm" alt="Aladdin Sane (1973)">
+          </div> 
+          <!-- 9 -->
+          <div class="poster-item">
+            <img src="img/albumes/1995_1outside.jpg" class="rounded shadow-sm" alt="1.Outside (1995)">
+          </div> 
+          <!-- 10 -->
+          <div class="poster-item">
+            <img src="img/albumes/1974_diamonddogs.jpg" class="rounded shadow-sm" alt="Diamond Dogs (1974)">
+          </div>  
 
+        </div>
+
+        <!-- Flecha Derecha -->
+        <button type="button" id="btnNext" class="btn btn-dark btn-flecha flecha-der" aria-label="Siguiente">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+
+      </div>
     </section>
+  
+    <!-- 3. VENTANA EMERGENTE (MODAL DE BOOTSTRAP) -->
+    <div class="modal fade" id="modalAlbum" tabindex="-1" aria-labelledby="detalleTitulo" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content text-bg-dark border-secondary">
+          
+          <div class="modal-header border-secondary">
+            <h3 class="modal-title fs-4 fw-bold" id="detalleTitulo"></h3>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+          </div>
+
+          <div class="modal-body p-4">
+            <div class="row g-4 align-items-start">
+              
+              <div class="col-12 col-md-5 text-center">
+                <div class="contenedor-vinilo position-relative d-inline-block">
+                  <img id="detalleImg" src="" alt="" class="img-fluid rounded shadow w-100 portada-principal">
+                  <img src="img/vinilo.png" alt="Disco de vinilo" class="disco-vinilo">
+                </div>
+              </div>
+
+              <div class="col-12 col-md-7 d-flex flex-column">
+                <p id="detalleTexto" class="mb-3"></p>
+
+                <h4 class="h6 text-uppercase text-secondary mt-2">Lista de temas</h4>
+                <ol id="detallePlaylist" class="mb-0 ps-3"></ol>
+              </div>
+
+              <div class="col-12 mt-4">
+                <h4 class="h6 text-uppercase text-secondary mb-2" id="detalleVideoTitulo">Video oficial destacado</h4>
+                <div class="ratio ratio-16x9 rounded overflow-hidden shadow">
+                  <iframe id="detalleVideo" src="" title="Video oficial de YouTube" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="modal-footer border-secondary justify-content-between">
+            <div class="d-flex flex-wrap gap-2 align-items-center">
+              <span class="small text-secondary me-1">Escuchar en:</span>
+              <a id="linkSpotify" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light btn-sm">Spotify</a>
+              <a id="linkYoutube" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light btn-sm">YouTube Music</a>
+              <a id="linkApple" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light btn-sm">Apple Music</a>
+            </div>
+            <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. GALERÍA DE COLECCIÓN COMPLETA -->
+    <section class="my-5">
+      <h2 class="h3 mb-4">Discografía completa</h2>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4" id="galeriaCompleta">
+      </div>
+    </section>
+
   </main>
 
   <!-- PIE DE PÁGINA ( footer y address) -->
@@ -89,5 +205,6 @@
 
   <!-- JS de Bootstrap: hace funcionar el menú hamburguesa y los submenús -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+     <script src="js/albumesinfo.js"></script>
 </body>
 </html>

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <!--iewport, para que el sitio sea responsive en el celular -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>David Bowie | Audio</title>
+
+  <!-- 1) PRIMERO el CSS de Bootstrap ) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- 2) Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&family=Jost:wght@300;500&display=swap" rel="stylesheet">
+
+  <!-- 3) DESPUÉS nuestra hoja de estilos (una sola para todo el sitio): así pisa a Bootstrap -->
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+  <!-- MENÚ HAMBURGUESA (navbar de Bootstrap)
+      Cada sección es un submenú (dropdown de Bootstrap). -->
+    
+  <header>
+    <nav class="navbar navbar-dark barra">
+      <div class="container">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+                aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand marca" href="index.html">Bowie</a>
+
+        <div class="collapse navbar-collapse" id="menu">
+          <!--  el menú es una lista ul > li > a -->
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="biografia.html">Biografía</a></li>
+            <li class="nav-item"><a class="nav-link" href="alterego.html">Alter Ego</a></li>
+              <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Música</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="musica.html">Música</a></li>
+                <li><a class="dropdown-item" href="albumes.html">Álbumes</a></li>
+                <li><a class="dropdown-item" href="colaboracion.html">Colaboraciones</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Otras discilplinas artísticas</a>
+              <ul class="dropdown-menu">      
+                <li><a class="dropdown-item" href="pinturas.html">Pinturas</a></li>
+                <li><a class="dropdown-item" href="actuacion.html">Actuación</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+            <li class="nav-item"><a class="nav-link" href="creditos.html">Créditos</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+  </header>
+
+  <main class="container">
+
+    <h1 class="titulo-pagina">Audiovisual</h1>
+    <p class="intro">Quién fue David Robert Jones y los personajes que inventó para convertirse en David Bowie.
+      Elegí una portada para entrar.</p>
+
+    
+    <section>
+<h2>Papeles protagónicos en el Cine</h2>
+     <div class="my-5">
+<!-- CONTENEDOR CON POSICIÓN RELATIVA PARA UBICAR LAS FLECHAS -->
+  <div class="position-relative">
+    
+    <!-- Flecha Izquierda -->
+    <button type="button" id="btnPrev" class="btn btn-dark btn-flecha flecha-izq" aria-label="Anterior">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    </button>
+   
+    <!-- CARRUSEL HORIZONTAL CON 5 PÓSTERS -->
+    <div class="carrusel-vertical" id="carruselPosters">
+
+    <!-- Pelicula 1 The Man Who Fell to Earth-->
+    <div class="poster-item" >
+      <img src="img/actuacion/the-man-who-fell-to-earth.jpg" class="rounded shadow-sm" alt="The Man Who Fell to Earth">
+    </div>
+
+    <!--Pelicula 2 Just a gigolo"-->
+    <div class="poster-item ">
+      <img src="img/actuacion/just-a-gigolo.jpg" class="rounded shadow-sm" alt="Just a gigolo">
+    </div>
+
+    <!-- Pelicula 3 Merry Christmas, Mr. Lawrence -->
+    <div class="poster-item">
+      <img src="img/actuacion/merry-christmas-mr-lawrence.jpg" class="rounded shadow-sm" alt="Merry Christmas, Mr. Lawrence">
+    </div>
+
+    <!--Pelicula 4 The Hunger -->
+    <div class="poster-item ">
+      <img src="img/actuacion/the-hunger.jpg" class="rounded shadow-sm" alt="The Hunger">
+    </div>
+
+        <!--Pelicula 5 Labyrinth  -->
+    <div class="poster-item" >
+      <img src="img/actuacion/labyrinth.jpg" class="rounded shadow-sm" alt="Labyrinth">
+    </div>
+ </div>
+ <!-- Flecha Derecha -->
+    <button type="button" id="btnNext" class="btn btn-dark btn-flecha flecha-der" aria-label="Siguiente">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    </button>
+
+</div>
+
+<!-- PANEL DE DETALLE: Izquierda = Cartelera | Derecha = Título, Texto y Video abajo -->
+<div id="panelDetalle" class="card text-bg-dark border-secondary mt-4 p-4 d-none">
+  <div class="row g-4 align-items-start">
+    
+    <!-- COLUMNA IZQUIERDA: Cartelera / Póster -->
+    <div class="col-12 col-md-4 text-center">
+      <img id="detalleImg" src="" alt="" class="img-fluid rounded shadow w-100">
+    </div>
+
+    <!-- COLUMNA DERECHA: Título, Texto y Video debajo -->
+    <div class="col-12 col-md-8 d-flex flex-column">
+      <h3 id="detalleTitulo" class="fw-bold mb-2"></h3>
+      <p id="detalleTexto" class="mb-3"></p>
+      
+      <!-- Video debajo del texto (dentro de la misma columna derecha) -->
+      <div class="ratio ratio-16x9 mt-auto">
+        <iframe id="detalleVideo" src="" title="Video" allowfullscreen></iframe>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>  
+
+    </section>
+
+   <section>
+    <h2>Personaje secundario</h2>
+    <p>Películas en las que interpreta personajes relevantes, pero la historia no gira principalmente alrededor de él.</p>
+
+<div class="container">
+  <!-- Contenedor único: acomoda automáticamente de a 4 por fila -->
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+
+    <!-- ================= FILA 1 (Recuadros 1 a 4) ================= -->
+
+    <!-- Recuadro 1 -->
+    <div class="col">
+      <div class="card h-100">
+        <div class="ratio ratio-1x1">
+          <img src="img/actuacion/secundario/cloud.jpg" class="card-img-top object-fit-cover" alt="David Bowie como Cloud en The Looking Glass Murders">
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">1970 — The Looking Glass Murders</h4>
+          <p class="card-text">Cloud.<br>
+            Producción televisiva derivada de Pierrot in Turquoise.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recuadro 2 -->
+    <div class="col">
+      <div class="card h-100">
+        <div class="ratio ratio-1x1">
+          <img src="img/actuacion/secundario/colin-morris.jpg" class="card-img-top object-fit-cover" alt="David Bowie como Colin Morris en Into the Night">
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">1985 — Into the Night</h4>
+          <p class="card-text">Colin Morris.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recuadro 3 -->
+    <div class="col">
+      <div class="card h-100">
+        <div class="ratio ratio-1x1">
+          <img src="img/actuacion/secundario/vendice-partners.jpg" class="card-img-top object-fit-cover" alt="David Bowie como Vendice Partners en Absolute Beginners">
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">1986 — Absolute Beginners</h4>
+          <p class="card-text">Vendice Partners.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recuadro 4 -->
+    <div class="col">
+      <div class="card h-100">
+        <div class="ratio ratio-1x1">
+          <img src="img/actuacion/secundario/ponciopilato.jpg" class="card-img-top object-fit-cover" alt="David Bowie como Poncio Pilato en The Last Temptation of Christ">
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">1988 — The Last Temptation of Christ</h4>
+          <p class="card-text">Poncio Pilato.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= FILA 2 (Recuadros 5 a 8) ================= -->
+
+    <!-- Recuadro 5 -->
+    <div class="col">
+      <div class="card h-100">
+        <div class="ratio ratio-1x1">
+          <img src="img/actuacion/secundario/monte.jpg" class="card-img-top object-fit-cover" alt="David Bowie como Monte en The Linguini Incident">
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">1991 — The Linguini Incident</h4>
+          <p class="card-text">Monte.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recuadro 6 -->
+    <div class="col">
+      <div class="card h-100">
+        <div class="ratio ratio-1x1">
+          <img src="img/actuacion/secundario/phillip-jeffries.jpg" class="card-img-top object-fit-cover" alt="David Bowie como Phillip Jeffries en Twin Peaks: Fire Walk with Me">
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">1992 — Twin Peaks: Fire Walk with Me</h4>
+          <p class="card-text">Phillip Jeffries.<br>
+            Aparición breve, pero con un personaje muy importante para el universo de David Lynch.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recuadro 7 -->
+    <div class="col">
+      <div class="card h-100">
+        <div class="ratio ratio-1x1">
+          <img src="img/actuacion/secundario/andy-warhol.jpg" class="card-img-top object-fit-cover" alt="David Bowie como Andy Warhol en Basquiat">
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">1996 — Basquiat</h4>
+          <p class="card-text">Andy Warhol.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recuadro 8 -->
+    <div class="col">
+      <div class="card h-100">
+        <div class="ratio ratio-1x1">
+          <img src="img/actuacion/secundario/jack-sikora.jpg" class="card-img-top object-fit-cover" alt="David Bowie como Jack Sikora en Il Mio West">
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">1998 — Il Mio West (Gunslinger's Revenge)</h4>
+          <p class="card-text">Jack Sikora.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= OCULTOS HASTA CLIC EN "VER MÁS" (Recuadros 9 a 13) ================= -->
+
+    <!-- Recuadro 9 -->
+    <div class="col collapse mas-peliculas">
+      <div class="card h-100">
+        <div class="ratio ratio-1x1">
+          <img src="img/actuacion/secundario/bernie.jpg" class="card-img-top object-fit-cover" alt="David Bowie como Bernie en Everybody Loves Sunshine">
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">1999 — Everybody Loves Sunshine</h4>
+          <p class="card-text">Bernie.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recuadro 10 -->
+    <div class="col collapse mas-peliculas">
+      <div class="card h-100">
+        <div class="ratio ratio-1x1">
+          <img src="img/actuacion/secundario/william-rice.jpg" class="card-img-top object-fit-cover" alt="David Bowie como William Rice en Mr. Rice's Secret">
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">2000 — Mr. Rice's Secret</h4>
+          <p class="card-text">William Rice.<br>
+            Tiene un papel importante en la trama, aunque no es el único protagonista.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recuadro 11 -->
+    <div class="col collapse mas-peliculas">
+      <div class="card h-100">
+        <div class="ratio ratio-1x1">
+          <img src="img/actuacion/secundario/nikola-tesla.jpg" class="card-img-top object-fit-cover" alt="David Bowie como Nikola Tesla en The Prestige">
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">2006 — The Prestige</h4>
+          <p class="card-text">Nikola Tesla.<br>
+            Un personaje secundario muy significativo.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recuadro 12 -->
+    <div class="col collapse mas-peliculas">
+      <div class="card h-100">
+        <div class="ratio ratio-1x1">
+          <img src="img/actuacion/secundario/maltazard.jpg" class="card-img-top object-fit-cover" alt="Maltazard en Arthur y los Minimoys">
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">2006 — Arthur y los Minimoys</h4>
+          <p class="card-text">Maltazard (voz).<br>
+            Antagonista de la historia.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recuadro 13 -->
+    <div class="col collapse mas-peliculas">
+      <div class="card h-100">
+        <div class="ratio ratio-1x1">
+          <img src="img/actuacion/secundario/cyrus-ogilvie.jpg" class="card-img-top object-fit-cover" alt="David Bowie como Cyrus Ogilvie en August">
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">2008 — August</h4>
+          <p class="card-text">Cyrus Ogilvie.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Botón Ver más -->
+  <div class="text-center mt-4">
+    <button class="btn btn-outline-dark" type="button" data-bs-toggle="collapse" data-bs-target=".mas-peliculas" aria-expanded="false" id="btnVerMas">
+      Ver más
+    </button>
+  </div>
+</div>
+
+   </section> 
+
+      <section>
+    <h2>Apariciones, cameos y participaciones breves</h2>
+   </section>
+
+         <section>
+    <h2>En teatro</h2>
+   </section>
+
+  </main>
+
+  <!-- PIE DE PÁGINA ( footer y address) -->
+  <footer class="pie">
+    <p>Rocio - Micaela - Marcela</p>
+    <p>IG2026 - Cátedra: Valeria Drelichman | Pedro Paleo | Leonardo Nadel | Norma Morales</p>
+    <p>TP2 - UNA Multimedia - Informática General - Turno Noche</p>
+    <address class="mb-0"><a href="creditos.html">Créditos</a> · <a href="contacto.html">Contacto</a></address>
+  </footer>
+
+  <!-- JS de Bootstrap: hace funcionar el menú hamburguesa y los submenús -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+     <script src="js/actuacion.js"></script>
+</body>
+</html>

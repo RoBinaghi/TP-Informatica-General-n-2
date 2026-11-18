@@ -18,10 +18,21 @@
   <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
+<!-- CONTENEDOR PRINCIPAL DE PORTADA -->
+  <div class="hero">
+    
+    <!-- Video de fondo -->
+    <video autoplay loop muted playsinline class="video-fondo">
+      <source src="video/portada.mp4" type="video/mp4">
+      Tu navegador no soporta videos HTML5.
+    </video>
+
+    <!-- Capa oscura de sobreposición (para mejorar la lectura del texto) -->
+    <div class="overlay"></div>
 
   <!-- MENÚ HAMBURGUESA (navbar de Bootstrap)
       Cada sección es un submenú (dropdown de Bootstrap). -->
-  <header>
+  <header class="header-portada">
     <nav class="navbar navbar-dark barra">
       <div class="container">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
@@ -45,37 +56,125 @@
               </ul>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Más allá de la música</a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="masalladelamusica.html">Más allá de la música</a></li>
+             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Otras discilplinas artísticas</a>
+              <ul class="dropdown-menu">      
                 <li><a class="dropdown-item" href="pinturas.html">Pinturas</a></li>
-                <li><a class="dropdown-item" href="teatro.html">Teatro</a></li>
-                <li><a class="dropdown-item" href="audiovisual.html">Audiovisual</a></li>
+                <li><a class="dropdown-item" href="actuacion.html">Actuación</a></li>
               </ul>
             </li>
             <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
             <li class="nav-item"><a class="nav-link" href="creditos.html">Créditos</a></li>
           </ul>
         </div>
-      </div>
+      </div>      
     </nav>
   </header>
+  <!-- Texto superpuesto en el centro -->
+    <div class="contenido-portada">
+   <h1 class="titulo-pagina">David Bowie</h1>
+   <h2>El Camaleón de la Cultura Pop </h2>
+    </div>
+
+  </div>
 
   <main class="container">
 
-    <h1 class="titulo-pagina">David Bowie</h1>
-    <p class="intro">Quién fue David Robert Jones y los personajes que inventó para convertirse en David Bowie.
-      Elegí una portada para entrar.</p>
+ 
+    <p class="intro">David Bowie (1947–2016) no fue solo un músico; fue una fuerza artística multidisciplinaria que redefinió los límites del rock, la moda, la actuación y la tecnología. 
+      A lo largo de más de cinco décadas de carrera, su constante capacidad de metamorfosis lo convirtió en uno de los creadores más influyentes e innovadores de la historia contemporánea. </p>
 
     
     <section class="">
-
-      <div class="">
-       
-          </div>
-       
+   <div class="container my-5">
+  <!-- row-cols-md-3 muestra 3 por fila en pantallas medianas/grandes y baja automáticamente las siguientes -->
+  <div class="row row-cols-1 row-cols-md-3 g-4">
     
+    <!-- TARJETA 1 BIOGRAFIA -->
+    <div class="col">
+      <div class="card text-bg-dark border-0 overflow-hidden tarjeta-interactiva">
+        <img src="img/biografia.jpg" class="card-img" alt="Imagen 1">
+        <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center text-center capa-superpuesta">
+          <h3 class="card-title fw-bold mb-0">Biografia</h3>
+          <div class="detalle-oculto">
+            <p class="card-text mt-2 mb-3">Un recorrido por su vida, desde sus orígenes en Londres y sus hitos personales hasta su legado final con Blackstar.</p>
+            <a href="biografia.html" class="btn btn-light btn-sm">Ver más</a>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <!-- TARJETA 2 ALTER EGO -->
+    <div class="col">
+      <div class="card text-bg-dark border-0 overflow-hidden tarjeta-interactiva">
+        <img src="img/alter-ego.jpg" class="card-img" alt="Imagen 2">
+        <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center text-center capa-superpuesta">
+          <h3 class="card-title fw-bold mb-0">Título 2</h3>
+          <div class="detalle-oculto">
+            <p class="card-text mt-2 mb-3"> Personajes y Universo Visual: El análisis de sus identidades paralelas más icónicas, desde Ziggy Stardust y The Thin White Duke hasta la etapa de Berlín.</p>
+            <a href="alterego.html" class="btn btn-light btn-sm">Ver más</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TARJETA 3 ALBUMES-->
+    <div class="col">
+      <div class="card text-bg-dark border-0 overflow-hidden tarjeta-interactiva">
+        <img src="img/albumes.jpg" class="card-img" alt="Imagen 3">
+        <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center text-center capa-superpuesta">
+          <h3 class="card-title fw-bold mb-0">Albumes</h3>
+          <div class="detalle-oculto">
+            <p class="card-text mt-2 mb-3"> Discografía y Sencillos: Una guía completa por sus álbumes de estudio, sus revoluciones sonoras y las canciones que marcaron cada era.</p>
+            <a href="albumes.html" class="btn btn-light btn-sm">Ver más</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TARJETA 4 (Puedes seguir copiando y pegando este bloque) -->
+    <div class="col">
+      <div class="card text-bg-dark border-0 overflow-hidden tarjeta-interactiva">
+        <img src="img/colaboracion.jpg" class="card-img" alt="Imagen 4">
+        <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center text-center capa-superpuesta">
+          <h3 class="card-title fw-bold mb-0">Colaboraciónes</h3>
+          <div class="detalle-oculto">
+            <p class="card-text mt-2 mb-3">Duetos y Proyectos: Sus trabajos en conjunto, featurings e hitos compartidos con artistas como Queen, John Lennon, Iggy Pop y Mick Jagger.</p>
+            <a href="colaboracion.html" class="btn btn-light btn-sm">Ver más</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- TARJETA 5 PINTURAS-->
+    <div class="col">
+      <div class="card text-bg-dark border-0 overflow-hidden tarjeta-interactiva">
+        <img src="img/pinturas.jpg" class="card-img" alt="Imagen 3">
+        <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center text-center capa-superpuesta">
+          <h3 class="card-title fw-bold mb-0">Pinturas</h3>
+          <div class="detalle-oculto">
+            <p class="card-text mt-2 mb-3"> Artes Plásticas y Exposiciones: Su faceta como pintor, sus lienzos de expresión neoxpresionista y sus exhibiciones de arte.</p>
+            <a href="pinturas.html" class="btn btn-light btn-sm">Ver más</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+ 
+    <!-- TARJETA 6 ACTUACIÓN-->
+    <div class="col">
+      <div class="card text-bg-dark border-0 overflow-hidden tarjeta-interactiva">
+        <img src="img/actuacion.jpg" class="card-img" alt="Imagen 3">
+        <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center text-center capa-superpuesta">
+          <h3 class="card-title fw-bold mb-0">Actuación</h3>
+          <div class="detalle-oculto">
+            <p class="card-text mt-2 mb-3">Actuación y Dramaturgia: Sus papeles en el cine (Labyrinth, The Prestige, The Man Who Fell to Earth) y su paso por Broadway en El Hombre Elefante</p>
+            <a href="actuacion.html" class="btn btn-light btn-sm">Ver más</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
     </section>
   </main>
 
@@ -89,5 +188,6 @@
 
   <!-- JS de Bootstrap: hace funcionar el menú hamburguesa y los submenús -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+   <script src="js/index.js"></script>
 </body>
 </html>
