@@ -1,4 +1,3 @@
-
 body {
   min-height: 100vh;
   background-color: #0c0c0c;
@@ -41,9 +40,8 @@ a:active {
   display: none;
 }
 
-/* ---------- MENÚ HAMBURGUESA (navbar de Bootstrap) ---------- */
+/* MENÚ HAMBURGUESA (navbar de Bootstrap)  */
 
-/* color de fondo /  borde */
 .barra {
   background-color: #0d0010;
   border-bottom: 2px solid #ff913f;
@@ -57,7 +55,7 @@ a:active {
   color: #ff913f;
 }
 
-/* Lo que se abre al tocar ☰  padding) */
+
 .barra .navbar-nav {
   padding-top: 0.8rem;
   padding-bottom: 0.8rem;
@@ -104,7 +102,7 @@ a:active {
 }
 
 
-/* ---------- TÍTULO Y TEXTO DE ENTRADA ---------- */
+/*TÍTULO Y TEXTO DE ENTRADA -/
 
 /* Título grande de la página (tipografía /  border y padding) */
 .titulo-pagina {
@@ -125,7 +123,7 @@ a:active {
 }
 
 
-/* ---------- PIE DE PÁGINA ---------- */
+/* PIE DE PÁGINA */
 
 /* background-color, color, text-align / padding y margin */
 .pie {
@@ -149,8 +147,6 @@ a:active {
 
 /* ==========================================
    ESTILOS DE LA PORTADA CON VIDEO (HERO)
-   Clase 10: position relative/absolute, z-index y flexbox.
-   Clase 02: rgba. Clase 04: overflow, min-height y vh.
    ayuda IA en esta parte:
    - transform: translate(-50%, -50%) → centra el video moviéndolo la mitad de su tamaño.
    - object-fit: cover → el video cubre la caja sin deformarse (recorta lo que sobra).
@@ -230,8 +226,6 @@ a:active {
 }
 
 /* ---------- INDEX: TARJETAS ----------
- rgba. hover y overflow.
-Ayuda IA en esta parte:
    - cursor: pointer → muestra la "manito" al pasar el mouse.
    - transition → hace que los cambios (color, tamaño) sean graduales.
    - transform: scale(1.04) → agranda la imagen un 4 %.
@@ -284,8 +278,6 @@ Ayuda IA en esta parte:
 }
 
 /* ---------- CARRUSELES (Actuación y Álbumes) ----------
-   Clase 10: flexbox y position. Clase 04: overflow.
-ayuda IA  en esta parte:
    - gap → espacio entre los elementos del flexbox.
    - flex: 0 0 44% → cada póster ocupa el 44 % del ancho y no se estira ni se achica.
    - aspect-ratio → mantiene la proporción (2/3 vertical, 1/1 cuadrado).
@@ -333,7 +325,7 @@ ayuda IA  en esta parte:
   display: none; /* Oculta barra en Chrome, Safari y Edge */
 }
 
-/* CORRECCIÓN 2: acá estaban repetidas las reglas .poster-item y .poster-item img
+/* CORRECCIÓN: acá estaban repetidas las reglas .poster-item y .poster-item img
    (con aspect-ratio 2/3), entonces los álbumes nunca quedaban cuadrados.
    Ahora solo los pósters DENTRO del carrusel cuadrado son 1:1. */
 .carrusel-cuadrado .poster-item {
@@ -371,10 +363,7 @@ ayuda IA  en esta parte:
   right: 10px;
 }
 
-
 /* ---------- ESTILOS DE LA PÁGINA ÁLBUMES ----------
-   Clase 10: position. Clase 02: rgba. Clase 04: hover, overflow, padding.
-ayuda ia en esta parte:
    - inset: 0 → ocupa toda la caja (es top, right, bottom y left en 0 a la vez).
    - aspect-ratio, object-fit, opacity, transition, transform, cursor, border-radius (ver arriba).
    - letter-spacing → espacio entre letras. width: fit-content → ancho justo del contenido. */
@@ -415,8 +404,6 @@ ayuda ia en esta parte:
   opacity: 1;
 }
 
-/* CORRECCIÓN saqué .badge-anio y .tarjeta-album:hover repetidos (quedan una sola vez). */
-/* Etiqueta tipo píldora para el año (similar a la referencia visual) */
 .badge-anio {
   display: inline-block;
   border: 1px solid rgba(255, 255, 255, 0.5);
@@ -428,11 +415,8 @@ ayuda ia en esta parte:
 }
 
 
-/* #########################################################
-   PARTE 2 — BIOGRAFÍA
-   ######################################################### */
-
-/* En Biografía, "Bowie" va en rojo y el pie en color petróleo (Clase 02: color) */
+/* BIOGRAFÍA */
+/* En Biografía, "Bowie" va en rojo y el pie en color petróleo */
 .barra .marca.bio {
   color: #d62338;
 }
@@ -449,30 +433,37 @@ ayuda ia en esta parte:
 
 /* ---------- CARTELERA (la foto del encabezado) ----------
    No ocupa toda la pantalla: está dentro del "container" de Bootstrap, con un marco.
-   Clase 10: position relative en el padre y absolute en el título.
-   Clase 04: border y margin. */
+ position relative en el padre y absolute en el título.
+ */
 .cartelera {
   position: relative;
 }
 
-/* CAMBIO 10 y 12: en Biografía la cartelera no tiene marco,
+/* CAMBIO : en Biografía la cartelera no tiene marco,
    solo la línea roja de abajo, donde se apoya la palabra "Biografía".
-   Además queda pegada al menú (margin-top: 0) y es un poco más baja
-   (padding-bottom: 37%) para que la cara toque la línea naranja del menú
-   y el dedo siga señalando los ojos. */
+   IMPORTANTE: el alto de la caja (padding-bottom) y el ancho del dedo
+   (.capa-dedo width) van juntos. Si se cambia uno, hay que cambiar el otro
+   para que el dedo siga señalando los ojos:
+     dedo 62%  →  caja 37%
+     dedo 50%  →  caja 31%
+   Para el ajuste fino se mueve la cara con "top":
+   un número negativo la sube, uno positivo la baja. */
 .cartelera.bio {
   border-bottom: 3px solid #d62338;
 }
 
 .cartelera-capas.bio {
   padding-bottom: 37%;
+  background-color: transparent;
 }
 
-/* La cara sube hasta arriba de todo (antes estaba bajada 11%).
-   Si queda espacio arriba de la cabeza, probar con top: -3% */
+/* La cara: la frente arriba de todo, con poca opacidad
+   (ayuda ia: opacity → 0 invisible, 1 normal; 0.15 = 15 %) */
 .cartelera.bio .capa-cara {
   top: 0;
+  opacity: 0.15;
 }
+
 
 /* La imagen ocupa todo el ancho de la cartelera (Clase 04: width y display) */
 .cartelera img {
@@ -497,7 +488,7 @@ ayuda ia en esta parte:
 }
 
 /* ---------- TEXTO ---------- */
-/* Clase 04: padding y margin / Clase 02: font-size */
+
 .texto-bio {
   padding-top: 1.5rem;
 }
@@ -514,8 +505,7 @@ ayuda ia en esta parte:
 }
 
 /* ---------- FOTO DE LA GUITARRA QUE CAMBIA DE COLOR ----------
-   Clase 02: text-align. Clase 04: width, max-width y padding.
-   Las 6 versiones de color se intercambian con JavaScript (js/biografia.js)
+     Las 6 versiones de color se intercambian con JavaScript (js/biografia.js)
    usando la clase .oculto (display: none) que está en la Parte 1. */
 .guitarra {
   text-align: center;
@@ -528,11 +518,8 @@ ayuda ia en esta parte:
   max-width: 380px;
 }
 
-/* CAMBIO 9: foto de Bowie con la guitarra y botones de colores.
-   Clase 04: width, height, margin, border y hover.
-   Clase 10: flexbox (para ordenar los botones en fila).
-   [NO VISTO EN CLASE] en esta parte:
-   - cursor: pointer → muestra la manito para que se note que se puede tocar.
+/* CAMBIO : foto de Bowie con la guitarra y botones de colores.
+    - cursor: pointer → muestra la manito para que se note que se puede tocar.
    - border-radius: 50% → botones redondos.
    - gap → espacio entre los botones del flexbox.
    - transform: scale(1.15) → agranda un poco el botón con hover. */
@@ -540,7 +527,7 @@ ayuda ia en esta parte:
   cursor: pointer;
 }
 
-/* CAMBIO 11: foto de la guitarra más grande (Clase 04: width y max-width).
+/* CAMBIO  foto de la guitarra más grande 
    Pisa al "width: 80%; max-width: 380px" de .guitarra img */
 .guitarra .foto-guitarra {
   width: 95%;
@@ -601,8 +588,6 @@ ayuda ia en esta parte:
 
 
 /* ---------- CARTELERA EN CAPAS: EL DEDO SEÑALA LOS OJOS ----------
-   Clase 10: position relative en la caja y absolute en las capas, z-index.
-   Clase 04: width, height y posiciones en porcentajes, padding y overflow.
    La altura de la caja sale del padding-bottom en %: un padding en %
    se calcula sobre el ANCHO, entonces 42% hace que la caja mida siempre
    42% de alto respecto de su ancho, y las capas no se corren. */
@@ -629,7 +614,7 @@ ayuda ia en esta parte:
   position: absolute;
   left: 0;
   bottom: 0;
-  width: 62%;
+  width: 62%;             /* va junto con el padding-bottom de .cartelera-capas.bio */
   z-index: 2;
 }
 
@@ -637,18 +622,18 @@ ayuda ia en esta parte:
 .titulo-senalado {
   position: absolute;
   right: 4%;
-  bottom: 0;             /* CAMBIO 10: apoyada sobre el borde de abajo */
+  bottom: 0;             /* apoyada sobre el borde de abajo */
   z-index: 3;
   font-family: 'Jost', sans-serif;
-  font-weight: 700;      /* CAMBIO 10: en negrita */
+  font-weight: 700;      /* en negrita */
   font-size: 1.6rem;
-  line-height: 1;        /* CAMBIO 10: sin espacio extra, así la palabra se apoya en la línea */
+  line-height: 1;        /* sin espacio extra, así la palabra se apoya en la línea */
   color: #d62338;
   margin-bottom: 0;
 }
 
-/* Debajo de la cartelera: años a la izquierda e invitación a la derecha
-   (Clase 10: flexbox / Clase 04: padding) */
+/* Debajo de la cartelera: años a la izquierda e invitación a la derecha*/
+
 .debajo-cartelera {
   display: flex;
   justify-content: space-between;
@@ -662,7 +647,7 @@ ayuda ia en esta parte:
   margin-bottom: 0;
 }
 
-/* enlace que baja a la línea de tiempo (Clase 02: text-transform) */
+/* enlace que baja a la línea de tiempo  */
 .bajar {
   font-size: 0.85rem;
   text-transform: uppercase;
@@ -670,7 +655,7 @@ ayuda ia en esta parte:
 
 /* ---------- LÍNEA DE TIEMPO ---------- */
 
-/* La lista sin viñetas; la línea roja es su borde izquierdo (Clase 04) */
+/* La lista sin viñetas; la línea roja es su borde izquierdo  */
 .hitos {
   list-style: none;
   border-left: 3px solid #d62338;
@@ -679,13 +664,13 @@ ayuda ia en esta parte:
   margin-top: 1.5rem;
 }
 
-/* Cada hito es "relative" para que su punto se ubique sobre la línea (Clase 10) */
+/* Cada hito es "relative" para que su punto se ubique sobre la línea */
 .hito {
   position: relative;
   margin-bottom: 2.5rem;
 }
 
-/* El punto cuadrado sobre la línea (Clase 10: position absolute) */
+/* El punto cuadrado sobre la línea  position absolute) */
 .punto {
   position: absolute;
   left: -2.2rem;
@@ -717,9 +702,9 @@ ayuda ia en esta parte:
   font-size: 1.05rem;
 }
 
-/* Fotos de los hitos con marco (Clase 04: width, max-width, height y border)
-   CAMBIO 7: ahora todas las fotos miden lo mismo (mismo ancho y mismo alto).
-   [NO VISTO EN CLASE] object-fit: cover → la foto llena la caja sin deformarse
+/* Fotos de los hitos con marco 
+ fotos miden lo mismo (mismo ancho y mismo alto).
+ayuda ia  object-fit: cover → la foto llena la caja sin deformarse
    (recorta lo que sobra). */
 .hito-foto {
   width: 100%;
@@ -730,22 +715,20 @@ ayuda ia en esta parte:
   border: 3px solid #245e6a;
 }
 
-/* ---------- CAMBIO 8: LÍNEA DE TIEMPO CON FOTOS AL COSTADO ----------
+/* LÍNEA DE TIEMPO CON FOTOS AL COSTADO 
    Foto a la izquierda y texto a la derecha. En celular la foto va arriba.
    Las columnas las arma la grilla de Bootstrap en el HTML:
    col-12 col-md-4 (foto) y col-12 col-md-8 (texto); offset-md-4 si no hay foto.
-   Clase 04: width, height, margin, padding y border.
-   Clase 10: position relative/absolute y flexbox.
-   [NO VISTO EN CLASE] en esta parte:
+
+  ayuda ia
    - object-fit: cover → todas las fotos del mismo tamaño sin deformarse.
    - content: "" → obligatorio en ::before para que el puntito aparezca.
    - border-radius → redondea las esquinas (con 50 % hace un círculo). */
 
 /* Cada año de la línea.
-   CAMBIO 16: todos los años miden lo mismo (min-height), así el espacio
-   de un año al otro es siempre igual. El valor cambia según la pantalla. */
-   CAMBIO 13: sin margin-bottom, así la línea roja no se corta entre un año y otro.
-   CAMBIO 15: todos los años con el mismo espacio (min-height igual para todos, ver media queries). */
+   CAMBIO : todos los años miden lo mismo (min-height), así el espacio
+   de un año al otro es siempre igual. El valor cambia según la pantalla.
+   CAMBIO : sin margin-bottom, así la línea roja no se corta entre un año y otro. */
 .evento {
   padding-left: 0.75rem;   /* en celular deja lugar para el punto */
   min-height: 17rem;
@@ -753,11 +736,11 @@ ayuda ia en esta parte:
 
 /* TODAS las fotos del mismo tamaño, con el marco petróleo de Biografía.
    Las fotos son casi todas verticales, por eso la caja es alta.
-   [NO VISTO EN CLASE] object-position: center top → al recortar, deja
+ayuda ia object-position: center top → al recortar, deja
    visible la parte de arriba de la foto (las caras) en vez del centro. */
 .foto-linea {
   width: 100%;
-  max-width: 5rem;         /* CAMBIO 16: fotos lo más chicas posible (miniaturas) */
+  max-width: 5rem;         /* fotos lo más chicas posible (miniaturas) */
   height: 5rem;
   object-fit: cover;
   object-position: center top;
@@ -766,8 +749,7 @@ ayuda ia en esta parte:
   margin-bottom: 0;
 }
 
-/* Columna del texto: la línea roja es su borde izquierdo.
-   CAMBIO 13: padding-bottom deja el espacio mínimo debajo de cada texto */
+/* Columna del texto: la línea roja es su borde izquierdo. */
 .texto-linea {
   border-left: 3px solid #d62338;
   padding-left: 1.5rem;
@@ -775,7 +757,7 @@ ayuda ia en esta parte:
   position: relative;
 }
 
-/* El punto cuadrado sobre la línea, igual al de .punto (Clase 04: ::before) */
+/* El punto cuadrado sobre la línea, igual al de .punto */
 .texto-linea::before {
   content: "";
   position: absolute;
@@ -805,15 +787,14 @@ ayuda ia en esta parte:
   font-size: 1rem;
 }
 
-/* CAMBIO 14: las fotos de la línea de tiempo se agrandan al hacer clic.
-   [NO VISTO EN CLASE] cursor: pointer → la manito indica que se puede tocar. */
+/* CAMBIO  las fotos de la línea de tiempo se agrandan al hacer clic.
+ayuda ia cursor: pointer → la manito indica que se puede tocar. */
 .foto-linea {
   cursor: pointer;
 }
 
 /* El visor ocupa toda la pantalla, con fondo oscuro, y centra la foto.
-   Clase 10: position fixed, z-index y flexbox. Clase 02: rgba.
-   Empieza con la clase .oculto (display: none) y JavaScript se la saca. */
+ Empieza con la clase .oculto (display: none) y JavaScript se la saca. */
 .visor {
   position: fixed;
   top: 0;
@@ -835,7 +816,7 @@ ayuda ia en esta parte:
   display: none;
 }
 
-/* La foto grande: entra siempre en la pantalla (Clase 04: max-width, max-height, vw y vh) */
+/* La foto grande: entra siempre en la pantalla  */
 .visor-foto {
   max-width: 90vw;
   max-height: 75vh;
@@ -855,8 +836,7 @@ ayuda ia en esta parte:
   margin-bottom: 0;
 }
 
-/* Botón para volver arriba: oculto hasta que JavaScript le agrega .visible
-   (Clase 10: position fixed y flexbox / Clase 04: display) */
+/* Botón para volver arriba: oculto hasta que JavaScript le agrega .visible*/
 .btn-arriba {
   display: none;
   position: fixed;
@@ -887,7 +867,7 @@ ayuda ia en esta parte:
   display: flex;
 }
 
-/* Clase 19: MEDIA QUERIES — siempre al final 
+/*MEDIA QUERIES — siempre al final 
  Mobile first: arriba, celular; acá se agranda con min-width.
    Las reglas nuevas de cada página se agregan ADENTRO de estos
    mismos bloques, sin repetirlos*/
@@ -927,15 +907,15 @@ ayuda ia en esta parte:
     font-size: 1rem;
   }
 
-  /* CAMBIO 8: línea de tiempo. Desde tablet, foto y texto quedan lado a lado */
-  /* CAMBIO 15: todos los años ocupan el mismo alto, así los espacios son iguales */
+  /* CAMBIO línea de tiempo. Desde tablet, foto y texto quedan lado a lado */
+  /* CAMBIO todos los años ocupan el mismo alto, así los espacios son iguales */
   .evento {
     padding-left: 0;
     min-height: 14rem;
   }
 
   .foto-linea {
-    max-width: 6rem;         /* CAMBIO 16 */
+    max-width: 6rem;      
     height: 6rem;
   }
 
@@ -964,10 +944,10 @@ ayuda ia en esta parte:
   }
 }
 
-/* CORRECCIÓN 4 / CAMBIO 5 — MENÚ HORIZONTAL (Clase 19: media queries).
+/* CORRECCIÓN y CAMBIO y — MENÚ HORIZONTAL (media queries).
    Desde 992px el menú se ve en una fila (navbar-expand-lg en el HTML).
-   Sacamos el espacio de arriba y abajo (Clase 04: padding) y achicamos
-   la letra (Clase 02: font-size) para que entren los 6 ítems. */
+   Sacamos el espacio de arriba y abajo y achicamos
+   la letra  para que entren los 6 ítems. */
 @media (min-width: 992px) {
   .barra .navbar-nav {
     padding-top: 0;
@@ -980,14 +960,14 @@ ayuda ia en esta parte:
     padding-right: 0.5rem;
   }
 
-  /* CAMBIO 11: en compu la foto de la guitarra crece un poco más */
+  /* CAMBIO: en compu la foto de la guitarra crece un poco más */
   .guitarra .foto-guitarra {
     max-width: 580px;
   }
 
   /* CAMBIO : fotos de la línea de tiempo un poco más altas */
   .evento {
-    min-height: 12.5rem;     /* CAMBIO 16 */
+    min-height: 12.5rem;    
   }
 
   .hito-foto {
@@ -1007,6 +987,6 @@ ayuda ia en esta parte:
 
   /* CAMBIO : en pantallas grandes las fotos de la línea de tiempo crecen otra vez */
   .evento {
-    min-height: 11rem;     /* CAMBIO 16 */
+    min-height: 11rem;    
   }
 }
