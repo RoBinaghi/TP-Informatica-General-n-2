@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 // =====================================================
 // BIOGRAFÍA
 // (Clase NN) = está en el PDF de esa clase.
@@ -97,65 +96,4 @@ for (let i = 0; i < fotosLinea.length; i++) {
 
 visor.addEventListener('click', function () {
   visor.classList.add('oculto');
-=======
-// =========================================================
-// BIOGRAFÍA — dos cosas con JavaScript
-//  1) La foto de la guitarra cambia de color con cada clic.
-//  2) En la línea de tiempo, al hacer clic en un hito se
-//     muestra (o se vuelve a esconder) su texto.
-// Código de las clases:
-//   querySelector / querySelectorAll ........ Clase 07
-//   addEventListener('click') ............... Clase 07
-//   let / const ............................ Clase 07
-//   if ..................................... Clase 08
-//   posiciones de un array [ ] y length ..... Clase 09
-//   forEach ................................ Clase 11
-//   classList.add / remove / toggle ......... Clase 14
-// =========================================================
-
-// ---------- 1) GUITARRA QUE CAMBIA DE COLOR ----------
-
-// Capturamos el bloque de la guitarra (donde se hace clic) y las 6 fotos
-const guitarra = document.querySelector('#guitarra');
-const fotos = document.querySelectorAll('.foto-color');
-
-// Guardamos qué foto se está viendo. Empieza en la primera (posición 0)
-let fotoActual = 0;
-
-guitarra.addEventListener('click', function () {
-  // a) escondemos la foto que se ve ahora
-  fotos[fotoActual].classList.add('oculto');
-
-  // b) pasamos a la siguiente
-  fotoActual = fotoActual + 1;
-
-  // c) si nos pasamos de la última, volvemos a la primera
-  if (fotoActual === fotos.length) {
-    fotoActual = 0;
-  }
-
-  // d) mostramos la nueva foto
-  fotos[fotoActual].classList.remove('oculto');
-});
-
-
-// ---------- 2) LÍNEA DE TIEMPO: MOSTRAR EL TEXTO DE CADA HITO ----------
-// Es el mismo código que las fichas de Alter ego.
-
-// Capturamos todos los hitos de la lista
-const hitos = document.querySelectorAll('.hito');
-
-// Recorremos los hitos uno por uno (Clase 11: forEach)
-hitos.forEach(function (hito) {
-
-  // Dentro de cada hito buscamos su texto y su "+ Leer más"
-  const texto = hito.querySelector('.hito-texto');
-  const leerMas = hito.querySelector('.leer-mas');
-
-  // Al hacer clic en el hito, toggle pone o saca la clase "oculto" (Clase 14)
-  hito.addEventListener('click', function () {
-    texto.classList.toggle('oculto');
-    leerMas.classList.toggle('oculto');
-  });
->>>>>>> Stashed changes
 });
