@@ -12,7 +12,7 @@
   <!-- 2) Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&family=Jost:wght@300;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&family=Jost:wght@300;500;700&display=swap" rel="stylesheet">
 
   <!-- 3) DESPUÉS nuestra hoja de estilos (una sola para todo el sitio): así pisa a Bootstrap -->
   <link rel="stylesheet" href="css/estilos.css">
@@ -31,7 +31,7 @@
         </button>
 
     
-        <a class="navbar-brand marca order-lg-last" href="index.html">Bowie</a>
+        <a class="navbar-brand marca bio order-lg-last" href="index.html">Bowie</a>
 
         <div class="collapse navbar-collapse" id="menu">
        
@@ -68,31 +68,376 @@
 
   <main class="container">
 
-    <h1 class="titulo-pagina">Biografia</h1>
-    <p class="intro">Quién fue David Robert Jones y los personajes que inventó para convertirse en David Bowie.
-      Elegí una portada para entrar.</p>
+    <!-- CARTELERA EN CAPAS: Ziggy señala los ojos de Bowie
+         Las dos imágenes se encuentran una encima de la otra
+         (estilos en css/estilos.css: "CARTELERA EN CAPAS").
+         Clase 10: position relative en la caja y absolute en las capas, z-index. -->
+    <div class="cartelera bio cartelera-capas" id="inicio">
+      <!-- Capa 1 (atrás, a la derecha): la cara con el rayo -->
+      <img src="img/vida/capa-cara.png" alt="Cara de David Bowie con el rayo de Aladdin Sane" class="capa-cara">
+      <!-- Capa 2 (adelante, abajo a la izquierda): Ziggy señalando -->
+      <img src="img/vida/capa-dedo.png" alt="Ziggy Stardust señalando con el dedo" class="capa-dedo">
+      <!-- Capa 3 (arriba de todo): el título -->
+      <h1 class="titulo-senalado">Biografía</h1>
+    </div>
 
-    
-    <section class="">
+    <!-- Debajo de la cartelera: años a la izquierda y link a la línea de tiempo a la derecha -->
+    <div class="debajo-cartelera">
+      <p class="fechas-senaladas">1947 – 2016</p>
+      <a href="#linea-tiempo" class="bajar">Recorré su vida ↓</a>
+    </div>
+    <p class="intro">De David Robert Jones, el chico de Brixton, a David Bowie: los momentos más importantes
+      de su vida y su carrera, año por año.</p>
 
-      <div class="">
-       
-          </div>
-       
-    
+    <!-- BOWIE CON LA GUITARRA QUE CAMBIA DE COLOR
+         Hay 6 versiones de la misma foto, una por color. Se ve una sola:
+         las otras tienen la clase "oculto" (display: none).
+         JavaScript (js/biografia.js) cambia cuál se ve al tocar la foto
+         o los botones de colores. -->
+    <section class="guitarra">
+      <h2 class="titulo-seccion">Tocá a Bowie y cambiale el color</h2>
+
+      <div class="caja-guitarra">
+        <img src="img/biografia/guitarra-1.png" alt="David Bowie tocando la guitarra, foto en violeta" class="foto-guitarra">
+        <img src="img/biografia/guitarra-2.png" alt="David Bowie tocando la guitarra, foto en rojo" class="foto-guitarra oculto">
+        <img src="img/biografia/guitarra-3.png" alt="David Bowie tocando la guitarra, foto en naranja" class="foto-guitarra oculto">
+        <img src="img/biografia/guitarra-4.png" alt="David Bowie tocando la guitarra, foto en celeste" class="foto-guitarra oculto">
+        <img src="img/biografia/guitarra-5.png" alt="David Bowie tocando la guitarra, foto en petróleo" class="foto-guitarra oculto">
+        <img src="img/biografia/guitarra-6.png" alt="David Bowie tocando la guitarra, foto en dorado" class="foto-guitarra oculto">
+      </div>
+
+      <div class="botones-color">
+        <button type="button" class="btn-color color-violeta" aria-label="Foto en violeta"></button>
+        <button type="button" class="btn-color color-roja" aria-label="Foto en rojo"></button>
+        <button type="button" class="btn-color color-naranja" aria-label="Foto en naranja"></button>
+        <button type="button" class="btn-color color-celeste" aria-label="Foto en celeste"></button>
+        <button type="button" class="btn-color color-petroleo" aria-label="Foto en petróleo"></button>
+        <button type="button" class="btn-color color-dorada" aria-label="Foto en dorado"></button>
+      </div>
+
+      <p class="pista-guitarra">Tocá la foto o elegí un color</p>
+    </section>
+
+    <!-- LÍNEA DE TIEMPO
+         Cada año es una fila de la grilla de Bootstrap (row).
+         Foto chica a la izquierda y texto a la derecha, también en celular:
+         col-3 col-md-2 (foto) + col-9 col-md-10 (texto). -->
+    <section class="linea-tiempo" id="linea-tiempo">
+
+      <!-- 1947 -->
+      <div class="row evento">
+        <div class="col-3 col-md-2">
+          <img src="img/biografia/peque_o1950.jpg" alt="David Jones de chico, alrededor de 1950" class="foto-linea">
+        </div>
+        <div class="col-9 col-md-10 texto-linea">
+          <p class="anio"><span class="anio-inicio">1947</span></p>
+          <h3>Nace David Robert Jones</h3>
+          <p>El 8 de enero nace en Brixton, al sur de Londres. De chico se interesa por el jazz, el rock and roll y aprende a tocar el saxofón.</p>
+        </div>
+      </div>
+
+      <!-- 1962 -->
+      <div class="row evento">
+        <div class="col-3 col-md-2">
+          <img src="img/biografia/peleagunderwood1962.jpg" alt="David Bowie años después, junto a un amigo" class="foto-linea">
+        </div>
+        <div class="col-9 col-md-10 texto-linea">
+          <p class="anio"><span class="anio-inicio">1962</span></p>
+          <h3>La pelea que le cambió la mirada</h3>
+          <p>Una pelea con su amigo George Underwood le deja la pupila del ojo izquierdo dilatada para siempre, lo que le da esa mirada de dos colores tan característica.</p>
+        </div>
+      </div>
+
+      <!-- 1964 -->
+      <div class="row evento">
+        <div class="col-3 col-md-2">
+          <img src="img/biografia/kingbees1964.jpg" alt="Davie Jones tocando con The King Bees en 1964" class="foto-linea">
+        </div>
+        <div class="col-9 col-md-10 texto-linea">
+          <p class="anio"><span class="anio-inicio">1964</span></p>
+          <h3>Primera banda y primer disco</h3>
+          <p>Con el nombre de Davie Jones canta y toca el saxo en The King Bees, con quienes graba su primer simple, "Liza Jane".</p>
+        </div>
+      </div>
+
+      <!-- 1966 -->
+      <div class="row evento">
+        <div class="col-3 col-md-2">
+          <img src="img/biografia/cambionombree1966.jpg" alt="Placa sobre el cambio de nombre de Davy Jones a David Bowie" class="foto-linea">
+        </div>
+        <div class="col-9 col-md-10 texto-linea">
+          <p class="anio"><span class="anio-inicio">1966</span></p>
+          <h3>Nace "David Bowie"</h3>
+          <p>Cambia su nombre artístico a David Bowie para que no lo confundan con Davy Jones, cantante de The Monkees.</p>
+        </div>
+      </div>
+
+      <!-- 1967 – 1968 -->
+      <div class="row evento">
+        <div class="col-3 col-md-2">
+          <img src="img/biografia/lkemp1968.jpg" alt="Bowie en la obra Pierrot in Turquoise junto a Lindsay Kemp" class="foto-linea">
+        </div>
+        <div class="col-9 col-md-10 texto-linea">
+          <p class="anio"><span class="anio-inicio">1967</span> – 1968</p>
+          <h3>El mimo y el teatro</h3>
+          <p>Estudia mimo y expresión corporal con Lindsay Kemp y actúa con él en <em>Pierrot in Turquoise</em>. El teatro y el maquillaje van a marcar todos sus personajes.</p>
+        </div>
+      </div>
+
+      <!-- 1969 -->
+      <div class="row evento">
+        <div class="col-3 col-md-2">
+          <img src="img/biografia/spaceoddity1969.jpg" alt="Ilustración de Bowie como astronauta, el Mayor Tom" class="foto-linea">
+        </div>
+        <div class="col-9 col-md-10 texto-linea">
+          <p class="anio"><span class="anio-inicio">1969</span></p>
+          <h3>Space Oddity</h3>
+          <p>Lanza "Space Oddity" días antes de la llegada del hombre a la Luna. La canción presenta al Mayor Tom y se convierte en su primer gran éxito.</p>
+        </div>
+      </div>
+
+      <!-- 1970 -->
+      <div class="row evento">
+        <div class="col-3 col-md-2">
+          <img src="img/biografia/abarnett1970.jpg" alt="David Bowie y Angela Barnett en 1970" class="foto-linea">
+        </div>
+        <div class="col-9 col-md-10 texto-linea">
+          <p class="anio"><span class="anio-inicio">1970</span></p>
+          <h3>Casamiento y un sonido más duro</h3>
+          <p>Se casa con Angela Barnett y publica <em>The Man Who Sold the World</em>, un disco de rock más pesado.</p>
+        </div>
+      </div>
+
+      <!-- 1971 -->
+      <div class="row evento">
+        <div class="col-3 col-md-2">
+          <img src="img/biografia/hunkydorynaceduncam1971.jpg" alt="David Bowie en la época de Hunky Dory" class="foto-linea">
+        </div>
+        <div class="col-9 col-md-10 texto-linea">
+          <p class="anio"><span class="anio-inicio">1971</span></p>
+          <h3>Hunky Dory y el nacimiento de su hijo</h3>
+          <p>Nace su hijo Duncan Jones (Zowie). Publica <em>Hunky Dory</em>, con canciones como "Changes" y "Life on Mars?".</p>
+        </div>
+      </div>
+
+      <!-- 1972 -->
+      <div class="row evento">
+        <div class="col-3 col-md-2">
+          <img src="img/biografia/portadaziggy1972.jpg" alt="Foto de la portada de Ziggy Stardust en Heddon Street, Londres" class="foto-linea">
+        </div>
+        <div class="col-9 col-md-10 texto-linea">
+          <p class="anio"><span class="anio-inicio">1972</span></p>
+          <h3>Ziggy Stardust</h3>
+          <p>Crea a Ziggy Stardust, una estrella de rock extraterrestre. El disco <em>The Rise and Fall of Ziggy Stardust and the Spiders from Mars</em> lo convierte en ícono del glam rock.</p>
+        </div>
+      </div>
+
+      <!-- 1973 -->
+      <div class="row evento">
+        <div class="col-3 col-md-2">
+          <img src="img/biografia/heroes1977.jpg" alt="David Bowie con el rayo de Aladdin Sane pintado en la cara" class="foto-linea">
+        </div>
+        <div class="col-9 col-md-10 texto-linea">
+          <p class="anio"><span class="anio-inicio">1973</span></p>
+          <h3>Aladdin Sane y el fin de Ziggy</h3>
+          <p>Publica <em>Aladdin Sane</em>, con el famoso rayo pintado en la cara, y sale de gira con trajes del diseñador japonés Kansai Yamamoto. El 3 de julio, en el Hammersmith Odeon de Londres, anuncia que es el último concierto de Ziggy.</p>
+        </div>
+      </div>
+
+      <!-- 1974 -->
+      <div class="row evento">
+        <div class="col-3 col-md-2">
+          <img src="img/biografia/diamonddogs1974.jpg" alt="David Bowie con parche en el ojo en 1974" class="foto-linea">
+        </div>
+        <div class="col-9 col-md-10 texto-linea">
+          <p class="anio"><span class="anio-inicio">1974</span></p>
+          <h3>Diamond Dogs</h3>
+          <p>Publica <em>Diamond Dogs</em>, inspirado en la novela <em>1984</em> de George Orwell, con el tema "Rebel Rebel". En la televisión aparece con un parche en el ojo.</p>
+        </div>
+      </div>
+
+      <!-- 1975 -->
+      <div class="row evento">
+        <div class="col-3 col-md-2">
+          <img src="img/biografia/youngamericans1975.jpg" alt="Afiche de Young Americans, 1975" class="foto-linea">
+        </div>
+        <div class="col-9 col-md-10 texto-linea">
+          <p class="anio"><span class="anio-inicio">1975</span></p>
+          <h3>Young Americans</h3>
+          <p>Se acerca al soul y al funk con <em>Young Americans</em>. "Fame", compuesta junto a John Lennon, es su primer número uno en Estados Unidos.</p>
+        </div>
+      </div>
+
+      <!-- 1976 -->
+      <div class="row evento">
+        <div class="col-3 col-md-2">
+          <img src="img/biografia/duquebco1976.jpg" alt="David Bowie como el Delgado Duque Blanco" class="foto-linea">
+        </div>
+        <div class="col-9 col-md-10 texto-linea">
+          <p class="anio"><span class="anio-inicio">1976</span></p>
+          <h3>El Delgado Duque Blanco</h3>
+          <p>Publica <em>Station to Station</em> y presenta a su nuevo personaje, el Thin White Duke. Protagoniza la película <em>El hombre que cayó a la Tierra</em>.</p>
+        </div>
+      </div>
+
+      <!-- 1977 – 1979 -->
+      <div class="row evento">
+        <div class="col-3 col-md-2">
+          <img src="img/biografia/berlin1977.avif" alt="David Bowie en Berlín" class="foto-linea">
+        </div>
+        <div class="col-9 col-md-10 texto-linea">
+          <p class="anio"><span class="anio-inicio">1977</span> – 1979</p>
+          <h3>La Trilogía de Berlín</h3>
+          <p>Se muda a Berlín y, junto a Brian Eno, graba <em>Low</em>, <em>"Heroes"</em> y <em>Lodger</em>, discos experimentales que marcaron a generaciones de músicos.</p>
+        </div>
+      </div>
+
+      <!-- 1980 -->
+      <div class="row evento">
+        <div class="col-3 col-md-2">
+          <img src="img/biografia/ashes1980.jpg" alt="Escena en vivo con máscara y el rayo, en el estilo de Ashes to Ashes" class="foto-linea">
+        </div>
+        <div class="col-9 col-md-10 texto-linea">
+          <p class="anio"><span class="anio-inicio">1980</span></p>
+          <h3>Scary Monsters</h3>
+          <p>Publica <em>Scary Monsters (and Super Creeps)</em>. En "Ashes to Ashes" retoma al Mayor Tom. Actúa en Broadway en la obra <em>El hombre elefante</em>.</p>
+        </div>
+      </div>
+
+      <!-- 1983 -->
+      <div class="row evento">
+        <div class="col-3 col-md-2">
+          <img src="img/biografia/letsdance1983.jpg" alt="David Bowie en la época de Let's Dance" class="foto-linea">
+        </div>
+        <div class="col-9 col-md-10 texto-linea">
+          <p class="anio"><span class="anio-inicio">1983</span></p>
+          <h3>Let's Dance</h3>
+          <p>Con <em>Let's Dance</em> logra su mayor éxito comercial y sale de gira por el mundo con el Serious Moonlight Tour.</p>
+        </div>
+      </div>
+
+      <!-- 1986 -->
+      <div class="row evento">
+        <div class="col-3 col-md-2">
+          <img src="img/biografia/laberinto1986.jpg" alt="David Bowie como Jareth en Laberinto" class="foto-linea">
+        </div>
+        <div class="col-9 col-md-10 texto-linea">
+          <p class="anio"><span class="anio-inicio">1986</span></p>
+          <h3>Laberinto</h3>
+          <p>Interpreta a Jareth, el Rey de los Goblins, en la película <em>Laberinto</em>, que se convierte en un clásico de culto.</p>
+        </div>
+      </div>
+
+      <!-- 1989 -->
+      <div class="row evento">
+        <div class="col-3 col-md-2">
+          <img src="img/biografia/tinmachine1989.jpg" alt="Retrato de David Bowie, fines de los años 80" class="foto-linea">
+        </div>
+        <div class="col-9 col-md-10 texto-linea">
+          <p class="anio"><span class="anio-inicio">1989</span></p>
+          <h3>Tin Machine</h3>
+          <p>Forma la banda de rock Tin Machine, donde decide ser un integrante más y no la estrella principal.</p>
+        </div>
+      </div>
+
+      <!-- 1992 -->
+      <div class="row evento">
+        <div class="col-3 col-md-2">
+          <img src="img/biografia/bodaiman1992.jpg" alt="David Bowie e Iman el día de su casamiento" class="foto-linea">
+        </div>
+        <div class="col-9 col-md-10 texto-linea">
+          <p class="anio"><span class="anio-inicio">1992</span></p>
+          <h3>Casamiento con Iman</h3>
+          <p>Se casa con la modelo somalí Iman, su compañera hasta el final de su vida.</p>
+        </div>
+      </div>
+
+      <!-- 1996 – 1997 -->
+      <div class="row evento">
+        <div class="col-3 col-md-2">
+          <img src="img/biografia/salonfama1996.jpg" alt="David Bowie con su estrella del Paseo de la Fama de Hollywood" class="foto-linea">
+        </div>
+        <div class="col-9 col-md-10 texto-linea">
+          <p class="anio"><span class="anio-inicio">1996</span> – 1997</p>
+          <h3>Salón de la Fama y Paseo de la Fama</h3>
+          <p>En 1996 es incorporado al Rock and Roll Hall of Fame y en 1997 recibe su estrella en el Paseo de la Fama de Hollywood.</p>
+        </div>
+      </div>
+
+      <!-- 2000 -->
+      <div class="row evento">
+        <div class="col-3 col-md-2">
+          <img src="img/biografia/nacealexandria2000.jpg" alt="David Bowie e Iman con su hija recién nacida" class="foto-linea">
+        </div>
+        <div class="col-9 col-md-10 texto-linea">
+          <p class="anio"><span class="anio-inicio">2000</span></p>
+          <h3>Nace su hija</h3>
+          <p>Nace Alexandria, su hija con Iman.</p>
+        </div>
+      </div>
+
+      <!-- 2003 – 2004 -->
+      <div class="row evento">
+        <div class="col-3 col-md-2">
+          <img src="img/biografia/realitytour2003.jpg" alt="Bowie cantando en el Reality Tour" class="foto-linea">
+        </div>
+        <div class="col-9 col-md-10 texto-linea">
+          <p class="anio"><span class="anio-inicio">2003</span> – 2004</p>
+          <h3>Reality Tour, su última gira</h3>
+          <p>Publica <em>Reality</em> y sale de gira por el mundo. En 2004, durante un concierto en Alemania, sufre un problema cardíaco y debe cancelar la gira. Desde entonces se aleja de los escenarios.</p>
+        </div>
+      </div>
+
+      <!-- 2013 -->
+      <div class="row evento">
+        <div class="col-3 col-md-2">
+          <img src="img/biografia/nextday2013.jpg" alt="David Bowie en 2013, época de The Next Day" class="foto-linea">
+        </div>
+        <div class="col-9 col-md-10 texto-linea">
+          <p class="anio"><span class="anio-inicio">2013</span></p>
+          <h3>The Next Day</h3>
+          <p>Tras diez años de silencio, sorprende a todos con <em>The Next Day</em>, anunciado el día de su cumpleaños 66. El museo V&amp;A de Londres inaugura la muestra <em>David Bowie Is</em>.</p>
+        </div>
+      </div>
+
+      <!-- 2016 -->
+      <div class="row evento">
+        <div class="col-3 col-md-2">
+          <img src="img/biografia/ultimafoto2016.jpg" alt="Una de las últimas fotos de David Bowie, con la estrella de Blackstar" class="foto-linea">
+        </div>
+        <div class="col-9 col-md-10 texto-linea">
+          <p class="anio"><span class="anio-inicio">2016</span></p>
+          <h3>Blackstar y despedida</h3>
+          <p>El 8 de enero, en su cumpleaños 69, publica <em>Blackstar</em>. Dos días después, el 10 de enero, muere en Nueva York a causa de un cáncer. El disco se convierte en su despedida.</p>
+        </div>
+      </div>
 
     </section>
+
   </main>
 
   <!-- PIE DE PÁGINA ( footer y address) -->
-  <footer class="pie">
+  <footer class="pie bio">
     <p>Rocio - Micaela - Marcela</p>
     <p>IG2026 - Cátedra: Valeria Drelichman | Pedro Paleo | Leonardo Nadel | Norma Morales</p>
     <p>TP2 - UNA Multimedia - Informática General - Turno Noche</p>
     <address class="mb-0"><a href="creditos.html">Créditos</a> · <a href="contacto.html">Contacto</a></address>
   </footer>
 
+  <!-- VISOR: muestra la foto grande al tocar una foto de la línea de tiempo.
+       Empieza oculto (clase "oculto"); JavaScript lo muestra y le pone la foto. -->
+  <div class="visor oculto">
+    <img src="" alt="" class="visor-foto">
+    <p class="visor-texto"></p>
+    <p class="visor-cerrar">Tocá en cualquier parte para cerrar ✕</p>
+  </div>
+
+  <!-- Botón para volver arriba: es un link de ancla al título (Clase 10).
+       JavaScript lo muestra recién cuando se baja por la página. -->
+  <a href="#inicio" class="btn-arriba" aria-label="Volver arriba">↑</a>
+
   <!-- JS de Bootstrap: hace funcionar el menú hamburguesa y los submenús -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/biografia.js"></script>
 </body>
 </html>
