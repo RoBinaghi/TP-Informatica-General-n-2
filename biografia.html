@@ -2,74 +2,46 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <!-- Clase 19: viewport, para que el sitio sea responsive en el celular -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>David Bowie | Biografía</title>
 
-  <!-- 1) PRIMERO el CSS de Bootstrap ) -->
+  <!-- Bootstrap: CSS de Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- 2) Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&family=Jost:wght@300;500;700&display=swap" rel="stylesheet">
 
-  <!-- 3) DESPUÉS nuestra hoja de estilos (una sola para todo el sitio): así pisa a Bootstrap -->
   <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
 
-
-  <!-- =====================================================================
-       MENÚ — organizado según el MAPA DE NAVEGACIÓN
-         Inicio
-         Trayectoria e identidad ▾     → Biografía, Alter ego
-         Producción musical ▾          → Álbumes, Colaboraciones
-         Otras disciplinas artísticas ▾ → Actuación, Pinturas
-         Contacto · Créditos
-       Clase 03: el menú va dentro de <header> y <nav> (etiquetas semánticas)
-       y es una lista ul > li > a.
-       Clase 19: framework Bootstrap (componente "navbar").
-       ===================================================================== -->
   <header>
-    <!-- CAMBIO 1 — HORIZONTAL QUE SE VUELVE HAMBURGUESA
-         [NO VISTO EN CLASE] La clase "navbar-expand-lg" de Bootstrap.
-         La Clase 19 presenta Bootstrap y remite a su documentación; para saber
-         qué clase usar le pedimos ayuda a una IA (Claude) y lo verificamos en
-         getbootstrap.com (Components > Navbar > "Responsive behaviors").
-         Qué hace: desde 992px (compu) el menú se ve HORIZONTAL, en una fila;
-         por debajo de 992px (tablet y celular) se transforma en HAMBURGUESA ☰.
-         Es la misma idea de las media queries de la Clase 19, pero ya resuelta
-         por Bootstrap. Lo probamos achicando la ventana del navegador. -->
+    <!-- Bootstrap: navbar: barra de navegación · navbar-expand-lg: desde 992px el menú se ve en una fila; en pantallas más chicas se convierte en hamburguesa · navbar-dark: textos e ícono claros, para fondo oscuro -->
     <nav class="navbar navbar-expand-lg navbar-dark barra">
+      <!-- Bootstrap: container: caja centrada con un ancho máximo según la pantalla -->
       <div class="container">
-        <!-- Botón ☰ (Bootstrap): solo se ve por debajo de 992px.
-             data-bs-target="#menu" indica qué se abre: el div con id="menu" -->
+        <!-- Bootstrap: navbar-toggler: el botón hamburguesa ☰ · data-bs-toggle / data-bs-target: el JavaScript de Bootstrap abre o cierra el elemento indicado (collapse = desplegable, dropdown = submenú, modal = ventana emergente) · aria-* y role: atributos que Bootstrap pide en sus componentes para los lectores de pantalla (accesibilidad) -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
                 aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">
+          <!-- Bootstrap: navbar-toggler-icon: dibuja las tres rayitas -->
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <!-- CAMBIO 2 — "BOWIE" A LA DERECHA
-             Va después del botón ☰, así en celular queda a la derecha.
-             [NO VISTO EN CLASE] "order-lg-last" (Bootstrap, consultado con Claude):
-             desde 992px lo manda al final de la fila, a la derecha del menú. -->
-        <a class="navbar-brand marca order-lg-last bio" href="index.html">Bowie</a>
+        <!-- Bootstrap: navbar-brand: el nombre del sitio en la barra · order-lg-last: desde 992px lo manda al final de la fila, a la derecha -->
+        <a class="navbar-brand marca order-lg-last" href="index.html">Bowie</a>
 
+        <!-- Bootstrap: collapse: contenido que empieza oculto y se muestra con un botón · navbar-collapse: la parte del menú que se esconde en el celular -->
         <div class="collapse navbar-collapse" id="menu">
-          <!-- CAMBIO 3 — [NO VISTO EN CLASE] "me-auto" (Bootstrap, consultado con Claude):
-               le da al menú todo el margen libre de su derecha y así empuja "Bowie" al borde.
-               CAMBIO 4 — SUBMENÚS DEL MAPA: las 3 secciones son submenús.
-               [NO VISTO EN CLASE] El componente "dropdown" de Bootstrap (consultado con
-               Claude y verificado en getbootstrap.com > Components > Dropdowns): el JS de
-               Bootstrap abre la lista cuando se toca un enlace con data-bs-toggle="dropdown".
-               Se sacaron Música, Más allá de la música, Teatro y Audiovisual,
-               que ya no están en el mapa. -->
+          <!-- Bootstrap: navbar-nav: la lista del menú · me-auto: margen derecho automático, empuja lo que sigue hacia la derecha -->
           <ul class="navbar-nav me-auto">
+            <!-- Bootstrap: nav-item / nav-link: cada ítem y cada link del menú -->
             <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+            <!-- Bootstrap: dropdown: submenú desplegable -->
             <li class="nav-item dropdown">
+              <!-- Bootstrap: dropdown-toggle: el botón que abre el submenú (con la flechita) · active: marca la opción de la página actual -->
               <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Trayectoria e identidad</a>
+              <!-- Bootstrap: dropdown-menu: la lista que se despliega -->
               <ul class="dropdown-menu">
+                <!-- Bootstrap: dropdown-item: cada opción del submenú -->
                 <li><a class="dropdown-item active" aria-current="page" href="biografia.html">Biografía</a></li>
                 <li><a class="dropdown-item" href="alterego.html">Alter ego</a></li>
               </ul>
@@ -98,26 +70,27 @@
 
   <main class="container">
 
-    <!-- CARTELERA EN CAPAS: Ziggy señala los ojos de Bowie
-         Las dos imágenes se encuentran una encima de la otra
-         (estilos en css/estilos.css: "CARTELERA EN CAPAS").
-         Clase 10: position relative en la caja y absolute en las capas, z-index.
-         La opacidad de la cara y el fondo transparente están en css/estilos.css. -->
-    <div class="cartelera bio cartelera-capas" id="inicio">
-      <!-- Capa 1 (atrás, a la derecha): la cara con el rayo -->
-      <img src="img/vida/bio-cara.png" alt="Cara de David Bowie con el rayo de Aladdin Sane" class="capa-cara">
-      <!-- Capa 2 (adelante, abajo a la izquierda): Ziggy señalando -->
-      <img src="img/vida/bio-dedo.png" alt="Ziggy Stardust señalando con el dedo" class="capa-dedo">
-      <!-- Capa 3 (arriba de todo): el título -->
-      <h1 class="titulo-senalado">Biografía</h1>
-    </div>
+    <h1 class="titulo-pagina" id="inicio">Biografía</h1>
 
-    <!-- Debajo de la cartelera: años a la izquierda y link a la línea de tiempo a la derecha -->
-    <div class="debajo-cartelera">
-      <p class="fechas-senaladas">1947 – 2016</p>
-      <a href="#linea-tiempo" class="bajar">Recorré su vida ↓</a>
-    </div>
-    <!-- INTRO: el camaleón del rock -->
+    <!-- Bootstrap: row: fila de la grilla de 12 columnas -->
+    <section class="row align-items-end encabezado-bio">
+
+      <!-- Bootstrap: col-N / col-md-N / col-lg-N: cuántas de las 12 columnas ocupa (md desde 768px, lg desde 992px) -->
+      <div class="col-12 col-md-5">
+        <p class="fechas-senaladas">8 de enero de 1947 – 10 de enero de 2016</p>
+        <a href="#linea-tiempo" class="bajar">Recorré su vida ↓</a>
+      </div>
+
+      <!-- <div class="col-12 col-md-7">
+        <div class="cartelera bio cartelera-capas espejo">
+           Bootstrap: opacity-25: la imagen se ve al 25 %, casi transparente  NO LO PONGO POR AHORA DEBO AJUSTAR LA IDEA DE CAPAS
+          <img src="img/vida/bio-cara.png" alt="Cara de David Bowie con el rayo de Aladdin Sane" class="capa-cara opacity-25">
+          <img src="img/vida/bio-dedo.png" alt="Ziggy Stardust señalando con el dedo" class="capa-dedo"> 
+        </div>
+      </div> -->
+
+    </section>
+
     <section class="texto-bio">
       <h2 class="titulo-seccion">El camaleón del rock</h2>
       <p>David Robert Jones, conocido artísticamente como David Bowie, fue músico, actor y artista visual.
@@ -127,11 +100,6 @@
         Dejó una huella en la música, la moda, el teatro y las artes visuales.</p>
     </section>
 
-    <!-- BOWIE CON LA GUITARRA QUE CAMBIA DE COLOR
-         Hay 6 versiones de la misma foto, una por color. Se ve una sola:
-         las otras tienen la clase "oculto" (display: none).
-         JavaScript (js/biografia.js) cambia cuál se ve al tocar la foto
-         o los botones de colores. -->
     <section class="guitarra">
       <h2 class="titulo-seccion">Tocá a Bowie y cambiale el color</h2>
 
@@ -144,28 +112,26 @@
         <img src="img/biografia/guitarra-6.png" alt="David Bowie tocando la guitarra, foto en dorado" class="foto-guitarra oculto">
       </div>
 
-      <div class="botones-color">
-        <button type="button" class="btn-color color-violeta" aria-label="Foto en violeta"></button>
-        <button type="button" class="btn-color color-roja" aria-label="Foto en rojo"></button>
-        <button type="button" class="btn-color color-naranja" aria-label="Foto en naranja"></button>
-        <button type="button" class="btn-color color-celeste" aria-label="Foto en celeste"></button>
-        <button type="button" class="btn-color color-petroleo" aria-label="Foto en petróleo"></button>
-        <button type="button" class="btn-color color-dorada" aria-label="Foto en dorado"></button>
+      <!-- Bootstrap: gap-N: espacio entre los elementos de un flexbox -->
+      <div class="botones-color gap-3">
+        <!-- Bootstrap: rounded-circle: forma redonda -->
+        <button type="button" class="btn-color rounded-circle color-violeta" aria-label="Foto en violeta"></button>
+        <button type="button" class="btn-color rounded-circle color-roja" aria-label="Foto en rojo"></button>
+        <button type="button" class="btn-color rounded-circle color-naranja" aria-label="Foto en naranja"></button>
+        <button type="button" class="btn-color rounded-circle color-celeste" aria-label="Foto en celeste"></button>
+        <button type="button" class="btn-color rounded-circle color-petroleo" aria-label="Foto en petróleo"></button>
+        <button type="button" class="btn-color rounded-circle color-dorada" aria-label="Foto en dorado"></button>
       </div>
 
       <p class="pista-guitarra">Tocá la foto o elegí un color</p>
     </section>
 
-    <!-- LÍNEA DE TIEMPO
-         Cada año es una fila de la grilla de Bootstrap (row).
-         Foto chica a la izquierda y texto a la derecha, también en celular:
-         col-3 col-md-2 (foto) + col-9 col-md-10 (texto). -->
     <section class="linea-tiempo" id="linea-tiempo">
 
-      <!-- 1947 -->
       <div class="row evento">
-        <div class="col-3 col-md-2">
-          <img src="img/biografia/peque_o1950.jpg" alt="David Jones de chico, alrededor de 1950" class="foto-linea">
+        <div class="col-3 col-md-2 caja-foto">
+          <!-- Bootstrap: object-fit-cover: la imagen llena su caja sin deformarse (recorta lo que sobra) -->
+          <img src="img/biografia/peque_o1950.jpg" alt="David Jones de chico, alrededor de 1950" class="foto-linea object-fit-cover">
         </div>
         <div class="col-9 col-md-10 texto-linea">
           <p class="anio"><span class="anio-inicio">1947</span></p>
@@ -174,19 +140,20 @@
         </div>
       </div>
 
-      <!-- Años 50 (sin foto) -->
       <div class="row evento">
-        <div class="col-9 col-md-10 offset-3 offset-md-2 texto-linea">
+        <div class="col-3 col-md-2 caja-foto">
+          <img src="img/biografia/hermano1950.jpg" alt="Foto de juventud de la época de Bromley, con su hermano Terry" class="foto-linea object-fit-cover">
+        </div>
+        <div class="col-9 col-md-10 texto-linea">
           <p class="anio"><span class="anio-inicio">Años 50</span></p>
           <h3>Bromley y su hermano Terry</h3>
           <p>Se muda con su familia a Bromley. Su medio hermano Terry lo acerca al jazz, al rock y a la literatura beat. La enfermedad mental de Terry lo marcó profundamente y aparece en muchas de sus canciones.</p>
         </div>
       </div>
 
-      <!-- 1962 -->
       <div class="row evento">
-        <div class="col-3 col-md-2">
-          <img src="img/biografia/peleagunderwood1962.jpg" alt="David Bowie años después, junto a un amigo" class="foto-linea">
+        <div class="col-3 col-md-2 caja-foto">
+          <img src="img/biografia/peleagunderwood1962.jpg" alt="David Bowie años después, junto a un amigo" class="foto-linea object-fit-cover">
         </div>
         <div class="col-9 col-md-10 texto-linea">
           <p class="anio"><span class="anio-inicio">1962</span></p>
@@ -195,10 +162,9 @@
         </div>
       </div>
 
-      <!-- 1964 -->
       <div class="row evento">
-        <div class="col-3 col-md-2">
-          <img src="img/biografia/kingbees1964.jpg" alt="Davie Jones tocando con The King Bees en 1964" class="foto-linea">
+        <div class="col-3 col-md-2 caja-foto">
+          <img src="img/biografia/kingbees1964.jpg" alt="Davie Jones tocando con The King Bees en 1964" class="foto-linea object-fit-cover">
         </div>
         <div class="col-9 col-md-10 texto-linea">
           <p class="anio"><span class="anio-inicio">1964</span></p>
@@ -207,10 +173,9 @@
         </div>
       </div>
 
-      <!-- 1966 -->
       <div class="row evento">
-        <div class="col-3 col-md-2">
-          <img src="img/biografia/cambionombree1966.jpg" alt="Placa sobre el cambio de nombre de Davy Jones a David Bowie" class="foto-linea">
+        <div class="col-3 col-md-2 caja-foto">
+          <img src="img/biografia/cambionombree1966.jpg" alt="Placa sobre el cambio de nombre de Davy Jones a David Bowie" class="foto-linea object-fit-cover">
         </div>
         <div class="col-9 col-md-10 texto-linea">
           <p class="anio"><span class="anio-inicio">1966</span></p>
@@ -219,10 +184,9 @@
         </div>
       </div>
 
-      <!-- 1967 – 1968 -->
       <div class="row evento">
-        <div class="col-3 col-md-2">
-          <img src="img/biografia/lkemp1968.jpg" alt="Bowie en la obra Pierrot in Turquoise junto a Lindsay Kemp" class="foto-linea">
+        <div class="col-3 col-md-2 caja-foto">
+          <img src="img/biografia/lkemp1968.jpg" alt="Bowie en la obra Pierrot in Turquoise junto a Lindsay Kemp" class="foto-linea object-fit-cover">
         </div>
         <div class="col-9 col-md-10 texto-linea">
           <p class="anio"><span class="anio-inicio">1967</span> – 1968</p>
@@ -231,10 +195,9 @@
         </div>
       </div>
 
-      <!-- 1969 -->
       <div class="row evento">
-        <div class="col-3 col-md-2">
-          <img src="img/biografia/spaceoddity1969.jpg" alt="Ilustración de Bowie como astronauta, el Mayor Tom" class="foto-linea">
+        <div class="col-3 col-md-2 caja-foto">
+          <img src="img/biografia/spaceoddity1969.jpg" alt="Ilustración de Bowie como astronauta, el Mayor Tom" class="foto-linea object-fit-cover">
         </div>
         <div class="col-9 col-md-10 texto-linea">
           <p class="anio"><span class="anio-inicio">1969</span></p>
@@ -243,10 +206,9 @@
         </div>
       </div>
 
-      <!-- 1970 -->
       <div class="row evento">
-        <div class="col-3 col-md-2">
-          <img src="img/biografia/abarnett1970.jpg" alt="David Bowie y Angela Barnett en 1970" class="foto-linea">
+        <div class="col-3 col-md-2 caja-foto">
+          <img src="img/biografia/abarnett1970.jpg" alt="David Bowie y Angela Barnett en 1970" class="foto-linea object-fit-cover">
         </div>
         <div class="col-9 col-md-10 texto-linea">
           <p class="anio"><span class="anio-inicio">1970</span></p>
@@ -255,10 +217,9 @@
         </div>
       </div>
 
-      <!-- 1971 -->
       <div class="row evento">
-        <div class="col-3 col-md-2">
-          <img src="img/biografia/hunkydorynaceduncam1971.jpg" alt="David Bowie en la época de Hunky Dory" class="foto-linea">
+        <div class="col-3 col-md-2 caja-foto">
+          <img src="img/biografia/hunkydorynaceduncam1971.jpg" alt="David Bowie en la época de Hunky Dory" class="foto-linea object-fit-cover">
         </div>
         <div class="col-9 col-md-10 texto-linea">
           <p class="anio"><span class="anio-inicio">1971</span></p>
@@ -267,10 +228,9 @@
         </div>
       </div>
 
-      <!-- 1972 -->
       <div class="row evento">
-        <div class="col-3 col-md-2">
-          <img src="img/biografia/portadaziggy1972.jpg" alt="Foto de la portada de Ziggy Stardust en Heddon Street, Londres" class="foto-linea">
+        <div class="col-3 col-md-2 caja-foto">
+          <img src="img/biografia/portadaziggy1972.jpg" alt="Foto de la portada de Ziggy Stardust en Heddon Street, Londres" class="foto-linea object-fit-cover">
         </div>
         <div class="col-9 col-md-10 texto-linea">
           <p class="anio"><span class="anio-inicio">1972</span></p>
@@ -279,10 +239,9 @@
         </div>
       </div>
 
-      <!-- 1973 -->
       <div class="row evento">
-        <div class="col-3 col-md-2">
-          <img src="img/biografia/heroes1977.jpg" alt="David Bowie con el rayo de Aladdin Sane pintado en la cara" class="foto-linea">
+        <div class="col-3 col-md-2 caja-foto">
+          <img src="img/biografia/heroes1977.jpg" alt="David Bowie con el rayo de Aladdin Sane pintado en la cara" class="foto-linea object-fit-cover">
         </div>
         <div class="col-9 col-md-10 texto-linea">
           <p class="anio"><span class="anio-inicio">1973</span></p>
@@ -291,10 +250,9 @@
         </div>
       </div>
 
-      <!-- 1974 -->
       <div class="row evento">
-        <div class="col-3 col-md-2">
-          <img src="img/biografia/diamonddogs1974.jpg" alt="David Bowie con parche en el ojo en 1974" class="foto-linea">
+        <div class="col-3 col-md-2 caja-foto">
+          <img src="img/biografia/diamonddogs1974.jpg" alt="David Bowie con parche en el ojo en 1974" class="foto-linea object-fit-cover">
         </div>
         <div class="col-9 col-md-10 texto-linea">
           <p class="anio"><span class="anio-inicio">1974</span></p>
@@ -303,10 +261,9 @@
         </div>
       </div>
 
-      <!-- 1975 -->
       <div class="row evento">
-        <div class="col-3 col-md-2">
-          <img src="img/biografia/youngamericans1975.jpg" alt="Afiche de Young Americans, 1975" class="foto-linea">
+        <div class="col-3 col-md-2 caja-foto">
+          <img src="img/biografia/youngamericans1975.jpg" alt="Afiche de Young Americans, 1975" class="foto-linea object-fit-cover">
         </div>
         <div class="col-9 col-md-10 texto-linea">
           <p class="anio"><span class="anio-inicio">1975</span></p>
@@ -315,10 +272,9 @@
         </div>
       </div>
 
-      <!-- 1976 -->
       <div class="row evento">
-        <div class="col-3 col-md-2">
-          <img src="img/biografia/duquebco1976.jpg" alt="David Bowie como el Delgado Duque Blanco" class="foto-linea">
+        <div class="col-3 col-md-2 caja-foto">
+          <img src="img/biografia/duquebco1976.jpg" alt="David Bowie como el Delgado Duque Blanco" class="foto-linea object-fit-cover">
         </div>
         <div class="col-9 col-md-10 texto-linea">
           <p class="anio"><span class="anio-inicio">1976</span></p>
@@ -327,10 +283,9 @@
         </div>
       </div>
 
-      <!-- 1977 – 1979 -->
       <div class="row evento">
-        <div class="col-3 col-md-2">
-          <img src="img/biografia/berlin1977.avif" alt="David Bowie en Berlín" class="foto-linea">
+        <div class="col-3 col-md-2 caja-foto">
+          <img src="img/biografia/berlin1977.avif" alt="David Bowie en Berlín" class="foto-linea object-fit-cover">
         </div>
         <div class="col-9 col-md-10 texto-linea">
           <p class="anio"><span class="anio-inicio">1977</span> – 1979</p>
@@ -339,10 +294,9 @@
         </div>
       </div>
 
-      <!-- 1980 -->
       <div class="row evento">
-        <div class="col-3 col-md-2">
-          <img src="img/biografia/ashes1980.jpg" alt="Escena en vivo con máscara y el rayo, en el estilo de Ashes to Ashes" class="foto-linea">
+        <div class="col-3 col-md-2 caja-foto">
+          <img src="img/biografia/ashes1980.jpg" alt="Escena en vivo con máscara y el rayo, en el estilo de Ashes to Ashes" class="foto-linea object-fit-cover">
         </div>
         <div class="col-9 col-md-10 texto-linea">
           <p class="anio"><span class="anio-inicio">1980</span></p>
@@ -351,10 +305,9 @@
         </div>
       </div>
 
-      <!-- 1983 -->
       <div class="row evento">
-        <div class="col-3 col-md-2">
-          <img src="img/biografia/letsdance1983.jpg" alt="David Bowie en la época de Let's Dance" class="foto-linea">
+        <div class="col-3 col-md-2 caja-foto">
+          <img src="img/biografia/letsdance1983.jpg" alt="David Bowie en la época de Let's Dance" class="foto-linea object-fit-cover">
         </div>
         <div class="col-9 col-md-10 texto-linea">
           <p class="anio"><span class="anio-inicio">1983</span></p>
@@ -363,10 +316,9 @@
         </div>
       </div>
 
-      <!-- 1986 -->
       <div class="row evento">
-        <div class="col-3 col-md-2">
-          <img src="img/biografia/laberinto1986.jpg" alt="David Bowie como Jareth en Laberinto" class="foto-linea">
+        <div class="col-3 col-md-2 caja-foto">
+          <img src="img/biografia/laberinto1986.jpg" alt="David Bowie como Jareth en Laberinto" class="foto-linea object-fit-cover">
         </div>
         <div class="col-9 col-md-10 texto-linea">
           <p class="anio"><span class="anio-inicio">1986</span></p>
@@ -375,10 +327,9 @@
         </div>
       </div>
 
-      <!-- 1989 -->
       <div class="row evento">
-        <div class="col-3 col-md-2">
-          <img src="img/biografia/tinmachine1989.jpg" alt="Retrato de David Bowie, fines de los años 80" class="foto-linea">
+        <div class="col-3 col-md-2 caja-foto">
+          <img src="img/biografia/tinmachine1989.jpg" alt="Retrato de David Bowie, fines de los años 80" class="foto-linea object-fit-cover">
         </div>
         <div class="col-9 col-md-10 texto-linea">
           <p class="anio"><span class="anio-inicio">1989</span></p>
@@ -387,10 +338,9 @@
         </div>
       </div>
 
-      <!-- 1992 -->
       <div class="row evento">
-        <div class="col-3 col-md-2">
-          <img src="img/biografia/bodaiman1992.jpg" alt="David Bowie e Iman el día de su casamiento" class="foto-linea">
+        <div class="col-3 col-md-2 caja-foto">
+          <img src="img/biografia/bodaiman1992.jpg" alt="David Bowie e Iman el día de su casamiento" class="foto-linea object-fit-cover">
         </div>
         <div class="col-9 col-md-10 texto-linea">
           <p class="anio"><span class="anio-inicio">1992</span></p>
@@ -399,10 +349,9 @@
         </div>
       </div>
 
-      <!-- 1996 – 1997 -->
       <div class="row evento">
-        <div class="col-3 col-md-2">
-          <img src="img/biografia/salonfama1996.jpg" alt="David Bowie con su estrella del Paseo de la Fama de Hollywood" class="foto-linea">
+        <div class="col-3 col-md-2 caja-foto">
+          <img src="img/biografia/salonfama1996.jpg" alt="David Bowie con su estrella del Paseo de la Fama de Hollywood" class="foto-linea object-fit-cover">
         </div>
         <div class="col-9 col-md-10 texto-linea">
           <p class="anio"><span class="anio-inicio">1996</span> – 1997</p>
@@ -411,10 +360,9 @@
         </div>
       </div>
 
-      <!-- 2000 -->
       <div class="row evento">
-        <div class="col-3 col-md-2">
-          <img src="img/biografia/nacealexandria2000.jpg" alt="David Bowie e Iman con su hija recién nacida" class="foto-linea">
+        <div class="col-3 col-md-2 caja-foto">
+          <img src="img/biografia/nacealexandria2000.jpg" alt="David Bowie e Iman con su hija recién nacida" class="foto-linea object-fit-cover">
         </div>
         <div class="col-9 col-md-10 texto-linea">
           <p class="anio"><span class="anio-inicio">2000</span></p>
@@ -423,10 +371,9 @@
         </div>
       </div>
 
-      <!-- 2003 – 2004 -->
       <div class="row evento">
-        <div class="col-3 col-md-2">
-          <img src="img/biografia/realitytour2003.jpg" alt="Bowie cantando en el Reality Tour" class="foto-linea">
+        <div class="col-3 col-md-2 caja-foto">
+          <img src="img/biografia/realitytour2003.jpg" alt="Bowie cantando en el Reality Tour" class="foto-linea object-fit-cover">
         </div>
         <div class="col-9 col-md-10 texto-linea">
           <p class="anio"><span class="anio-inicio">2003</span> – 2004</p>
@@ -435,10 +382,9 @@
         </div>
       </div>
 
-      <!-- 2013 -->
       <div class="row evento">
-        <div class="col-3 col-md-2">
-          <img src="img/biografia/nextday2013.jpg" alt="David Bowie en 2013, época de The Next Day" class="foto-linea">
+        <div class="col-3 col-md-2 caja-foto">
+          <img src="img/biografia/nextday2013.jpg" alt="David Bowie en 2013, época de The Next Day" class="foto-linea object-fit-cover">
         </div>
         <div class="col-9 col-md-10 texto-linea">
           <p class="anio"><span class="anio-inicio">2013</span></p>
@@ -447,10 +393,9 @@
         </div>
       </div>
 
-      <!-- 2016 -->
       <div class="row evento">
-        <div class="col-3 col-md-2">
-          <img src="img/biografia/ultimafoto2016.jpg" alt="Una de las últimas fotos de David Bowie, con la estrella de Blackstar" class="foto-linea">
+        <div class="col-3 col-md-2 caja-foto">
+          <img src="img/biografia/ultimafoto2016.jpg" alt="Una de las últimas fotos de David Bowie, con la estrella de Blackstar" class="foto-linea object-fit-cover">
         </div>
         <div class="col-9 col-md-10 texto-linea">
           <p class="anio"><span class="anio-inicio">2016</span></p>
@@ -461,7 +406,6 @@
 
     </section>
 
-    <!-- FUENTES -->
     <section class="fuentes">
       <p>Fuentes: investigación del grupo a partir del documental de YouTube y del sitio oficial davidbowie.com.</p>
       <p>Fotos:<br>
@@ -472,27 +416,24 @@
 
   </main>
 
-  <!-- PIE DE PÁGINA ( footer y address) -->
   <footer class="pie bio">
     <p>Rocio - Micaela - Marcela</p>
     <p>IG2026 - Cátedra: Valeria Drelichman | Pedro Paleo | Leonardo Nadel | Norma Morales</p>
     <p>TP2 - UNA Multimedia - Informática General - Turno Noche</p>
+    <!-- Bootstrap: m = margin, p = padding; t/b/s/e/x/y = arriba/abajo/izquierda/derecha/horizontal/vertical; el número (0 a 5) es el tamaño -->
     <address class="mb-0"><a href="creditos.html">Créditos</a> · <a href="contacto.html">Contacto</a></address>
   </footer>
 
-  <!-- VISOR: muestra la foto grande al tocar una foto de la línea de tiempo.
-       Empieza oculto (clase "oculto"); JavaScript lo muestra y le pone la foto. -->
-  <div class="visor oculto">
-    <img src="" alt="" class="visor-foto">
+  <!-- Bootstrap: position-fixed: queda fijo en la pantalla aunque se haga scroll (top-0 / start-0 / bottom-0 / end-0: pegado arriba, a la izquierda, abajo o a la derecha) -->
+  <div class="visor oculto position-fixed top-0 start-0">
+    <div class="visor-contenido"></div>
     <p class="visor-texto"></p>
     <p class="visor-cerrar">Tocá en cualquier parte para cerrar ✕</p>
   </div>
 
-  <!-- Botón para volver arriba: es un link de ancla al título (Clase 10).
-       JavaScript lo muestra recién cuando se baja por la página. -->
-  <a href="#inicio" class="btn-arriba" aria-label="Volver arriba">↑</a>
+  <a href="#inicio" class="btn-arriba position-fixed bottom-0 end-0 m-3 rounded-circle" aria-label="Volver arriba">↑</a>
 
-  <!-- JS de Bootstrap: hace funcionar el menú hamburguesa y los submenús -->
+  <!-- Bootstrap: JavaScript de Bootstrap: hace funcionar el menú hamburguesa, los submenús, los desplegables y las ventanas emergentes -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/biografia.js"></script>
 </body>

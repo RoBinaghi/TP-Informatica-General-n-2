@@ -156,7 +156,7 @@ a:active {
 .hero {
   position: relative;
   width: 100%;
-  height: 100vh; /* Ocupa el 100% de la altura de la pantalla */
+  height: 60vh; /* Ocupa el 60% de la altura de la pantalla (sin video: se ve el fondo de estrellas) */
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -441,33 +441,42 @@ a:active {
   margin-top: 1.5rem;
 }
 
-/* CAMBIO : en Biografía la cartelera no tiene marco,
-   solo la línea roja de abajo, donde se apoya la palabra "Biografía".
-   IMPORTANTE: el alto de la caja (padding-bottom) y el ancho del dedo
-   (.capa-dedo width) van juntos. Si se cambia uno, hay que cambiar el otro
-   para que el dedo siga señalando los ojos:
-     dedo 62%  →  caja 37%
-     dedo 50%  →  caja 31%
-   Para el ajuste fino se mueve la cara con "top":
-   un número negativo la sube, uno positivo la baja. */
+/* Biografía: sin marco y sin línea roja, pegada al menú */
 .cartelera.bio {
-  border: none;                    /* en Biografía, sin marco */
-  border-bottom: 3px solid #d62338;
-  margin-top: 0;                   /* pegada al menú */
+  border: none;
+  margin-top: 0;
 }
 
+/* Caja un poco más baja para que el dedo siga apuntando a los ojos
+   (va junto con el width: 62% de .capa-dedo) y sin fondo, así se ven las estrellas */
 .cartelera-capas.bio {
   padding-bottom: 37%;
   background-color: transparent;
 }
 
-/* La cara: la frente arriba de todo, con poca opacidad
+/* La cara arriba de todo: la frente toca la línea naranja del menú
    (ayuda ia: opacity → 0 invisible, 1 normal; 0.15 = 15 %) */
 .cartelera.bio .capa-cara {
   top: 0;
   opacity: 0.15;
 }
 
+
+/* La foto de la Biografía, espejada (como en un espejo).
+   ayuda IA: transform: scaleX(-1) → da vuelta la imagen de izquierda a derecha. */
+.cartelera.espejada {
+  transform: scaleX(-1);
+}
+
+/* El texto del encabezado de la Biografía (título, fechas y "Recorré su vida") */
+.encabezado-bio .fechas-senaladas {
+  margin-bottom: 0.4rem;
+}
+
+.encabezado-bio .bajar {
+  display: inline-block;
+  margin-bottom: 1rem;
+}
 
 /* La imagen ocupa todo el ancho de la cartelera (Clase 04: width y display) */
 .cartelera img {
@@ -795,6 +804,15 @@ ayuda ia object-position: center top → al recortar, deja
 ayuda ia cursor: pointer → la manito indica que se puede tocar. */
 .foto-linea {
   cursor: pointer;
+  position: relative;
+  transition: transform 0.3s ease;   /* ayuda IA: el agrandado es gradual */
+}
+
+/* Con el mouse encima, la foto se agranda y queda por encima del resto
+   (Clase 04: hover / Clase 10: z-index; ayuda IA: transform: scale) */
+.foto-linea:hover {
+  transform: scale(1.8);
+  z-index: 5;
 }
 
 /* El visor ocupa toda la pantalla, con fondo oscuro, y centra la foto.
@@ -820,7 +838,8 @@ ayuda ia cursor: pointer → la manito indica que se puede tocar. */
   display: none;
 }
 
-/* La foto grande: entra siempre en la pantalla  */
+/* La foto grande: entra siempre en la pantalla, cada una con su tamaño
+   (Clase 04: max-width, max-height, vw y vh) */
 .visor-foto {
   max-width: 90vw;
   max-height: 75vh;
@@ -1003,6 +1022,16 @@ ayuda ia cursor: pointer → la manito indica que se puede tocar. */
 .volver {
   font-size: 0.8rem;
   color: #00ade3;
+}
+
+/* Cuando JavaScript le agrega "mostrar-texto" a la ficha:
+   se esconde la foto y se ve la descripción (Clase 14: classList) */
+.ficha.mostrar-texto .ficha-foto {
+  display: none;
+}
+
+.ficha.mostrar-texto .ficha-descripcion {
+  display: block;
 }
 
 /*MEDIA QUERIES — siempre al final 
