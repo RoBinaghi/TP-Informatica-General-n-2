@@ -5,7 +5,7 @@
   background-repeat y background-position */
 body {
   background-color: #0d0010;
-  background-image: url("../img/fondo-estrellas.jpg");
+  background-image: url("../img/fondo\ 2.jpg");
   background-repeat: repeat-y;
   background-attachment: auto;
   color: #fff3d6;
@@ -422,6 +422,29 @@ a:active {
   width: fit-content;
 }
 
+/* Portada cuadrada del álbum */
+.portada-principal {
+  width: 100%;
+  max-width: 240px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-radius: 6px 6px 0 0; /* Redondea solo las esquinas superiores */
+}
+
+/* Gráfico decorativo pegado al borde inferior de la portada */
+.decoracion-vinilo {
+  width: 100%;
+  max-width: 240px;
+  height: auto;
+  display: block;
+  margin: 0 !important;
+  padding: 0 !important;
+  position: relative;
+  z-index: 1;
+}
 
 /* MEDIA QUERIES — siempre al final 
  Mobile first: arriba, celular; acá se agranda con min-width.
