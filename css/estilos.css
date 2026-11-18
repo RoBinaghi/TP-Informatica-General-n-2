@@ -1,11 +1,11 @@
-/*   Se carga DESPUÉS de Bootstrap para poder pisar sus estilos 
-   PARTE 1 — BASE, MENÚ Y PIE (todas las páginas)*/
+/* ESTILOS — Sitio David Bowie (una sola hoja para todo el sitio)
+   Se carga DESPUÉS de Bootstrap para poder pisar sus estilos (Clase 19).
+    PARTE 1 — BASE, MENÚ Y PIE (todas las páginas) */
 
-/* color, background-color, background-image, font-family
-  background-repeat y background-position */
+
 body {
   background-color: #0d0010;
-  background-image: url("../img/fondo\ 2.jpg");
+  background-image: url("../img/fondo-estrellas.jpg");
   background-repeat: repeat-y;
   background-attachment: auto;
   color: #fff3d6;
@@ -19,7 +19,7 @@ h1, h2, h3 {
   font-weight: 600;
 }
 
-/*  pseudo-clases de enlaces, en orden link, visited, hover, active */
+/* pseudo-clases de enlaces, en orden link, visited, hover, active */
 a:link {
   color: #00ade3;
 }
@@ -36,13 +36,13 @@ a:active {
   color: #fff3d6;
 }
 
-/* Clase que usa JavaScript para esconder elementos display none).
-   No la borres: para usar en la guitarra, el filtro, las fichas y el formulario. */
+/* display none. Es la clase que usa JavaScript para esconder elementos.
+ para usar en la guitarra, el filtro, las fichas y el formulario. */
 .oculto {
   display: none;
 }
 
-/* ---------- MENÚ HAMBURGUESA (navbar de Bootstrap) ---------- */
+/*  MENÚ HAMBURGUESA navbar de Bootstrap */
 
 /* color de fondo /  borde */
 .barra {
@@ -50,12 +50,12 @@ a:active {
   border-bottom: 2px solid #ff913f;
 }
 
-/* "Bowie" a la derecha : tipografía) */
+/* "Bowie" a la izquierda (tipografía) */
 .barra .marca {
   font-family: 'Fredoka', sans-serif;
   font-weight: 600;
   font-size: 2rem;
-  color: #ff913f
+  color: #ff913f;
 }
 
 /* Lo que se abre al tocar ☰  padding) */
@@ -105,7 +105,7 @@ a:active {
 }
 
 
-/* ---------- TÍTULO Y TEXTO DE ENTRADA ---------- */
+/*  TÍTULO Y TEXTO DE ENTRADA */
 
 /* Título grande de la página (tipografía /  border y padding) */
 .titulo-pagina {
@@ -126,7 +126,7 @@ a:active {
 }
 
 
-/* ---------- PIE DE PÁGINA ---------- */
+/*  PIE DE PÁGINA  */
 
 /* background-color, color, text-align / padding y margin */
 .pie {
@@ -148,9 +148,12 @@ a:active {
   font-weight: 500;
 }
 
-/* ==========================================
-   ESTILOS DE LA PORTADA CON VIDEO (HERO)
-   ========================================== */
+/*    ESTILOS DE LA PORTADA CON VIDEO (HERO)
+   Clase 10: position relative/absolute, z-index y flexbox.
+   Clase 02: rgba. Clase 04: overflow, min-height y vh.
+   - transform: translate(-50%, -50%) → centra el video moviéndolo la mitad de su tamaño.
+   - object-fit: cover → el video cubre la caja sin deformarse (recorta lo que sobra).
+   */
 
 /* Contenedor principal de la portada */
 .hero {
@@ -225,14 +228,18 @@ a:active {
   text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
 }
 
-/*index imagenes*/
+/* ---------- INDEX: TARJETAS ----------
+ 
+   - cursor: pointer → muestra la "manito" al pasar el mouse.
+   - transition → hace que los cambios (color, tamaño) sean graduales.
+   - transform: scale(1.04) → agranda la imagen un 4 %.
+   - opacity → transparencia (0 invisible, 1 visible).
+   - max-height → alto máximo; con 0 esconde el texto.
+   - pointer-events: none → el elemento no recibe clics.
+   - object-fit: cover → la imagen llena su caja sin deformarse. */
 
 .tarjeta-interactiva {
   cursor: pointer;
-}
-
-.tarjeta-interactiva .card-img {
-  transition: transform 0.35s ease;
 }
 
 /* Fondo ligeramente oscuro por defecto para que el título siempre se lea bien */
@@ -274,7 +281,16 @@ a:active {
   transition: transform 0.35s ease;
 }
 
-/*Carrusel film*/
+/* ---------- CARRUSELES (Actuación y Álbumes) ----------
+   
+   - gap → espacio entre los elementos del flexbox.
+   - flex: 0 0 44% → cada póster ocupa el 44 % del ancho y no se estira ni se achica.
+   - aspect-ratio → mantiene la proporción (2/3 vertical, 1/1 cuadrado).
+   - scroll-behavior: smooth → el desplazamiento es suave.
+   - scrollbar-width / ::-webkit-scrollbar → esconden la barra de desplazamiento.
+   - border-radius → redondea las esquinas.
+   - transform, transition, filter: brightness → movimiento y brillo de las flechas y pósters.
+   - calc() → hace una cuenta dentro del CSS (28 % menos 0.75rem). */
 /* 1. BASE: CELULAR (Mobile First - menos de 576px) */
 .carrusel-vertical {
   display: flex;
@@ -314,18 +330,11 @@ a:active {
   display: none; /* Oculta barra en Chrome, Safari y Edge */
 }
 
-.poster-item {
-  flex: 0 0 44%;          /* En celular muestra 2 cuadrados y asoma el 3ro */
-  aspect-ratio: 2 / 3;    /* Proporción rectangular (1:1) */
-  overflow: hidden;
-  border-radius: 0.375rem;
-}
-
-.poster-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease, filter 0.3s ease;
+/* CORRECCIÓN : acá estaban repetidas las reglas .poster-item y .poster-item img
+   (con aspect-ratio 2/3), entonces los álbumes nunca quedaban cuadrados.
+   Ahora solo los pósters DENTRO del carrusel cuadrado son 1:1. */
+.carrusel-cuadrado .poster-item {
+  aspect-ratio: 1 / 1;    /* Proporción cuadrada para las portadas de discos */
 }
 
 /* Estilo de los botones de flecha */
@@ -360,7 +369,11 @@ a:active {
 }
 
 
-/* ---------- ESTILOS DE LA PAGINA ALBUNMES---------- */
+/* ---------- ESTILOS DE LA PÁGINA ÁLBUMES ----------
+   
+   - inset: 0 → ocupa toda la caja (es top, right, bottom y left en 0 a la vez).
+   - aspect-ratio, object-fit, opacity, transition, transform, cursor, border-radius (ver arriba).
+   - letter-spacing → espacio entre letras. width: fit-content → ancho justo del contenido. */
 /* Tarjeta de la galería inferior */
 /* Galería inferior de 28 álbumes */
 .tarjeta-album {
@@ -398,19 +411,7 @@ a:active {
   opacity: 1;
 }
 
-.badge-anio {
-  display: inline-block;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 4px;
-  padding: 2px 8px;
-  font-size: 0.75rem;
-  width: fit-content;
-}
-
-.tarjeta-album:hover .overlay-album {
-  opacity: 1;
-}
-
+/* CORRECCIÓN : saqué .badge-anio y .tarjeta-album:hover repetidos (quedan una sola vez). */
 /* Etiqueta tipo píldora para el año (similar a la referencia visual) */
 .badge-anio {
   display: inline-block;
@@ -446,7 +447,7 @@ a:active {
   z-index: 1;
 }
 
-/* MEDIA QUERIES — siempre al final 
+/*  MEDIA QUERIES — siempre al final 
  Mobile first: arriba, celular; acá se agranda con min-width.
    Las reglas nuevas de cada página se agregan ADENTRO de estos
    mismos bloques, sin repetirlos*/
@@ -465,4 +466,28 @@ a:active {
     filter: brightness(0.85);
   }
   
+}
+
+/* CORRECCIÓN CAMBIO — MENÚ HORIZONTAL 
+   Desde 992px el menú se ve en una fila (navbar-expand-lg en el HTML).
+   Sacamos el espacio de arriba y abajo (Clase 04: padding) y achicamos
+   la letra (Clase 02: font-size) para que entren los 6 ítems. */
+@media (min-width: 992px) {
+  .barra .navbar-nav {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .barra .nav-link {
+    font-size: 0.78rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+
+/* CAMBIO  — En pantallas grandes (desde 1200px) la letra del menú vuelve a su tamaño (Clase 19) */
+@media (min-width: 1200px) {
+  .barra .nav-link {
+    font-size: 0.95rem;
+  }
 }
