@@ -19,22 +19,51 @@
 </head>
 <body>
 
-
+  <!-- =====================================================================
+       MENÚ — organizado según el MAPA DE NAVEGACIÓN
+         Inicio
+         Trayectoria e identidad ▾     → Biografía, Alter ego
+         Producción musical ▾          → Álbumes, Colaboraciones
+         Otras disciplinas artísticas ▾ → Actuación, Pinturas
+         Contacto · Créditos
+       Clase 03: el menú va dentro de <header> y <nav> (etiquetas semánticas)
+       y es una lista ul > li > a.
+       Clase 19: framework Bootstrap (componente "navbar").
+       ===================================================================== -->
   <header>
-
+    <!-- CAMBIO 1 — HORIZONTAL QUE SE VUELVE HAMBURGUESA
+         [NO VISTO EN CLASE] La clase "navbar-expand-lg" de Bootstrap.
+         La Clase 19 presenta Bootstrap y remite a su documentación; para saber
+         qué clase usar le pedimos ayuda a una IA (Claude) y lo verificamos en
+         getbootstrap.com (Components > Navbar > "Responsive behaviors").
+         Qué hace: desde 992px (compu) el menú se ve HORIZONTAL, en una fila;
+         por debajo de 992px (tablet y celular) se transforma en HAMBURGUESA ☰.
+         Es la misma idea de las media queries de la Clase 19, pero ya resuelta
+         por Bootstrap. Lo probamos achicando la ventana del navegador. -->
     <nav class="navbar navbar-expand-lg navbar-dark barra">
       <div class="container">
-  
+        <!-- Botón ☰ (Bootstrap): solo se ve por debajo de 992px.
+             data-bs-target="#menu" indica qué se abre: el div con id="menu" -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
                 aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">
           <span class="navbar-toggler-icon"></span>
         </button>
 
-
+        <!-- CAMBIO 2 — "BOWIE" A LA DERECHA
+             Va después del botón ☰, así en celular queda a la derecha.
+             [NO VISTO EN CLASE] "order-lg-last" (Bootstrap, consultado con Claude):
+             desde 992px lo manda al final de la fila, a la derecha del menú. -->
         <a class="navbar-brand marca order-lg-last" href="index.html">Bowie</a>
 
         <div class="collapse navbar-collapse" id="menu">
-
+          <!-- CAMBIO 3 — [NO VISTO EN CLASE] "me-auto" (Bootstrap, consultado con Claude):
+               le da al menú todo el margen libre de su derecha y así empuja "Bowie" al borde.
+               CAMBIO 4 — SUBMENÚS DEL MAPA: las 3 secciones son submenús.
+               [NO VISTO EN CLASE] El componente "dropdown" de Bootstrap (consultado con
+               Claude y verificado en getbootstrap.com > Components > Dropdowns): el JS de
+               Bootstrap abre la lista cuando se toca un enlace con data-bs-toggle="dropdown".
+               Se sacaron Música, Más allá de la música, Teatro y Audiovisual,
+               que ya no están en el mapa. -->
           <ul class="navbar-nav me-auto">
             <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
             <li class="nav-item dropdown">
@@ -68,18 +97,220 @@
 
   <main class="container">
 
-    <h1 class="titulo-pagina">Alter Ego</h1>
-    <p class="intro">Quién fue David Robert Jones y los personajes que inventó para convertirse en David Bowie.
-      Elegí una portada para entrar.</p>
+    <!-- CARTELERA: la foto del encabezado dentro del container, con marco (no ocupa toda la pantalla) -->
+    <section class="cartelera">
+      <img src="img/vida/alter-cartelera.jpg" alt="Cinco retratos de Bowie en franjas azul, verde, amarilla, naranja y rosa">
+      <h1 class="cartelera-titulo">Alter Ego</h1>
+    </section>
 
-    
-    <section class="">
+    <p class="intro">Bowie no solo cambiaba de sonido: cambiaba de identidad. Cada personaje tenía estética,
+      música, historia y personalidad propias. Tocá cada foto para leer su descripción.</p>
 
-      <div class="">
-       
-          </div>
-       
-    
+    <!-- FILTRO COMO SUBMENÚ
+         [NO VISTO EN CLASE] Usamos el componente "dropdown" de Bootstrap (el mismo de los
+         submenús del menú; consultado con Claude). Bootstrap solo abre y cierra la lista:
+         el filtrado lo hace nuestro JavaScript (js/alterego.js).
+         Cada opción tiene un id para que el JavaScript la encuentre (Clase 07). -->
+    <div class="dropdown mb-4">
+      <button class="btn boton-filtro dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="boton-filtro">
+        Ver: Todos
+      </button>
+      <ul class="dropdown-menu menu-filtro">
+        <li><button class="dropdown-item opcion-todos active" id="ver-todos">Todos</button></li>
+        <li><button class="dropdown-item opcion-principal" id="ver-principales">Principales</button></li>
+        <li><button class="dropdown-item opcion-secundario" id="ver-secundarios">Secundarios</button></li>
+        <li><button class="dropdown-item opcion-complementario" id="ver-complementarios">Complementarios</button></li>
+      </ul>
+    </div>
+
+    <!-- FICHAS: grilla de Bootstrap (Clase 19). 2 por fila en celular, 4 desde 992px.
+         Cada ficha tiene:
+           - la clase de su nivel (principal, secundario o complementario): la usa el filtro
+           - la foto con los años (se ve primero)
+           - la descripción (empieza con la clase "oculto")
+         Al hacer clic, js/alterego.js esconde una y muestra la otra. -->
+    <section class="row row-cols-2 row-cols-lg-4 g-3">
+
+        <div class="col ficha-col principal">
+          <article class="ficha principal">
+            <div class="ficha-foto">
+              <img src="img/vida/alter-ziggy.jpg" alt="Ziggy Stardust">
+              <p class="ficha-anio">1972–1973</p>
+            </div>
+            <div class="ficha-descripcion oculto">
+              <h2 class="ficha-nombre">Ziggy Stardust</h2>
+              <p class="nivel nivel-principal">Principal</p>
+              <p>Importancia: el más icónico y transformador.</p>
+              <p>Perfil: una estrella de rock alienígena y andrógina enviada a la Tierra antes del fin de los tiempos. Rompió las barreras de género de la época.</p>
+              <p class="volver">Tocá para volver a la foto</p>
+            </div>
+          </article>
+        </div>
+        <div class="col ficha-col principal">
+          <article class="ficha principal">
+            <div class="ficha-foto">
+              <img src="img/vida/alter-duke.jpg" alt="The Thin White Duke">
+              <p class="ficha-anio">1975–1976</p>
+            </div>
+            <div class="ficha-descripcion oculto">
+              <h2 class="ficha-nombre">The Thin White Duke</h2>
+              <p class="nivel nivel-principal">Principal</p>
+              <p>Importancia: su transformación más oscura y conceptual.</p>
+              <p>Perfil: un aristócrata frío, elegante e inexpresivo, inspirado en el cabaret berlinés y el krautrock.</p>
+              <p class="volver">Tocá para volver a la foto</p>
+            </div>
+          </article>
+        </div>
+        <div class="col ficha-col principal">
+          <article class="ficha principal">
+            <div class="ficha-foto">
+              <img src="img/vida/alter-aladdin.jpg" alt="Aladdin Sane">
+              <p class="ficha-anio">1973</p>
+            </div>
+            <div class="ficha-descripcion oculto">
+              <h2 class="ficha-nombre">Aladdin Sane</h2>
+              <p class="nivel nivel-principal">Principal</p>
+              <p>Importancia: la imagen más famosa de Bowie, con el rayo pintado en la cara.</p>
+              <p>Perfil: "Ziggy va a Estados Unidos": el choque cultural y la fama que fragmenta la mente.</p>
+              <p class="volver">Tocá para volver a la foto</p>
+            </div>
+          </article>
+        </div>
+        <div class="col ficha-col principal">
+          <article class="ficha principal">
+            <div class="ficha-foto">
+              <img src="img/vida/alter-majortom.jpg" alt="Major Tom">
+              <p class="ficha-anio">1969–2016</p>
+            </div>
+            <div class="ficha-descripcion oculto">
+              <h2 class="ficha-nombre">Major Tom</h2>
+              <p class="nivel nivel-principal">Principal</p>
+              <p>Importancia: su personaje más longevo.</p>
+              <p>Perfil: el astronauta perdido de "Space Oddity", que reaparece en "Ashes to Ashes" y, como esqueleto espacial, en el video de "Blackstar".</p>
+              <p class="volver">Tocá para volver a la foto</p>
+            </div>
+          </article>
+        </div>
+        <div class="col ficha-col secundario">
+          <article class="ficha secundario">
+            <div class="ficha-foto">
+              <img src="img/vida/alter-halloween.jpg" alt="Halloween Jack">
+              <p class="ficha-anio">1974</p>
+            </div>
+            <div class="ficha-descripcion oculto">
+              <h2 class="ficha-nombre">Halloween Jack</h2>
+              <p class="nivel nivel-secundario">Secundario</p>
+              <p>Importancia: el puente entre el glam de Ziggy y el soul.</p>
+              <p>Perfil: un "gato" con parche en el ojo que habita la distópica Hunger City de Diamond Dogs.</p>
+              <p class="volver">Tocá para volver a la foto</p>
+            </div>
+          </article>
+        </div>
+        <div class="col ficha-col secundario">
+          <article class="ficha secundario">
+            <div class="ficha-foto">
+              <img src="img/vida/alter-pierrot.jpg" alt="Pierrot">
+              <p class="ficha-anio">1980</p>
+            </div>
+            <div class="ficha-descripcion oculto">
+              <h2 class="ficha-nombre">Pierrot</h2>
+              <p class="nivel nivel-secundario">Secundario</p>
+              <p>Importancia: el símbolo visual de Scary Monsters.</p>
+              <p>Perfil: un payaso melancólico que mira con autocrítica los excesos del pasado.</p>
+              <p class="volver">Tocá para volver a la foto</p>
+            </div>
+          </article>
+        </div>
+        <div class="col ficha-col secundario">
+          <article class="ficha secundario">
+            <div class="ficha-foto">
+              <img src="img/vida/alter-prophet.jpg" alt="The Blind Prophet">
+              <p class="ficha-anio">2016</p>
+            </div>
+            <div class="ficha-descripcion oculto">
+              <h2 class="ficha-nombre">The Blind Prophet</h2>
+              <p class="nivel nivel-secundario">Secundario</p>
+              <p>Importancia: su despedida artística consciente.</p>
+              <p>Perfil: un hombre con vendas y botones por ojos en los videos de "Blackstar" y "Lazarus", enfrentando con misticismo su propia mortalidad.</p>
+              <p class="volver">Tocá para volver a la foto</p>
+            </div>
+          </article>
+        </div>
+        <div class="col ficha-col secundario">
+          <article class="ficha secundario">
+            <div class="ficha-foto">
+              <img src="img/vida/alter-adler.jpg" alt="Nathan Adler">
+              <p class="ficha-anio">1995</p>
+            </div>
+            <div class="ficha-descripcion oculto">
+              <h2 class="ficha-nombre">Nathan Adler</h2>
+              <p class="nivel nivel-secundario">Secundario</p>
+              <p>Importancia: el pilar del universo narrativo de 1. Outside.</p>
+              <p>Perfil: un detective de la División de Crímenes Artísticos en un futuro cyberpunk que investiga un asesinato ritual.</p>
+              <p class="volver">Tocá para volver a la foto</p>
+            </div>
+          </article>
+        </div>
+        <div class="col ficha-col complementario">
+          <article class="ficha complementario">
+            <div class="ficha-foto">
+              <img src="img/vida/alter-sailor.jpg" alt="Sailor El marinero">
+              <p class="ficha-anio">2002–2003</p>
+            </div>
+            <div class="ficha-descripcion oculto">
+              <h2 class="ficha-nombre">Sailor "El marinero"</h2>
+              <p class="nivel nivel-complementario">Complementario</p>
+              <p>Importancia: su alter ego de la era madura.</p>
+              <p>Perfil: la cara sobria, cercana y accesible de las eras Heathen y Reality, que usaba para escribirles a sus fans en los foros de su sitio web.</p>
+              <p class="volver">Tocá para volver a la foto</p>
+            </div>
+          </article>
+        </div>
+        <div class="col ficha-col complementario">
+          <article class="ficha complementario">
+            <div class="ficha-foto">
+              <img src="img/vida/alter-outside.jpg" alt="Los habitantes de 1. Outside">
+              <p class="ficha-anio">1995</p>
+            </div>
+            <div class="ficha-descripcion oculto">
+              <h2 class="ficha-nombre">Los habitantes de 1. Outside</h2>
+              <p class="nivel nivel-complementario">Complementario</p>
+              <p>Importancia: sub-personajes interpretados por Bowie para darle voz a distintas facetas de una misma historia.</p>
+              <p>Perfil: un anciano, un exconvicto, la víctima de 14 años y una traficante de arte.</p>
+              <p class="volver">Tocá para volver a la foto</p>
+            </div>
+          </article>
+        </div>
+        <div class="col ficha-col complementario">
+          <article class="ficha complementario">
+            <div class="ficha-foto">
+              <img src="img/vida/alter-mimo.jpg" alt="El Mimo Cloud">
+              <p class="ficha-anio">1967–1968</p>
+            </div>
+            <div class="ficha-descripcion oculto">
+              <h2 class="ficha-nombre">El Mimo "Cloud"</h2>
+              <p class="nivel nivel-complementario">Complementario</p>
+              <p>Importancia: el origen de su lenguaje corporal.</p>
+              <p>Perfil: su personaje de pantomima sin voz, base de la expresividad física que aplicaría en todos sus alter egos posteriores.</p>
+              <p class="volver">Tocá para volver a la foto</p>
+            </div>
+          </article>
+        </div>
+        <div class="col ficha-col complementario">
+          <article class="ficha complementario">
+            <div class="ficha-foto">
+              <img src="img/vida/alter-mod.jpg" alt="The Mod David Jones">
+              <p class="ficha-anio">1964–1967</p>
+            </div>
+            <div class="ficha-descripcion oculto">
+              <h2 class="ficha-nombre">The Mod "David Jones"</h2>
+              <p class="nivel nivel-complementario">Complementario</p>
+              <p>Importancia: la incubadora antes de la invención del seudónimo "Bowie".</p>
+              <p>Perfil: su primera estética de joven londinense impecable, enfocado en el R&amp;B británico y la subcultura mod.</p>
+              <p class="volver">Tocá para volver a la foto</p>
+            </div>
+          </article>
+        </div>
 
     </section>
   </main>
@@ -94,5 +325,7 @@
 
   <!-- JS de Bootstrap: hace funcionar el menú hamburguesa y los submenús -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- DESPUÉS nuestro JavaScript (Clase 07: los scripts van al final del body) -->
+  <script src="js/alterego.js"></script>
 </body>
 </html>

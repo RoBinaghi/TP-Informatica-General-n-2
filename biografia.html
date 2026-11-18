@@ -19,22 +19,56 @@
 </head>
 <body>
 
-
+  <!-- =====================================================================
+       MENÚ — organizado según el MAPA DE NAVEGACIÓN
+         Inicio
+         Trayectoria e identidad ▾     → Biografía, Alter ego
+         Producción musical ▾          → Álbumes, Colaboraciones
+         Otras disciplinas artísticas ▾ → Actuación, Pinturas
+         Contacto · Créditos
+       Clase 03: el menú va dentro de <header> y <nav> (etiquetas semánticas)
+       y es una lista ul > li > a.
+       Clase 19: framework Bootstrap (componente "navbar").
+       ===================================================================== -->
   <header>
-   
+    <!-- CAMBIO 1 — HORIZONTAL QUE SE VUELVE HAMBURGUESA
+         [NO VISTO EN CLASE] La clase "navbar-expand-lg" de Bootstrap.
+         La Clase 19 presenta Bootstrap y remite a su documentación; para saber
+         qué clase usar le pedimos ayuda a una IA (Claude) y lo verificamos en
+         getbootstrap.com (Components > Navbar > "Responsive behaviors").
+         Qué hace: desde 992px (compu) el menú se ve HORIZONTAL, en una fila;
+         por debajo de 992px (tablet y celular) se transforma en HAMBURGUESA ☰.
+         Es la misma idea de las media queries de la Clase 19, pero ya resuelta
+         por Bootstrap. Lo probamos achicando la ventana del navegador. -->
     <nav class="navbar navbar-expand-lg navbar-dark barra">
       <div class="container">
-      
+        <!-- Botón ☰ (Bootstrap): solo se ve por debajo de 992px.
+             data-bs-target="#menu" indica qué se abre: el div con id="menu" -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
                 aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">
           <span class="navbar-toggler-icon"></span>
         </button>
 
+<<<<<<< Updated upstream
     
         <a class="navbar-brand marca bio order-lg-last" href="index.html">Bowie</a>
+=======
+        <!-- CAMBIO 2 — "BOWIE" A LA DERECHA
+             Va después del botón ☰, así en celular queda a la derecha.
+             [NO VISTO EN CLASE] "order-lg-last" (Bootstrap, consultado con Claude):
+             desde 992px lo manda al final de la fila, a la derecha del menú. -->
+        <a class="navbar-brand marca order-lg-last bio" href="index.html">Bowie</a>
+>>>>>>> Stashed changes
 
         <div class="collapse navbar-collapse" id="menu">
-       
+          <!-- CAMBIO 3 — [NO VISTO EN CLASE] "me-auto" (Bootstrap, consultado con Claude):
+               le da al menú todo el margen libre de su derecha y así empuja "Bowie" al borde.
+               CAMBIO 4 — SUBMENÚS DEL MAPA: las 3 secciones son submenús.
+               [NO VISTO EN CLASE] El componente "dropdown" de Bootstrap (consultado con
+               Claude y verificado en getbootstrap.com > Components > Dropdowns): el JS de
+               Bootstrap abre la lista cuando se toca un enlace con data-bs-toggle="dropdown".
+               Se sacaron Música, Más allá de la música, Teatro y Audiovisual,
+               que ya no están en el mapa. -->
           <ul class="navbar-nav me-auto">
             <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
             <li class="nav-item dropdown">
@@ -66,8 +100,9 @@
     </nav>
   </header>
 
-  <main class="container">
+  <main>
 
+<<<<<<< Updated upstream
     <!-- CARTELERA EN CAPAS: Ziggy señala los ojos de Bowie
          Las dos imágenes se encuentran una encima de la otra
          (estilos en css/estilos.css: "CARTELERA EN CAPAS").
@@ -411,10 +446,257 @@
           <h3>Blackstar y despedida</h3>
           <p>El 8 de enero, en su cumpleaños 69, publica <em>Blackstar</em>. Dos días después, el 10 de enero, muere en Nueva York a causa de un cáncer. El disco se convierte en su despedida.</p>
         </div>
+=======
+    <!-- =====================================================================
+         1) CARTELERA EN CAPAS: EL DEDO SEÑALA LOS OJOS
+         Son dos imágenes PNG con fondo transparente, una encima de la otra:
+           - la cara (atrás), a la derecha
+           - Ziggy señalando (adelante), a la izquierda
+         Clase 10: position relative en la cartelera y absolute en las capas,
+         con z-index para decidir cuál va adelante.
+         Clase 04: los tamaños y posiciones van en PORCENTAJES, así el dedo
+         queda a la altura de los ojos en cualquier pantalla.
+         ===================================================================== -->
+    <section class="container">
+      <div class="cartelera bio cartelera-capas">
+        <img src="img/vida/bio-cara.png" class="capa-cara" alt="Cara de Bowie con el rayo de Aladdin Sane">
+        <img src="img/vida/bio-dedo.png" class="capa-dedo" alt="Bowie como Ziggy Stardust señalando hacia los ojos">
+        <h1 class="titulo-senalado">Biografía</h1>
+>>>>>>> Stashed changes
       </div>
 
+      <!-- DEBAJO DE LA CARTELERA: los años y la invitación a recorrer su vida.
+           Clase 10: flexbox, uno a la izquierda y otro a la derecha. -->
+      <div class="debajo-cartelera">
+        <p class="fechas-senaladas">1947 – 2016</p>
+        <!-- Clase 01: enlace a una parte de la misma página (id="linea-de-tiempo") -->
+        <a class="bajar" href="#linea-de-tiempo">Recorré su vida ↓</a>
+      </div>
     </section>
 
+<<<<<<< Updated upstream
+=======
+    <!-- =====================================================================
+         2) INTRO + GUITARRA QUE CAMBIA DE COLOR
+         Grilla de Bootstrap: texto en 7 columnas y guitarra en 5 (desde 992px).
+         El "camaleón del rock" cambia de color con cada clic (js/biografia.js).
+         ===================================================================== -->
+    <section class="container texto-bio">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-7">
+          <h2 class="titulo-seccion">El camaleón del rock</h2>
+          <p>David Robert Jones, conocido artísticamente como David Bowie, fue músico, actor y artista visual.
+            Para él, la música, la imagen y la actuación formaban parte de una misma expresión artística.
+            Su capacidad para transformarse y crear diferentes personajes hizo que fuera el camaleón del rock.</p>
+          <p>Su vida estuvo marcada por la transformación, la experimentación y una búsqueda artística constante.
+            Dejó una huella en la música, la moda, el teatro y las artes visuales.</p>
+        </div>
+
+        <!-- Son 6 versiones de la misma foto; se ve una sola, las otras tienen "oculto" -->
+        <div class="col-lg-5 guitarra" id="guitarra">
+          <img src="img/vida/guitarra-1.png" class="foto-color" alt="Bowie tocando la guitarra, en violeta">
+          <img src="img/vida/guitarra-2.png" class="foto-color oculto" alt="Bowie tocando la guitarra, en azul">
+          <img src="img/vida/guitarra-3.png" class="foto-color oculto" alt="Bowie tocando la guitarra, en verde">
+          <img src="img/vida/guitarra-4.png" class="foto-color oculto" alt="Bowie tocando la guitarra, en amarillo">
+          <img src="img/vida/guitarra-5.png" class="foto-color oculto" alt="Bowie tocando la guitarra, en naranja">
+          <img src="img/vida/guitarra-6.png" class="foto-color oculto" alt="Bowie tocando la guitarra, en rojo">
+          <p class="pista-guitarra">Hacé clic en la foto: como un camaleón, cambia de color</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         3) LÍNEA DE TIEMPO
+         Clase 03: es una lista (ul > li), un hito por año.
+         Clase 04: la línea es el border-left de la lista.
+         Clase 10: cada punto va con position absolute sobre la línea.
+         Grilla de Bootstrap: foto en 4 columnas y texto en 8; una sí y una no
+         la foto pasa a la derecha con "order-md-last".
+         [NO VISTO EN CLASE] order-md-last (Bootstrap, consultado con Claude,
+         getbootstrap.com > Layout > Columns > Reordering).
+         Clase 14: al hacer clic en un hito se muestra u oculta su texto
+         (classList.toggle en js/biografia.js).
+         ===================================================================== -->
+    <section class="container" id="linea-de-tiempo">
+      <h2 class="titulo-seccion">Línea de tiempo</h2>
+      <p class="pista-guitarra">Hacé clic en cada año para leer más</p>
+
+      <ul class="hitos">
+        <li class="hito">
+          <span class="punto"></span>
+          <p class="hito-anio">1947</p>
+          <h3 class="hito-titulo">Nace David Robert Jones</h3>
+          <p class="leer-mas">+ Leer más</p>
+          <p class="hito-texto oculto">Nace el 8 de enero de 1947 en Brixton, Londres, Inglaterra, en una familia de clase trabajadora.</p>
+        </li>
+        <li class="hito">
+          <span class="punto"></span>
+          <div class="row g-3 align-items-center">
+            <div class="col-md-4">
+              <img src="img/vida/bio-1950.jpg" class="hito-foto" alt="David Jones de chico, con su madre, frente a su casa">
+            </div>
+            <div class="col-md-8">
+              <p class="hito-anio">Años 50</p>
+              <h3 class="hito-titulo">Bromley y su hermano Terry</h3>
+              <p class="leer-mas">+ Leer más</p>
+              <p class="hito-texto oculto">A principios de los años 50 se muda con su familia a Bromley. Su hermano Terry lo acerca al jazz, al rock y a la literatura beat. Terry sufría esquizofrenia, una enfermedad que marcó profundamente a Bowie: el miedo a la locura lo acompañó durante gran parte de su vida y fue fuente de inspiración para muchas de sus canciones.</p>
+            </div>
+          </div>
+        </li>
+        <li class="hito">
+          <span class="punto"></span>
+          <p class="hito-anio">1962</p>
+          <h3 class="hito-titulo">Un golpe que lo marca</h3>
+          <p class="leer-mas">+ Leer más</p>
+          <p class="hito-texto oculto">A los 15 años, durante una pelea con su amigo George Underwood, recibe un golpe en el ojo izquierdo que le deja la pupila permanentemente dilatada (anisocoria). Se convierte en uno de sus rasgos más reconocidos.</p>
+        </li>
+        <li class="hito">
+          <span class="punto"></span>
+          <div class="row g-3 align-items-center">
+            <div class="col-md-4 order-md-last">
+              <img src="img/vida/bio-1964.jpg" class="hito-foto" alt="Davie Jones tocando con su banda en un programa de televisión">
+            </div>
+            <div class="col-md-8">
+              <p class="hito-anio">1964</p>
+              <h3 class="hito-titulo">Sus primeros pasos en la música</h3>
+              <p class="leer-mas">+ Leer más</p>
+              <p class="hito-texto oculto">Todavía como Davie Jones, graba su primer simple con la banda The King Bees.</p>
+            </div>
+          </div>
+        </li>
+        <li class="hito">
+          <span class="punto"></span>
+          <div class="row g-3 align-items-center">
+            <div class="col-md-4">
+              <img src="img/vida/bio-1967.jpg" class="hito-foto" alt="Lindsay Kemp y Bowie en escena, vestidos de Pierrot">
+            </div>
+            <div class="col-md-8">
+              <p class="hito-anio">1967</p>
+              <h3 class="hito-titulo">Mimo con Lindsay Kemp</h3>
+              <p class="leer-mas">+ Leer más</p>
+              <p class="hito-texto oculto">Estudia mimo con Lindsay Kemp, una experiencia que influye mucho en su forma de expresarse. Para Bowie, la música, la imagen y la actuación forman parte de una misma expresión artística.</p>
+            </div>
+          </div>
+        </li>
+        <li class="hito">
+          <span class="punto"></span>
+          <div class="row g-3 align-items-center">
+            <div class="col-md-4 order-md-last">
+              <img src="img/vida/bio-angela.jpg" class="hito-foto" alt="Bowie y Angela Barnett vestidos de blanco, a principios de los años 70">
+            </div>
+            <div class="col-md-8">
+              <p class="hito-anio">1970</p>
+              <h3 class="hito-titulo">Casamiento con Angela Barnett</h3>
+              <p class="leer-mas">+ Leer más</p>
+              <p class="hito-texto oculto">Se casa con Angela Barnett, con quien estará casado hasta 1980. En 1971 nace su hijo Duncan Jones.</p>
+            </div>
+          </div>
+        </li>
+        <li class="hito">
+          <span class="punto"></span>
+          <div class="row g-3 align-items-center">
+            <div class="col-md-4">
+              <img src="img/vida/bio-1972.jpg" class="hito-foto" alt="Bowie con la guitarra en la puerta del número 23 de Heddon Street, foto de la portada de Ziggy Stardust">
+            </div>
+            <div class="col-md-8">
+              <p class="hito-anio">1972</p>
+              <h3 class="hito-titulo">Nace Ziggy Stardust</h3>
+              <p class="leer-mas">+ Leer más</p>
+              <p class="hito-texto oculto">Crea a Ziggy Stardust, el más famoso de sus personajes. Su capacidad para transformarse lo convierte en el camaleón del rock.</p>
+            </div>
+          </div>
+        </li>
+        <li class="hito">
+          <span class="punto"></span>
+          <div class="row g-3 align-items-center">
+            <div class="col-md-4 order-md-last">
+              <img src="img/vida/bio-1973.jpg" class="hito-foto" alt="Bowie con el traje rayado de Kansai Yamamoto sobre fondo rojo">
+            </div>
+            <div class="col-md-8">
+              <p class="hito-anio">1973</p>
+              <h3 class="hito-titulo">Los trajes de Kansai Yamamoto</h3>
+              <p class="leer-mas">+ Leer más</p>
+              <p class="hito-texto oculto">En la gira de Aladdin Sane usa los trajes del diseñador japonés Kansai Yamamoto. Ese año despide a Ziggy en un concierto en Londres.</p>
+            </div>
+          </div>
+        </li>
+        <li class="hito">
+          <span class="punto"></span>
+          <p class="hito-anio">1976</p>
+          <h3 class="hito-titulo">Berlín</h3>
+          <p class="leer-mas">+ Leer más</p>
+          <p class="hito-texto oculto">Después de una etapa marcada por los excesos y las adicciones en Los Ángeles, se traslada a Berlín junto a su amigo Iggy Pop para recuperarse. Esta etapa cambia su vida personal y su música.</p>
+        </li>
+        <li class="hito">
+          <span class="punto"></span>
+          <div class="row g-3 align-items-center">
+            <div class="col-md-4">
+              <img src="img/vida/bio-1992.jpg" class="hito-foto" alt="Bowie e Iman el día de su casamiento">
+            </div>
+            <div class="col-md-8">
+              <p class="hito-anio">1992</p>
+              <h3 class="hito-titulo">Casamiento con Iman</h3>
+              <p class="leer-mas">+ Leer más</p>
+              <p class="hito-texto oculto">Se casa con la modelo Iman. En el año 2000 nace su hija Alexandra.</p>
+            </div>
+          </div>
+        </li>
+        <li class="hito">
+          <span class="punto"></span>
+          <div class="row g-3 align-items-center">
+            <div class="col-md-4 order-md-last">
+              <img src="img/vida/bio-2004.jpg" class="hito-foto" alt="Bowie sonriendo en un concierto de la gira Reality">
+            </div>
+            <div class="col-md-8">
+              <p class="hito-anio">2004</p>
+              <h3 class="hito-titulo">La gira Reality</h3>
+              <p class="leer-mas">+ Leer más</p>
+              <p class="hito-texto oculto">Sufre un problema cardíaco durante la gira de su disco Reality y se aleja de los escenarios.</p>
+            </div>
+          </div>
+        </li>
+        <li class="hito">
+          <span class="punto"></span>
+          <div class="row g-3 align-items-center">
+            <div class="col-md-4">
+              <img src="img/vida/bio-2013.jpg" class="hito-foto" alt="Bowie en el video de The Next Day">
+            </div>
+            <div class="col-md-8">
+              <p class="hito-anio">2013</p>
+              <h3 class="hito-titulo">El regreso: The Next Day</h3>
+              <p class="leer-mas">+ Leer más</p>
+              <p class="hito-texto oculto">Después de varios años de ausencia, regresa con el álbum The Next Day.</p>
+            </div>
+          </div>
+        </li>
+        <li class="hito">
+          <span class="punto"></span>
+          <div class="row g-3 align-items-center">
+            <div class="col-md-4 order-md-last">
+              <img src="img/vida/bio-blackstar.jpg" class="hito-foto" alt="Bowie sonriendo con sombrero y traje, junto a la estrella negra de Blackstar">
+            </div>
+            <div class="col-md-8">
+              <p class="hito-anio">2016</p>
+              <h3 class="hito-titulo">Blackstar</h3>
+              <p class="leer-mas">+ Leer más</p>
+              <p class="hito-texto oculto">Durante sus últimos años atravesó un cáncer que mantuvo en privado. El 8 de enero de 2016, el día de su cumpleaños 69, publica Blackstar. Dos días después, el 10 de enero, muere en Nueva York.</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- 4) FUENTES -->
+    <section class="container fuentes">
+      <p>Fuentes: investigación del grupo a partir del documental de YouTube y del sitio oficial davidbowie.com.</p>
+      <p>Fotos:<br>
+        <em>Bowie by Mick Rock</em>: muestra dedicada a su histórico trabajo como fotógrafo oficial de David Bowie. Muestra 2018, La Rural.<br>
+        La última sesión de fotos de David Bowie: fotógrafo personal, Jimmy King. Instagram de Iman Bowie.<br>
+        Traje de Kansai Yamamoto: fotografía de Masayoshi Sukita (1973).<br>
+        Portada de Ziggy Stardust: fotografía de Brian Ward (1972).</p>
+    </section>
+
+>>>>>>> Stashed changes
   </main>
 
   <!-- PIE DE PÁGINA ( footer y address) -->
@@ -439,6 +721,10 @@
 
   <!-- JS de Bootstrap: hace funcionar el menú hamburguesa y los submenús -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<<<<<<< Updated upstream
+=======
+  <!-- DESPUÉS nuestro JavaScript (Clase 07: los scripts van al final del body) -->
+>>>>>>> Stashed changes
   <script src="js/biografia.js"></script>
 </body>
 </html>

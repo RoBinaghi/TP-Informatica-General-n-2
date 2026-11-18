@@ -1,9 +1,34 @@
+<<<<<<< Updated upstream
+=======
+/* =========================================================
+   ESTILOS — Sitio David Bowie (una sola hoja para todo el sitio)
+   Se carga DESPUÉS de Bootstrap para poder pisar sus estilos (Clase 19).
+
+   CÓMO LEER LOS COMENTARIOS
+   (Clase NN)          = está explicado en el PDF de esa clase.
+   [NO VISTO EN CLASE] = no está en los PDF; al lado se explica qué hace.
+
+   PARTE 1 — BASE, MENÚ Y PIE (todas las páginas)
+   ========================================================= */
+/* CORRECCIÓN 1: a este comentario le faltaba la barra "/" al principio.
+   Sin ella, el navegador no lo tomaba como comentario y anulaba la regla
+   "body" completa (por eso no se veía el fondo de estrellas). */
+
+
+
+/* Clase 02: color, background-color, background-image, font-family
+   Clase 04: background-repeat, background-position, background-attachment, min-height y vh */
+>>>>>>> Stashed changes
 body {
   min-height: 100vh;
   background-color: #0c0c0c;
   background-image: url("../img/vida/fondo-estrellas.svg");
   background-repeat: no-repeat;     
+<<<<<<< Updated upstream
   background-size: cover;            /* estira la imagen para que cubra todo el ancho y alto */
+=======
+  background-size: cover;            /* [NO VISTO EN CLASE] estira la imagen para que cubra todo el ancho y alto */
+>>>>>>> Stashed changes
   background-position: center;
   background-attachment: fixed;      /* el fondo queda fijo al hacer scroll */
   color: #fff3d6;
@@ -11,13 +36,21 @@ body {
   font-weight: 300;
 }
 
+<<<<<<< Updated upstream
 /*  tipografía de los títulos */
+=======
+/* Clase 02: tipografía de los títulos */
+>>>>>>> Stashed changes
 h1, h2, h3 {
   font-family: 'Fredoka', sans-serif;
   font-weight: 600;
 }
 
+<<<<<<< Updated upstream
 /*  pseudo-clases de enlaces, en orden link, visited, hover, active */
+=======
+/* Clase 04: pseudo-clases de enlaces, en orden link, visited, hover, active */
+>>>>>>> Stashed changes
 a:link {
   color: #00ade3;
 }
@@ -34,13 +67,22 @@ a:active {
   color: #fff3d6;
 }
 
+<<<<<<< Updated upstream
 /* display none. Es la clase que usa JavaScript para esconder elementos.
   NO BORRAR para usar en la guitarra, el filtro, las fichas y el formulario. */
+=======
+/* Clase 04: display none. Es la clase que usa JavaScript para esconder elementos.
+   No la borres: para usar en la guitarra, el filtro, las fichas y el formulario. */
+>>>>>>> Stashed changes
 .oculto {
   display: none;
 }
 
+<<<<<<< Updated upstream
 /* MENÚ HAMBURGUESA (navbar de Bootstrap)  */
+=======
+/* ---------- MENÚ HAMBURGUESA (navbar de Bootstrap) ---------- */
+>>>>>>> Stashed changes
 
 .barra {
   background-color: #0d0010;
@@ -102,7 +144,11 @@ a:active {
 }
 
 
+<<<<<<< Updated upstream
 /*TÍTULO Y TEXTO DE ENTRADA -/
+=======
+/* ---------- TÍTULO Y TEXTO DE ENTRADA ---------- */
+>>>>>>> Stashed changes
 
 /* Título grande de la página (tipografía /  border y padding) */
 .titulo-pagina {
@@ -123,7 +169,11 @@ a:active {
 }
 
 
+<<<<<<< Updated upstream
 /* PIE DE PÁGINA */
+=======
+/* ---------- PIE DE PÁGINA ---------- */
+>>>>>>> Stashed changes
 
 /* background-color, color, text-align / padding y margin */
 .pie {
@@ -147,7 +197,13 @@ a:active {
 
 /* ==========================================
    ESTILOS DE LA PORTADA CON VIDEO (HERO)
+<<<<<<< Updated upstream
    ayuda IA en esta parte:
+=======
+   Clase 10: position relative/absolute, z-index y flexbox.
+   Clase 02: rgba. Clase 04: overflow, min-height y vh.
+   [NO VISTO EN CLASE] en esta parte:
+>>>>>>> Stashed changes
    - transform: translate(-50%, -50%) → centra el video moviéndolo la mitad de su tamaño.
    - object-fit: cover → el video cubre la caja sin deformarse (recorta lo que sobra).
    ========================================== */
@@ -226,6 +282,11 @@ a:active {
 }
 
 /* ---------- INDEX: TARJETAS ----------
+<<<<<<< Updated upstream
+=======
+   Clase 02: rgba. Clase 04: hover y overflow.
+   [NO VISTO EN CLASE] en esta parte:
+>>>>>>> Stashed changes
    - cursor: pointer → muestra la "manito" al pasar el mouse.
    - transition → hace que los cambios (color, tamaño) sean graduales.
    - transform: scale(1.04) → agranda la imagen un 4 %.
@@ -278,6 +339,11 @@ a:active {
 }
 
 /* ---------- CARRUSELES (Actuación y Álbumes) ----------
+<<<<<<< Updated upstream
+=======
+   Clase 10: flexbox y position. Clase 04: overflow.
+   [NO VISTO EN CLASE] en esta parte:
+>>>>>>> Stashed changes
    - gap → espacio entre los elementos del flexbox.
    - flex: 0 0 44% → cada póster ocupa el 44 % del ancho y no se estira ni se achica.
    - aspect-ratio → mantiene la proporción (2/3 vertical, 1/1 cuadrado).
@@ -325,7 +391,11 @@ a:active {
   display: none; /* Oculta barra en Chrome, Safari y Edge */
 }
 
+<<<<<<< Updated upstream
 /* CORRECCIÓN: acá estaban repetidas las reglas .poster-item y .poster-item img
+=======
+/* CORRECCIÓN 2: acá estaban repetidas las reglas .poster-item y .poster-item img
+>>>>>>> Stashed changes
    (con aspect-ratio 2/3), entonces los álbumes nunca quedaban cuadrados.
    Ahora solo los pósters DENTRO del carrusel cuadrado son 1:1. */
 .carrusel-cuadrado .poster-item {
@@ -364,6 +434,11 @@ a:active {
 }
 
 /* ---------- ESTILOS DE LA PÁGINA ÁLBUMES ----------
+<<<<<<< Updated upstream
+=======
+   Clase 10: position. Clase 02: rgba. Clase 04: hover, overflow, padding.
+   [NO VISTO EN CLASE] en esta parte:
+>>>>>>> Stashed changes
    - inset: 0 → ocupa toda la caja (es top, right, bottom y left en 0 a la vez).
    - aspect-ratio, object-fit, opacity, transition, transform, cursor, border-radius (ver arriba).
    - letter-spacing → espacio entre letras. width: fit-content → ancho justo del contenido. */
@@ -404,6 +479,11 @@ a:active {
   opacity: 1;
 }
 
+<<<<<<< Updated upstream
+=======
+/* CORRECCIÓN 3: saqué .badge-anio y .tarjeta-album:hover repetidos (quedan una sola vez). */
+/* Etiqueta tipo píldora para el año (similar a la referencia visual) */
+>>>>>>> Stashed changes
 .badge-anio {
   display: inline-block;
   border: 1px solid rgba(255, 255, 255, 0.5);
@@ -415,8 +495,16 @@ a:active {
 }
 
 
+<<<<<<< Updated upstream
 /* BIOGRAFÍA */
 /* En Biografía, "Bowie" va en rojo y el pie en color petróleo */
+=======
+/* #########################################################
+   PARTE 2 — BIOGRAFÍA
+   ######################################################### */
+
+/* En Biografía, "Bowie" va en rojo y el pie en color petróleo (Clase 02: color) */
+>>>>>>> Stashed changes
 .barra .marca.bio {
   color: #d62338;
 }
@@ -433,6 +521,7 @@ a:active {
 
 /* ---------- CARTELERA (la foto del encabezado) ----------
    No ocupa toda la pantalla: está dentro del "container" de Bootstrap, con un marco.
+<<<<<<< Updated upstream
  position relative en el padre y absolute en el título.
  */
 .cartelera {
@@ -465,6 +554,20 @@ a:active {
 }
 
 
+=======
+   Clase 10: position relative en el padre y absolute en el título.
+   Clase 04: border y margin. */
+.cartelera {
+  position: relative;
+  border: 3px solid #ff913f;
+  margin-top: 1.5rem;
+}
+
+.cartelera.bio {
+  border-color: #d62338;
+}
+
+>>>>>>> Stashed changes
 /* La imagen ocupa todo el ancho de la cartelera (Clase 04: width y display) */
 .cartelera img {
   width: 100%;
@@ -488,7 +591,11 @@ a:active {
 }
 
 /* ---------- TEXTO ---------- */
+<<<<<<< Updated upstream
 
+=======
+/* Clase 04: padding y margin / Clase 02: font-size */
+>>>>>>> Stashed changes
 .texto-bio {
   padding-top: 1.5rem;
 }
@@ -505,7 +612,12 @@ a:active {
 }
 
 /* ---------- FOTO DE LA GUITARRA QUE CAMBIA DE COLOR ----------
+<<<<<<< Updated upstream
      Las 6 versiones de color se intercambian con JavaScript (js/biografia.js)
+=======
+   Clase 02: text-align. Clase 04: width, max-width y padding.
+   Las 6 versiones de color se intercambian con JavaScript (js/biografia.js)
+>>>>>>> Stashed changes
    usando la clase .oculto (display: none) que está en la Parte 1. */
 .guitarra {
   text-align: center;
@@ -518,6 +630,7 @@ a:active {
   max-width: 380px;
 }
 
+<<<<<<< Updated upstream
 /* CAMBIO : foto de Bowie con la guitarra y botones de colores.
     - cursor: pointer → muestra la manito para que se note que se puede tocar.
    - border-radius: 50% → botones redondos.
@@ -567,6 +680,8 @@ a:active {
 .color-petroleo { background-color: #2f8a9c; }
 .color-dorada   { background-color: #e0b12f; }
 
+=======
+>>>>>>> Stashed changes
 .pista-guitarra {
   font-size: 0.85rem;
   color: #d62338;
@@ -588,6 +703,11 @@ a:active {
 
 
 /* ---------- CARTELERA EN CAPAS: EL DEDO SEÑALA LOS OJOS ----------
+<<<<<<< Updated upstream
+=======
+   Clase 10: position relative en la caja y absolute en las capas, z-index.
+   Clase 04: width, height y posiciones en porcentajes, padding y overflow.
+>>>>>>> Stashed changes
    La altura de la caja sale del padding-bottom en %: un padding en %
    se calcula sobre el ANCHO, entonces 42% hace que la caja mida siempre
    42% de alto respecto de su ancho, y las capas no se corren. */
@@ -614,7 +734,11 @@ a:active {
   position: absolute;
   left: 0;
   bottom: 0;
+<<<<<<< Updated upstream
   width: 62%;             /* va junto con el padding-bottom de .cartelera-capas.bio */
+=======
+  width: 62%;
+>>>>>>> Stashed changes
   z-index: 2;
 }
 
@@ -622,18 +746,31 @@ a:active {
 .titulo-senalado {
   position: absolute;
   right: 4%;
+<<<<<<< Updated upstream
   bottom: 0;             /* apoyada sobre el borde de abajo */
   z-index: 3;
   font-family: 'Jost', sans-serif;
   font-weight: 700;      /* en negrita */
   font-size: 1.6rem;
   line-height: 1;        /* sin espacio extra, así la palabra se apoya en la línea */
+=======
+  bottom: 6%;
+  z-index: 3;
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  font-size: 1.6rem;
+>>>>>>> Stashed changes
   color: #d62338;
   margin-bottom: 0;
 }
 
+<<<<<<< Updated upstream
 /* Debajo de la cartelera: años a la izquierda e invitación a la derecha*/
 
+=======
+/* Debajo de la cartelera: años a la izquierda e invitación a la derecha
+   (Clase 10: flexbox / Clase 04: padding) */
+>>>>>>> Stashed changes
 .debajo-cartelera {
   display: flex;
   justify-content: space-between;
@@ -647,7 +784,11 @@ a:active {
   margin-bottom: 0;
 }
 
+<<<<<<< Updated upstream
 /* enlace que baja a la línea de tiempo  */
+=======
+/* enlace que baja a la línea de tiempo (Clase 02: text-transform) */
+>>>>>>> Stashed changes
 .bajar {
   font-size: 0.85rem;
   text-transform: uppercase;
@@ -655,7 +796,11 @@ a:active {
 
 /* ---------- LÍNEA DE TIEMPO ---------- */
 
+<<<<<<< Updated upstream
 /* La lista sin viñetas; la línea roja es su borde izquierdo  */
+=======
+/* La lista sin viñetas; la línea roja es su borde izquierdo (Clase 04) */
+>>>>>>> Stashed changes
 .hitos {
   list-style: none;
   border-left: 3px solid #d62338;
@@ -664,13 +809,21 @@ a:active {
   margin-top: 1.5rem;
 }
 
+<<<<<<< Updated upstream
 /* Cada hito es "relative" para que su punto se ubique sobre la línea */
+=======
+/* Cada hito es "relative" para que su punto se ubique sobre la línea (Clase 10) */
+>>>>>>> Stashed changes
 .hito {
   position: relative;
   margin-bottom: 2.5rem;
 }
 
+<<<<<<< Updated upstream
 /* El punto cuadrado sobre la línea  position absolute) */
+=======
+/* El punto cuadrado sobre la línea (Clase 10: position absolute) */
+>>>>>>> Stashed changes
 .punto {
   position: absolute;
   left: -2.2rem;
@@ -702,6 +855,7 @@ a:active {
   font-size: 1.05rem;
 }
 
+<<<<<<< Updated upstream
 /* Fotos de los hitos con marco 
  fotos miden lo mismo (mismo ancho y mismo alto).
 ayuda ia  object-fit: cover → la foto llena la caja sin deformarse
@@ -711,10 +865,17 @@ ayuda ia  object-fit: cover → la foto llena la caja sin deformarse
   max-width: 320px;
   height: 14rem;
   object-fit: cover;
+=======
+/* Fotos de los hitos con marco (Clase 04: width, max-width y border) */
+.hito-foto {
+  width: 100%;
+  max-width: 320px;
+>>>>>>> Stashed changes
   display: block;
   border: 3px solid #245e6a;
 }
 
+<<<<<<< Updated upstream
 /* LÍNEA DE TIEMPO CON FOTOS AL COSTADO 
    Foto a la izquierda y texto a la derecha. En celular la foto va arriba.
    Las columnas las arma la grilla de Bootstrap en el HTML:
@@ -868,6 +1029,9 @@ ayuda ia cursor: pointer → la manito indica que se puede tocar. */
 }
 
 /*MEDIA QUERIES — siempre al final 
+=======
+/* Clase 19: MEDIA QUERIES — siempre al final 
+>>>>>>> Stashed changes
  Mobile first: arriba, celular; acá se agranda con min-width.
    Las reglas nuevas de cada página se agregan ADENTRO de estos
    mismos bloques, sin repetirlos*/
@@ -906,6 +1070,7 @@ ayuda ia cursor: pointer → la manito indica que se puede tocar. */
   .bajar {
     font-size: 1rem;
   }
+<<<<<<< Updated upstream
 
   /* CAMBIO línea de tiempo. Desde tablet, foto y texto quedan lado a lado */
   /* CAMBIO todos los años ocupan el mismo alto, así los espacios son iguales */
@@ -945,6 +1110,12 @@ ayuda ia cursor: pointer → la manito indica que se puede tocar. */
 }
 
 /* CORRECCIÓN y CAMBIO y — MENÚ HORIZONTAL (media queries).
+=======
+  
+}
+
+/* CORRECCIÓN 4 / CAMBIO 5 — MENÚ HORIZONTAL (Clase 19: media queries).
+>>>>>>> Stashed changes
    Desde 992px el menú se ve en una fila (navbar-expand-lg en el HTML).
    Sacamos el espacio de arriba y abajo y achicamos
    la letra  para que entren los 6 ítems. */
@@ -979,7 +1150,11 @@ ayuda ia cursor: pointer → la manito indica que se puede tocar. */
   }
 }
 
+<<<<<<< Updated upstream
 /* CAMBIO — En pantallas grandes (desde 1200px) la letra del menú vuelve a su tamaño (Clase 19) */
+=======
+/* CAMBIO 6 — En pantallas grandes (desde 1200px) la letra del menú vuelve a su tamaño (Clase 19) */
+>>>>>>> Stashed changes
 @media (min-width: 1200px) {
   .barra .nav-link {
     font-size: 0.95rem;
