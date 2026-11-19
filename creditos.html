@@ -2,44 +2,46 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <!-- Clase 19: viewport, para que el sitio sea responsive en el celular -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>David Bowie | Créditos</title>
 
-  <!-- 1) PRIMERO el CSS de Bootstrap ) -->
+  <!-- Bootstrap: CSS de Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- 2) Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&family=Jost:wght@300;500&display=swap" rel="stylesheet">
 
-  <!-- 3) DESPUÉS nuestra hoja de estilos (una sola para todo el sitio): así pisa a Bootstrap -->
   <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
 
- 
   <header>
-    
+    <!-- Bootstrap: navbar: barra de navegación · navbar-expand-lg: desde 992px el menú se ve en una fila; en pantallas más chicas se convierte en hamburguesa · navbar-dark: textos e ícono claros, para fondo oscuro -->
     <nav class="navbar navbar-expand-lg navbar-dark barra">
+      <!-- Bootstrap: container: caja centrada con un ancho máximo según la pantalla -->
       <div class="container">
-       
+        <!-- Bootstrap: navbar-toggler: el botón hamburguesa ☰ · data-bs-toggle / data-bs-target: el JavaScript de Bootstrap abre o cierra el elemento indicado (collapse = desplegable, dropdown = submenú, modal = ventana emergente) · aria-* y role: atributos que Bootstrap pide en sus componentes para los lectores de pantalla (accesibilidad) -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
                 aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">
+          <!-- Bootstrap: navbar-toggler-icon: dibuja las tres rayitas -->
           <span class="navbar-toggler-icon"></span>
         </button>
 
-       
+        <!-- Bootstrap: navbar-brand: el nombre del sitio en la barra · order-lg-last: desde 992px lo manda al final de la fila -->
         <a class="navbar-brand marca order-lg-last" href="index.html">Bowie</a>
 
+        <!-- Bootstrap: collapse: contenido que empieza oculto y se muestra con un botón · navbar-collapse: la parte del menú que se esconde en el celular -->
         <div class="collapse navbar-collapse" id="menu">
-         
+          <!-- Bootstrap: navbar-nav: la lista del menú · me-auto: margen derecho automático, empuja lo que sigue hacia la derecha -->
           <ul class="navbar-nav me-auto">
+            <!-- Bootstrap: nav-item / nav-link: cada ítem y cada link del menú -->
             <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+            <!-- Bootstrap: dropdown: submenú desplegable -->
             <li class="nav-item dropdown">
+              <!-- Bootstrap: dropdown-toggle: el botón que abre el submenú (con la flechita) -->
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Trayectoria e identidad</a>
+              <!-- Bootstrap: dropdown-menu: la lista que se despliega -->
               <ul class="dropdown-menu">
+                <!-- Bootstrap: dropdown-item: cada opción del submenú -->
                 <li><a class="dropdown-item" href="biografia.html">Biografía</a></li>
                 <li><a class="dropdown-item" href="alterego.html">Alter ego</a></li>
               </ul>
@@ -59,6 +61,7 @@
               </ul>
             </li>
             <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+            <!-- Bootstrap: active: marca la opción de la página actual -->
             <li class="nav-item"><a class="nav-link active" aria-current="page" href="creditos.html">Créditos</a></li>
           </ul>
         </div>
@@ -69,22 +72,55 @@
   <main class="container">
 
     <h1 class="titulo-pagina">Créditos</h1>
-    <p class="intro">Quién fue David Robert Jones y los personajes que inventó para convertirse en David Bowie.
-      Elegí una portada para entrar.</p>
 
-    
-    <section class="">
+    <p class="intro">Trabajo Práctico 2 · Informática General 2026 · Universidad Nacional de las Artes.</p>
 
-      <div class="">
-       
-          </div>
-       
-    
+      <!-- Bootstrap: row: fila de la grilla de 12 columnas · row-cols-N / row-cols-md-N / row-cols-lg-N: cuántas columnas entran por fila según el tamaño de pantalla · g-N: espacio entre las columnas de la grilla · m = margin, p = padding; t/b/s/e/x/y = arriba/abajo/izquierda/derecha/horizontal/vertical; el número (0 a 5) es el tamaño -->
+      <section class="row row-cols-1 row-cols-md-3 g-4 mb-5">
+        <!-- Bootstrap: col: columna que se reparte el ancho de la fila -->
+        <div class="col">
+          <article class="bloque bloque-verde">
+            <h2 class="titulo-seccion color-verde">Integrantes</h2>
+            <ul>
+              <li>Rocio</li>
+              <li>Micaela</li>
+              <li>Marcela</li>
+            </ul>
+          </article>
+        </div>
+        <div class="col">
+          <article class="bloque bloque-azul">
+            <h2 class="titulo-seccion color-azul">Materia</h2>
+            <p>Informática General 2026<br>Artes Multimediales · UNA · Turno noche</p>
+            <p><strong>Cátedra:</strong> Valeria Drelichman, Pedro Paleo, Leonardo Nadel, Norma Morales.</p>
+          </article>
+        </div>
+        <div class="col">
+          <article class="bloque">
+            <h2 class="titulo-seccion color-naranja">Tecnologías</h2>
+            <ul>
+              <li>HTML, CSS y JavaScript</li>
+              <li>Bootstrap 5 (framework CSS)</li>
+              <li>Google Fonts: Jost y Fredoka</li>
+            </ul>
+          </article>
+        </div>
+      </section>
 
-    </section>
+      <section>
+        <h2 class="titulo-seccion color-rosa">Fuentes</h2>
+        <ul>
+          <li><strong>Investigación:</strong> documental sobre David Bowie en YouTube (youtube.com/watch?v=IuV0cxamVjg).</li>
+          <li><strong>Sitio oficial:</strong> <a href="https://www.davidbowie.com" target="_blank">davidbowie.com</a></li>
+          <li><strong>Prensa:</strong> Rolling Stone en Español, "A 10 años de su muerte, David Bowie se hace viral gracias al final de Stranger Things".</li>
+          <li><strong>Fotos:</strong> <em>Bowie by Mick Rock</em>, muestra dedicada a su trabajo como fotógrafo oficial de David Bowie (La Rural, 2018); la última sesión de fotos de Bowie, del fotógrafo Jimmy King; Instagram de Iman Bowie.</li>
+          <li><strong>Fotógrafos de la línea de tiempo:</strong> Brian Ward (portada de Ziggy Stardust, 1972); Masayoshi Sukita (traje de Kansai Yamamoto, 1973).</li>
+          <li><strong>Diseño:</strong> propuesta visual del grupo, realizada en Adobe Illustrator.</li>
+          <li><strong>Uso de inteligencia artificial:</strong> consultamos a Claude (IA de Anthropic) para resolver dudas de código que no vimos en clase, como las clases de Bootstrap del menú y de la grilla. Todo lo revisamos y lo probamos nosotras.</li>
+        </ul>
+      </section>
   </main>
 
-  <!-- PIE DE PÁGINA ( footer y address) -->
   <footer class="pie">
     <p>Rocio - Micaela - Marcela</p>
     <p>IG2026 - Cátedra: Valeria Drelichman | Pedro Paleo | Leonardo Nadel | Norma Morales</p>
@@ -92,7 +128,7 @@
     <address class="mb-0"><a href="creditos.html">Créditos</a> · <a href="contacto.html">Contacto</a></address>
   </footer>
 
-  <!-- JS de Bootstrap: hace funcionar el menú hamburguesa y los submenús -->
+  <!-- Bootstrap: JavaScript de Bootstrap: hace funcionar el menú hamburguesa, los submenús, los desplegables y las ventanas emergentes -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
