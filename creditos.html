@@ -3,52 +3,66 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>David Bowie - Colaboraciones</title>
+  <title>David Bowie | Créditos</title>
 
-  <!-- 1) PRIMERO el CSS de Bootstrap -->
+  <!-- Bootstrap: CSS de Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- 2) Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&family=Jost:wght@300;500&display=swap" rel="stylesheet">
 
-  <!-- 3) DESPUÉS nuestra hoja de estilos -->
   <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
 
   <header>
-    <nav class="navbar navbar-dark barra">
+    <!-- Bootstrap: navbar: barra de navegación · navbar-expand-lg: desde 992px el menú se ve en una fila; en pantallas más chicas se convierte en hamburguesa · navbar-dark: textos e ícono claros, para fondo oscuro -->
+    <nav class="navbar navbar-expand-lg navbar-dark barra">
+      <!-- Bootstrap: container: caja centrada con un ancho máximo según la pantalla -->
       <div class="container">
+        <!-- Bootstrap: navbar-toggler: el botón hamburguesa ☰ · data-bs-toggle / data-bs-target: el JavaScript de Bootstrap abre o cierra el elemento indicado (collapse = desplegable, dropdown = submenú, modal = ventana emergente) · aria-* y role: atributos que Bootstrap pide en sus componentes para los lectores de pantalla (accesibilidad) -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
                 aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">
+          <!-- Bootstrap: navbar-toggler-icon: dibuja las tres rayitas -->
           <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand marca" href="index.html">Bowie</a>
 
+        <!-- Bootstrap: navbar-brand: el nombre del sitio en la barra · order-lg-last: desde 992px lo manda al final de la fila -->
+        <a class="navbar-brand marca order-lg-last" href="index.html">Bowie</a>
+
+        <!-- Bootstrap: collapse: contenido que empieza oculto y se muestra con un botón · navbar-collapse: la parte del menú que se esconde en el celular -->
         <div class="collapse navbar-collapse" id="menu">
-          <ul class="navbar-nav">
+          <!-- Bootstrap: navbar-nav: la lista del menú · me-auto: margen derecho automático, empuja lo que sigue hacia la derecha -->
+          <ul class="navbar-nav me-auto">
+            <!-- Bootstrap: nav-item / nav-link: cada ítem y cada link del menú -->
             <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-            <li class="nav-item"><a class="nav-link" href="biografia.html">Biografía</a></li>
-            <li class="nav-item"><a class="nav-link" href="alterego.html">Alter Ego</a></li>
+            <!-- Bootstrap: dropdown: submenú desplegable -->
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Música</a>
+              <!-- Bootstrap: dropdown-toggle: el botón que abre el submenú (con la flechita) -->
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Trayectoria e identidad</a>
+              <!-- Bootstrap: dropdown-menu: la lista que se despliega -->
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="musica.html">Música</a></li>
+                <!-- Bootstrap: dropdown-item: cada opción del submenú -->
+                <li><a class="dropdown-item" href="biografia.html">Biografía</a></li>
+                <li><a class="dropdown-item" href="alterego.html">Alter ego</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Producción musical</a>
+              <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="albumes.html">Álbumes</a></li>
-                <li><a class="dropdown-item active" href="colaboracion.html">Colaboraciones</a></li>
+                <li><a class="dropdown-item" href="colaboracion.html">Colaboraciones</a></li>
               </ul>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Otras disciplinas artísticas</a>
-              <ul class="dropdown-menu">      
-                <li><a class="dropdown-item" href="pinturas.html">Pinturas</a></li>
+              <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="actuacion.html">Actuación</a></li>
+                <li><a class="dropdown-item" href="pinturas.html">Pinturas</a></li>
               </ul>
             </li>
             <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
-            <li class="nav-item"><a class="nav-link" href="creditos.html">Créditos</a></li>
+            <!-- Bootstrap: active: marca la opción de la página actual -->
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="creditos.html">Créditos</a></li>
           </ul>
         </div>
       </div>
@@ -57,201 +71,54 @@
 
   <main class="container">
 
-    <!-- IMAGEN DESTACADA SUPERIOR -->
-    <section class="my-4">
-      <img src="img/colaboraciones-portada.jpg" alt="David Bowie y Mick Jagger" class="img-fluid rounded shadow w-100">
-    </section>
+    <h1 class="titulo-pagina">Créditos</h1>
 
-    <!-- TÍTULO PRINCIPAL E INTRODUCCIÓN -->
-    <section class="text-center my-4">
-      <h1 class="titulo-pagina">Colaboraciones</h1>
-      <p class="intro mx-auto">
-        A lo largo de casi cuatro décadas, David Bowie cruzó estilos y generaciones junto a figuras centrales del rock, el pop y la música alternativa. Este recorrido cronológico distingue entre duetos con protagonismo compartido y participaciones vocales como invitado o en coros.
-      </p>
-    </section>
+    <p class="intro">Trabajo Práctico 2 · Informática General 2026 · Universidad Nacional de las Artes.</p>
 
-    <!-- =========================================================
-         SECCIÓN 1: DUETOS Y VOCES COMPARTIDAS (1977 - 1999)
-    ========================================================== -->
-    <section class="my-5">
-      <h2 class="h3 text-uppercase border-bottom border-secondary pb-2 mb-5">Duetos y voces compartidas</h2>
+      <!-- Bootstrap: row: fila de la grilla de 12 columnas · row-cols-N / row-cols-md-N / row-cols-lg-N: cuántas columnas entran por fila según el tamaño de pantalla · g-N: espacio entre las columnas de la grilla · m = margin, p = padding; t/b/s/e/x/y = arriba/abajo/izquierda/derecha/horizontal/vertical; el número (0 a 5) es el tamaño -->
+      <section class="row row-cols-1 row-cols-md-3 g-4 mb-5">
+        <!-- Bootstrap: col: columna que se reparte el ancho de la fila -->
+        <div class="col">
+          <article class="bloque bloque-verde">
+            <h2 class="titulo-seccion color-verde">Integrantes</h2>
+            <ul>
+              <li>Rocio</li>
+              <li>Micaela</li>
+              <li>Marcela</li>
+            </ul>
+          </article>
+        </div>
+        <div class="col">
+          <article class="bloque bloque-azul">
+            <h2 class="titulo-seccion color-azul">Materia</h2>
+            <p>Informática General 2026<br>Artes Multimediales · UNA · Turno noche</p>
+            <p><strong>Cátedra:</strong> Valeria Drelichman, Pedro Paleo, Leonardo Nadel, Norma Morales.</p>
+          </article>
+        </div>
+        <div class="col">
+          <article class="bloque">
+            <h2 class="titulo-seccion color-naranja">Tecnologías</h2>
+            <ul>
+              <li>HTML, CSS y JavaScript</li>
+              <li>Bootstrap 5 (framework CSS)</li>
+              <li>Google Fonts: Jost y Fredoka</li>
+            </ul>
+          </article>
+        </div>
+      </section>
 
-      <!-- 1. Bing Crosby (1977) -->
-      <article class="mb-5 pb-4 border-bottom border-secondary">
-        <div class="d-flex flex-wrap justify-content-between align-items-baseline gap-2 mb-2">
-          <h3 class="h2 fw-bold mb-0">Bing Crosby — «Peace on Earth / Little Drummer Boy»</h3>
-          <span class="badge bg-secondary">1977 · Dueto</span>
-        </div>
-        <p class="mb-3">
-          Un encuentro inesperado entre dos generaciones y estilos musicales. Es una de las colaboraciones más singulares de Bowie.
-        </p>
-        <div class="ratio ratio-16x9 rounded overflow-hidden shadow">
-          <iframe src="https://www.youtube.com/embed/lCpXMy5GalI" title="Bing Crosby y David Bowie - Peace On Earth / Little Drummer Boy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
-        </div>
-      </article>
-
-      <!-- 2. Queen (1981) -->
-      <article class="mb-5 pb-4 border-bottom border-secondary">
-        <div class="d-flex flex-wrap justify-content-between align-items-baseline gap-2 mb-2">
-          <h3 class="h2 fw-bold mb-0">Queen — «Under Pressure»</h3>
-          <span class="badge bg-secondary">1981 · Dueto</span>
-        </div>
-        <p class="mb-3">
-          Una colaboración fundamental de la historia del rock, con Bowie y Freddie Mercury compartiendo las voces.
-        </p>
-        <div class="ratio ratio-16x9 rounded overflow-hidden shadow">
-          <iframe src="https://www.youtube.com/embed/a01QQZyl-_I" title="Queen y David Bowie - Under Pressure" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
-        </div>
-      </article>
-
-      <!-- 3. Tina Turner (1984) -->
-      <article class="mb-5 pb-4 border-bottom border-secondary">
-        <div class="d-flex flex-wrap justify-content-between align-items-baseline gap-2 mb-2">
-          <h3 class="h2 fw-bold mb-0">Tina Turner — «Tonight»</h3>
-          <span class="badge bg-secondary">1984 · Dueto</span>
-        </div>
-        <p class="mb-3">
-          Una colaboración que permite mostrar el cruce entre dos figuras fundamentales de la música popular. La versión conjunta se publicó en el álbum en vivo de Turner.
-        </p>
-        <div class="ratio ratio-16x9 rounded overflow-hidden shadow">
-          <iframe src="https://www.youtube.com/embed/p4WG_y7owmM" title="Tina Turner y David Bowie - Tonight (Live)" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
-        </div>
-      </article>
-
-      <!-- 4. Mick Jagger (1985) -->
-      <article class="mb-5 pb-4 border-bottom border-secondary">
-        <div class="d-flex flex-wrap justify-content-between align-items-baseline gap-2 mb-2">
-          <h3 class="h2 fw-bold mb-0">Mick Jagger — «Dancing in the Street»</h3>
-          <span class="badge bg-secondary">1985 · Dueto</span>
-        </div>
-        <p class="mb-3">
-          Una colaboración muy reconocible, acompañada por un videoclip que se convirtió en parte de la cultura visual de los años ochenta.
-        </p>
-        <div class="ratio ratio-16x9 rounded overflow-hidden shadow">
-          <iframe src="https://www.youtube.com/embed/HasaQvHCv4w" title="David Bowie y Mick Jagger - Dancing In The Street" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
-        </div>
-      </article>
-
-      <!-- 5. Adrian Belew (1990) -->
-      <article class="mb-5 pb-4 border-bottom border-secondary">
-        <div class="d-flex flex-wrap justify-content-between align-items-baseline gap-2 mb-2">
-          <h3 class="h2 fw-bold mb-0">Adrian Belew — «Pretty Pink Rose»</h3>
-          <span class="badge bg-secondary">1990 · Dueto</span>
-        </div>
-        <p class="mb-3">
-          Una colaboración menos conocida que permite ampliar el recorrido más allá de los grandes éxitos.
-        </p>
-        <div class="ratio ratio-16x9 rounded overflow-hidden shadow">
-          <iframe src="https://www.youtube.com/embed/xkCrULytNXo" title="Adrian Belew y David Bowie - Pretty Pink Rose" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
-        </div>
-      </article>
-
-      <!-- 6. Placebo (1999) -->
-      <article class="mb-5 pb-4 border-bottom border-secondary">
-        <div class="d-flex flex-wrap justify-content-between align-items-baseline gap-2 mb-2">
-          <h3 class="h2 fw-bold mb-0">Placebo — «Without You I'm Nothing»</h3>
-          <span class="badge bg-secondary">1999 · Dueto</span>
-        </div>
-        <p class="mb-3">
-          Una colaboración importante para mostrar la influencia de Bowie en generaciones posteriores del rock alternativo.
-        </p>
-        <div class="ratio ratio-16x9 rounded overflow-hidden shadow">
-          <iframe src="https://www.youtube.com/embed/c14qMbmP9eg" title="Placebo y David Bowie - Without You I'm Nothing" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
-        </div>
-      </article>
-    </section>
-
-    <!-- =========================================================
-         SECCIÓN 2: PARTICIPACIONES VOCALES Y COROS (1975 - 2013)
-    ========================================================== -->
-    <section class="my-5">
-      <h2 class="h3 text-uppercase border-bottom border-secondary pb-2 mb-5">Participaciones vocales y coros</h2>
-
-      <!-- 7. John Lennon (1975) -->
-      <article class="mb-5 pb-4 border-bottom border-secondary">
-        <div class="d-flex flex-wrap justify-content-between align-items-baseline gap-2 mb-2">
-          <h3 class="h2 fw-bold mb-0">John Lennon — «Fame»</h3>
-          <span class="badge bg-secondary">1975 · Guitarra y coros</span>
-        </div>
-        <p class="mb-3">
-          Lennon participa con guitarra y voces de acompañamiento. Es importante porque conecta a Bowie con otra figura central de la historia del rock.
-        </p>
-        <div class="ratio ratio-16x9 rounded overflow-hidden shadow">
-          <iframe src="https://www.youtube.com/embed/Ypgq0qdgVZA" title="David Bowie y John Lennon - Fame" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
-        </div>
-      </article>
-
-      <!-- 8. Goldie (1998) -->
-      <article class="mb-5 pb-4 border-bottom border-secondary">
-        <div class="d-flex flex-wrap justify-content-between align-items-baseline gap-2 mb-2">
-          <h3 class="h2 fw-bold mb-0">Goldie — «Truth»</h3>
-          <span class="badge bg-secondary">1998 · Vocalista invitado</span>
-        </div>
-        <p class="mb-3">
-          Una muestra del acercamiento de Bowie a la electrónica y a otros lenguajes musicales de los noventa.
-        </p>
-        <div class="ratio ratio-16x9 rounded overflow-hidden shadow">
-          <iframe src="https://www.youtube.com/embed/nr8jIYoneLA" title="Goldie y David Bowie - Truth" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
-        </div>
-      </article>
-
-      <!-- 9. Kashmir (2005) -->
-      <article class="mb-5 pb-4 border-bottom border-secondary">
-        <div class="d-flex flex-wrap justify-content-between align-items-baseline gap-2 mb-2">
-          <h3 class="h2 fw-bold mb-0">Kashmir — «The Cynic»</h3>
-          <span class="badge bg-secondary">2005 · Vocalista invitado</span>
-        </div>
-        <p class="mb-3">
-          Bowie participa como vocalista invitado. Es una colaboración menos difundida y muy interesante para representar su etapa tardía.
-        </p>
-        <div class="ratio ratio-16x9 rounded overflow-hidden shadow">
-          <iframe src="https://www.youtube.com/embed/HaLu63hExKM" title="Kashmir y David Bowie - The Cynic" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
-        </div>
-      </article>
-
-      <!-- 10. TV on the Radio (2006) -->
-      <article class="mb-5 pb-4 border-bottom border-secondary">
-        <div class="d-flex flex-wrap justify-content-between align-items-baseline gap-2 mb-2">
-          <h3 class="h2 fw-bold mb-0">TV on the Radio — «Province»</h3>
-          <span class="badge bg-secondary">2006 · Voces de acompañamiento</span>
-        </div>
-        <p class="mb-3">
-          Bowie aporta voces de acompañamiento a una banda de la escena alternativa neoyorquina.
-        </p>
-        <div class="ratio ratio-16x9 rounded overflow-hidden shadow">
-          <iframe src="https://www.youtube.com/embed/S8mwsJsSGUI" title="TV on the Radio y David Bowie - Province" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
-        </div>
-      </article>
-
-      <!-- 11. Scarlett Johansson (2008) -->
-      <article class="mb-5 pb-4 border-bottom border-secondary">
-        <div class="d-flex flex-wrap justify-content-between align-items-baseline gap-2 mb-2">
-          <h3 class="h2 fw-bold mb-0">Scarlett Johansson — «Falling Down» y «Fannin Street»</h3>
-          <span class="badge bg-secondary">2008 · Voces de acompañamiento</span>
-        </div>
-        <p class="mb-3">
-          Bowie aporta voces de acompañamiento en dos versiones de canciones de Tom Waits. Es un ejemplo interesante de colaboración fuera del ámbito habitual del rock.
-        </p>
-        <div class="ratio ratio-16x9 rounded overflow-hidden shadow">
-          <iframe src="https://www.youtube.com/embed/2FgwOcVTqEg" title="Scarlett Johansson y David Bowie - Falling Down" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
-        </div>
-      </article>
-
-      <!-- 12. Arcade Fire (2013) -->
-      <article class="mb-5 pb-4">
-        <div class="d-flex flex-wrap justify-content-between align-items-baseline gap-2 mb-2">
-          <h3 class="h2 fw-bold mb-0">Arcade Fire — «Reflektor»</h3>
-          <span class="badge bg-secondary">2013 · Voces de acompañamiento</span>
-        </div>
-        <p class="mb-3">
-          Una de sus últimas colaboraciones destacadas. Bowie participa con voces de acompañamiento en el tema que da nombre al álbum.
-        </p>
-        <div class="ratio ratio-16x9 rounded overflow-hidden shadow">
-          <iframe src="https://www.youtube.com/embed/4G7B8wAzqCk" title="Arcade Fire y David Bowie - Reflektor" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
-        </div>
-      </article>
-    </section>
-
+      <section>
+        <h2 class="titulo-seccion color-rosa">Fuentes</h2>
+        <ul>
+          <li><strong>Investigación:</strong> documental sobre David Bowie en YouTube (youtube.com/watch?v=IuV0cxamVjg).</li>
+          <li><strong>Sitio oficial:</strong> <a href="https://www.davidbowie.com" target="_blank">davidbowie.com</a></li>
+          <li><strong>Prensa:</strong> Rolling Stone en Español, "A 10 años de su muerte, David Bowie se hace viral gracias al final de Stranger Things".</li>
+          <li><strong>Fotos:</strong> <em>Bowie by Mick Rock</em>, muestra dedicada a su trabajo como fotógrafo oficial de David Bowie (La Rural, 2018); la última sesión de fotos de Bowie, del fotógrafo Jimmy King; Instagram de Iman Bowie.</li>
+          <li><strong>Fotógrafos de la línea de tiempo:</strong> Brian Ward (portada de Ziggy Stardust, 1972); Masayoshi Sukita (traje de Kansai Yamamoto, 1973).</li>
+          <li><strong>Diseño:</strong> propuesta visual del grupo, realizada en Adobe Illustrator.</li>
+          <li><strong>Uso de inteligencia artificial:</strong> consultamos a Claude (IA de Anthropic) para resolver dudas de código que no vimos en clase, como las clases de Bootstrap del menú y de la grilla. Todo lo revisamos y lo probamos nosotras.</li>
+        </ul>
+      </section>
   </main>
 
   <footer class="pie">
@@ -261,7 +128,7 @@
     <address class="mb-0"><a href="creditos.html">Créditos</a> · <a href="contacto.html">Contacto</a></address>
   </footer>
 
-  <!-- JS de Bootstrap -->
+  <!-- Bootstrap: JavaScript de Bootstrap: hace funcionar el menú hamburguesa, los submenús, los desplegables y las ventanas emergentes -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
