@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "Stay",
         "Wild Is the Wind"
       ],
-      video: "https://www.youtube.com/embed/VbpMpRq6DV4",
+      video: "https://www.youtube.com/embed/YsqlXkkEKxI",
       videoTitulo: "Video oficial: Wild Is the Wind",
       spotify: "https://open.spotify.com/search/Station%20to%20Station%20David%20Bowie",
       youtube: "https://music.youtube.com/search?q=Station+to+Station+David+Bowie",
@@ -196,7 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "The Jean Genie",
         "Lady Grinning Soul"
       ],
-      video: "https://www.youtube.com/embed/kMYg_rw2s0s",
+      video: "https://www.youtube.com/embed/kMYg_Ra4cr8",
       videoTitulo: "Video oficial: The Jean Genie",
       spotify: "https://open.spotify.com/search/Aladdin%20Sane%20David%20Bowie",
       youtube: "https://music.youtube.com/search?q=Aladdin+Sane+David+Bowie",
@@ -229,8 +229,8 @@ document.addEventListener('DOMContentLoaded', () => {
         "Segue - Nathan Adler",
         "Strangers When We Meet"
       ],
-      video: "https://www.youtube.com/embed/76yQ0FVupaU",
-      videoTitulo: "Video oficial: The Hearts Filthy Lesson",
+      video: "https://www.youtube.com/embed/6H0XPzASySs",
+      videoTitulo: "Audio oficial: The Hearts Filthy Lesson",
       spotify: "https://open.spotify.com/search/1.Outside%20David%20Bowie",
       youtube: "https://music.youtube.com/search?q=1+Outside+David+Bowie",
       apple: "https://music.apple.com/search?term=1.Outside%20David%20Bowie"
@@ -284,8 +284,8 @@ document.addEventListener('DOMContentLoaded', () => {
         "Maid of Bond Street",
         "Please Mr. Gravedigger"
       ],
-      video: "https://www.youtube.com/embed/v2J2234_63A",
-      videoTitulo: "Video oficial: Love You till Tuesday",
+      video: "https://www.youtube.com/embed/a8q9dhsE8mM",
+      videoTitulo: "Audio oficial: Love You till Tuesday",
       spotify: "https://open.spotify.com/search/David%20Bowie%201967",
       youtube: "https://music.youtube.com/search?q=David+Bowie+1967",
       apple: "https://music.apple.com/search?term=David%20Bowie%201967"
@@ -357,8 +357,8 @@ document.addEventListener('DOMContentLoaded', () => {
         "Anyway, Anyhow, Anywhere",
         "Where Have All the Good Times Gone"
       ],
-      video: "https://www.youtube.com/embed/6a_4V4B1l4k",
-      videoTitulo: "Video oficial: Sorrow",
+      video: "https://www.youtube.com/embed/RmQ2OJgzkMg",
+      videoTitulo: "Audio oficial: Sorrow",
       spotify: "https://open.spotify.com/search/Pin%20Ups%20David%20Bowie",
       youtube: "https://music.youtube.com/search?q=Pin+Ups+David+Bowie",
       apple: "https://music.apple.com/search?term=Pin%20Ups%20David%20Bowie"
@@ -379,7 +379,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "Can You Hear Me?",
         "Fame"
       ],
-      video: "https://www.youtube.com/embed/Ypgdr1-B014",
+      video: "https://www.youtube.com/embed/Ypgq0qdgVZA",
       videoTitulo: "Audio oficial: Fame",
       spotify: "https://open.spotify.com/search/Young%20Americans%20David%20Bowie",
       youtube: "https://music.youtube.com/search?q=Young+Americans+David+Bowie",
@@ -403,7 +403,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "Repetition",
         "Red Money"
       ],
-      video: "https://www.youtube.com/embed/W7-uC0LDllM",
+      video: "https://www.youtube.com/embed/2KcOs70dZAw",
       videoTitulo: "Video oficial: Boys Keep Swinging",
       spotify: "https://open.spotify.com/search/Lodger%20David%20Bowie",
       youtube: "https://music.youtube.com/search?q=Lodger+David+Bowie",
@@ -448,7 +448,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "I Keep Forgettin'",
         "Dancing with the Big Boys"
       ],
-      video: "https://www.youtube.com/embed/n2d_H47A9nE",
+      video: "https://www.youtube.com/embed/NZnryZ5rDbs",
       videoTitulo: "Video oficial: Blue Jean",
       spotify: "https://open.spotify.com/search/Tonight%20David%20Bowie",
       youtube: "https://music.youtube.com/search?q=Tonight+David+Bowie",
@@ -473,7 +473,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "Too Dizzy",
         "Bang Bang"
       ],
-      video: "https://www.youtube.com/embed/gPVrFAt0MhU",
+      video: "https://www.youtube.com/embed/YHU28e8hZkA",
       videoTitulo: "Video oficial: Time Will Crawl",
       spotify: "https://open.spotify.com/search/Never%20Let%20Me%20Down%20David%20Bowie",
       youtube: "https://music.youtube.com/search?q=Never+Let+Me+Down+David+Bowie",
@@ -527,7 +527,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "Sorry",
         "Goodbye Mr. Ed"
       ],
-      video: "https://www.youtube.com/embed/W5N_A_2wD5o",
+      video: "https://www.youtube.com/embed/w4xeHYI4A2k",
       videoTitulo: "Video oficial: You Belong in Rock n' Roll",
       spotify: "https://open.spotify.com/search/Tin%20Machine%20II",
       youtube: "https://music.youtube.com/search?q=Tin+Machine+II",
@@ -553,7 +553,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "I Know It's Gonna Happen Someday",
         "The Wedding Song"
       ],
-      video: "https://www.youtube.com/embed/xPzv1-161mY",
+      video: "https://www.youtube.com/embed/xPZWgCLMsW8",
       videoTitulo: "Video oficial: Jump They Say",
       spotify: "https://open.spotify.com/search/Black%20Tie%20White%20Noise",
       youtube: "https://music.youtube.com/search?q=Black+Tie+White+Noise+Bowie",
@@ -577,7 +577,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "Ian Fish, U.K. Heir",
         "Buddha of Suburbia (con Lenny Kravitz)"
       ],
-      video: "https://www.youtube.com/embed/48d4j-qG01k",
+      video: "https://www.youtube.com/embed/xHPIAFaKd1I",
       videoTitulo: "Video oficial: Buddha of Suburbia",
       spotify: "https://open.spotify.com/search/The%20Buddha%20of%20Suburbia%20Bowie",
       youtube: "https://music.youtube.com/search?q=The+Buddha+of+Suburbia+Bowie",
@@ -600,7 +600,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "I'm Afraid of Americans",
         "Law (Earthlings on Fire)"
       ],
-      video: "https://www.youtube.com/embed/u7APmRkatEU",
+      video: "https://www.youtube.com/embed/LT3cERVRoQo",
       videoTitulo: "Video oficial: I'm Afraid of Americans",
       spotify: "https://open.spotify.com/search/Earthling%20David%20Bowie",
       youtube: "https://music.youtube.com/search?q=Earthling+David+Bowie",
@@ -624,7 +624,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "Brilliant Adventure",
         "The Dreamers"
       ],
-      video: "https://www.youtube.com/embed/6g2g2j-l3P0",
+      video: "https://www.youtube.com/embed/gfOKDB0ChQk",
       videoTitulo: "Video oficial: Thursday's Child",
       spotify: "https://open.spotify.com/search/Hours%20David%20Bowie",
       youtube: "https://music.youtube.com/search?q=Hours+David+Bowie",
@@ -650,7 +650,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "A Better Future",
         "Heathen (The Rays)"
       ],
-      video: "https://www.youtube.com/embed/4_9Z7G6g2a4",
+      video: "https://www.youtube.com/embed/NSbZ8CmXyQ8",
       videoTitulo: "Video oficial: Slow Burn",
       spotify: "https://open.spotify.com/search/Heathen%20David%20Bowie",
       youtube: "https://music.youtube.com/search?q=Heathen+David+Bowie",
@@ -675,7 +675,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "Reality",
         "Bring Me the Disco King"
       ],
-      video: "https://www.youtube.com/embed/m-0zN-4_5gA",
+      video: "https://www.youtube.com/embed/fwH1g2fW6Pc",
       videoTitulo: "Video oficial: New Killer Star",
       spotify: "https://open.spotify.com/search/Reality%20David%20Bowie",
       youtube: "https://music.youtube.com/search?q=Reality+David+Bowie",

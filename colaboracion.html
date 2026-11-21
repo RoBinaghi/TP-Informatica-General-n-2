@@ -2,11 +2,10 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <!-- Clase 19: viewport, para que el sitio sea responsive en el celular -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>David Bowie | Colaboración</title>
+  <title>David Bowie - Colaboraciones</title>
 
-  <!-- 1) PRIMERO el CSS de Bootstrap ) -->
+  <!-- 1) PRIMERO el CSS de Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- 2) Google Fonts -->
@@ -14,49 +13,38 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&family=Jost:wght@300;500&display=swap" rel="stylesheet">
 
-  <!-- 3) DESPUÉS nuestra hoja de estilos (una sola para todo el sitio): así pisa a Bootstrap -->
+  <!-- 3) DESPUÉS nuestra hoja de estilos -->
   <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
 
- 
-
   <header>
-   
-    <nav class="navbar navbar-expand-lg navbar-dark barra">
+    <nav class="navbar navbar-dark barra">
       <div class="container">
-        
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
                 aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">
           <span class="navbar-toggler-icon"></span>
         </button>
-
-       
-        <a class="navbar-brand marca order-lg-last" href="index.html">Bowie</a>
+        <a class="navbar-brand marca" href="index.html">Bowie</a>
 
         <div class="collapse navbar-collapse" id="menu">
-         
-          <ul class="navbar-nav me-auto">
+          <ul class="navbar-nav">
             <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="biografia.html">Biografía</a></li>
+            <li class="nav-item"><a class="nav-link" href="alterego.html">Alter Ego</a></li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Trayectoria e identidad</a>
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Música</a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="biografia.html">Biografía</a></li>
-                <li><a class="dropdown-item" href="alterego.html">Alter ego</a></li>
-              </ul>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Producción musical</a>
-              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="musica.html">Música</a></li>
                 <li><a class="dropdown-item" href="albumes.html">Álbumes</a></li>
-                <li><a class="dropdown-item active" aria-current="page" href="colaboracion.html">Colaboraciones</a></li>
+                <li><a class="dropdown-item active" href="colaboracion.html">Colaboraciones</a></li>
               </ul>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Otras disciplinas artísticas</a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="actuacion.html">Actuación</a></li>
+              <ul class="dropdown-menu">      
                 <li><a class="dropdown-item" href="pinturas.html">Pinturas</a></li>
+                <li><a class="dropdown-item" href="actuacion.html">Actuación</a></li>
               </ul>
             </li>
             <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
@@ -68,7 +56,8 @@
   </header>
 
   <main class="container">
-   <!-- IMAGEN DESTACADA SUPERIOR (SEGÚN MAQUETA) -->
+
+    <!-- IMAGEN DESTACADA SUPERIOR -->
     <section class="my-4">
       <img src="img/colaboraciones-portada.jpg" alt="David Bowie y Mick Jagger" class="img-fluid rounded shadow w-100">
     </section>
@@ -94,10 +83,13 @@
           <span class="badge bg-secondary">1977 · Dueto</span>
         </div>
         <p class="mb-3">
-          Un encuentro inesperado entre dos generaciones y estilos musicales. Es una de las colaboraciones más singulares de Bowie.
+          Un encuentro inesperado entre dos generaciones de la música. Bowie y Crosby grabaron este dúo para el especial televisivo Bing Crosby’s Merrie Olde Christmas. La combinación de una canción navideña tradicional con una composición nueva de Bowie convirtió la interpretación en un momento memorable.
         </p>
         <div class="ratio ratio-16x9 rounded overflow-hidden shadow">
-          <iframe src="https://www.youtube.com/embed/n9kfdEyV3RQ" title="David Bowie y Bing Crosby - Peace on Earth / Little Drummer Boy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/H0N7SDNtgwg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="mt-2 text-end">
+          <a href="https://www.youtube.com/watch?v=H0N7SDNtgwg" target="_blank" rel="noopener noreferrer" class="small text-secondary text-decoration-underline">Ver en YouTube ↗</a>
         </div>
       </article>
 
@@ -108,10 +100,14 @@
           <span class="badge bg-secondary">1981 · Dueto</span>
         </div>
         <p class="mb-3">
-          Una colaboración fundamental de la historia del rock, con Bowie y Freddie Mercury compartiendo las voces.
+          Nació de una jam session improvisada en Suiza con mucho vino de por medio. El icónico riff de bajo y el duelo vocal con Freddie Mercury hicieron historia.
+
         </p>
         <div class="ratio ratio-16x9 rounded overflow-hidden shadow">
-          <iframe src="https://www.youtube.com/embed/a01QQZyl-_I" title="Queen y David Bowie - Under Pressure" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/a01QQZyl-_I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="mt-2 text-end">
+          <a href="https://www.youtube.com/watch?v=a01QQZyl-_I" target="_blank" rel="noopener noreferrer" class="small text-secondary text-decoration-underline">Ver en YouTube ↗</a>
         </div>
       </article>
 
@@ -122,10 +118,13 @@
           <span class="badge bg-secondary">1984 · Dueto</span>
         </div>
         <p class="mb-3">
-          Una colaboración que permite mostrar el cruce entre dos figuras fundamentales de la música popular. La versión conjunta se publicó en el álbum en vivo de Turner.
+          Bowie invitó a Turner a compartir la interpretación de esta canción, originalmente escrita junto a Iggy Pop. Sus voces se complementan en una versión que transforma el sentido de la composición original.
         </p>
         <div class="ratio ratio-16x9 rounded overflow-hidden shadow">
-          <iframe src="https://www.youtube.com/embed/3f0O_W2z6d0" title="Tina Turner y David Bowie - Tonight (Live)" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/p4WG_y7owmM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="mt-2 text-end">
+          <a href="https://www.youtube.com/watch?v=p4WG_y7owmM" target="_blank" rel="noopener noreferrer" class="small text-secondary text-decoration-underline">Ver en YouTube ↗</a>
         </div>
       </article>
 
@@ -136,10 +135,13 @@
           <span class="badge bg-secondary">1985 · Dueto</span>
         </div>
         <p class="mb-3">
-          Una colaboración muy reconocible, acompañada por un videoclip que se convirtió en parte de la cultura visual de los años ochenta.
+          Una versión del clásico de Martha and the Vandellas grabada para recaudar fondos para Live Aid. Su videoclip, protagonizado por ambos artistas, se convirtió en una de las imágenes más representativas del pop de los años ochenta.
         </p>
         <div class="ratio ratio-16x9 rounded overflow-hidden shadow">
-          <iframe src="https://www.youtube.com/embed/HasaQvHCv4w" title="David Bowie y Mick Jagger - Dancing in the Street" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/DOBFzb83Pl0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="mt-2 text-end">
+          <a href="https://www.youtube.com/watch?v=DOBFzb83Pl0" target="_blank" rel="noopener noreferrer" class="small text-secondary text-decoration-underline">Ver en YouTube ↗</a>
         </div>
       </article>
 
@@ -150,10 +152,13 @@
           <span class="badge bg-secondary">1990 · Dueto</span>
         </div>
         <p class="mb-3">
-          Una colaboración menos conocida que permite ampliar el recorrido más allá de los grandes éxitos.
+        B owie participó como vocalista invitado en este tema del álbum Young Lions, de Belew. Además de interpretar la canción junto a él, Bowie fue su compositor. Es una colaboración que refleja su interés por experimentar con sonidos y propuestas musicales diferentes.
         </p>
         <div class="ratio ratio-16x9 rounded overflow-hidden shadow">
-          <iframe src="https://www.youtube.com/embed/G26b1vW8w8Q" title="Adrian Belew y David Bowie - Pretty Pink Rose" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/HezgRRG3UjY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="mt-2 text-end">
+          <a href="https://www.youtube.com/watch?v=HezgRRG3UjY" target="_blank" rel="noopener noreferrer" class="small text-secondary text-decoration-underline">Ver en YouTube ↗</a>
         </div>
       </article>
 
@@ -164,10 +169,13 @@
           <span class="badge bg-secondary">1999 · Dueto</span>
         </div>
         <p class="mb-3">
-          Una colaboración importante para mostrar la influencia de Bowie en generaciones posteriores del rock alternativo.
+          Bowie se sumó a una nueva versión del tema de Placebo, compartiendo la interpretación vocal con Brian Molko. Su participación ayudó a dar mayor visibilidad a la banda y consolidó el vínculo entre ambos artistas.
         </p>
         <div class="ratio ratio-16x9 rounded overflow-hidden shadow">
-          <iframe src="https://www.youtube.com/embed/8L3_4_871tQ" title="Placebo y David Bowie - Without You I'm Nothing" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/WK5CvJbTaoM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="mt-2 text-end">
+          <a href="https://www.youtube.com/watch?v=WK5CvJbTaoM" target="_blank" rel="noopener noreferrer" class="small text-secondary text-decoration-underline">Ver en YouTube ↗</a>
         </div>
       </article>
     </section>
@@ -185,10 +193,13 @@
           <span class="badge bg-secondary">1975 · Guitarra y coros</span>
         </div>
         <p class="mb-3">
-          Lennon participa con guitarra y voces de acompañamiento. Es importante porque conecta a Bowie con otra figura central de la historia del rock.
+          Ambos artistas compusieron la canción junto a Carlos Alomar. Lennon participó en la grabación con guitarra y voces de acompañamiento, mientras Bowie interpretó la voz principal. También trabajaron juntos en la versión de «Across the Universe» incluida en Young Americans, aunque allí Lennon aportó la guitarra.
         </p>
         <div class="ratio ratio-16x9 rounded overflow-hidden shadow">
-          <iframe src="https://www.youtube.com/embed/J-_30HA7rec" title="David Bowie y John Lennon - Fame" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/-TBjlAbkTlw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="mt-2 text-end">
+          <a href="https://www.youtube.com/watch?v=-TBjlAbkTlw" target="_blank" rel="noopener noreferrer" class="small text-secondary text-decoration-underline">Ver en YouTube ↗</a>
         </div>
       </article>
 
@@ -199,10 +210,13 @@
           <span class="badge bg-secondary">1998 · Vocalista invitado</span>
         </div>
         <p class="mb-3">
-          Una muestra del acercamiento de Bowie a la electrónica y a otros lenguajes musicales de los noventa.
+          Bowie aportó la voz principal a esta extensa composición del álbum Saturnz Return. El encuentro entre su interpretación vocal y la electrónica de Goldie muestra su apertura hacia la escena electrónica británica de los noventa.
         </p>
         <div class="ratio ratio-16x9 rounded overflow-hidden shadow">
-          <iframe src="https://www.youtube.com/embed/b5r_26n7M_s" title="Goldie y David Bowie - Truth" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/UPuMxgol7nk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="mt-2 text-end">
+          <a href="https://www.youtube.com/watch?v=UPuMxgol7nk" target="_blank" rel="noopener noreferrer" class="small text-secondary text-decoration-underline">Ver en YouTube ↗</a>
         </div>
       </article>
 
@@ -213,10 +227,13 @@
           <span class="badge bg-secondary">2005 · Vocalista invitado</span>
         </div>
         <p class="mb-3">
-          Bowie participa como vocalista invitado. Es una colaboración menos difundida y muy interesante para representar su etapa tardía.
+         Bowie participó como vocalista invitado en este tema de la banda danesa Kashmir, incluido en el álbum No Balance Palace. Una colaboración menos conocida que demuestra su interés por descubrir y acompañar a músicos de nuevas generaciones.
         </p>
         <div class="ratio ratio-16x9 rounded overflow-hidden shadow">
-          <iframe src="https://www.youtube.com/embed/2y1nS43N77E" title="Kashmir y David Bowie - The Cynic" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/sJ9KeiyMIQQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="mt-2 text-end">
+          <a href="https://www.youtube.com/watch?v=sJ9KeiyMIQQ" target="_blank" rel="noopener noreferrer" class="small text-secondary text-decoration-underline">Ver en YouTube ↗</a>
         </div>
       </article>
 
@@ -227,10 +244,13 @@
           <span class="badge bg-secondary">2006 · Voces de acompañamiento</span>
         </div>
         <p class="mb-3">
-          Bowie aporta voces de acompañamiento a una banda de la escena alternativa neoyorquina.
+          Bowie aportó voces de acompañamiento en esta canción del álbum Return to Cookie Mountain. Admiraba el trabajo de la banda neoyorquina y decidió participar sin ocupar el centro de la composición.
         </p>
         <div class="ratio ratio-16x9 rounded overflow-hidden shadow">
-          <iframe src="https://www.youtube.com/embed/2315M7d4_kI" title="TV on the Radio y David Bowie - Province" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/_whZTOiB5to" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="mt-2 text-end">
+          <a href="https://www.youtube.com/watch?v=_whZTOiB5to" target="_blank" rel="noopener noreferrer" class="small text-secondary text-decoration-underline">Ver en YouTube ↗</a>
         </div>
       </article>
 
@@ -241,10 +261,13 @@
           <span class="badge bg-secondary">2008 · Voces de acompañamiento</span>
         </div>
         <p class="mb-3">
-          Bowie aporta voces de acompañamiento en dos versiones de canciones de Tom Waits. Es un ejemplo interesante de colaboración fuera del ámbito habitual del rock.
+         Bowie colaboró con la actriz y cantante en su álbum Anywhere I Lay My Head, integrado principalmente por versiones de canciones de Tom Waits. Su participación consistió en aportar voces de acompañamiento en estos dos temas.
         </p>
         <div class="ratio ratio-16x9 rounded overflow-hidden shadow">
-          <iframe src="https://www.youtube.com/embed/T0wI5fC0q88" title="Scarlett Johansson y David Bowie - Falling Down" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/2FgwOcVTqEg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="mt-2 text-end">
+          <a href="https://www.youtube.com/watch?v=2FgwOcVTqEg" target="_blank" rel="noopener noreferrer" class="small text-secondary text-decoration-underline">Ver en YouTube ↗</a>
         </div>
       </article>
 
@@ -255,17 +278,19 @@
           <span class="badge bg-secondary">2013 · Voces de acompañamiento</span>
         </div>
         <p class="mb-3">
-          Una de sus últimas colaboraciones destacadas. Bowie participa con voces de acompañamiento en el tema que da nombre al álbum.
+          Bowie era muy fan de la banda. Aceptó hacer coros en este tema tras escuchar la demo y amenazarlos en broma con que "se la iba a robar" si no la terminaban rápido.
         </p>
         <div class="ratio ratio-16x9 rounded overflow-hidden shadow">
-          <iframe src="https://www.youtube.com/embed/7E0fVfectDo" title="Arcade Fire y David Bowie - Reflektor" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/HzEMFdasvXI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="mt-2 text-end">
+          <a href="https://www.youtube.com/watch?v=HzEMFdasvXI" target="_blank" rel="noopener noreferrer" class="small text-secondary text-decoration-underline">Ver en YouTube ↗</a>
         </div>
       </article>
     </section>
 
   </main>
 
-  <!-- PIE DE PÁGINA ( footer y address) -->
   <footer class="pie">
     <p>Rocio - Micaela - Marcela</p>
     <p>IG2026 - Cátedra: Valeria Drelichman | Pedro Paleo | Leonardo Nadel | Norma Morales</p>
@@ -273,7 +298,7 @@
     <address class="mb-0"><a href="creditos.html">Créditos</a> · <a href="contacto.html">Contacto</a></address>
   </footer>
 
-  <!-- JS de Bootstrap: hace funcionar el menú hamburguesa y los submenús -->
+  <!-- JS de Bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
