@@ -1051,7 +1051,145 @@ ayuda ia cursor: pointer → la manito indica que se puede tocar. */
   scroll-snap-align: center;
 }
 
+/* ---------- TARJETAS CON COLORES INTERCALADOS (Actuación y Pinturas) ---------- */
+.row .col .card {
+  border: none;
+}
 
+/* 1ra, 4ta, 7ma, 10ma, 13ra tarjeta -> ROJO */
+.row .col:nth-child(3n + 1) .card {
+  background-color: #d62338;
+  color: #fff3d6;
+}
+
+/* 2da, 5ta, 8va, 11ma tarjeta -> AZUL */
+.row .col:nth-child(3n + 2) .card {
+  background-color: #00ade3; /* Si preferís el celeste vibrante del sitio, cambialo por #00ade3 y color: #0d0010 */
+  color: #fff3d6;
+}
+
+/* 3ra, 6ta, 9na, 12ma tarjeta -> NARANJA */
+.row .col:nth-child(3n + 3) .card {
+  background-color: #ff913f;
+  color: #0d0010;
+}
+
+/* ---------- PINTURAS: TARJETAS DE INFLUENCIAS INTERACTIVAS ---------- */
+.tarjeta-influencia {
+  cursor: pointer;
+}
+
+.tarjeta-influencia img {
+  transition: transform 0.35s ease;
+}
+
+.overlay-influencia {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(13, 0, 16, 0.85);
+  color: #fff3d6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem;
+  text-align: center;
+  font-size: 0.95rem;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+/* Se activa al pasar el mouse (:hover) o al tocar en celular (.activa) */
+.tarjeta-influencia:hover .overlay-influencia,
+.tarjeta-influencia.activa .overlay-influencia {
+  opacity: 1;
+}
+
+.tarjeta-influencia:hover img,
+.tarjeta-influencia.activa img {
+  transform: scale(1.05);
+}
+/* ---------- PINTURAS: GRILLA PEGADA CON TRANSPARENCIAS INTERCALADAS ---------- */
+.cuadro-influencia {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.cuadro-influencia img {
+  transition: transform 0.4s ease;
+}
+
+/* Capa de color centrada vertical y horizontalmente */
+.cuadro-influencia .capa-color {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra en el medio vertical */
+  align-items: center;     /* Centra horizontalmente */
+  text-align: center;
+  padding: 1.5rem;
+  color: #fff3d6;
+  transition: background-color 0.35s ease;
+}
+
+.cuadro-influencia h4 {
+  font-size: 1.45rem;
+  margin-bottom: 0;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+  transition: margin-bottom 0.35s ease;
+}
+
+/* Párrafo completamente oculto al inicio */
+.cuadro-influencia .capa-color p.texto-oculto {
+  display: none;
+  font-size: 0.92rem;
+  margin-top: 0.6rem;
+  margin-bottom: 0;
+}
+
+/* --- INTERACCIÓN (Hover en compu y .activa en celular) --- */
+.cuadro-influencia:hover .capa-color p.texto-oculto,
+.cuadro-influencia.activa .capa-color p.texto-oculto {
+  display: block;
+}
+
+.cuadro-influencia:hover img,
+.cuadro-influencia.activa img {
+  transform: scale(1.06);
+}
+/* --- COLORES INTERCALADOS CON MÁS TRANSPARENCIA INICIAL (RGBA) --- */
+/* 1ro, 4to, 7mo -> ROJO (#d62338 al 22% inicial -> 88% al pasar el mouse) */
+.grilla-influencias .col:nth-child(3n + 1) .capa-color {
+  background-color: rgba(214, 35, 56, 0.22);
+}
+.grilla-influencias .col:nth-child(3n + 1) .cuadro-influencia:hover .capa-color,
+.grilla-influencias .col:nth-child(3n + 1) .cuadro-influencia.activa .capa-color {
+  background-color: rgba(214, 35, 56, 0.88);
+}
+
+/* 2do, 5to, 8vo -> AZUL (#245e6a al 22% inicial -> 88% al pasar el mouse) */
+.grilla-influencias .col:nth-child(3n + 2) .capa-color {
+  background-color: rgba(36, 94, 106, 0.22);
+}
+.grilla-influencias .col:nth-child(3n + 2) .cuadro-influencia:hover .capa-color,
+.grilla-influencias .col:nth-child(3n + 2) .cuadro-influencia.activa .capa-color {
+  background-color: rgba(36, 94, 106, 0.88);
+}
+
+/* 3ro, 6to -> NARANJA (#ff913f al 22% inicial -> 90% al pasar el mouse) */
+.grilla-influencias .col:nth-child(3n + 3) .capa-color {
+  background-color: rgba(255, 145, 63, 0.22);
+}
+.grilla-influencias .col:nth-child(3n + 3) .cuadro-influencia:hover .capa-color,
+.grilla-influencias .col:nth-child(3n + 3) .cuadro-influencia.activa .capa-color {
+  background-color: rgba(255, 145, 63, 0.9);
+  color: #0d0010;
+}
+.grilla-influencias .col:nth-child(3n + 3) .cuadro-influencia:hover h4,
+.grilla-influencias .col:nth-child(3n + 3) .cuadro-influencia.activa h4 {
+  text-shadow: none;
+}
 /*MEDIA QUERIES — siempre al final 
  Mobile first: arriba, celular; acá se agranda con min-width.
    Las reglas nuevas de cada página se agregan ADENTRO de estos
@@ -1170,7 +1308,7 @@ ayuda ia cursor: pointer → la manito indica que se puede tocar. */
   }
 }
 
-/* CAMBIO — En pantallas grandes (desde 1200px) la letra del menú vuelve a su tamaño (Clase 19) */
+/* CAMBIO — En pantallas grandes (desde 1200px) la letra del menú vuelve a su tamaño */
 @media (min-width: 1200px) {
   .barra .nav-link {
     font-size: 0.95rem;

@@ -73,3 +73,16 @@ btnVerMas.addEventListener('click', () => {
   const estaExpandido = btnVerMas.getAttribute('aria-expanded') === 'true';
   btnVerMas.textContent = estaExpandido ? 'Ver menos' : 'Ver más';
 });
+
+const cuadrosInfluencia = document.querySelectorAll('.cuadro-influencia');
+
+cuadrosInfluencia.forEach((cuadro) => {
+  cuadro.addEventListener('click', () => {
+    const estabaActivo = cuadro.classList.contains('activa');
+    cuadrosInfluencia.forEach((c) => c.classList.remove('activa'));
+
+    if (!estabaActivo) {
+      cuadro.classList.add('activa');
+    }
+  });
+});

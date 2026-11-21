@@ -55,3 +55,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+// Activar / desactivar texto en las tarjetas de influencias al hacer clic (ideal para celular)
+const tarjetasInfluencia = document.querySelectorAll('.tarjeta-influencia');
+
+tarjetasInfluencia.forEach((tarjeta) => {
+  tarjeta.addEventListener('click', () => {
+    // Si ya estaba abierta, la cierra; si no, cierra las demás y abre esta
+    const estabaActiva = tarjeta.classList.contains('activa');
+    tarjetasInfluencia.forEach((t) => t.classList.remove('activa'));
+    
+    if (!estabaActiva) {
+      tarjeta.classList.add('activa');
+    }
+  });
+});
