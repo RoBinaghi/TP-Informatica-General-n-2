@@ -115,6 +115,237 @@ No tenía una única identidad pictórica. Experimentaba con estilos, materiales
 </section>
     
     <section>
+          <section class="container py-5">
+  <!-- Fila principal: Mobile First (1 columna por defecto) y 2 columnas en desktop (lg) -->
+  <div class="row g-4 align-items-center">
+    
+    <!-- COLUMNA IZQUIERDA (Arriba en celular): Texto descriptivo -->
+    <div class="col-12 col-lg-5">
+      <h2 class="mb-3">¿Qué tipo de pintor era?</h2>
+      <p>
+        Era un artista visual bastante intuitivo y experimental. Su producción tiene valor para comprender su universo creativo. Hay algo que se repite en sus cuadros y en su música: la identidad, la transformación, la ambigüedad, la figura humana y la fascinación por lo extraño. David Bowie utilizaba la pintura como un refugio terapéutico, un espacio de confrontación interna y un complemento directo para su proceso musical. Más allá de ser un pasatiempo, el arte visual fue la base de su formación académica en la Escuela de Arte de Croydon y una necesidad expresiva que mantuvo en privado durante gran parte de su vida.
+      </p>
+    </div>
+
+   <!-- COLUMNA DERECHA (Abajo en celular): Carrusel horizontal Flexbox -->
+    <div class="col-12 col-lg-7">
+      <div class="carrusel-pinturas-wrapper position-relative">
+           
+        <button type="button" id="btnPrev" class="btn btn-dark btn-flecha flecha-izq" aria-label="Anterior">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+
+        <!-- Tira horizontal deslizable -->
+        <div class="carrusel-pinturas d-flex gap-3 overflow-x-auto" id="carruselPinturas">
+          <!-- Foto 1 -->
+          <div class="pintura-slide flex-shrink-0">
+            <div class="ratio ratio-1x1 overflow-hidden rounded shadow-sm galeria-item" 
+                 role="button"
+                 tabindex="0"
+                 data-bs-toggle="modal" 
+                 data-bs-target="#modalGaleria"
+                 data-img="img/pintor/galeria/amulets.jpg"
+                 data-titulo="Amulet, 1997"
+                 data-descripcion="Una estatua-amuleto de metal, 1997. Pertenece a la serie “The Remember Series” y formó parte de la exposición “New Afro/Pagan And Work 1975-1995” en The Gallery, situada en Londres.">
+              <img src="img/pintor/galeria/amulets.jpg" class="w-100 h-100 object-fit-cover" alt="Amulet, 1997">
+            </div>
+          </div>
+
+          <!-- Foto 2 -->
+          <div class="pintura-slide flex-shrink-0">
+            <div class="ratio ratio-1x1 overflow-hidden rounded shadow-sm galeria-item" 
+                 role="button"
+                 tabindex="0"
+                 data-bs-toggle="modal" 
+                 data-bs-target="#modalGaleria"
+                 data-img="img/pintor/galeria/autorretrato-1.jpg"
+                 data-titulo="Autorretrato, 1996"
+                 data-descripcion="Autorretrato pictórico de David Bowie, realizado alrededor de 1996 en un estilo neoexpresionista.">
+              <img src="img/pintor/galeria/autorretrato-1.jpg" class="w-100 h-100 object-fit-cover" alt="Autorretrato, 1996">
+            </div>
+          </div>
+
+          <!-- Foto 3 -->
+          <div class="pintura-slide flex-shrink-0">
+            <div class="ratio ratio-1x1 overflow-hidden rounded shadow-sm galeria-item" 
+                 role="button"
+                 tabindex="0"
+                 data-bs-toggle="modal" 
+                 data-bs-target="#modalGaleria"
+                 data-img="img/pintor/galeria/child-in-berlin-1977.jpg"
+                 data-titulo="Child in Berlin, 1977"
+                 data-descripcion="Una obra de estilo neoexpresionista.">
+              <img src="img/pintor/galeria/child-in-berlin-1977.jpg" class="w-100 h-100 object-fit-cover" alt="Child in Berlin, 1977">
+            </div>
+          </div>
+
+          <!-- Foto 4 -->
+          <div class="pintura-slide flex-shrink-0">
+            <div class="ratio ratio-1x1 overflow-hidden rounded shadow-sm galeria-item" 
+                 role="button"
+                 tabindex="0"
+                 data-bs-toggle="modal" 
+                 data-bs-target="#modalGaleria"
+                 data-img="img/pintor/galeria/berlin-landscape-with-jo.jpg"
+                 data-titulo="Berlin Landscape with JO, 1978"
+                 data-descripcion="Una obra de estilo neoexpresionista que realizó durante su etapa en Berlín.">
+              <img src="img/pintor/galeria/berlin-landscape-with-jo.jpg" class="w-100 h-100 object-fit-cover" alt="Berlin Landscape with JO, 1978">
+            </div>
+          </div>
+
+          <!-- Foto 5 -->
+          <div class="pintura-slide flex-shrink-0">
+            <div class="ratio ratio-1x1 overflow-hidden rounded shadow-sm galeria-item" 
+                 role="button"
+                 tabindex="0"
+                 data-bs-toggle="modal" 
+                 data-bs-target="#modalGaleria"
+                 data-img="img/pintor/galeria/hearts-filthy-lesson-1995.jpg"
+                 data-titulo="The Heart's Filthy Lesson, 1995"
+                 data-descripcion="Realizado por David Bowie, caracterizado por trazos expresionistas en tinta o carbonilla y aguada con tonos rojizos y azulados en el cabello y el fondo.">
+              <img src="img/pintor/galeria/hearts-filthy-lesson-1995.jpg" class="w-100 h-100 object-fit-cover" alt="The Heart's Filthy Lesson, 1995">
+            </div>
+          </div>
+
+          <!-- Foto 6 -->
+          <div class="pintura-slide flex-shrink-0">
+            <div class="ratio ratio-1x1 overflow-hidden rounded shadow-sm galeria-item" 
+                 role="button"
+                 tabindex="0"
+                 data-bs-toggle="modal" 
+                 data-bs-target="#modalGaleria"
+                 data-img="img/pintor/galeria/autorretrato-3.jpg"
+                 data-titulo="Autorretrato, 1978">
+              <img src="img/pintor/galeria/autorretrato-3.jpg" class="w-100 h-100 object-fit-cover" alt="Autorretrato, 1978">
+            </div>
+          </div>
+
+          <!-- Foto 7 -->
+          <div class="pintura-slide flex-shrink-0">
+            <div class="ratio ratio-1x1 overflow-hidden rounded shadow-sm galeria-item" 
+                 role="button"
+                 tabindex="0"
+                 data-bs-toggle="modal" 
+                 data-bs-target="#modalGaleria"
+                 data-img="img/pintor/galeria/dheads.jpg"
+                 data-titulo="DHeads II"
+                 data-descripcion="Realizada alrededor de mediados de los años noventa.">
+              <img src="img/pintor/galeria/dheads.jpg" class="w-100 h-100 object-fit-cover" alt="DHeads II">
+            </div>
+          </div>
+
+          <!-- Foto 8 -->
+          <div class="pintura-slide flex-shrink-0">
+            <div class="ratio ratio-1x1 overflow-hidden rounded shadow-sm galeria-item" 
+                 role="button"
+                 tabindex="0"
+                 data-bs-toggle="modal" 
+                 data-bs-target="#modalGaleria"
+                 data-img="img/pintor/galeria/ancestor.jpg"
+                 data-titulo="Ancestor (o Ancestor I), 1995"
+                 data-descripcion="Se encuentra dentro de su serie inspirada en Sudáfrica.">
+              <img src="img/pintor/galeria/ancestor.jpg" class="w-100 h-100 object-fit-cover" alt="Ancestor (o Ancestor I), 1995">
+            </div>
+          </div>
+
+          <!-- Foto 9 -->
+          <div class="pintura-slide flex-shrink-0">
+            <div class="ratio ratio-1x1 overflow-hidden rounded shadow-sm galeria-item" 
+                 role="button"
+                 tabindex="0"
+                 data-bs-toggle="modal" 
+                 data-bs-target="#modalGaleria"
+                 data-img="img/pintor/galeria/i-am-a-world-champion-1977.jpg"
+                 data-titulo="I Am A World Champion – 1977"
+                 data-descripcion="Realizada alrededor de mediados de los años noventa.">
+              <img src="img/pintor/galeria/i-am-a-world-champion-1977.jpg" class="w-100 h-100 object-fit-cover" alt="I Am A World Champion – 1977">
+            </div>
+          </div>
+
+          <!-- Foto 10 -->
+          <div class="pintura-slide flex-shrink-0">
+            <div class="ratio ratio-1x1 overflow-hidden rounded shadow-sm galeria-item" 
+                 role="button"
+                 tabindex="0"
+                 data-bs-toggle="modal" 
+                 data-bs-target="#modalGaleria"
+                 data-img="img/pintor/galeria/boceto.jpg"
+                 data-titulo="Boceto, 1974"
+                 data-descripcion="Forman parte de los dibujos preparatorios para un proyecto cinematográfico no realizado ambientado en Hunger City y vinculado a su álbum Diamond Dogs.">
+              <img src="img/pintor/galeria/boceto.jpg" class="w-100 h-100 object-fit-cover" alt="Boceto, 1974">
+            </div>
+          </div>
+
+          <!-- Foto 11 -->
+          <div class="pintura-slide flex-shrink-0">
+            <div class="ratio ratio-1x1 overflow-hidden rounded shadow-sm galeria-item" 
+                 role="button"
+                 tabindex="0"
+                 data-bs-toggle="modal" 
+                 data-bs-target="#modalGaleria"
+                 data-img="img/pintor/galeria/portrait-of-jo-1976.jpg"
+                 data-titulo="Portrait Of JO – 1976">
+              <img src="img/pintor/galeria/portrait-of-jo-1976.jpg" class="w-100 h-100 object-fit-cover" alt="Portrait Of JO – 1976">
+            </div>
+          </div>
+
+          <!-- Foto 12 -->
+          <div class="pintura-slide flex-shrink-0">
+            <div class="ratio ratio-1x1 overflow-hidden rounded shadow-sm galeria-item" 
+                 role="button"
+                 tabindex="0"
+                 data-bs-toggle="modal" 
+                 data-bs-target="#modalGaleria"
+                 data-img="img/pintor/galeria/autorretrato-4.jpg"
+                 data-titulo="Autorretrato"
+                 data-descripcion="Autorretrato pictórico de estilo neoexpresionista realizado en los años 90.">
+              <img src="img/pintor/galeria/autorretrato-4.jpg" class="w-100 h-100 object-fit-cover" alt="Autorretrato">
+            </div>
+          </div>
+
+          <!-- Foto 13 -->
+          <div class="pintura-slide flex-shrink-0">
+            <div class="ratio ratio-1x1 overflow-hidden rounded shadow-sm galeria-item" 
+                 role="button"
+                 tabindex="0"
+                 data-bs-toggle="modal" 
+                 data-bs-target="#modalGaleria"
+                 data-img="img/pintor/galeria/present-future-accepted-1995.jpg"
+                 data-titulo="Present Future Accepted, 1995">
+              <img src="img/pintor/galeria/present-future-accepted-1995.jpg" class="w-100 h-100 object-fit-cover" alt="Present Future Accepted, 1995">
+            </div>
+          </div>
+          </div>
+<!-- Botón Siguiente AFUERA de carrusel-pinturas -->
+        <button type="button" id="btnNext" class="btn btn-dark btn-flecha flecha-der" aria-label="Siguiente">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+
+    </div>    
+    </div>
+</div>
+</section>
+
+<!-- MODAL DE BOOTSTRAP PARA AMPLIAR LA FOTO -->
+<div class="modal fade" id="modalGaleria" tabindex="-1" role="dialog" aria-labelledby="modalGaleriaTitulo" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-dark text-white border-0">
+      <div class="modal-header border-0 pb-0">
+        <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center pt-1">
+        <img id="modalImagenAmpliada" src="img/pintor/galeria/amulets.jpg" alt="Vista ampliada de la obra" class="img-fluid rounded max-vh-75">
+      </div>
+      <div class="modal-footer border-0 justify-content-start text-start pt-0 px-4 pb-4">
+        <div>
+          <h3 class="h5 modal-title mb-1" id="modalGaleriaTitulo">Amulet, 1997</h3>
+          <p class="mb-0 text-light opacity-75 small" id="modalGaleriaDescripcion">Descripción de la obra</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <h2>Sus influencias artísticas</h2>
 <div class="container">
   <!-- Contenedor único: acomoda automáticamente de a 4 por fila -->
@@ -141,7 +372,6 @@ No tenía una única identidad pictórica. Experimentaba con estilos, materiales
         </div>
       </div>
     </div>
-        <!-- Recuadro 3 -->
        <!-- Recuadro 3 -->
     <div class="col">
       <div class="card h-100">
@@ -168,6 +398,7 @@ No tenía una única identidad pictórica. Experimentaba con estilos, materiales
     </div>
     </div>
     </section>
+
     <section>
       <h2>Su primera gran exposición: 1995</h2>
         <div class="row align-items-center">
@@ -248,13 +479,7 @@ Dos diseños de papel pintado que utilizó para construir una instalación.
     </div>
     </div>
     </section>
-    <section>
-      <h2>¿Qué tipo de pintor era?</h2>
-      <p>Era un artista visual bastante intuitivo y experimental.
-Su producción tiene valor para comprender su universo creativo. Hay algo que se repite en sus cuadros y en su música: la identidad, la transformación, la ambigüedad, la figura humana y la fascinación por lo extraño.
-David Bowie utilizaba la pintura como un refugio terapéutico, un espacio de confrontación interna y un complemento directo para su proceso musical. Más allá de ser un pasatiempo, el arte visual fue la base de su formación académica en la Escuela de Arte de Croydon y una necesidad expresiva que mantuvo en privado durante gran parte de su vida. 
-</p>
-    </section>
+
   </main>
 
   <!-- PIE DE PÁGINA ( footer y address) -->
@@ -269,5 +494,6 @@ David Bowie utilizaba la pintura como un refugio terapéutico, un espacio de con
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <!--Libreria js-->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
+  <script src="js/pintura.js"></script>
 </body>
 </html>
