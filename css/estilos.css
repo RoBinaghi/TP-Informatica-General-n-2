@@ -1025,7 +1025,7 @@ ayuda ia cursor: pointer → la manito indica que se puede tocar. */
 }
 
 /* Cuando JavaScript le agrega "mostrar-texto" a la ficha:
-   se esconde la foto y se ve la descripción (Clase 14: classList) */
+   se esconde la foto y se ve la descripción*/
 .ficha.mostrar-texto .ficha-foto {
   display: none;
 }
@@ -1033,6 +1033,24 @@ ayuda ia cursor: pointer → la manito indica que se puede tocar. */
 .ficha.mostrar-texto .ficha-descripcion {
   display: block;
 }
+
+/* Celular (Mobile First) */
+.carrusel-pinturas {
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 0.5rem 10%;
+  scrollbar-width: none;
+}
+
+.carrusel-pinturas::-webkit-scrollbar {
+  display: none;
+}
+
+.pintura-slide {
+  width: 80%; /* Sin esto, ratio-1x1 queda en 0x0px */
+  scroll-snap-align: center;
+}
+
 
 /*MEDIA QUERIES — siempre al final 
  Mobile first: arriba, celular; acá se agranda con min-width.
@@ -1109,7 +1127,13 @@ ayuda ia cursor: pointer → la manito indica que se puede tocar. */
     height: 3rem;
     font-size: 1.5rem;
   }
-}
+/*Carrusel de obras pintadas*/
+  .carrusel-pinturas {
+    padding: 0.5rem 15%;
+  }
+  .pintura-slide {
+    width: 70%;
+  }}
 
 /* CORRECCIÓN y CAMBIO y — MENÚ HORIZONTAL (media queries).
    Desde 992px el menú se ve en una fila (navbar-expand-lg en el HTML).
