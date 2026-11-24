@@ -1,32 +1,21 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // 1. Captura de elementos del DOM 
   const carrusel = document.querySelector("#carruselPinturas");
   const btnPrev = document.querySelector("#btnPrev");
   const btnNext = document.querySelector("#btnNext");
 
-  // 1. Controles de desplazamiento horizontal del carrusel
+  // 2. Verificación y asignación de eventos 
   if (carrusel && btnPrev && btnNext) {
-    const calcularDesplazamiento = () => {
-      const primerSlide = carrusel.querySelector(".pintura-slide");
-      const gap = parseFloat(getComputedStyle(carrusel).gap) || 16;
-      return primerSlide ? primerSlide.offsetWidth + gap : 300;
-    };
-
     btnNext.addEventListener("click", () => {
-      carrusel.scrollBy({
-        left: calcularDesplazamiento(),
-        behavior: "smooth",
-      });
+      carrusel.scrollLeft += 300; // Avanza 300px a la derecha
     });
 
     btnPrev.addEventListener("click", () => {
-      carrusel.scrollBy({
-        left: -calcularDesplazamiento(),
-        behavior: "smooth",
-      });
+      carrusel.scrollLeft -= 300; // Retrocede 300px a la izquierda
     });
-  }
+  } // <-- Aquí solo cierra el "if" del carrusel
 
-  // 2. Carga dinámica de la obra en el Modal de Bootstrap
+  // 3. Carga dinámica de la obra en el Modal de Bootstrap
   const modalGaleria = document.querySelector("#modalGaleria");
 
   if (modalGaleria) {
@@ -54,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
-});
+}); // <-- AQUÍ SE CIERRA EL DOMContentLoaded AL FINAL DE TODO
 
 // Activar / desactivar texto en las tarjetas de influencias al hacer clic (ideal para celular)
 const tarjetasInfluencia = document.querySelectorAll('.tarjeta-influencia');

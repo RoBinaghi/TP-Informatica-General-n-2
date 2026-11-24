@@ -7,14 +7,22 @@ body {
   background-position: center;
   background-attachment: fixed;      /* el fondo queda fijo al hacer scroll */
   color: #fff3d6;
-  font-family: 'Jost', sans-serif;
-  font-weight: 300;
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
 }
 
 /*  tipografía de los títulos */
 h1, h2, h3 {
-  font-family: 'Fredoka', sans-serif;
-  font-weight: 600;
+
+  font-family: "Anton SC", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 2px /*separacion de letra*/
+
 }
 
 /*  pseudo-clases de enlaces, en orden link, visited, hover, active */
@@ -49,8 +57,11 @@ a:active {
 
 /* "Bowie" a la izquierda (tipografía) */
 .barra .marca {
-  font-family: 'Fredoka', sans-serif;
-  font-weight: 600;
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  font-variation-settings:"wdth" 100;
   font-size: 2rem;
   color: #ff913f;
 }
@@ -106,8 +117,10 @@ a:active {
 
 /* Título grande de la página (tipografía /  border y padding) */
 .titulo-pagina {
-  font-family: 'Jost', sans-serif;
-  font-weight: 300;
+  font-family: "Anton SC", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 2px
   font-size: 3rem;
   color: #ffffff;
   border-bottom: 3px solid #ff913f;
@@ -478,19 +491,21 @@ a:active {
   margin-bottom: 1rem;
 }
 
-/* La imagen ocupa todo el ancho de la cartelera (Clase 04: width y display) */
+/* La imagen ocupa todo el ancho de la cartelera  */
 .cartelera img {
   width: 100%;
   display: block;
 }
 
-/* El título va abajo a la derecha, encima de la foto (Clase 10: position absolute) */
+/* El título va abajo a la derecha, encima de la foto */
 .cartelera-titulo {
   position: absolute;
   right: 1rem;
   bottom: 0.5rem;
-  font-family: 'Jost', sans-serif;
-  font-weight: 300;
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
   font-size: 2.2rem;
   color: #ffffff;
   margin-bottom: 0;
@@ -637,8 +652,10 @@ a:active {
   right: 4%;
   bottom: 0;             /* apoyada sobre el borde de abajo */
   z-index: 3;
-  font-family: 'Jost', sans-serif;
-  font-weight: 700;      /* en negrita */
+   font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;   /* en negrita */
   font-size: 1.6rem;
   line-height: 1;        /* sin espacio extra, así la palabra se apoya en la línea */
   color: #d62338;
@@ -695,7 +712,12 @@ a:active {
 }
 
 .hito-anio {
-  font-family: 'Fredoka', sans-serif;
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
   font-size: 2rem;
   color: #ff913f;
   margin-bottom: 0;
@@ -784,8 +806,12 @@ ayuda ia object-position: center top → al recortar, deja
 
 /* El año (misma letra que .hito-anio) */
 .anio {
-  font-family: 'Fredoka', sans-serif;
-  font-weight: 600;
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
   font-size: 1.6rem;
   color: #ff913f;
   margin-bottom: 0.3rem;
