@@ -600,6 +600,233 @@ font-family: "Anton SC", sans-serif;
   transform: translate(-50%, -50%) rotate(180deg) translate(2%, 0);
 }
 
+/* =========================================================================
+   PÁGINA COLABORACIONES: ESCENARIO FULLSCREEN + MODAL DE ARTÍCULOS
+   ========================================================================= */
+body.pagina-colaboraciones-full {
+  --color-primary: #ffffff;
+  --color-secondary: #000000;
+  --card-width: 340px;
+  --card-height: 482px;
+  --card-border-radius: 6px;
+
+  color: var(--color-primary);
+  background-color: #111111;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.05) 1px,
+    transparent 1px
+  );
+  background-size: 11px 11px;
+}
+
+.colab-header-flotante {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1030;
+}
+
+.colab-titulo-flotante {
+  position: fixed;
+  top: 74px;
+  left: 24px;
+  z-index: 900;
+  pointer-events: none;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
+}
+
+body.pagina-colaboraciones-full .carousel-container {
+  background-image: url("../img/vida/fondo-estrellas.svg");
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  user-select: none;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 2500px;
+}
+
+body.pagina-colaboraciones-full .carousel-items {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: center center;
+  transform-style: preserve-3d;
+  user-select: none;
+}
+
+body.pagina-colaboraciones-full .carousel-items.draggable {
+  cursor: grab;
+}
+
+body.pagina-colaboraciones-full .carousel-items.draggable:active {
+  cursor: grabbing;
+}
+
+body.pagina-colaboraciones-full .carousel-item {
+  display: block !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--card-width);
+  height: var(--card-height);
+  margin-left: calc(var(--card-width) / -2);
+  margin-top: calc(var(--card-height) / -2);
+  border-radius: var(--card-border-radius);
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55);
+  transform-origin: center center;
+  user-select: none;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+  transition: box-shadow 0.25s ease;
+}
+
+body.pagina-colaboraciones-full .carousel-item:hover {
+  box-shadow: 0 12px 32px rgba(255, 255, 255, 0.18);
+}
+
+body.pagina-colaboraciones-full .card__number {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-family: "Oswald", sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(0, 0, 0, 0.55);
+  padding: 2px 7px;
+  border-radius: 3px;
+  z-index: 10;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+body.pagina-colaboraciones-full .card__label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 24px 12px 10px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.88), transparent);
+  color: #ffffff;
+  font-family: "Oswald", sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+body.pagina-colaboraciones-full .carousel-item:hover .card__label {
+  opacity: 1;
+}
+
+body.pagina-colaboraciones-full .switch {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  background-color: #222;
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.015) 1px,
+    transparent 0
+  );
+  background-size: 7px 7px;
+  background-position: -1px -1px;
+  padding: 10px 22px;
+  border-radius: 4px;
+  z-index: 1000;
+  max-width: 95vw;
+  transition: padding 0.3s ease-in-out;
+}
+
+body.pagina-colaboraciones-full .switch-button {
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  font-family: "Oswald", sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  padding: 5px 10px;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+
+body.pagina-colaboraciones-full .switch-button:hover {
+  color: #cccccc;
+}
+
+body.pagina-colaboraciones-full .switch-button-current {
+  color: #f0f0f0;
+}
+
+body.pagina-colaboraciones-full .indicator-dot {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background-color: #f0f0f0;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  top: 50%;
+  transform: translateY(-50%);
+  left: -6px;
+}
+
+body.pagina-colaboraciones-full .switch-button:hover .indicator-dot,
+body.pagina-colaboraciones-full .switch-button-current .indicator-dot {
+  opacity: 1;
+}
+
+@media screen and (max-height: 900px) {
+  body.pagina-colaboraciones-full {
+    --card-width: 260px;
+    --card-height: 368px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body.pagina-colaboraciones-full {
+    --card-width: 175px;
+    --card-height: 248px;
+  }
+
+  .colab-titulo-flotante {
+    top: 66px;
+    left: 14px;
+  }
+
+  body.pagina-colaboraciones-full .switch {
+    gap: 6px;
+    padding: 8px 10px;
+    bottom: 12px;
+  }
+
+  body.pagina-colaboraciones-full .switch-button {
+    font-size: 11px;
+    padding: 4px 6px;
+  }
+}
+
 
 /* BIOGRAFÍA */
 /* En Biografía, "Bowie" va en rojo y el pie en color petróleo */
