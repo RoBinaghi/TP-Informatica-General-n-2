@@ -41,3 +41,42 @@ gsap.utils.toArray("section h2, .evento, .img-bowie-scroll").forEach((el) => {
     }
   );
 });
+/* =========================================================
+   EFECTO PARALLAX: FONDO DE IMAGEN EN MOVIMIENTO + TEXTO QUIETO
+   ========================================================= */
+if (document.querySelector(".seccion-parallax") && typeof ScrollTrigger !== "undefined") {
+  gsap.utils.toArray(".seccion-parallax").forEach((seccion) => {
+    const cajaTexto = seccion.querySelector(".caja-texto-fondo");
+
+    // 1. Mueve SOLO el fondo de imagen continuamente al scrollear
+    gsap.fromTo(
+      seccion,
+      { backgroundPositionY: "20%" },
+      {
+        backgroundPositionY: "80%",
+        ease: "none",
+        scrollTrigger: {
+          trigger: seccion,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true
+        }
+      }
+    );
+
+    // 2. La caja de texto aparece una vez y queda fija para leerse cómodo
+    if (cajaTexto) {
+      gsap.from(cajaTexto, {
+        y: 30,
+        opacity: 0,
+        duration: 0.7,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: seccion,
+          start: "top 75%",
+          once: true // Se ejecuta una sola vez y no se vuelve a mover
+        }
+      });
+    }
+  });
+}

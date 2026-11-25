@@ -1,28 +1,26 @@
 body {
-  min-height: 100vh;
+
+min-height: 100vh;
   background-color: #0c0c0c;
   background-image: url("../img/vida/fondo-estrellas.svg");
   background-repeat: no-repeat;     
-  background-size: cover;            /* estira la imagen para que cubra todo el ancho y alto */
+  background-size: cover; /* estira la imagen para que cubra todo el ancho y alto */
   background-position: center;
-  background-attachment: fixed;      /* el fondo queda fijo al hacer scroll */
+  background-attachment: fixed; /* el fondo queda fijo al hacer scroll */
   color: #fff3d6;
   font-family: "Roboto", sans-serif;
   font-optical-sizing: auto;
-  font-weight: <weight>;
+  font-weight: 400;
   font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
+  font-variation-settings: "wdth" 100;
 }
 
 /*  tipografía de los títulos */
 h1, h2, h3 {
-
-  font-family: "Anton SC", sans-serif;
+font-family: "Anton SC", sans-serif;
   font-weight: 400;
   font-style: normal;
-  letter-spacing: 2px /*separacion de letra*/
-
+  letter-spacing: 2px;/*separacion de letra*/
 }
 
 /*  pseudo-clases de enlaces, en orden link, visited, hover, active */
@@ -57,11 +55,11 @@ a:active {
 
 /* "Bowie" a la izquierda (tipografía) */
 .barra .marca {
-  font-family: "Roboto", sans-serif;
+font-family: "Roboto", sans-serif;
   font-optical-sizing: auto;
-  font-weight: <weight>;
+  font-weight: 700;
   font-style: normal;
-  font-variation-settings:"wdth" 100;
+  font-variation-settings: "wdth" 100;
   font-size: 2rem;
   color: #ff913f;
 }
@@ -117,10 +115,10 @@ a:active {
 
 /* Título grande de la página (tipografía /  border y padding) */
 .titulo-pagina {
-  font-family: "Anton SC", sans-serif;
+font-family: "Anton SC", sans-serif;
   font-weight: 400;
   font-style: normal;
-  letter-spacing: 2px
+  letter-spacing: 2px;
   font-size: 3rem;
   color: #ffffff;
   border-bottom: 3px solid #ff913f;
@@ -712,12 +710,11 @@ a:active {
 }
 
 .hito-anio {
-  font-family: "Roboto", sans-serif;
+font-family: "Roboto", sans-serif;
   font-optical-sizing: auto;
-  font-weight: <weight>;
+  font-weight: 700;
   font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
+  font-variation-settings: "wdth" 100;
   font-size: 2rem;
   color: #ff913f;
   margin-bottom: 0;
@@ -806,12 +803,11 @@ ayuda ia object-position: center top → al recortar, deja
 
 /* El año (misma letra que .hito-anio) */
 .anio {
-  font-family: "Roboto", sans-serif;
+font-family: "Roboto", sans-serif;
   font-optical-sizing: auto;
-  font-weight: <weight>;
+  font-weight: 700;
   font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
+  font-variation-settings: "wdth" 100;
   font-size: 1.6rem;
   color: #ff913f;
   margin-bottom: 0.3rem;
