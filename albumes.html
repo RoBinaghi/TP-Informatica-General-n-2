@@ -6,14 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>David Bowie - Álbumes</title>
 
-  <!-- 1) PRIMERO el CSS de Bootstrap ) -->
+  <!-- 1) PRIMERO el CSS de Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-   <!-- 2) Google Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
+  <!-- 2) Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
   <!-- 3) DESPUÉS nuestra hoja de estilos (una sola para todo el sitio): así pisa a Bootstrap -->
   <link rel="stylesheet" href="css/estilos.css">
@@ -29,7 +28,6 @@
                 aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">
           <span class="navbar-toggler-icon"></span>
         </button>
-
 
         <a class="navbar-brand marca order-lg-last" href="index.html">Bowie</a>
 
@@ -68,7 +66,7 @@
 
   <main class="container">
 
-<!-- 1. VIDEO SUPERIOR -->
+    <!-- 1. VIDEO SUPERIOR -->
     <section class="my-4">
       <div class="ratio ratio-16x9 rounded overflow-hidden shadow">
         <video src="video/portada.mp4" autoplay muted loop playsinline class="w-100 h-100 object-fit-cover"></video>
@@ -79,67 +77,26 @@
     <p class="intro">Quién fue David Robert Jones y los personajes que inventó para convertirse en David Bowie.
       Elegí una portada para entrar.</p>
 
-    <!-- 2. CARRUSEL: LOS 10 ÁLBUMES DESTACADOS -->
-    <section class="my-5">
-      <div class="position-relative">
-        
-        <!-- Flecha Izquierda -->
-        <button type="button" id="btnPrev" class="btn btn-dark btn-flecha flecha-izq" aria-label="Anterior">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        </button>
-       
-        <!-- CARRUSEL HORIZONTAL -->
-        <div class="carrusel-cuadrado" id="carruselPosters">
-
-          <!-- 1 -->
-          <div class="poster-item">
-            <img src="img/albumes/1976_stationtostation_bnw.jpg" class="rounded shadow-sm" alt="Station to Station (1976)">
-          </div>
-          <!-- 2 -->
-          <div class="poster-item">
-            <img src="img/albumes/1977_low.jpg" class="rounded shadow-sm" alt="Low (1977)">
-          </div>
-          <!-- 3 -->
-          <div class="poster-item">
-            <img src="img/albumes/1972_ziggystardust.jpg" class="rounded shadow-sm" alt="The Rise and Fall of Ziggy Stardust and the Spiders from Mars (1972)">
-          </div>
-          <!-- 4 -->
-          <div class="poster-item">
-            <img src="img/albumes/1977_heroes.jpg" class="rounded shadow-sm" alt="Heroes (1977)">
-          </div>
-          <!-- 5 -->
-          <div class="poster-item">
-            <img src="img/albumes/1971_hunkydory.jpg" class="rounded shadow-sm" alt="Hunky Dory (1971)">
-          </div>
-          <!-- 6 -->
-          <div class="poster-item">
-            <img src="img/albumes/2016_blackstar.jpg" class="rounded shadow-sm" alt="Blackstar (2016)">
-          </div>
-          <!-- 7 -->
-          <div class="poster-item">
-            <img src="img/albumes/1980_scarymonsters.jpg" class="rounded shadow-sm" alt="Scary Monsters (and Super Creeps) (1980)">
-          </div>
-          <!-- 8 -->
-          <div class="poster-item">
-            <img src="img/albumes/1973_aladdinsane.jpg" class="rounded shadow-sm" alt="Aladdin Sane (1973)">
-          </div> 
-          <!-- 9 -->
-          <div class="poster-item">
-            <img src="img/albumes/1995_1outside.jpg" class="rounded shadow-sm" alt="1.Outside (1995)">
-          </div> 
-          <!-- 10 -->
-          <div class="poster-item">
-            <img src="img/albumes/1974_diamonddogs.jpg" class="rounded shadow-sm" alt="Diamond Dogs (1974)">
-          </div>  
-
+    <!-- 2. CARRUSEL 3D: LOS 10 ÁLBUMES DESTACADOS -->
+    <section class="my-5 carrusel-3d-section rounded shadow">
+      <div class="boxes" id="carrusel3D">
+        <!-- Las 10 portadas (.box) se inyectan dinámicamente desde js/albumesinfo.js -->
+        <div class="controls">
+          <button type="button" class="next" aria-label="Álbum anterior">
+            <span>Álbum anterior</span>
+            <svg viewBox="0 0 448 512" width="100" title="Álbum anterior">
+              <path d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"></path>
+            </svg>
+          </button>
+          <button type="button" class="prev" aria-label="Álbum siguiente">
+            <span>Álbum siguiente</span>
+            <svg viewBox="0 0 448 512" width="100" title="Álbum siguiente">
+              <path d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"></path>
+            </svg>
+          </button>
         </div>
-
-        <!-- Flecha Derecha -->
-        <button type="button" id="btnNext" class="btn btn-dark btn-flecha flecha-der" aria-label="Siguiente">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        </button>
-
       </div>
+      <div class="drag-proxy"></div>
     </section>
   
     <!-- 3. VENTANA EMERGENTE (MODAL DE BOOTSTRAP) -->
@@ -155,11 +112,11 @@
           <div class="modal-body p-4">
             <div class="row g-4 align-items-start">
 
-             <!-- COLUMNA IZQUIERDA: Portada y gráfico decorativo independiente debajo -->
-    <div class="col-12 col-md-5 d-flex flex-column align-items-center">
-      <img id="detalleImg" src="" alt="" class="img-fluid rounded shadow portada-principal">
-        <img src="img/albumes/albums.jpg" alt="Decoración de vinilo" class="img-fluid decoracion-vinilo mt-3">
-    </div> 
+              <!-- COLUMNA IZQUIERDA: Portada y gráfico decorativo independiente debajo -->
+              <div class="col-12 col-md-5 d-flex flex-column align-items-center">
+                <img id="detalleImg" src="" alt="" class="img-fluid rounded shadow portada-principal">
+                <img src="img/albumes/albums.jpg" alt="Decoración de vinilo" class="img-fluid decoracion-vinilo mt-3">
+              </div> 
 
               <div class="col-12 col-md-7 d-flex flex-column">
                 <p id="detalleTexto" class="mb-3"></p>
@@ -201,7 +158,7 @@
 
   </main>
 
-  <!-- PIE DE PÁGINA ( footer y address) -->
+  <!-- PIE DE PÁGINA (footer y address) -->
   <footer class="pie">
     <p>Rocio - Micaela - Marcela</p>
     <p>IG2026 - Cátedra: Valeria Drelichman | Pedro Paleo | Leonardo Nadel | Norma Morales</p>
@@ -211,11 +168,12 @@
 
   <!-- JS de Bootstrap: hace funcionar el menú hamburguesa y los submenús -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!--Libreria-->
+  <!-- Librerías GSAP -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Draggable.min.js"></script>
 
- <script src="js/libreria.js"></script>
-     <script src="js/albumesinfo.js"></script>
+  <script src="js/libreria.js"></script>
+  <script src="js/albumesinfo.js"></script>
 </body>
 </html>

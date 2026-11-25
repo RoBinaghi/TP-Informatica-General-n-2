@@ -3,10 +3,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // 1. CAPTURA DE ELEMENTOS DEL DOM (CENTRALIZADA)
   // =========================================================================
 
-  // --- A. Elementos de la página principal (carrusel y galería inferior) ---
-  const carrusel = document.getElementById('carruselPosters');
-  const btnPrev = document.getElementById('btnPrev');
-  const btnNext = document.getElementById('btnNext');
+  // --- A. Elementos del carrusel 3D y galería inferior ---
+  const contenedorCarrusel3D = document.getElementById('carrusel3D');
+  const btnPrev = document.querySelector('.carrusel-3d-section .prev');
+  const btnNext = document.querySelector('.carrusel-3d-section .next');
   const galeriaCompleta = document.getElementById('galeriaCompleta');
 
   // --- B. Elementos de la ventana emergente de datos (modal de Bootstrap) ---
@@ -27,15 +27,14 @@ document.addEventListener('DOMContentLoaded', () => {
     : null;
 
   // =========================================================================
-  // 2. ARRAY DE DATOS DE LOS 28 ÁLBUMES (CON IDENTIFICADOR DE ARTÍCULO PARA API)
+  // 2. ARRAY DE DATOS DE LOS 28 ÁLBUMES
   // =========================================================================
   const postersData = [
-    // --- 10 ÁLBUMES DESTACADOS (CARRUSEL SUPERIOR) ---
+    // --- 10 ÁLBUMES DESTACADOS (CARRUSEL SUPERIOR 3D) ---
     {
       nombre: "Station to Station",
       anio: "1976",
       titulo: "Station to Station (1976)",
-      wikiPage: "Station_to_Station",
       img: "img/albumes/1976_stationtostation_bnw.jpg",
       texto: "Obra bisagra entre el soul de Young Americans y la electrónica experimental de Berlín. Introduce al personaje del Duque Blanco (The Thin White Duke).",
       video: "https://www.youtube.com/embed/YsqlXkkEKxI",
@@ -48,7 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
       nombre: "Low",
       anio: "1977",
       titulo: "Low (1977)",
-      wikiPage: "Low_(David_Bowie_album)",
       img: "img/albumes/1977_low.jpg",
       texto: "Primera entrega de la Trilogía de Berlín junto a Brian Eno y Tony Visconti. Combina canciones fragmentadas en la cara A y piezas ambientales e instrumentales en la cara B.",
       video: "https://www.youtube.com/embed/WoDamvrfUbQ",
@@ -61,7 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
       nombre: "The Rise and Fall of Ziggy Stardust",
       anio: "1972",
       titulo: "The Rise and Fall of Ziggy Stardust and the Spiders from Mars (1972)",
-      wikiPage: "The_Rise_and_Fall_of_Ziggy_Stardust_and_the_Spiders_from_Mars",
       img: "img/albumes/1972_ziggystardust.jpg",
       texto: "Álbum conceptual que narra la historia de Ziggy Stardust, una estrella de rock andrógina y extraterrestre enviada a la Tierra antes de un desastre apocalíptico.",
       video: "https://www.youtube.com/embed/aBKEt3MhNMM",
@@ -74,7 +71,6 @@ document.addEventListener('DOMContentLoaded', () => {
       nombre: "\"Heroes\"",
       anio: "1977",
       titulo: "\"Heroes\" (1977)",
-      wikiPage: "Heroes_(David_Bowie_album)",
       img: "img/albumes/1977_heroes.jpg",
       texto: "Único álbum de la trilogía grabado íntegramente en los estudios Hansa junto al Muro de Berlín, con la participación destacada del guitarrista Robert Fripp.",
       video: "https://www.youtube.com/embed/lXgkuM2NhYI",
@@ -87,7 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
       nombre: "Hunky Dory",
       anio: "1971",
       titulo: "Hunky Dory (1971)",
-      wikiPage: "Hunky_Dory",
       img: "img/albumes/1971_hunkydory.jpg",
       texto: "Obra centrada en el piano de Rick Wakeman y la composición melódica, con homenajes explícitos a figuras como Andy Warhol, Bob Dylan y The Velvet Underground.",
       video: "https://www.youtube.com/embed/AZKcl4-tcuo",
@@ -100,7 +95,6 @@ document.addEventListener('DOMContentLoaded', () => {
       nombre: "Blackstar",
       anio: "2016",
       titulo: "Blackstar (2016)",
-      wikiPage: "Blackstar_(album)",
       img: "img/albumes/2016_blackstar.jpg",
       texto: "Vigesimoctavo y último álbum de estudio, publicado dos días antes de su fallecimiento. Grabado junto a un cuarteto de jazz neoyorquino liderado por Donny McCaslin.",
       video: "https://www.youtube.com/embed/kszLwBaC4Sw",
@@ -113,7 +107,6 @@ document.addEventListener('DOMContentLoaded', () => {
       nombre: "Scary Monsters (and Super Creeps)",
       anio: "1980",
       titulo: "Scary Monsters (and Super Creeps) (1980)",
-      wikiPage: "Scary_Monsters_(and_Super_Creeps)",
       img: "img/albumes/1980_scarymonsters.jpg",
       texto: "Equilibra la experimentación sonora de finales de los setenta con estructuras pop accesibles. Retoma la historia de Major Tom en el clásico 'Ashes to Ashes'.",
       video: "https://www.youtube.com/embed/HyMm4rJemtI",
@@ -126,7 +119,6 @@ document.addEventListener('DOMContentLoaded', () => {
       nombre: "Aladdin Sane",
       anio: "1973",
       titulo: "Aladdin Sane (1973)",
-      wikiPage: "Aladdin_Sane",
       img: "img/albumes/1973_aladdinsane.jpg",
       texto: "Descrito por Bowie como 'Ziggy va a América'. Compuesto durante su gira por Estados Unidos, incorpora piano vanguardista de Mike Garson y un sonido glam más crudo.",
       video: "https://www.youtube.com/embed/kMYg_Ra4cr8",
@@ -139,7 +131,6 @@ document.addEventListener('DOMContentLoaded', () => {
       nombre: "1.Outside",
       anio: "1995",
       titulo: "1.Outside (1995)",
-      wikiPage: "Outside_(David_Bowie_album)",
       img: "img/albumes/1995_1outside.jpg",
       texto: "Reencuentro con Brian Eno. Álbum conceptual de rock industrial y art rock ambientado en un futuro distópico donde el asesinato es considerado una forma de arte.",
       video: "https://www.youtube.com/embed/6H0XPzASySs",
@@ -152,7 +143,6 @@ document.addEventListener('DOMContentLoaded', () => {
       nombre: "Diamond Dogs",
       anio: "1974",
       titulo: "Diamond Dogs (1974)",
-      wikiPage: "Diamond_Dogs",
       img: "img/albumes/1974_diamonddogs.jpg",
       texto: "Originalmente concebido como una adaptación teatral de la novela 1984 de George Orwell, presenta un escenario distópico y el personaje de Halloween Jack.",
       video: "https://www.youtube.com/embed/Sa6bI_95G9I",
@@ -167,7 +157,6 @@ document.addEventListener('DOMContentLoaded', () => {
       nombre: "David Bowie",
       anio: "1967",
       titulo: "David Bowie (1967)",
-      wikiPage: "David_Bowie_(1967_album)",
       img: "img/albumes/1967_davidbowie_uk.jpg",
       texto: "Álbum debut homónimo grabado bajo el sello Deram. Presenta un estilo pop barroco y teatral influenciado por el music hall británico.",
       video: "https://www.youtube.com/embed/a8q9dhsE8mM",
@@ -180,7 +169,6 @@ document.addEventListener('DOMContentLoaded', () => {
       nombre: "Space Oddity",
       anio: "1969",
       titulo: "Space Oddity (1969)",
-      wikiPage: "David_Bowie_(1969_album)",
       img: "img/albumes/1969_davidbowie_01.jpg",
       texto: "Segundo álbum de estudio, publicado originalmente como David Bowie. Combina folk psicodélico y rock progresivo, destacando el sencillo homónimo inspirado en la llegada a la Luna.",
       video: "https://www.youtube.com/embed/iYYRH4apXDo",
@@ -193,7 +181,6 @@ document.addEventListener('DOMContentLoaded', () => {
       nombre: "The Man Who Sold the World",
       anio: "1970",
       titulo: "The Man Who Sold the World (1970)",
-      wikiPage: "The_Man_Who_Sold_the_World_(album)",
       img: "img/albumes/1970_themanwhosoldtheworld_01.jpg",
       texto: "Marca un giro hacia el hard rock y el heavy metal temprano junto al guitarrista Mick Ronson, abordando temáticas oscuras y psicológicas.",
       video: "https://www.youtube.com/embed/u3MX-rUtS6M",
@@ -206,7 +193,6 @@ document.addEventListener('DOMContentLoaded', () => {
       nombre: "Pin Ups",
       anio: "1973",
       titulo: "Pin Ups (1973)",
-      wikiPage: "Pin_Ups",
       img: "img/albumes/1973_pinups.jpg",
       texto: "Álbum de versiones dedicado a las bandas londinenses favoritas de Bowie de mediados de los años sesenta, como The Who, Pink Floyd, The Kinks y The Yardbirds.",
       video: "https://www.youtube.com/embed/RmQ2OJgzkMg",
@@ -219,7 +205,6 @@ document.addEventListener('DOMContentLoaded', () => {
       nombre: "Young Americans",
       anio: "1975",
       titulo: "Young Americans (1975)",
-      wikiPage: "Young_Americans",
       img: "img/albumes/1975_youngamericans.jpg",
       texto: "Grabado en Filadelfia, abandona el glam rock para sumergirse en el soul y el funk estadounidense, estilo que Bowie denominó 'plastic soul'. Incluye la colaboración de John Lennon.",
       video: "https://www.youtube.com/embed/Ypgq0qdgVZA",
@@ -232,7 +217,6 @@ document.addEventListener('DOMContentLoaded', () => {
       nombre: "Lodger",
       anio: "1979",
       titulo: "Lodger (1979)",
-      wikiPage: "Lodger_(album)",
       img: "img/albumes/1979_lodger.jpg",
       texto: "Cierre de la Trilogía de Berlín, grabado en Suiza y Nueva York. Explora ritmos de músicas del mundo y técnicas compositivas experimentales mediante las tarjetas 'Estrategias Oblicuas'.",
       video: "https://www.youtube.com/embed/2KcOs70dZAw",
@@ -245,7 +229,6 @@ document.addEventListener('DOMContentLoaded', () => {
       nombre: "Let's Dance",
       anio: "1983",
       titulo: "Let's Dance (1983)",
-      wikiPage: "Let's_Dance_(David_Bowie_album)",
       img: "img/albumes/1983_letsdance.jpg",
       texto: "Coproducido por Nile Rodgers, es el disco más vendido de su carrera. Fusiona dance-rock, funk y pop con la guitarra blues de Stevie Ray Vaughan.",
       video: "https://www.youtube.com/embed/VbD_kBJc_gI",
@@ -258,7 +241,6 @@ document.addEventListener('DOMContentLoaded', () => {
       nombre: "Tonight",
       anio: "1984",
       titulo: "Tonight (1984)",
-      wikiPage: "Tonight_(David_Bowie_album)",
       img: "img/albumes/1984_tonight.jpg",
       texto: "Continuación de la etapa pop comercial de los ochenta, con influencias de reggae y R&B y colaboraciones vocales con Tina Turner e Iggy Pop.",
       video: "https://www.youtube.com/embed/NZnryZ5rDbs",
@@ -271,7 +253,6 @@ document.addEventListener('DOMContentLoaded', () => {
       nombre: "Never Let Me Down",
       anio: "1987",
       titulo: "Never Let Me Down (1987)",
-      wikiPage: "Never_Let_Me_Down",
       img: "img/albumes/1987_neverletmedown.jpg",
       texto: "Álbum de rock electrónico que precedió a la teatral gira mundial Glass Spider Tour.",
       video: "https://www.youtube.com/embed/YHU28e8hZkA",
@@ -284,7 +265,6 @@ document.addEventListener('DOMContentLoaded', () => {
       nombre: "Tin Machine",
       anio: "1989",
       titulo: "Tin Machine (1989)",
-      wikiPage: "Tin_Machine_(album)",
       img: "img/albumes/1989_tinmachine.jpg",
       texto: "Proyecto de banda de hard rock y proto-grunge formado junto a Reeves Gabrels, Tony Sales y Hunt Sales, renunciando temporalmente al estatus de solista.",
       video: "https://www.youtube.com/embed/3f0O_W2z6d0",
@@ -297,7 +277,6 @@ document.addEventListener('DOMContentLoaded', () => {
       nombre: "Tin Machine II",
       anio: "1991",
       titulo: "Tin Machine II (1991)",
-      wikiPage: "Tin_Machine_II",
       img: "img/albumes/1991_tinmachine_2_uk.jpg",
       texto: "Segundo y último álbum de estudio del cuarteto Tin Machine, con un sonido de rock alternativo crudo y directo.",
       video: "https://www.youtube.com/embed/w4xeHYI4A2k",
@@ -310,7 +289,6 @@ document.addEventListener('DOMContentLoaded', () => {
       nombre: "Black Tie White Noise",
       anio: "1993",
       titulo: "Black Tie White Noise (1993)",
-      wikiPage: "Black_Tie_White_Noise",
       img: "img/albumes/1993_blacktiewhitenoise.jpg",
       texto: "Regreso como solista bajo la producción de Nile Rodgers, incorporando elementos de jazz, hip-hop, música electrónica y saxofón tocado por el propio Bowie.",
       video: "https://www.youtube.com/embed/xPZWgCLMsW8",
@@ -323,7 +301,6 @@ document.addEventListener('DOMContentLoaded', () => {
       nombre: "The Buddha of Suburbia",
       anio: "1993",
       titulo: "The Buddha of Suburbia (1993)",
-      wikiPage: "The_Buddha_of_Suburbia_(album)",
       img: "img/albumes/1993_thebuddhaofsuburbia.jpg",
       texto: "Álbum inspirado en la música compuesta para la miniserie homónima de la BBC basada en la novela de Hanif Kureishi.",
       video: "https://www.youtube.com/embed/xHPIAFaKd1I",
@@ -336,7 +313,6 @@ document.addEventListener('DOMContentLoaded', () => {
       nombre: "Earthling",
       anio: "1997",
       titulo: "Earthling (1997)",
-      wikiPage: "Earthling_(David_Bowie_album)",
       img: "img/albumes/1997_earthling.jpg",
       texto: "Incursión en la música electrónica británica de los noventa, fusionando drum and bass, jungle y rock industrial.",
       video: "https://www.youtube.com/embed/LT3cERVRoQo",
@@ -349,7 +325,6 @@ document.addEventListener('DOMContentLoaded', () => {
       nombre: "'hours...'",
       anio: "1999",
       titulo: "'hours...' (1999)",
-      wikiPage: "Hours_(David_Bowie_album)",
       img: "img/albumes/1999_hours.jpg",
       texto: "Primer álbum de un artista de gran trayectoria disponible íntegramente para descarga digital en internet antes de su lanzamiento físico.",
       video: "https://www.youtube.com/embed/gfOKDB0ChQk",
@@ -362,7 +337,6 @@ document.addEventListener('DOMContentLoaded', () => {
       nombre: "Heathen",
       anio: "2002",
       titulo: "Heathen (2002)",
-      wikiPage: "Heathen_(David_Bowie_album)",
       img: "img/albumes/2002_heathen.jpg",
       texto: "Marca su regreso a trabajar con el productor Tony Visconti tras más de dos décadas, con un tono reflexivo e introspectivo sobre el cambio de siglo.",
       video: "https://www.youtube.com/embed/NSbZ8CmXyQ8",
@@ -375,7 +349,6 @@ document.addEventListener('DOMContentLoaded', () => {
       nombre: "Reality",
       anio: "2003",
       titulo: "Reality (2003)",
-      wikiPage: "Reality_(David_Bowie_album)",
       img: "img/albumes/2003_reality.jpg",
       texto: "Álbum de rock directo grabado en Nueva York, acompañado por la extensa gira mundial A Reality Tour.",
       video: "https://www.youtube.com/embed/fwH1g2fW6Pc",
@@ -388,7 +361,6 @@ document.addEventListener('DOMContentLoaded', () => {
       nombre: "The Next Day",
       anio: "2013",
       titulo: "The Next Day (2013)",
-      wikiPage: "The_Next_Day",
       img: "img/albumes/2013_thenextday.jpg",
       texto: "Lanzado por sorpresa tras diez años de silencio discográfico. Su portada interviene la fotografía original del álbum 'Heroes' (1977) con un recuadro blanco.",
       video: "https://www.youtube.com/embed/QWtsV50_-p4",
@@ -399,11 +371,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   ];
 
-  // Caché en memoria para almacenar las respuestas JSON ya procesadas
+  // Caché en memoria para almacenar las listas de temas ya obtenidas
   const cacheCanciones = {};
 
   // =========================================================================
-  // 3. FUNCIONES PARA LA VENTANA EMERGENTE Y CONSULTA A LA API (MEDIAWIKI)
+  // 3. FUNCIONES PARA LA VENTANA EMERGENTE Y CONSULTA A DEEZER API (JSONP)
   // =========================================================================
 
   // Dibuja los ítems <li> de canciones dentro del modal
@@ -416,125 +388,76 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Consulta la API pública de Wikipedia (MediaWiki API con origin=* y redirects=1)
+  // Función genérica para ejecutar consultas JSONP a Deezer sin bloqueo CORS
+  function consultarDeezerJSONP(urlBase) {
+    return new Promise((resolve, reject) => {
+      const nombreCallback = `deezerCb_${Date.now()}_${Math.floor(Math.random() * 10000)}`;
+      const script = document.createElement('script');
+
+      const temporizador = setTimeout(() => {
+        limpiar();
+        reject(new Error('Tiempo de espera agotado al consultar la API.'));
+      }, 8000);
+
+      function limpiar() {
+        clearTimeout(temporizador);
+        delete window[nombreCallback];
+        if (script.parentNode) {
+          script.parentNode.removeChild(script);
+        }
+      }
+
+      window[nombreCallback] = (respuesta) => {
+        limpiar();
+        resolve(respuesta);
+      };
+
+      script.onerror = () => {
+        limpiar();
+        reject(new Error('Error de red al conectar con Deezer API.'));
+      };
+
+      const separador = urlBase.includes('?') ? '&' : '?';
+      script.src = `${urlBase}${separador}output=jsonp&callback=${nombreCallback}`;
+      document.body.appendChild(script);
+    });
+  }
+
   async function obtenerCancionesAPI(album, contenedorDOM) {
     contenedorDOM.innerHTML = '<li class="text-secondary list-unstyled">Cargando lista de temas desde la API...</li>';
 
-    // Si el álbum ya fue consultado previamente, reutilizamos el array guardado
+    // Si el álbum ya fue consultado previamente, reutilizamos el array guardado en caché
     if (cacheCanciones[album.titulo]) {
       renderizarCanciones(cacheCanciones[album.titulo], contenedorDOM);
       return;
     }
 
     try {
-      const API_WIKI = 'https://en.wikipedia.org/w/api.php';
-      const paginaCodificada = encodeURIComponent(album.wikiPage);
+      const artista = album.nombre.includes('Tin Machine') ? 'Tin Machine' : 'David Bowie';
+      const nombreLimpio = album.nombre.replace(/"/g, '').replace(/'/g, '');
 
-      // Paso 1: Obtener las secciones del artículo del álbum (con seguimiento de redirecciones)
-      const urlSecciones = `${API_WIKI}?action=parse&page=${paginaCodificada}&prop=sections&redirects=1&format=json&origin=*`;
-      const respSecciones = await fetch(urlSecciones);
+      // Paso 1: Buscar el álbum activo en el catálogo regional de Deezer
+      const query = encodeURIComponent(`artist:"${artista}" album:"${nombreLimpio}"`);
+      const datosBusqueda = await consultarDeezerJSONP(`https://api.deezer.com/search/album?q=${query}`);
 
-      if (!respSecciones.ok) {
-        throw new Error(`Error HTTP: ${respSecciones.status}`);
+      if (!datosBusqueda.data || datosBusqueda.data.length === 0) {
+        throw new Error('Álbum no disponible en el catálogo.');
       }
 
-      const datosSecciones = await respSecciones.json();
+      const idAlbumActivo = datosBusqueda.data[0].id;
 
-      if (!datosSecciones.parse || !datosSecciones.parse.sections) {
-        throw new Error('No se encontró la estructura del álbum en la API.');
+      // Paso 2: Obtener la lista completa de pistas (limit=50 evita el truncamiento)
+      const datosPistas = await consultarDeezerJSONP(`https://api.deezer.com/album/${idAlbumActivo}/tracks?limit=50`);
+
+      if (datosPistas.error) {
+        throw new Error(datosPistas.error.message || 'Error al obtener las pistas.');
       }
 
-      // Buscar variantes de encabezado ("Track listing", "Tracklist", "Songs")
-      const seccionTracks = datosSecciones.parse.sections.find((sec) => {
-        if (!sec.line) return false;
-        const tituloSec = sec.line.toLowerCase();
-        return (
-          tituloSec.includes('track listing') ||
-          tituloSec.includes('tracklist') ||
-          tituloSec.includes('songs')
-        );
-      });
-
-      if (!seccionTracks) {
-        throw new Error('No se encontró la sección de canciones.');
+      if (!datosPistas.data || datosPistas.data.length === 0) {
+        throw new Error('Sin pistas registradas para este álbum.');
       }
 
-      // Paso 2: Obtener el contenido de la sección de canciones en formato JSON
-      const urlContenido = `${API_WIKI}?action=parse&page=${paginaCodificada}&section=${seccionTracks.index}&prop=text&redirects=1&format=json&origin=*`;
-      const respContenido = await fetch(urlContenido);
-
-      if (!respContenido.ok) {
-        throw new Error(`Error HTTP al leer pistas: ${respContenido.status}`);
-      }
-
-      const datosContenido = await respContenido.json();
-      const htmlTexto = datosContenido.parse.text['*'];
-
-      // Parsear la respuesta para extraer exclusivamente las pistas de la edición estándar
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(htmlTexto, 'text/html');
-      const tablas = doc.querySelectorAll('table.tracklist');
-
-      const cancionesObtenidas = [];
-
-      if (tablas.length > 0) {
-        tablas.forEach((tabla) => {
-          // Detenerse antes de tablas de bonus tracks o reediciones posteriores
-          const caption = tabla.querySelector('caption');
-          const tituloTabla = caption ? caption.textContent.toLowerCase() : '';
-          if (
-            tituloTabla.includes('bonus') ||
-            tituloTabla.includes('reissue') ||
-            tituloTabla.includes('cd ') ||
-            tituloTabla.includes('rykodisc') ||
-            tituloTabla.includes('virgin') ||
-            tituloTabla.includes('parlophone')
-          ) {
-            return;
-          }
-
-          const filas = tabla.querySelectorAll('tr');
-          filas.forEach((fila) => {
-            const celdas = fila.querySelectorAll('td');
-            const encabezadoFila = fila.querySelector('th[scope="row"]');
-            if (encabezadoFila && celdas.length > 0) {
-              // Limpiar comillas y notas al pie ([1], [a], etc.)
-              const nombreLimpio = celdas[0].textContent
-                .replace(/\[.*?\]/g, '')
-                .replace(/^"|"$/g, '')
-                .trim();
-              if (nombreLimpio) {
-                cancionesObtenidas.push(nombreLimpio);
-              }
-            }
-          });
-        });
-      }
-
-      // Respaldo: si el artículo estructura las pistas mediante listas ordenadas (<ol>) en lugar de tabla
-      if (cancionesObtenidas.length === 0) {
-        const listasOrdenadas = doc.querySelectorAll('ol');
-        listasOrdenadas.forEach((ol) => {
-          // Tomar únicamente las caras A y B de la edición original (primeras dos listas)
-          if (cancionesObtenidas.length >= 16) return;
-          const items = ol.querySelectorAll(':scope > li');
-          items.forEach((item) => {
-            const textoItem = item.textContent
-              .replace(/\[.*?\]/g, '')
-              .split('–')[0]
-              .split('(')[0]
-              .replace(/^"|"$/g, '')
-              .trim();
-            if (textoItem) {
-              cancionesObtenidas.push(textoItem);
-            }
-          });
-        });
-      }
-
-      if (cancionesObtenidas.length === 0) {
-        throw new Error('No se pudieron extraer pistas válidas.');
-      }
+      const cancionesObtenidas = datosPistas.data.map((pista) => pista.title);
 
       // Guardar en caché y renderizar en pantalla
       cacheCanciones[album.titulo] = cancionesObtenidas;
@@ -582,10 +505,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================================
-  // 4. INTERACCIÓN Y RENDERIZADO EN LA PÁGINA PRINCIPAL
+  // 4. CARRUSEL 3D COVERFLOW (GSAP) Y GALERÍA CRONOLÓGICA INFERIOR
   // =========================================================================
 
-  // Generar las 28 tarjetas de la galería inferior ordenadas cronológicamente (1967 a 2016)
+  // --- A. Generar las 28 tarjetas de la galería inferior (1967 a 2016) ---
   if (galeriaCompleta) {
     const discografiaOrdenada = postersData
       .map((album, indexOriginal) => ({ ...album, indexOriginal }))
@@ -613,29 +536,175 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Interacción de clic para los 10 destacados del carrusel superior
-  if (carrusel) {
-    const postersCarrusel = carrusel.querySelectorAll('.poster-item');
-    postersCarrusel.forEach((poster, index) => {
-      poster.addEventListener('click', () => {
-        abrirDetalleAlbum(index);
-      });
-    });
-
-    // Botones de flechas del carrusel
-    if (btnNext) {
-      btnNext.addEventListener('click', () => {
-        const primerItem = carrusel.querySelector('.poster-item');
-        const paso = primerItem ? primerItem.offsetWidth + 16 : 236;
-        carrusel.scrollBy({ left: paso, behavior: 'smooth' });
-      });
+  // --- B. Inicializar el carrusel 3D con los primeros 10 álbumes destacados ---
+  if (contenedorCarrusel3D && typeof gsap !== 'undefined') {
+    if (typeof Draggable !== 'undefined') {
+      gsap.registerPlugin(Draggable);
     }
 
-    if (btnPrev) {
-      btnPrev.addEventListener('click', () => {
-        const primerItem = carrusel.querySelector('.poster-item');
-        const paso = primerItem ? primerItem.offsetWidth + 16 : 236;
-        carrusel.scrollBy({ left: -paso, behavior: 'smooth' });
+    const destacados = postersData.slice(0, 10);
+    const controlesEl = contenedorCarrusel3D.querySelector('.controls');
+
+    // Crear dinámicamente las 10 cajas .box con las portadas locales
+    destacados.forEach((album, idx) => {
+      const box = document.createElement('div');
+      box.className = 'box';
+      box.style.setProperty('--src', `url('../${album.img}')`);
+      box.dataset.index = idx;
+
+      const img = document.createElement('img');
+      img.src = album.img;
+      img.alt = album.titulo;
+      img.draggable = false;
+
+      box.appendChild(img);
+      contenedorCarrusel3D.insertBefore(box, controlesEl);
+    });
+
+    const BOXES = gsap.utils.toArray('.carrusel-3d-section .box');
+    gsap.set(BOXES, { xPercent: -50, yPercent: -50, display: 'block' });
+
+    const STAGGER = 0.1;
+    const DURATION = 1;
+    const OFFSET = 0;
+
+    const LOOP = gsap.timeline({
+      paused: true,
+      repeat: -1,
+      ease: 'none',
+    });
+
+    const SHIFTS = [...BOXES, ...BOXES, ...BOXES];
+
+    SHIFTS.forEach((BOX, index) => {
+      const BOX_TL = gsap
+        .timeline()
+        .set(BOX, {
+          xPercent: 200,
+          rotateY: -50,
+          opacity: 0,
+          scale: 0.5,
+        })
+        .to(BOX, { opacity: 1, scale: 1, duration: 0.15 }, 0)
+        .to(BOX, { opacity: 0, scale: 0.5, duration: 0.15 }, 0.85)
+        .fromTo(
+          BOX,
+          { xPercent: 200 },
+          { xPercent: -300, duration: 1, immediateRender: false, ease: 'power1.inOut' },
+          0
+        )
+        .fromTo(
+          BOX,
+          { rotateY: -50 },
+          { rotateY: 50, immediateRender: false, duration: 1, ease: 'power4.inOut' },
+          0
+        )
+        .to(BOX, { z: 100, scale: 1.2, duration: 0.15, repeat: 1, yoyo: true }, 0.35)
+        .fromTo(
+          BOX,
+          { zIndex: 1 },
+          { zIndex: BOXES.length, repeat: 1, yoyo: true, ease: 'none', duration: 0.5, immediateRender: false },
+          0
+        );
+
+      LOOP.add(BOX_TL, index * STAGGER);
+    });
+
+    const CYCLE_DURATION = STAGGER * BOXES.length;
+    const START_TIME = CYCLE_DURATION + DURATION * 0.5 + OFFSET;
+
+    const LOOP_HEAD = gsap.fromTo(
+      LOOP,
+      { totalTime: START_TIME },
+      { totalTime: `+=${CYCLE_DURATION}`, duration: 1, ease: 'none', repeat: -1, paused: true }
+    );
+
+    const PLAYHEAD = { position: 0 };
+    const POSITION_WRAP = gsap.utils.wrap(0, LOOP_HEAD.duration());
+
+    // Renderizar de inmediato el cuadro inicial (position = 0) para que se vean las portadas al cargar
+    LOOP_HEAD.totalTime(POSITION_WRAP(0));
+
+    const SCRUB = gsap.to(PLAYHEAD, {
+      position: 0,
+      onUpdate: () => {
+        LOOP_HEAD.totalTime(POSITION_WRAP(PLAYHEAD.position));
+      },
+      paused: true,
+      duration: 0.35,
+      ease: 'power3.out',
+    });
+
+    const SNAP = gsap.utils.snap(1 / BOXES.length);
+    let fueArrastrado = false;
+
+    const moverAPosicion = (nuevaPos) => {
+      const posAjustada = SNAP(nuevaPos);
+      SCRUB.vars.position = posAjustada;
+      SCRUB.invalidate().restart();
+    };
+
+    const NEXT = () => moverAPosicion(SCRUB.vars.position - 1 / BOXES.length);
+    const PREV = () => moverAPosicion(SCRUB.vars.position + 1 / BOXES.length);
+
+    if (btnNext) btnNext.addEventListener('click', NEXT);
+    if (btnPrev) btnPrev.addEventListener('click', PREV);
+
+    document.addEventListener('keydown', (event) => {
+      if (modalElemento && modalElemento.classList.contains('show')) return;
+      if (event.code === 'ArrowLeft' || event.code === 'KeyA') NEXT();
+      if (event.code === 'ArrowRight' || event.code === 'KeyD') PREV();
+    });
+
+    // Clic en tarjetas del carrusel: centra si está al costado; abre modal si ya está al frente
+    contenedorCarrusel3D.addEventListener('click', (e) => {
+      if (fueArrastrado) {
+        fueArrastrado = false;
+        return;
+      }
+      const BOX = e.target.closest('.box');
+      if (!BOX) return;
+
+      const TARGET = BOXES.indexOf(BOX);
+      const CURRENT = gsap.utils.wrap(
+        0,
+        BOXES.length,
+        Math.round(BOXES.length * SCRUB.vars.position)
+      );
+
+      if (TARGET === CURRENT) {
+        abrirDetalleAlbum(TARGET);
+      } else {
+        let BUMP = TARGET - CURRENT;
+        if (TARGET > CURRENT && TARGET - CURRENT > BOXES.length * 0.5) {
+          BUMP = (BOXES.length - BUMP) * -1;
+        }
+        if (CURRENT > TARGET && CURRENT - TARGET > BOXES.length * 0.5) {
+          BUMP = BOXES.length + BUMP;
+        }
+        moverAPosicion(SCRUB.vars.position + BUMP * (1 / BOXES.length));
+      }
+    });
+
+    // Arrastre horizontal con mouse o pantalla táctil
+    if (typeof Draggable !== 'undefined') {
+      Draggable.create('.drag-proxy', {
+        type: 'x',
+        trigger: '.carrusel-3d-section .boxes',
+        onPress() {
+          this.startOffset = SCRUB.vars.position;
+          fueArrastrado = false;
+        },
+        onDrag() {
+          if (Math.abs(this.x - this.startX) > 6) {
+            fueArrastrado = true;
+          }
+          SCRUB.vars.position = this.startOffset + (this.startX - this.x) * 0.0015;
+          SCRUB.invalidate().restart();
+        },
+        onDragEnd() {
+          moverAPosicion(SCRUB.vars.position);
+        },
       });
     }
   }
