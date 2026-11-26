@@ -932,73 +932,35 @@ body.pagina-colaboraciones-full .switch-button-current .indicator-dot {
   margin-bottom: 1rem;
 }
 
-/* ---------- FOTO DE LA GUITARRA QUE CAMBIA DE COLOR ----------
-     Las 6 versiones de color se intercambian con JavaScript (js/biografia.js)
-   usando la clase .oculto (display: none) que está en la Parte 1. */
+/* ---------- BOWIE Y SUS LOOKS ----------
+   Las 9 fotos se intercambian con JavaScript (js/biografia.js)
+   usando la clase .oculto (display: none) que está en la Parte 1.
+   (Los nombres .guitarra y .foto-guitarra se mantienen
+   para no tener que cambiar libreria.js, que anima .caja-guitarra.) */
+
+/* Clase 02: text-align / Clase 04: padding */
 .guitarra {
   text-align: center;
   padding-top: 1rem;
   padding-bottom: 1.5rem;
 }
 
-.guitarra img {
-  width: 80%;
-  max-width: 380px;
-}
-
-/* CAMBIO : foto de Bowie con la guitarra y botones de colores.
-    - cursor: pointer → muestra la manito para que se note que se puede tocar.
-   - border-radius: 50% → botones redondos.
-   - gap → espacio entre los botones del flexbox.
-   - transform: scale(1.15) → agranda un poco el botón con hover. */
-.foto-guitarra {
-  cursor: pointer;
-}
-
-/* CAMBIO  foto de la guitarra más grande 
-   Pisa al "width: 80%; max-width: 380px" de .guitarra img */
+/* La foto: ancho en % con un máximo (Clase 04: width y max-width)
+   [NO VISTO EN CLASE] cursor: pointer → muestra la manito para que se note que se puede tocar */
 .guitarra .foto-guitarra {
   width: 95%;
-  max-width: 480px;
-}
-
-.botones-color {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-top: 1rem;
-}
-
-.btn-color {
-  width: 2.2rem;
-  height: 2.2rem;
-  border: 3px solid #fff3d6;
-  border-radius: 50%;
+  max-width: 420px;
   cursor: pointer;
 }
 
-.btn-color:hover {
-  transform: scale(1.15);
-}
-
-/* El color que está elegido lleva borde naranja (la clase la pone JavaScript) */
-.btn-color.elegido {
-  border-color: #ff913f;
-  transform: scale(1.15);
-}
-
-.color-violeta  { background-color: #9b7fd4; }
-.color-roja     { background-color: #d62338; }
-.color-naranja  { background-color: #ff913f; }
-.color-celeste  { background-color: #00ade3; }
-.color-petroleo { background-color: #2f8a9c; }
-.color-dorada   { background-color: #e0b12f; }
-
-.pista-guitarra {
-  font-size: 0.85rem;
+/* Nombre del personaje que aparece al tocar la foto
+   (Clase 02: font-family, color, font-size, text-transform / Clase 04: margin) */
+.nombre-look {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.5rem;
   color: #d62338;
-  margin-top: 0.5rem;
+  text-transform: uppercase;
+  margin-top: 0.8rem;
 }
 
 /* ---------- FOTO DE BLACKSTAR Y FUENTES ---------- */
@@ -1745,9 +1707,9 @@ ayuda ia cursor: pointer → la manito indica que se puede tocar. */
     padding-right: 0.5rem;
   }
 
-  /* CAMBIO: en compu la foto de la guitarra crece un poco más */
+  /* En compu la foto del look crece un poco más */
   .guitarra .foto-guitarra {
-    max-width: 580px;
+    max-width: 520px;
   }
 
   /* CAMBIO : fotos de la línea de tiempo un poco más altas */

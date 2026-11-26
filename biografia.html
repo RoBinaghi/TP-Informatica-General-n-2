@@ -104,30 +104,31 @@
         Dejó una huella en la música, la moda, el teatro y las artes visuales.</p>
     </section>
 
+    <!-- BOWIE Y SUS LOOKS
+         Son 9 fotos, una por personaje. Se ve una sola: las otras tienen la clase "oculto".
+         Cada vez que se toca la foto, pasa al look siguiente y abajo aparece
+         el nombre del personaje (js/biografia.js).
+         Clase 01: img con alt / Clase 03: section y h2 -->
     <section class="guitarra">
-      <h2 class="titulo-seccion">Tocá a Bowie y cambiale el color</h2>
+      <h2 class="titulo-seccion">El influencer más destacado del rock</h2>
+      <p class="intro">Antes de las redes, Bowie ya marcaba tendencia.</p>
 
       <div class="caja-guitarra">
-        <img src="img/biografia/guitarra-1.png" alt="David Bowie tocando la guitarra, foto en violeta" class="foto-guitarra">
-        <img src="img/biografia/guitarra-2.png" alt="David Bowie tocando la guitarra, foto en rojo" class="foto-guitarra oculto">
-        <img src="img/biografia/guitarra-3.png" alt="David Bowie tocando la guitarra, foto en naranja" class="foto-guitarra oculto">
-        <img src="img/biografia/guitarra-4.png" alt="David Bowie tocando la guitarra, foto en celeste" class="foto-guitarra oculto">
-        <img src="img/biografia/guitarra-5.png" alt="David Bowie tocando la guitarra, foto en petróleo" class="foto-guitarra oculto">
-        <img src="img/biografia/guitarra-6.png" alt="David Bowie tocando la guitarra, foto en dorado" class="foto-guitarra oculto">
+        <!-- La primera foto (Bowie de espaldas) es la que se ve al entrar -->
+        <img src="img/biografia/look-06-earthling1997.png" alt="Bowie de espaldas con el saco con la bandera británica" class="foto-guitarra">
+        <img src="img/biografia/look-01-rayadokansai1973.png" alt="Bowie como Ziggy con el enterito rayado de Kansai Yamamoto sobre fondo rojo" class="foto-guitarra oculto">
+        <img src="img/biografia/look-02-rebelrebel1974.png" alt="Bowie con parche en el ojo, pañuelo y guitarra roja" class="foto-guitarra oculto">
+        <img src="img/biografia/look-03-diamonddogs1974.png" alt="Bowie con tiradores, corbata escocesa y pantalón claro" class="foto-guitarra oculto">
+        <img src="img/biografia/look-04-trajeamarillo1983.png" alt="Bowie rubio con traje amarillo cantando" class="foto-guitarra oculto">
+        <img src="img/biografia/look-05-glassspider1987.png" alt="Bowie colgado de una cuerda en el escenario" class="foto-guitarra oculto">
+        <img src="img/biografia/look-07-glastonbury2000.png" alt="Bowie con saco de flores y los brazos en alto" class="foto-guitarra oculto">
+        <img src="img/biografia/look-08-realitytour2003.png" alt="Bowie con traje azul brillante cantando" class="foto-guitarra oculto">
+        <img src="img/biografia/look-09-blackstar2016.png" alt="Bowie con los ojos vendados y botones, época de Blackstar" class="foto-guitarra oculto">
       </div>
 
-      <!-- Bootstrap: gap-N: espacio entre los elementos de un flexbox -->
-      <div class="botones-color gap-3">
-        <!-- Bootstrap: rounded-circle: forma redonda -->
-        <button type="button" class="btn-color rounded-circle color-violeta" aria-label="Foto en violeta"></button>
-        <button type="button" class="btn-color rounded-circle color-roja" aria-label="Foto en rojo"></button>
-        <button type="button" class="btn-color rounded-circle color-naranja" aria-label="Foto en naranja"></button>
-        <button type="button" class="btn-color rounded-circle color-celeste" aria-label="Foto en celeste"></button>
-        <button type="button" class="btn-color rounded-circle color-petroleo" aria-label="Foto en petróleo"></button>
-        <button type="button" class="btn-color rounded-circle color-dorada" aria-label="Foto en dorado"></button>
-      </div>
-
-      <p class="pista-guitarra">Tocá la foto o elegí un color</p>
+      <!-- Al entrar dice "Tocalo y conocé algunos de sus estilos".
+           Cuando se toca la foto, JavaScript lo cambia por el nombre del personaje (Clase 07: innerText) -->
+      <p class="nombre-look">Tocalo y conocé algunos de sus estilos</p>
     </section>
 
     <section class="linea-tiempo" id="linea-tiempo">
@@ -430,7 +431,7 @@
 
   <!-- Bootstrap: position-fixed: queda fijo en la pantalla aunque se haga scroll (top-0 / start-0 / bottom-0 / end-0: pegado arriba, a la izquierda, abajo o a la derecha) -->
   <div class="visor oculto position-fixed top-0 start-0">
-    <div class="visor-contenido"></div>
+    <img class="visor-foto" src="" alt="">
     <p class="visor-texto"></p>
     <p class="visor-cerrar">Tocá en cualquier parte para cerrar ✕</p>
   </div>

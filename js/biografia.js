@@ -5,54 +5,53 @@
 // =====================================================
 
 
-// ----- 1. GUITARRA QUE CAMBIA DE COLOR -----
+// ----- 1. BOWIE Y SUS LOOKS -----
+// Cada vez que se toca la foto, se esconde la que se ve y aparece la siguiente.
 // Clase 07: querySelectorAll y addEventListener (evento click)
 // Clase 08: let, funciones, if
-// Clase 09: for y arrays (lo que devuelve querySelectorAll se recorre como un array)
+// Clase 09: for y length
 // Clase 14: classList.add y classList.remove
 
-// Capturo las 6 imágenes de la guitarra y los 6 botones de colores
-let guitarras = document.querySelectorAll('.foto-guitarra');
-let botonesColor = document.querySelectorAll('.btn-color');
+// Capturo las 9 fotos de los looks y el párrafo donde va el nombre
+let fotosLook = document.querySelectorAll('.foto-guitarra');
+let nombreLook = document.querySelector('.nombre-look');
 
-// Guarda el número del color que se está viendo (empieza en 0 = rojo)
-let colorActual = 0;
+// Array con el nombre de cada look, en el MISMO orden que las fotos del HTML (Clase 09)
+const nombres = [
+  'El Bowie de Earthling',
+  'Ziggy Stardust',
+  'Halloween Jack',
+  'El Bowie soul',
+  "El Bowie de Let's Dance",
+  'Glass Spider',
+  'Bowie en Glastonbury',
+  'El Bowie de Reality',
+  'The Blind Prophet'
+];
 
-// Muestra la guitarra número "numero" y esconde las demás
-function mostrarColor(numero) {
-  for (let i = 0; i < guitarras.length; i++) {
-    guitarras[i].classList.add('oculto');
-    botonesColor[i].classList.remove('elegido');
+// Guarda el número del look que se está viendo (empieza en 0 = el primero)
+let lookActual = 0;
+
+// Esconde el look que se ve, muestra el siguiente y escribe su nombre.
+// Si llega al último, vuelve al primero.
+function siguienteLook() {
+  fotosLook[lookActual].classList.add('oculto');
+
+  lookActual = lookActual + 1;
+  if (lookActual == fotosLook.length) {
+    lookActual = 0;
   }
 
-  guitarras[numero].classList.remove('oculto');
-  botonesColor[numero].classList.add('elegido');
-  colorActual = numero;
+  fotosLook[lookActual].classList.remove('oculto');
+
+  // Escribimos el nombre del personaje de la foto que ahora se ve (Clase 07: innerText)
+  nombreLook.innerText = nombres[lookActual];
 }
 
-// Al tocar la guitarra pasa al color siguiente.
-// Si llega al último, vuelve al primero.
-for (let i = 0; i < guitarras.length; i++) {
-  guitarras[i].addEventListener('click', function () {
-    let siguiente = colorActual + 1;
-
-    if (siguiente == guitarras.length) {
-      siguiente = 0;
-    }
-
-    mostrarColor(siguiente);
-  });
+// Al tocar cualquiera de las fotos se pasa al look siguiente
+for (let i = 0; i < fotosLook.length; i++) {
+  fotosLook[i].addEventListener('click', siguienteLook);
 }
-
-// Al tocar un botón de color se muestra esa guitarra
-for (let i = 0; i < botonesColor.length; i++) {
-  botonesColor[i].addEventListener('click', function () {
-    mostrarColor(i);
-  });
-}
-
-// Al cargar la página queda marcado el primer color
-mostrarColor(0);
 
 
 // ----- 2. BOTÓN PARA VOLVER ARRIBA -----
