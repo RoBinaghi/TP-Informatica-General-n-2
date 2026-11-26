@@ -708,4 +708,25 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   }
+
+  // =========================================================================
+  // 5. ACTIVAR / DESACTIVAR TEXTO EN TARJETAS DE EPs E INFLUENCIAS (CELULAR)
+  // =========================================================================
+  const tarjetasInfluencia = document.querySelectorAll('.tarjeta-influencia, .cuadro-influencia');
+
+  tarjetasInfluencia.forEach((tarjeta) => {
+    tarjeta.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const estabaActiva = tarjeta.classList.contains('activa');
+      tarjetasInfluencia.forEach((t) => t.classList.remove('activa'));
+
+      if (!estabaActiva) {
+        tarjeta.classList.add('activa');
+      }
+    });
+  });
+
+  document.addEventListener('click', () => {
+    tarjetasInfluencia.forEach((t) => t.classList.remove('activa'));
+  });
 });
