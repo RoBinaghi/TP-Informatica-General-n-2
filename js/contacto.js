@@ -1,137 +1,71 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>David Bowie | Contacto</title>
+// =====================================================================
+// CONTACTO — validación del formulario (js/contacto.js)
+// Clase 07: buscamos los elementos por su id y escuchamos eventos.
+// =====================================================================
 
-  <!-- Bootstrap: CSS de Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+// 1) Los elementos del HTML
+let formulario = document.getElementById("formulario");
+let campoNombre = document.getElementById("nombre");
+let campoEmail = document.getElementById("email");
+let campoMotivo = document.getElementById("motivo");
+let campoMensaje = document.getElementById("mensaje");
 
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&family=Jost:wght@300;500&display=swap" rel="stylesheet">
+let errorNombre = document.getElementById("error-nombre");
+let errorEmail = document.getElementById("error-email");
+let errorMotivo = document.getElementById("error-motivo");
+let errorMensaje = document.getElementById("error-mensaje");
 
-  <link rel="stylesheet" href="css/estilos.css">
-</head>
-<body>
+let exito = document.getElementById("exito");
 
-  <header>
-    <!-- Bootstrap: navbar: barra de navegación · navbar-expand-lg: desde 992px el menú se ve en una fila; en pantallas más chicas se convierte en hamburguesa · navbar-dark: textos e ícono claros, para fondo oscuro -->
-    <nav class="navbar navbar-expand-lg navbar-dark barra">
-      <!-- Bootstrap: container: caja centrada con un ancho máximo según la pantalla -->
-      <div class="container">
-        <!-- Bootstrap: navbar-toggler: el botón hamburguesa ☰ · data-bs-toggle / data-bs-target: el JavaScript de Bootstrap abre o cierra el elemento indicado (collapse = desplegable, dropdown = submenú, modal = ventana emergente) · aria-* y role: atributos que Bootstrap pide en sus componentes para los lectores de pantalla (accesibilidad) -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
-                aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">
-          <!-- Bootstrap: navbar-toggler-icon: dibuja las tres rayitas -->
-          <span class="navbar-toggler-icon"></span>
-        </button>
+// 2) Al tocar "Enviar"
+formulario.addEventListener("submit", function (evento) {
+  evento.preventDefault(); // que la página no se recargue
 
-        <!-- Bootstrap: navbar-brand: el nombre del sitio en la barra · order-lg-last: desde 992px lo manda al final de la fila -->
-        <a class="navbar-brand marca order-lg-last" href="index.html">Bowie</a>
+  let todoBien = true;
 
-        <!-- Bootstrap: collapse: contenido que empieza oculto y se muestra con un botón · navbar-collapse: la parte del menú que se esconde en el celular -->
-        <div class="collapse navbar-collapse" id="menu">
-          <!-- Bootstrap: navbar-nav: la lista del menú · me-auto: margen derecho automático, empuja lo que sigue hacia la derecha -->
-          <ul class="navbar-nav me-auto">
-            <!-- Bootstrap: nav-item / nav-link: cada ítem y cada link del menú -->
-            <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-            <!-- Bootstrap: dropdown: submenú desplegable -->
-            <li class="nav-item dropdown">
-              <!-- Bootstrap: dropdown-toggle: el botón que abre el submenú (con la flechita) -->
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Trayectoria e identidad</a>
-              <!-- Bootstrap: dropdown-menu: la lista que se despliega -->
-              <ul class="dropdown-menu">
-                <!-- Bootstrap: dropdown-item: cada opción del submenú -->
-                <li><a class="dropdown-item" href="biografia.html">Biografía</a></li>
-                <li><a class="dropdown-item" href="alterego.html">Alter ego</a></li>
-              </ul>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Producción musical</a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="albumes.html">Álbumes</a></li>
-                <li><a class="dropdown-item" href="colaboracion.html">Colaboraciones</a></li>
-              </ul>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Otras disciplinas artísticas</a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="actuacion.html">Actuación</a></li>
-                <li><a class="dropdown-item" href="pinturas.html">Pinturas</a></li>
-              </ul>
-            </li>
-            <!-- Bootstrap: active: marca la opción de la página actual -->
-            <li class="nav-item"><a class="nav-link active" aria-current="page" href="contacto.html">Contacto</a></li>
-            <li class="nav-item"><a class="nav-link" href="creditos.html">Créditos</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </header>
+  // NOMBRE: no puede estar vacío
+  if (campoNombre.value == "") {
+    errorNombre.textContent = "Escribí tu nombre.";
+    todoBien = false;
+  } else {
+    errorNombre.textContent = "";
+  }
 
-  <main class="container">
+  // EMAIL: no puede estar vacío y tiene que tener @ y un punto
+  if (campoEmail.value == "") {
+    errorEmail.textContent = "Escribí tu email.";
+    todoBien = false;
+  } else if (campoEmail.value.indexOf("@") == -1 || campoEmail.value.indexOf(".") == -1) {
+    errorEmail.textContent = "El email no es válido. Ejemplo: nombre@correo.com";
+    todoBien = false;
+  } else {
+    errorEmail.textContent = "";
+  }
 
-    <h1 class="titulo-pagina">Contacto</h1>
+  // MOTIVO: la opción "Elegí una opción" tiene value=""
+  if (campoMotivo.value == "") {
+    errorMotivo.textContent = "Elegí un motivo.";
+    todoBien = false;
+  } else {
+    errorMotivo.textContent = "";
+  }
 
-    <p class="intro">¿Encontraste un error, querés sumar un dato o contarnos qué significa Bowie para vos? Escribinos.</p>
+  // MENSAJE: entre 10 y 500 caracteres
+  if (campoMensaje.value.length < 10) {
+    errorMensaje.textContent = "El mensaje tiene que tener al menos 10 caracteres.";
+    todoBien = false;
+  } else if (campoMensaje.value.length > 500) {
+    errorMensaje.textContent = "El mensaje no puede tener más de 500 caracteres.";
+    todoBien = false;
+  } else {
+    errorMensaje.textContent = "";
+  }
 
-      <!-- Bootstrap: row: fila de la grilla de 12 columnas · justify-content-*: alineación horizontal en flexbox -->
-      <div class="row justify-content-center">
-        <!-- Bootstrap: col-N / col-md-N / col-lg-N: cuántas de las 12 columnas ocupa (md desde 768px, lg desde 992px) -->
-        <div class="col-12 col-lg-8">
-
-          <!-- Bootstrap: data-bs-theme="dark": Bootstrap muestra los campos del formulario en modo oscuro -->
-          <form id="formulario" class="formulario" data-bs-theme="dark">
-
-            <!-- Bootstrap: m = margin, p = padding; t/b/s/e/x/y = arriba/abajo/izquierda/derecha/horizontal/vertical; el número (0 a 5) es el tamaño -->
-            <div class="mb-3">
-              <!-- Bootstrap: form-label / form-control / form-select: estilos de Bootstrap para etiquetas, campos y listas desplegables -->
-              <label for="nombre" class="form-label">Nombre *</label>
-              <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Tu nombre">
-              <p class="error" id="error-nombre"></p>
-            </div>
-
-            <div class="mb-3">
-              <label for="email" class="form-label">Email *</label>
-              <input type="text" id="email" name="email" class="form-control" placeholder="nombre@correo.com">
-              <p class="error" id="error-email"></p>
-            </div>
-
-            <div class="mb-3">
-              <label for="motivo" class="form-label">Motivo *</label>
-              <select id="motivo" name="motivo" class="form-select">
-                <option value="">Elegí una opción</option>
-                <option value="error">Encontré un error</option>
-                <option value="dato">Quiero sumar un dato</option>
-                <option value="opinion">Opinión sobre el sitio</option>
-                <option value="otro">Otro</option>
-              </select>
-              <p class="error" id="error-motivo"></p>
-            </div>
-
-            <div class="mb-3">
-              <label for="mensaje" class="form-label">Mensaje *</label>
-              <textarea id="mensaje" name="mensaje" class="form-control" rows="5" placeholder="Entre 10 y 500 caracteres"></textarea>
-              <p class="error" id="error-mensaje"></p>
-            </div>
-
-            <button type="submit" class="boton-enviar">Enviar</button>
-            <p class="exito oculto" id="exito">¡Gracias! Tu mensaje se envió correctamente.</p>
-          </form>
-
-        </div>
-      </div>
-  </main>
-
-  <footer class="pie">
-    <p>Rocio - Micaela - Marcela</p>
-    <p>IG2026 - Cátedra: Valeria Drelichman | Pedro Paleo | Leonardo Nadel | Norma Morales</p>
-    <p>TP2 - UNA Multimedia - Informática General - Turno Noche</p>
-    <address class="mb-0"><a href="creditos.html">Créditos</a> · <a href="contacto.html">Contacto</a></address>
-  </footer>
-
-  <!-- Bootstrap: JavaScript de Bootstrap: hace funcionar el menú hamburguesa, los submenús, los desplegables y las ventanas emergentes -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/contacto.js"></script>
-</body>
-</html>
+  // 3) Si no hubo errores: mostramos el "¡Gracias!" y vaciamos el formulario
+  if (todoBien) {
+    exito.classList.remove("oculto");
+    formulario.reset();
+  } else {
+    exito.classList.add("oculto");
+  }
+});
