@@ -375,7 +375,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const cacheCanciones = {};
 
   // =========================================================================
-  // 3. FUNCIONES PARA LA VENTANA EMERGENTE Y CONSULTA A DEEZER API (JSONP)
+  // 3. FUNCIONES PARA LA VENTANA EMERGENTE Y CONSULTA A API CON FETCH()
   // =========================================================================
 
   // Dibuja los ítems <li> de canciones dentro del modal
@@ -388,41 +388,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Función genérica para ejecutar consultas JSONP a Deezer sin bloqueo CORS
-  function consultarDeezerJSONP(urlBase) {
-    return new Promise((resolve, reject) => {
-      const nombreCallback = `deezerCb_${Date.now()}_${Math.floor(Math.random() * 10000)}`;
-      const script = document.createElement('script');
-
-      const temporizador = setTimeout(() => {
-        limpiar();
-        reject(new Error('Tiempo de espera agotado al consultar la API.'));
-      }, 8000);
-
-      function limpiar() {
-        clearTimeout(temporizador);
-        delete window[nombreCallback];
-        if (script.parentNode) {
-          script.parentNode.removeChild(script);
-        }
-      }
-
-      window[nombreCallback] = (respuesta) => {
-        limpiar();
-        resolve(respuesta);
-      };
-
-      script.onerror = () => {
-        limpiar();
-        reject(new Error('Error de red al conectar con Deezer API.'));
-      };
-
-      const separador = urlBase.includes('?') ? '&' : '?';
-      script.src = `${urlBase}${separador}output=jsonp&callback=${nombreCallback}`;
-      document.body.appendChild(script);
-    });
+  // Espera breve en milisegundos para respetar el límite de MusicBrainz (1 req/seg)
+  function esperar(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
   }
 
+  // Realiza fetch() con reintento automático si MusicBrainz devuelve 503
+  async function fetchConReintento(url, intentosMaximos = 3) {
+    for (let intento = 1; intento <= intentosMaximos; intento++) {
+      const respuesta = await fetch(url, {
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (respuesta.ok) {
+        return await respuesta.json();
+      }
+
+      if (respuesta.status === 503 && intento < intentosMaximos) {
+        await esperar(1200 * intento);
+        continue;
+      }
+
+      throw new Error(`Error HTTP ${respuesta.status}`);
+    }
+  }
+
+  // Consulta estándar con fetch(), async/await y .json() según Clase 16 (MusicBrainz API)
   async function obtenerCancionesAPI(album, contenedorDOM) {
     contenedorDOM.innerHTML = '<li class="text-secondary list-unstyled">Cargando lista de temas desde la API...</li>';
 
@@ -436,35 +427,56 @@ document.addEventListener('DOMContentLoaded', () => {
       const artista = album.nombre.includes('Tin Machine') ? 'Tin Machine' : 'David Bowie';
       const nombreLimpio = album.nombre.replace(/"/g, '').replace(/'/g, '');
 
-      // Paso 1: Buscar el álbum activo en el catálogo regional de Deezer
-      const query = encodeURIComponent(`artist:"${artista}" album:"${nombreLimpio}"`);
-      const datosBusqueda = await consultarDeezerJSONP(`https://api.deezer.com/search/album?q=${query}`);
+      // Paso 1: Construir URL de búsqueda del álbum
+      const query = encodeURIComponent(`artist:"${artista}" AND release:"${nombreLimpio}"`);
+      const urlBusqueda = `https://musicbrainz.org/ws/2/release/?query=${query}&fmt=json`;
 
-      if (!datosBusqueda.data || datosBusqueda.data.length === 0) {
-        throw new Error('Álbum no disponible en el catálogo.');
+      const datosBusqueda = await fetchConReintento(urlBusqueda);
+
+      if (!datosBusqueda.releases || datosBusqueda.releases.length === 0) {
+        throw new Error('Álbum no encontrado en la base de datos.');
       }
 
-      const idAlbumActivo = datosBusqueda.data[0].id;
+      // Priorizar la edición oficial con pistas registradas
+      const edicionOficial = datosBusqueda.releases.find(
+        (rel) => rel.status === 'Official' && rel['track-count'] > 0
+      ) || datosBusqueda.releases[0];
 
-      // Paso 2: Obtener la lista completa de pistas (limit=50 evita el truncamiento)
-      const datosPistas = await consultarDeezerJSONP(`https://api.deezer.com/album/${idAlbumActivo}/tracks?limit=50`);
+      const releaseId = edicionOficial.id;
 
-      if (datosPistas.error) {
-        throw new Error(datosPistas.error.message || 'Error al obtener las pistas.');
+      // Pausa de 1.1 segundos antes de la segunda petición para evitar el error 503
+      await esperar(1100);
+
+      // Paso 2: Obtener las canciones (recordings) de esa edición mediante fetch()
+      const urlPistas = `https://musicbrainz.org/ws/2/release/${releaseId}?inc=recordings&fmt=json`;
+      const datosPistas = await fetchConReintento(urlPistas);
+
+      if (!datosPistas.media || datosPistas.media.length === 0) {
+        throw new Error('Sin pistas registradas para esta edición.');
       }
 
-      if (!datosPistas.data || datosPistas.data.length === 0) {
-        throw new Error('Sin pistas registradas para este álbum.');
+      // Extraer los títulos de todos los discos/caras del álbum
+      const cancionesObtenidas = [];
+      datosPistas.media.forEach((soporte) => {
+        if (soporte.tracks) {
+          soporte.tracks.forEach((pista) => {
+            if (pista.title) {
+              cancionesObtenidas.push(pista.title);
+            }
+          });
+        }
+      });
+
+      if (cancionesObtenidas.length === 0) {
+        throw new Error('Lista de canciones vacía.');
       }
 
-      const cancionesObtenidas = datosPistas.data.map((pista) => pista.title);
-
-      // Guardar en caché y renderizar en pantalla
+      // Guardar en caché y actualizar la interfaz
       cacheCanciones[album.titulo] = cancionesObtenidas;
       renderizarCanciones(cancionesObtenidas, contenedorDOM);
 
     } catch (error) {
-      console.error('Detalle técnico del error de API:', error);
+      console.error('Error al consultar la API con fetch():', error);
       contenedorDOM.innerHTML = `<li class="text-warning list-unstyled">No se pudo cargar la lista de temas (${error.message}).</li>`;
     }
   }
@@ -710,7 +722,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================================
-  // 5. ACTIVAR / DESACTIVAR TEXTO EN TARJETAS DE EPs E INFLUENCIAS (CELULAR)
+  // 5. ACTIVAR / DESACTIVAR TEXTO EN TARJETAS DE EPs, EN VIVO E INFLUENCIAS
   // =========================================================================
   const tarjetasInfluencia = document.querySelectorAll('.tarjeta-influencia, .cuadro-influencia');
 

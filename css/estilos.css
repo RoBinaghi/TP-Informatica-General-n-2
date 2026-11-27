@@ -644,8 +644,11 @@ body.pagina-colaboraciones-full {
 
 body.pagina-colaboraciones-full .carousel-container {
   background-image: url("../img/vida/fondo-estrellas.svg");
-  width: 100vw;
-  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
   position: fixed;
   left: 0;
   top: 0;
