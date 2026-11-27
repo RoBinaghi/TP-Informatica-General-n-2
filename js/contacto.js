@@ -1,6 +1,5 @@
 // =====================================================================
 // CONTACTO — validación del formulario (js/contacto.js)
-// Clase 07: buscamos los elementos por su id y escuchamos eventos.
 // =====================================================================
 
 // 1) Los elementos del HTML

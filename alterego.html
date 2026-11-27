@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <!-- Clase 19: viewport, para que el sitio sea responsive en el celular -->
+  <!-- viewport, para que el sitio sea responsive en el celular -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>David Bowie | Alter Ego</title>
 
@@ -27,19 +27,16 @@
          Producción musical ▾          → Álbumes, Colaboraciones
          Otras disciplinas artísticas ▾ → Actuación, Pinturas
          Contacto · Créditos
-       Clase 03: el menú va dentro de <header> y <nav> (etiquetas semánticas)
-       y es una lista ul > li > a.
-       Clase 19: framework Bootstrap (componente "navbar").
+       El menú va dentro de <header> y <nav> y es una lista ul > li > a.
        ===================================================================== -->
   <header>
     <!-- CAMBIO 1 — HORIZONTAL QUE SE VUELVE HAMBURGUESA
-         [NO VISTO EN CLASE] La clase "navbar-expand-lg" de Bootstrap.
-         La Clase 19 presenta Bootstrap y remite a su documentación; para saber
+         La clase "navbar-expand-lg" de Bootstrap. Para saber
          qué clase usar le pedimos ayuda a una IA (Claude) y lo verificamos en
          getbootstrap.com (Components > Navbar > "Responsive behaviors").
          Qué hace: desde 992px (compu) el menú se ve HORIZONTAL, en una fila;
          por debajo de 992px (tablet y celular) se transforma en HAMBURGUESA ☰.
-         Es la misma idea de las media queries de la Clase 19, pero ya resuelta
+         Es la misma idea de las media queries, pero ya resuelta
          por Bootstrap. Lo probamos achicando la ventana del navegador. -->
     <nav class="navbar navbar-expand-lg navbar-dark barra">
       <div class="container">
@@ -52,15 +49,15 @@
 
         <!-- CAMBIO 2 — "BOWIE" A LA DERECHA
              Va después del botón ☰, así en celular queda a la derecha.
-             [NO VISTO EN CLASE] "order-lg-last" (Bootstrap, consultado con Claude):
+             "order-lg-last" (Bootstrap, consultado con Claude):
              desde 992px lo manda al final de la fila, a la derecha del menú. -->
         <a class="navbar-brand marca order-lg-last" href="index.html">Bowie</a>
 
         <div class="collapse navbar-collapse" id="menu">
-          <!-- CAMBIO 3 — [NO VISTO EN CLASE] "me-auto" (Bootstrap, consultado con Claude):
+          <!-- CAMBIO 3 — "me-auto" (Bootstrap, consultado con Claude):
                le da al menú todo el margen libre de su derecha y así empuja "Bowie" al borde.
                CAMBIO 4 — SUBMENÚS DEL MAPA: las 3 secciones son submenús.
-               [NO VISTO EN CLASE] El componente "dropdown" de Bootstrap (consultado con
+               El componente "dropdown" de Bootstrap (consultado con
                Claude y verificado en getbootstrap.com > Components > Dropdowns): el JS de
                Bootstrap abre la lista cuando se toca un enlace con data-bs-toggle="dropdown".
                Se sacaron Música, Más allá de la música, Teatro y Audiovisual,
@@ -99,11 +96,10 @@
   <main class="container">
 
     <!-- PORTADA: una franja baja de la foto, a la altura de los ojos.
-         La caja recorta la foto (overflow: hidden) y la foto se sube con top negativo.
-         Clase 10: position relative / absolute · Clase 04: padding, overflow -->
+         La caja recorta la foto (overflow: hidden) y la foto se sube con top negativo. -->
     <section class="cartelera cartelera-ojos" id="portada">
       <!-- Dos versiones de la portada: en color y en blanco y negro en negativo.
-           Se ve una sola; con cada clic se intercambian (js/alterego.js, Clase 14: classList) -->
+           Se ve una sola; con cada clic se intercambian -->
       <img src="img/vida/alter-cartelera.png" class="portada-color" alt="Cinco retratos de Bowie en franjas azul, verde, amarilla, naranja y rosa">
       <img src="img/vida/alter-cartelera-negativo.png" class="portada-negativo oculto" alt="Los cinco retratos de Bowie en blanco y negro, en negativo">
       <!-- Velo negro al 50 %: con el mouse encima desaparece y la foto se ve al 100 % -->
@@ -115,10 +111,10 @@
       música, historia y personalidad propias. Pasá el mouse por cada foto para leer su descripción; con un clic volvés a la foto.</p>
 
     <!-- FILTRO COMO SUBMENÚ
-         [NO VISTO EN CLASE] Usamos el componente "dropdown" de Bootstrap (el mismo de los
+         Usamos el componente "dropdown" de Bootstrap (el mismo de los
          submenús del menú; consultado con Claude). Bootstrap solo abre y cierra la lista:
          el filtrado lo hace nuestro JavaScript (js/alterego.js).
-         Cada opción tiene un id para que el JavaScript la encuentre (Clase 07). -->
+         Cada opción tiene un id para que el JavaScript la encuentre. -->
     <!-- El filtro va centrado y con un botón grande, para que se note (estilos en .filtro-centro) -->
     <div class="dropdown mb-4 filtro-centro">
       <button class="btn boton-filtro dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="boton-filtro">
@@ -132,7 +128,7 @@
       </ul>
     </div>
 
-    <!-- FICHAS: grilla de Bootstrap (Clase 19). 2 por fila en celular, 4 desde 992px.
+    <!-- FICHAS: grilla de Bootstrap. 2 por fila en celular, 4 desde 992px.
          Están en orden cronológico (de izquierda a derecha, del más viejo al más nuevo)
          dentro de cada nivel: principales, secundarios y complementarios.
          Cada ficha tiene:
@@ -330,7 +326,7 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 
  <script src="js/libreria.js"></script>
-  <!-- DESPUÉS nuestro JavaScript (Clase 07: los scripts van al final del body) -->
+  <!-- DESPUÉS nuestro JavaScript -->
   <script src="js/alterego.js"></script>
 </body>
 </html>

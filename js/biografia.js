@@ -1,22 +1,16 @@
 // =====================================================
 // BIOGRAFÍA
-// (Clase NN) = está en el PDF de esa clase.
-// [NO VISTO EN CLASE] = no está en los PDF.
 // =====================================================
 
 
 // ----- 1. BOWIE Y SUS LOOKS -----
 // Cada vez que se toca la foto, se esconde la que se ve y aparece la siguiente.
-// Clase 07: querySelectorAll y addEventListener (evento click)
-// Clase 08: let, funciones, if
-// Clase 09: for y length
-// Clase 14: classList.add y classList.remove
 
 // Capturo las 9 fotos de los looks y el párrafo donde va el nombre
 let fotosLook = document.querySelectorAll('.foto-guitarra');
 let nombreLook = document.querySelector('.nombre-look');
 
-// Array con el nombre de cada look, en el MISMO orden que las fotos del HTML (Clase 09)
+// Array con el nombre de cada look, en el MISMO orden que las fotos del HTML
 const nombres = [
   'El Bowie de Earthling',
   'Ziggy Stardust',
@@ -44,7 +38,7 @@ function siguienteLook() {
 
   fotosLook[lookActual].classList.remove('oculto');
 
-  // Escribimos el nombre del personaje de la foto que ahora se ve (Clase 07: innerText)
+  // Escribimos el nombre del personaje de la foto que ahora se ve
   nombreLook.innerText = nombres[lookActual];
 }
 
@@ -55,10 +49,7 @@ for (let i = 0; i < fotosLook.length; i++) {
 
 
 // ----- 2. BOTÓN PARA VOLVER ARRIBA -----
-// Clase 07: querySelector y addEventListener (evento scroll)
-// Clase 08: if / else
-// Clase 14: classList
-// [NO VISTO EN CLASE] window.scrollY → cuántos píxeles se bajó en la página
+// window.scrollY → cuántos píxeles se bajó en la página
 
 let botonArriba = document.querySelector('.btn-arriba');
 
@@ -74,9 +65,6 @@ window.addEventListener('scroll', function () {
 // ----- 3. FOTOS QUE SE AGRANDAN AL HACER CLIC -----
 // Al tocar una foto de la línea de tiempo se abre el "visor" con la foto grande.
 // Se cierra tocando en cualquier parte del visor.
-// Clase 07: querySelector, querySelectorAll, addEventListener y this
-// Clase 09: for
-// Clase 14: classList (usa la clase .oculto)
 
 let fotosLinea = document.querySelectorAll('.foto-linea');
 let visor = document.querySelector('.visor');

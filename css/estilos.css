@@ -938,23 +938,21 @@ body.pagina-colaboraciones-full .switch-button-current .indicator-dot {
    (Los nombres .guitarra y .foto-guitarra se mantienen
    para no tener que cambiar libreria.js, que anima .caja-guitarra.) */
 
-/* Clase 02: text-align / Clase 04: padding */
 .guitarra {
   text-align: center;
   padding-top: 1rem;
   padding-bottom: 1.5rem;
 }
 
-/* La foto: ancho en % con un máximo (Clase 04: width y max-width)
-   [NO VISTO EN CLASE] cursor: pointer → muestra la manito para que se note que se puede tocar */
+/* La foto: ancho en % con un máximo.
+   cursor: pointer → muestra la manito para que se note que se puede tocar */
 .guitarra .foto-guitarra {
   width: 95%;
   max-width: 420px;
   cursor: pointer;
 }
 
-/* Nombre del personaje que aparece al tocar la foto
-   (Clase 02: font-family, color, font-size, text-transform / Clase 04: margin) */
+/* Nombre del personaje que aparece al tocar la foto */
 .nombre-look {
   font-family: 'Oswald', sans-serif;
   font-size: 1.5rem;
@@ -1194,8 +1192,7 @@ ayuda ia cursor: pointer → la manito indica que se puede tocar. */
   transition: transform 0.3s ease;   /* ayuda IA: el agrandado es gradual */
 }
 
-/* Con el mouse encima, la foto se agranda y queda por encima del resto
-   (Clase 04: hover / Clase 10: z-index; ayuda IA: transform: scale) */
+/* Con el mouse encima, la foto se agranda y queda por encima del resto */
 .foto-linea:hover {
   transform: scale(1.8);
   z-index: 5;
@@ -1224,8 +1221,7 @@ ayuda ia cursor: pointer → la manito indica que se puede tocar. */
   display: none;
 }
 
-/* La foto grande: entra siempre en la pantalla, cada una con su tamaño
-   (Clase 04: max-width, max-height, vw y vh) */
+/* La foto grande: entra siempre en la pantalla, cada una con su tamaño */
 .visor-foto {
   max-width: 90vw;
   max-height: 75vh;
@@ -1281,12 +1277,9 @@ ayuda ia cursor: pointer → la manito indica que se puede tocar. */
    PARTE 3 — ALTER EGO (alterego.html y js/alterego.js)
    ######################################################### */
 
-/* Botón del filtro (dropdown de Bootstrap) con los colores del sitio
-   Clase 02: color y background-color. Clase 04: border y hover. */
 /* ---------- ALTER EGO: PORTADA BAJA, A LA ALTURA DE LOS OJOS ----------
    La altura de la caja sale del padding-bottom en %: un padding en %
-   se calcula sobre el ANCHO, así la franja mide siempre el 20% de su ancho
-   (Clase 04: padding, overflow / Clase 10: position).
+   se calcula sobre el ANCHO, así la franja mide siempre el 20% de su ancho.
    La foto se sube con top negativo para que se vean los ojos. */
 .cartelera.cartelera-ojos {
   height: 0;
@@ -1302,8 +1295,8 @@ ayuda ia cursor: pointer → la manito indica que se puede tocar. */
 }
 
 /* VELO: una capa negra semitransparente encima de la foto.
-   rgba(0, 0, 0, 0.5) = negro al 50 % (Clase 02: rgba), así la portada
-   se ve a la mitad. Tapa toda la caja (Clase 10: position absolute). */
+   rgba(0, 0, 0, 0.5) = negro al 50 %, así la portada
+   se ve a la mitad. Tapa toda la caja. */
 .cartelera-ojos .velo {
   position: absolute;
   top: 0;
@@ -1315,31 +1308,38 @@ ayuda ia cursor: pointer → la manito indica que se puede tocar. */
 }
 
 /* Con el mouse encima de la portada el velo se vuelve transparente
-   (alfa 0) y la foto se ve al 100 % (Clase 04: pseudo-clase hover) */
+   (alfa 0) y la foto se ve al 100 % */
 .cartelera-ojos:hover .velo {
   background-color: rgba(0, 0, 0, 0);
 }
 
 /* La portada es "oculto" con display: none, pero acá la imagen es absolute;
-   nos aseguramos de que la escondida no se vea (Clase 04: display) */
+   nos aseguramos de que la escondida no se vea */
 .cartelera.cartelera-ojos img.oculto {
   display: none;
 }
 
-/* El título queda adelante de la foto (Clase 10: z-index) */
+/* El título queda adelante de la foto */
 .cartelera-ojos .cartelera-titulo {
   z-index: 2;
+  left: 1rem;
+  right: auto;
+  bottom: 0.3rem;
+  font-family: "Anton SC", sans-serif;
+  font-weight: 400;
+  letter-spacing: 2px;
+  font-size: 2rem;
+  color: #ff913f;
 }
 
 /* ---------- ALTER EGO: FILTRO EN EL MEDIO ----------
-   Clase 02: text-align center centra el botón */
+   text-align center centra el botón */
 .filtro-centro {
   text-align: center;
   margin-top: 1rem;
 }
 
-/* El botón del filtro, grande y relleno para que sea lo más importante
-   (Clase 02: color, background-color, font-size / Clase 04: padding) */
+/* El botón del filtro, grande y relleno para que sea lo más importante */
 .filtro-centro .boton-filtro {
   background-color: #ff913f;
   color: #0d0010;
@@ -1412,7 +1412,7 @@ ayuda ia cursor: pointer → la manito indica que se puede tocar. */
   border-color: #d62338;
 }
 
-/* La foto, con los años encima abajo a la izquierda (Clase 10: position) */
+/* La foto, con los años encima abajo a la izquierda */
 .ficha-foto {
   position: relative;
 }
@@ -1682,6 +1682,13 @@ ayuda ia cursor: pointer → la manito indica que se puede tocar. */
     right: 2rem;
   }
 
+  /* Alter ego: el título dentro de la portada, del mismo tamaño que en las otras páginas */
+  .cartelera-ojos .cartelera-titulo {
+    font-size: 4.5rem;
+    left: 2rem;
+    right: auto;
+  }
+
   /* Biografía: el ancho del texto ahora lo ordena la grilla de Bootstrap */
 
   /* Biografía: título y fechas que señala el dedo, más grandes */
@@ -1801,5 +1808,22 @@ ayuda ia cursor: pointer → la manito indica que se puede tocar. */
   /* CAMBIO : en pantallas grandes las fotos de la línea de tiempo crecen otra vez */
   .evento {
     min-height: 11rem;    
+  }
+}
+
+/* ---------- LETRA MÁS GRANDE EN PANTALLAS GRANDES (todo el sitio) ----------
+   Casi todos los tamaños del sitio están en "rem", que se calcula sobre el
+   tamaño de letra del html (16px por defecto). Si subimos ese tamaño en
+   pantallas grandes, crece en proporción TODA la letra (menú, títulos, textos)
+   en todas las páginas por igual. En celular queda en 16px. */
+@media (min-width: 992px) {
+  html {
+    font-size: 17px;
+  }
+}
+
+@media (min-width: 1400px) {
+  html {
+    font-size: 18px;
   }
 }
