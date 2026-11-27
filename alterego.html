@@ -107,8 +107,9 @@
       <h1 class="cartelera-titulo">Alter Ego</h1>
     </section>
 
-    <p class="intro">Bowie no solo cambiaba de sonido: cambiaba de identidad. Cada personaje tenía estética,
-      música, historia y personalidad propias. Pasá el mouse por cada foto para leer su descripción; con un clic volvés a la foto.</p>
+    <p class="intro">Bowie nunca se quedó quieto en un solo rostro. Fue astronauta perdido, estrella extraterrestre,
+      duque de hielo y profeta ciego. Cada personaje le permitió decir algo que su propia cara no podía.
+      Detrás de cada foto hay una expresión artística creada por él. ¡Descubrila!</p>
 
     <!-- FILTRO COMO SUBMENÚ
          Usamos el componente "dropdown" de Bootstrap (el mismo de los
@@ -118,7 +119,7 @@
     <!-- El filtro va centrado y con un botón grande, para que se note (estilos en .filtro-centro) -->
     <div class="dropdown mb-4 filtro-centro">
       <button class="btn boton-filtro dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="boton-filtro">
-        Ver: Todos
+        Personajes
       </button>
       <ul class="dropdown-menu menu-filtro">
         <li><button class="dropdown-item opcion-todos active" id="ver-todos">Todos</button></li>
@@ -128,7 +129,7 @@
       </ul>
     </div>
 
-    <!-- FICHAS: grilla de Bootstrap. 2 por fila en celular, 4 desde 992px.
+    <!-- FICHAS: grilla de Bootstrap. 1 por fila en celular, 2 desde 576px y 4 desde 992px.
          Están en orden cronológico (de izquierda a derecha, del más viejo al más nuevo)
          dentro de cada nivel: principales, secundarios y complementarios.
          Cada ficha tiene:
@@ -137,7 +138,7 @@
            - la descripción (empieza con la clase "oculto")
          Al pasar el mouse, js/alterego.js esconde la foto y muestra la descripción;
          con un clic (o al sacar el mouse) vuelve la foto. -->
-    <section class="row row-cols-2 row-cols-lg-4 g-3">
+    <section class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-3">
 
         <div class="col ficha-col principal">
           <article class="ficha principal">

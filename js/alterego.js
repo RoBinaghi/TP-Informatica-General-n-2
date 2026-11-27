@@ -56,8 +56,8 @@ function mostrarSolo(fichasElegidas, opcionElegida, texto) {
   });
   opcionElegida.classList.add('active');
 
-  // d) cambiamos el texto del botón
-  botonFiltro.innerText = 'Ver: ' + texto;
+  // d) el botón muestra el nombre de la opción elegida
+  botonFiltro.innerText = texto;
 }
 
 // Cada opción llama a la función con sus fichas
