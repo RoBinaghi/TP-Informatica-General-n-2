@@ -1283,6 +1283,77 @@ ayuda ia cursor: pointer → la manito indica que se puede tocar. */
 
 /* Botón del filtro (dropdown de Bootstrap) con los colores del sitio
    Clase 02: color y background-color. Clase 04: border y hover. */
+/* ---------- ALTER EGO: PORTADA BAJA, A LA ALTURA DE LOS OJOS ----------
+   La altura de la caja sale del padding-bottom en %: un padding en %
+   se calcula sobre el ANCHO, así la franja mide siempre el 20% de su ancho
+   (Clase 04: padding, overflow / Clase 10: position).
+   La foto se sube con top negativo para que se vean los ojos. */
+.cartelera.cartelera-ojos {
+  height: 0;
+  padding-bottom: 20%;
+  overflow: hidden;
+}
+
+.cartelera.cartelera-ojos img {
+  position: absolute;
+  top: -28%;
+  left: 0;
+  width: 100%;
+}
+
+/* VELO: una capa negra semitransparente encima de la foto.
+   rgba(0, 0, 0, 0.5) = negro al 50 % (Clase 02: rgba), así la portada
+   se ve a la mitad. Tapa toda la caja (Clase 10: position absolute). */
+.cartelera-ojos .velo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+/* Con el mouse encima de la portada el velo se vuelve transparente
+   (alfa 0) y la foto se ve al 100 % (Clase 04: pseudo-clase hover) */
+.cartelera-ojos:hover .velo {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+/* La portada es "oculto" con display: none, pero acá la imagen es absolute;
+   nos aseguramos de que la escondida no se vea (Clase 04: display) */
+.cartelera.cartelera-ojos img.oculto {
+  display: none;
+}
+
+/* El título queda adelante de la foto (Clase 10: z-index) */
+.cartelera-ojos .cartelera-titulo {
+  z-index: 2;
+}
+
+/* ---------- ALTER EGO: FILTRO EN EL MEDIO ----------
+   Clase 02: text-align center centra el botón */
+.filtro-centro {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+/* El botón del filtro, grande y relleno para que sea lo más importante
+   (Clase 02: color, background-color, font-size / Clase 04: padding) */
+.filtro-centro .boton-filtro {
+  background-color: #ff913f;
+  color: #0d0010;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.3rem;
+  padding: 0.7rem 2.5rem;
+}
+
+.filtro-centro .boton-filtro:hover,
+.filtro-centro .boton-filtro.show {
+  background-color: #fff3d6;
+  color: #0d0010;
+}
+
 .boton-filtro {
   background-color: #1d0a24;
   color: #fff3d6;
@@ -1322,7 +1393,7 @@ ayuda ia cursor: pointer → la manito indica que se puede tocar. */
 /* Cada ficha: el color del borde indica el nivel
    (naranja = principal, celeste = secundario, rojo = complementario).
    ayuda IA en esta parte:
-   - cursor: pointer → la manito indica que se puede tocar.
+   - cursor: pointer → la manito indica que se puede pasar el mouse.
    - aspect-ratio: 3 / 4 → la foto y la descripción miden lo mismo (vertical).
    - object-fit / object-position → la foto llena la caja sin deformarse y deja ver la cara.
    - overflow-y: auto → si el texto es largo, aparece una barra para leerlo. */
@@ -1403,11 +1474,6 @@ ayuda ia cursor: pointer → la manito indica que se puede tocar. */
 .nivel-complementario {
   background-color: #d62338;
   color: #fff3d6;
-}
-
-.volver {
-  font-size: 0.8rem;
-  color: #00ade3;
 }
 
 /* Cuando JavaScript le agrega "mostrar-texto" a la ficha:

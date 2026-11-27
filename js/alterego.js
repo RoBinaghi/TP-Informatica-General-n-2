@@ -1,16 +1,32 @@
 // =========================================================
 // ALTER EGO — alterego.html
 // 1) FILTRO: el submenú muestra solo las fichas de un nivel.
-// 2) FICHAS: al hacer clic se esconde la foto y aparece la
-//    descripción; con otro clic vuelve la foto.
+// 0) PORTADA: con cada clic pasa de color a blanco y negro en negativo, y vuelve.
+// 2) FICHAS: al pasar el mouse aparece la descripción;
+//    con un clic (o al sacar el mouse) vuelve la foto.
 // Código de las clases:
 //   const, querySelector, querySelectorAll ..... Clase 07
 //   addEventListener('click'), innerText ........ Clase 07
+//   eventos mouseover / mouseout ................ Clase 07
+//   let, if ..................................... Clase 08
 //   function y parámetros ....................... Clase 08
 //   array [ ] ................................... Clase 09
 //   forEach ..................................... Clase 11
 //   classList.add / remove / toggle ............. Clase 14
 // =========================================================
+
+
+// ---------- 0) PORTADA: COLOR ↔ NEGATIVO ----------
+// Hay dos imágenes en la portada; una tiene la clase "oculto".
+// Con cada clic, toggle le saca "oculto" a una y se lo pone a la otra (Clase 14).
+const portada = document.querySelector('#portada');
+const portadaColor = document.querySelector('.portada-color');
+const portadaNegativo = document.querySelector('.portada-negativo');
+
+portada.addEventListener('click', function () {
+  portadaColor.classList.toggle('oculto');
+  portadaNegativo.classList.toggle('oculto');
+});
 
 
 // ---------- 1) FILTRO ----------
@@ -72,19 +88,50 @@ verComplementarios.addEventListener('click', function () {
 
 
 // ---------- 2) FICHAS: foto ↔ descripción ----------
+// - mouseover (el mouse se posiciona sobre la ficha): aparece la info.
+// - click: vuelve la foto.
+// - mouseout (el mouse sale de la ficha): vuelve la foto.
+// Código de las clases: mouseover, mouseout y click (Clase 07),
+// let, if y funciones (Clase 08), forEach (Clase 11), classList (Clase 14).
 
 // Todas las fichas (Clase 07)
 const fichas = document.querySelectorAll('.ficha');
 
-// A cada ficha le agregamos un "escuchador" de clic (Clase 11: forEach)
+// Guarda la última ficha en la que se hizo clic.
+// Mientras el mouse siga en ESA ficha, la info no vuelve a aparecer.
+let fichaClicada = null;
+
 fichas.forEach(function (ficha) {
   // Dentro de ESTA ficha buscamos su foto y su descripción (Clase 07)
   const foto = ficha.querySelector('.ficha-foto');
   const descripcion = ficha.querySelector('.ficha-descripcion');
 
-  ficha.addEventListener('click', function () {
-    // toggle: si tiene la clase "oculto" se la saca, si no la tiene se la pone (Clase 14)
-    foto.classList.toggle('oculto');
-    descripcion.classList.toggle('oculto');
+  // Muestra la foto y esconde la info (Clase 14: classList)
+  function mostrarFoto() {
+    foto.classList.remove('oculto');
+    descripcion.classList.add('oculto');
+  }
+
+  // Muestra la info y esconde la foto
+  function mostrarInfo() {
+    foto.classList.add('oculto');
+    descripcion.classList.remove('oculto');
+  }
+
+  // Mouse encima: si no es la ficha que se acaba de clicar, aparece la info (Clase 08: if)
+  ficha.addEventListener('mouseover', function () {
+    if (ficha != fichaClicada) {
+      fichaClicada = null;
+      mostrarInfo();
+    }
   });
+
+  // Clic: vuelve la foto y recordamos esta ficha
+  ficha.addEventListener('click', function () {
+    mostrarFoto();
+    fichaClicada = ficha;
+  });
+
+  // Mouse afuera: vuelve la foto
+  ficha.addEventListener('mouseout', mostrarFoto);
 });

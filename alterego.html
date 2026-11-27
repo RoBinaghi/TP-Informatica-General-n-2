@@ -98,21 +98,29 @@
 
   <main class="container">
 
-    <!-- CARTELERA: la foto del encabezado dentro del container, con marco (no ocupa toda la pantalla) -->
-    <section class="cartelera">
-      <img src="img/vida/alter-cartelera.jpg" alt="Cinco retratos de Bowie en franjas azul, verde, amarilla, naranja y rosa">
+    <!-- PORTADA: una franja baja de la foto, a la altura de los ojos.
+         La caja recorta la foto (overflow: hidden) y la foto se sube con top negativo.
+         Clase 10: position relative / absolute · Clase 04: padding, overflow -->
+    <section class="cartelera cartelera-ojos" id="portada">
+      <!-- Dos versiones de la portada: en color y en blanco y negro en negativo.
+           Se ve una sola; con cada clic se intercambian (js/alterego.js, Clase 14: classList) -->
+      <img src="img/vida/alter-cartelera.png" class="portada-color" alt="Cinco retratos de Bowie en franjas azul, verde, amarilla, naranja y rosa">
+      <img src="img/vida/alter-cartelera-negativo.png" class="portada-negativo oculto" alt="Los cinco retratos de Bowie en blanco y negro, en negativo">
+      <!-- Velo negro al 50 %: con el mouse encima desaparece y la foto se ve al 100 % -->
+      <div class="velo"></div>
       <h1 class="cartelera-titulo">Alter Ego</h1>
     </section>
 
     <p class="intro">Bowie no solo cambiaba de sonido: cambiaba de identidad. Cada personaje tenía estética,
-      música, historia y personalidad propias. Tocá cada foto para leer su descripción.</p>
+      música, historia y personalidad propias. Pasá el mouse por cada foto para leer su descripción; con un clic volvés a la foto.</p>
 
     <!-- FILTRO COMO SUBMENÚ
          [NO VISTO EN CLASE] Usamos el componente "dropdown" de Bootstrap (el mismo de los
          submenús del menú; consultado con Claude). Bootstrap solo abre y cierra la lista:
          el filtrado lo hace nuestro JavaScript (js/alterego.js).
          Cada opción tiene un id para que el JavaScript la encuentre (Clase 07). -->
-    <div class="dropdown mb-4">
+    <!-- El filtro va centrado y con un botón grande, para que se note (estilos en .filtro-centro) -->
+    <div class="dropdown mb-4 filtro-centro">
       <button class="btn boton-filtro dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="boton-filtro">
         Ver: Todos
       </button>
@@ -125,13 +133,30 @@
     </div>
 
     <!-- FICHAS: grilla de Bootstrap (Clase 19). 2 por fila en celular, 4 desde 992px.
+         Están en orden cronológico (de izquierda a derecha, del más viejo al más nuevo)
+         dentro de cada nivel: principales, secundarios y complementarios.
          Cada ficha tiene:
            - la clase de su nivel (principal, secundario o complementario): la usa el filtro
            - la foto con los años (se ve primero)
            - la descripción (empieza con la clase "oculto")
-         Al hacer clic, js/alterego.js esconde una y muestra la otra. -->
+         Al pasar el mouse, js/alterego.js esconde la foto y muestra la descripción;
+         con un clic (o al sacar el mouse) vuelve la foto. -->
     <section class="row row-cols-2 row-cols-lg-4 g-3">
 
+        <div class="col ficha-col principal">
+          <article class="ficha principal">
+            <div class="ficha-foto">
+              <img src="img/vida/alter-majortom.jpg" alt="Major Tom">
+              <p class="ficha-anio">1969–2016</p>
+            </div>
+            <div class="ficha-descripcion oculto">
+              <h2 class="ficha-nombre">Major Tom</h2>
+              <p class="nivel nivel-principal">Principal</p>
+              <p>Importancia: su personaje más longevo.</p>
+              <p>Perfil: el astronauta perdido de "Space Oddity", que reaparece en "Ashes to Ashes" y, como esqueleto espacial, en el video de "Blackstar".</p>
+            </div>
+          </article>
+        </div>
         <div class="col ficha-col principal">
           <article class="ficha principal">
             <div class="ficha-foto">
@@ -143,22 +168,6 @@
               <p class="nivel nivel-principal">Principal</p>
               <p>Importancia: el más icónico y transformador.</p>
               <p>Perfil: una estrella de rock alienígena y andrógina enviada a la Tierra antes del fin de los tiempos. Rompió las barreras de género de la época.</p>
-              <p class="volver">Tocá para volver a la foto</p>
-            </div>
-          </article>
-        </div>
-        <div class="col ficha-col principal">
-          <article class="ficha principal">
-            <div class="ficha-foto">
-              <img src="img/vida/alter-duke.jpg" alt="The Thin White Duke">
-              <p class="ficha-anio">1975–1976</p>
-            </div>
-            <div class="ficha-descripcion oculto">
-              <h2 class="ficha-nombre">The Thin White Duke</h2>
-              <p class="nivel nivel-principal">Principal</p>
-              <p>Importancia: su transformación más oscura y conceptual.</p>
-              <p>Perfil: un aristócrata frío, elegante e inexpresivo, inspirado en el cabaret berlinés y el krautrock.</p>
-              <p class="volver">Tocá para volver a la foto</p>
             </div>
           </article>
         </div>
@@ -173,22 +182,20 @@
               <p class="nivel nivel-principal">Principal</p>
               <p>Importancia: la imagen más famosa de Bowie, con el rayo pintado en la cara.</p>
               <p>Perfil: "Ziggy va a Estados Unidos": el choque cultural y la fama que fragmenta la mente.</p>
-              <p class="volver">Tocá para volver a la foto</p>
             </div>
           </article>
         </div>
         <div class="col ficha-col principal">
           <article class="ficha principal">
             <div class="ficha-foto">
-              <img src="img/vida/alter-majortom.jpg" alt="Major Tom">
-              <p class="ficha-anio">1969–2016</p>
+              <img src="img/vida/alter-duke.jpg" alt="The Thin White Duke">
+              <p class="ficha-anio">1975–1976</p>
             </div>
             <div class="ficha-descripcion oculto">
-              <h2 class="ficha-nombre">Major Tom</h2>
+              <h2 class="ficha-nombre">The Thin White Duke</h2>
               <p class="nivel nivel-principal">Principal</p>
-              <p>Importancia: su personaje más longevo.</p>
-              <p>Perfil: el astronauta perdido de "Space Oddity", que reaparece en "Ashes to Ashes" y, como esqueleto espacial, en el video de "Blackstar".</p>
-              <p class="volver">Tocá para volver a la foto</p>
+              <p>Importancia: su transformación más oscura y conceptual.</p>
+              <p>Perfil: un aristócrata frío, elegante e inexpresivo, inspirado en el cabaret berlinés y el krautrock.</p>
             </div>
           </article>
         </div>
@@ -203,7 +210,6 @@
               <p class="nivel nivel-secundario">Secundario</p>
               <p>Importancia: el puente entre el glam de Ziggy y el soul.</p>
               <p>Perfil: un "gato" con parche en el ojo que habita la distópica Hunger City de Diamond Dogs.</p>
-              <p class="volver">Tocá para volver a la foto</p>
             </div>
           </article>
         </div>
@@ -218,22 +224,6 @@
               <p class="nivel nivel-secundario">Secundario</p>
               <p>Importancia: el símbolo visual de Scary Monsters.</p>
               <p>Perfil: un payaso melancólico que mira con autocrítica los excesos del pasado.</p>
-              <p class="volver">Tocá para volver a la foto</p>
-            </div>
-          </article>
-        </div>
-        <div class="col ficha-col secundario">
-          <article class="ficha secundario">
-            <div class="ficha-foto">
-              <img src="img/vida/alter-prophet.jpg" alt="The Blind Prophet">
-              <p class="ficha-anio">2016</p>
-            </div>
-            <div class="ficha-descripcion oculto">
-              <h2 class="ficha-nombre">The Blind Prophet</h2>
-              <p class="nivel nivel-secundario">Secundario</p>
-              <p>Importancia: su despedida artística consciente.</p>
-              <p>Perfil: un hombre con vendas y botones por ojos en los videos de "Blackstar" y "Lazarus", enfrentando con misticismo su propia mortalidad.</p>
-              <p class="volver">Tocá para volver a la foto</p>
             </div>
           </article>
         </div>
@@ -248,52 +238,20 @@
               <p class="nivel nivel-secundario">Secundario</p>
               <p>Importancia: el pilar del universo narrativo de 1. Outside.</p>
               <p>Perfil: un detective de la División de Crímenes Artísticos en un futuro cyberpunk que investiga un asesinato ritual.</p>
-              <p class="volver">Tocá para volver a la foto</p>
             </div>
           </article>
         </div>
-        <div class="col ficha-col complementario">
-          <article class="ficha complementario">
+        <div class="col ficha-col secundario">
+          <article class="ficha secundario">
             <div class="ficha-foto">
-              <img src="img/vida/alter-sailor.jpg" alt="Sailor El marinero">
-              <p class="ficha-anio">2002–2003</p>
+              <img src="img/vida/alter-prophet.jpg" alt="The Blind Prophet">
+              <p class="ficha-anio">2016</p>
             </div>
             <div class="ficha-descripcion oculto">
-              <h2 class="ficha-nombre">Sailor "El marinero"</h2>
-              <p class="nivel nivel-complementario">Complementario</p>
-              <p>Importancia: su alter ego de la era madura.</p>
-              <p>Perfil: la cara sobria, cercana y accesible de las eras Heathen y Reality, que usaba para escribirles a sus fans en los foros de su sitio web.</p>
-              <p class="volver">Tocá para volver a la foto</p>
-            </div>
-          </article>
-        </div>
-        <div class="col ficha-col complementario">
-          <article class="ficha complementario">
-            <div class="ficha-foto">
-              <img src="img/vida/alter-outside.jpg" alt="Los habitantes de 1. Outside">
-              <p class="ficha-anio">1995</p>
-            </div>
-            <div class="ficha-descripcion oculto">
-              <h2 class="ficha-nombre">Los habitantes de 1. Outside</h2>
-              <p class="nivel nivel-complementario">Complementario</p>
-              <p>Importancia: sub-personajes interpretados por Bowie para darle voz a distintas facetas de una misma historia.</p>
-              <p>Perfil: un anciano, un exconvicto, la víctima de 14 años y una traficante de arte.</p>
-              <p class="volver">Tocá para volver a la foto</p>
-            </div>
-          </article>
-        </div>
-        <div class="col ficha-col complementario">
-          <article class="ficha complementario">
-            <div class="ficha-foto">
-              <img src="img/vida/alter-mimo.jpg" alt="El Mimo Cloud">
-              <p class="ficha-anio">1967–1968</p>
-            </div>
-            <div class="ficha-descripcion oculto">
-              <h2 class="ficha-nombre">El Mimo "Cloud"</h2>
-              <p class="nivel nivel-complementario">Complementario</p>
-              <p>Importancia: el origen de su lenguaje corporal.</p>
-              <p>Perfil: su personaje de pantomima sin voz, base de la expresividad física que aplicaría en todos sus alter egos posteriores.</p>
-              <p class="volver">Tocá para volver a la foto</p>
+              <h2 class="ficha-nombre">The Blind Prophet</h2>
+              <p class="nivel nivel-secundario">Secundario</p>
+              <p>Importancia: su despedida artística consciente.</p>
+              <p>Perfil: un hombre con vendas y botones por ojos en los videos de "Blackstar" y "Lazarus", enfrentando con misticismo su propia mortalidad.</p>
             </div>
           </article>
         </div>
@@ -308,7 +266,48 @@
               <p class="nivel nivel-complementario">Complementario</p>
               <p>Importancia: la incubadora antes de la invención del seudónimo "Bowie".</p>
               <p>Perfil: su primera estética de joven londinense impecable, enfocado en el R&amp;B británico y la subcultura mod.</p>
-              <p class="volver">Tocá para volver a la foto</p>
+            </div>
+          </article>
+        </div>
+        <div class="col ficha-col complementario">
+          <article class="ficha complementario">
+            <div class="ficha-foto">
+              <img src="img/vida/alter-mimo.jpg" alt="El Mimo Cloud">
+              <p class="ficha-anio">1967–1968</p>
+            </div>
+            <div class="ficha-descripcion oculto">
+              <h2 class="ficha-nombre">El Mimo "Cloud"</h2>
+              <p class="nivel nivel-complementario">Complementario</p>
+              <p>Importancia: el origen de su lenguaje corporal.</p>
+              <p>Perfil: su personaje de pantomima sin voz, base de la expresividad física que aplicaría en todos sus alter egos posteriores.</p>
+            </div>
+          </article>
+        </div>
+        <div class="col ficha-col complementario">
+          <article class="ficha complementario">
+            <div class="ficha-foto">
+              <img src="img/vida/alter-outside.jpg" alt="Los habitantes de 1. Outside">
+              <p class="ficha-anio">1995</p>
+            </div>
+            <div class="ficha-descripcion oculto">
+              <h2 class="ficha-nombre">Los habitantes de 1. Outside</h2>
+              <p class="nivel nivel-complementario">Complementario</p>
+              <p>Importancia: sub-personajes interpretados por Bowie para darle voz a distintas facetas de una misma historia.</p>
+              <p>Perfil: un anciano, un exconvicto, la víctima de 14 años y una traficante de arte.</p>
+            </div>
+          </article>
+        </div>
+        <div class="col ficha-col complementario">
+          <article class="ficha complementario">
+            <div class="ficha-foto">
+              <img src="img/vida/alter-sailor.jpg" alt="Sailor El marinero">
+              <p class="ficha-anio">2002–2003</p>
+            </div>
+            <div class="ficha-descripcion oculto">
+              <h2 class="ficha-nombre">Sailor "El marinero"</h2>
+              <p class="nivel nivel-complementario">Complementario</p>
+              <p>Importancia: su alter ego de la era madura.</p>
+              <p>Perfil: la cara sobria, cercana y accesible de las eras Heathen y Reality, que usaba para escribirles a sus fans en los foros de su sitio web.</p>
             </div>
           </article>
         </div>
