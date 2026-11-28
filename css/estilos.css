@@ -1712,14 +1712,34 @@ ayuda ia cursor: pointer → la manito indica que se puede tocar. */
   line-height: 1.3;
 }
 
-/*ENCABEZADO DE LA PAGINA PINTOR.*/
-.portada-pintor-bg {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  background-image: url('../img/pintor/encabezado.jpg');
-  background-size: cover;
-  background-position: right center;
+/* ENCABEZADO DE LAS PÁGINAS PINTURA Y ACTUACIÓN */
+.portada-hero-bg {
+  background: var(--bg-hero) 68% center / cover no-repeat;
 }
+
+.portada-hero-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(18,18,18,.75), rgba(18,18,18,.5) 45%, rgba(18,18,18,.9));
+}
+
+.portada-hero-contenido {
+  min-height: 440px;
+  z-index: 1;
+}
+
+.portada-pintor { --bg-hero: url('../img/pintoR/encabezado.jpg'); }
+.portada-actuacion { --bg-hero: url('../img/actuacion.jpg'); }
+/* Ajuste específico para Pinturas: degradado hacia la izquierda y foto encuadrada a la derecha */
+.portada-pintor .portada-hero-bg {
+  background-position: 72% center;
+}
+
+.portada-pintor .portada-hero-bg::after {
+  background: linear-gradient(to right, rgba(18, 18, 18, 0.9) 25%, rgba(18, 18, 18, 0.45) 65%, rgba(18, 18, 18, 0.1) 100%);
+}
+
 /*CREACIÓN DE TIRA DE CINE*/
 .tira-cine-borde {
   width: 100%;
@@ -1754,6 +1774,16 @@ ayuda ia cursor: pointer → la manito indica que se puede tocar. */
               0 0 12px rgba(255, 255, 255, 0.18);
 }
 
+/* Sección destacada con fondo naranja */
+.seccion-naranja {
+  background-color: #245e6a;
+  color: #fff3d6;
+}
+
+.seccion-naranja h2,
+.seccion-naranja p {
+  color: #fff3d6;
+}
 /*MEDIA QUERIES — siempre al final 
  Mobile first: arriba, celular; acá se agranda con min-width.
    Las reglas nuevas de cada página se agregan ADENTRO de estos
@@ -1883,20 +1913,19 @@ ayuda ia cursor: pointer → la manito indica que se puede tocar. */
     font-size: 0.95rem;
     line-height: 1.5;
   }
-/*ENCABEZADO PARA PEGINA PINTURA*/
-  .portada-pintor-bg {
-    position: absolute;
-    inset: 0; /* Ocupa todo el fondo del contenedor */
-    aspect-ratio: auto;
-    background-image: linear-gradient(to right, rgba(18, 18, 18, 0.92) 32%, rgba(18, 18, 18, 0.25) 70%, rgba(18, 18, 18, 0) 100%),
-                      url('../img/pintor/encabezado.jpg');
-    background-position: center;
+  
+/* ENCABEZADO DE LAS PÁGINAS PINTURA Y ACTUACIÓN */
+
+
+  .portada-hero-bg { background-position: center; }
+  .portada-hero-contenido { min-height: 500px; }
+  .portada-hero-bg::after {
+    background: 
+      linear-gradient(to top left, rgba(18,18,18,.92) 15%, transparent 55%),
+      linear-gradient(to bottom right, rgba(18,18,18,.88) 15%, transparent 55%);
   }
 
-  .portada-pintor-contenido {
-    min-height: 480px;
-    z-index: 1;
-  }
+ }
 
 /* CORRECCIÓN y CAMBIO y — MENÚ HORIZONTAL (media queries).
    Desde 992px el menú se ve en una fila (navbar-expand-lg en el HTML).
