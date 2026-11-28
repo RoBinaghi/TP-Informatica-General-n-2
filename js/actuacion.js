@@ -42,13 +42,9 @@ const postersData = [
 
 // 3. Mover carrusel con las flechas izquierda y derecha
 btnNext.addEventListener('click', () => {
-  const paso = carrusel.querySelector('.poster-item').offsetWidth + 16;
-  carrusel.scrollBy({ left: paso, behavior: 'smooth' });
-});
-
-btnPrev.addEventListener('click', () => {
-  const paso = carrusel.querySelector('.poster-item').offsetWidth + 16;
-  carrusel.scrollBy({ left: -paso, behavior: 'smooth' });
+   carrusel.scrollLeft += 200; // Avanza 200px a la derecha 
+   }); 
+btnPrev.addEventListener('click', () =>{ carrusel.scrollLeft -= 200; // Retrocede 200px a la izquierda 
 });
 
 // 4. Iteración y eventos al hacer clic en cada póster
@@ -68,21 +64,41 @@ posters.forEach((poster, index) => {
 
  /*Boton ver mas*/
  
- const btnVerMas = document.getElementById('btnVerMas');
-btnVerMas.addEventListener('click', () => {
-  const estaExpandido = btnVerMas.getAttribute('aria-expanded') === 'true';
-  btnVerMas.textContent = estaExpandido ? 'Ver menos' : 'Ver más';
+// 1\. Botón Ver más / Ver menos (usando una variable de estado o comparando el texto) 
+const btnVerMas = document.getElementById('btnVerMas'); 
+let estaExpandido = false; 
+if (btnVerMas) { btnVerMas.addEventListener('click', () => { 
+  estaExpandido = !estaExpandido; // Operador ternario
+  btnVerMas.textContent = estaExpandido ? 'Ver menos' : 'Ver más'; }); }
+ // 2\. Acordeón de cuadros de influencia
+const cuadrosInfluencia = document.querySelectorAll('.cuadro-influencia'); 
+cuadrosInfluencia.forEach((cuadro) =>{ 
+cuadro.addEventListener('click', () => { 
+  // Cerramos los demás cuadros 
+cuadrosInfluencia.forEach((c) =>{ 
+  if (c !== cuadro) { c.classList.remove('activa'); } }); 
+  // Alternamos la clase activa en el cuadro cliqueado 
+ cuadro.classList.toggle('activa'); 
 });
+ });
 
-const cuadrosInfluencia = document.querySelectorAll('.cuadro-influencia');
+// Capturamos las fichas de teatro 
 
-cuadrosInfluencia.forEach((cuadro) => {
-  cuadro.addEventListener('click', () => {
-    const estabaActivo = cuadro.classList.contains('activa');
-    cuadrosInfluencia.forEach((c) => c.classList.remove('activa'));
-
-    if (!estabaActivo) {
-      cuadro.classList.add('activa');
-    }
+const fichasTeatro = document.querySelectorAll('.ficha'); 
+// Recorremos los elementos con forEach 
+fichasTeatro.forEach((ficha) =>{ 
+  const foto = ficha.querySelector('.ficha-foto'); 
+  const descripcion = ficha.querySelector('.ficha-descripcion'); 
+  // Al pasar el mouse por encima: usa mouseover 
+ ficha.addEventListener('mouseover', () =>{ 
+  foto.classList.add('oculto'); 
+  descripcion.classList.remove('oculto'); }); 
+  // Al sacar el mouse: usa mouseout 
+ ficha.addEventListener('mouseout', () => { 
+  descripcion.classList.add('oculto'); 
+  foto.classList.remove('oculto'); }); 
+  // Al hacer clic (ideal para celulares): usa click
+   ficha.addEventListener('click', () => { 
+    foto.classList.toggle('oculto'); descripcion.classList.toggle('oculto'); 
   });
-});
+ });

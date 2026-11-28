@@ -1692,6 +1692,49 @@ ayuda ia cursor: pointer → la manito indica que se puede tocar. */
   font-size: 0.75rem;
   line-height: 1.3;
 }
+
+/*ENCABEZADO DE LA PAGINA PINTOR.*/
+.portada-pintor-bg {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-image: url('../img/pintor/encabezado.jpg');
+  background-size: cover;
+  background-position: right center;
+}
+/*CREACIÓN DE TIRA DE CINE*/
+.tira-cine-borde {
+  width: 100%;
+  height: 26px;
+  background-color: #000;
+  /* Dibuja las perforaciones rectangulares separadas de manera uniforme */
+  background-image: repeating-linear-gradient(
+    to right,
+    transparent 0px,
+    transparent 12px,
+    rgba(255, 255, 255, 0.85) 12px,
+    rgba(255, 255, 255, 0.85) 26px,
+    transparent 26px,
+    transparent 38px
+  );
+  background-size: 100% 14px; /* Alto de cada perforación */
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.tira-cine {
+  background-color: #080808;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  /* Brillo suave por fuera de toda la tira */
+  box-shadow: 0 0 24px rgba(255, 255, 255, 0.18),
+              0 0 8px rgba(255, 255, 255, 0.12);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Opcional: que el brillo exterior se intensifique un poco al pasar el mouse por la tira */
+.tira-cine:hover {
+  box-shadow: 0 0 32px rgba(255, 255, 255, 0.28),
+              0 0 12px rgba(255, 255, 255, 0.18);
+}
+
 /*MEDIA QUERIES — siempre al final 
  Mobile first: arriba, celular; acá se agranda con min-width.
    Las reglas nuevas de cada página se agregan ADENTRO de estos
@@ -1820,7 +1863,21 @@ ayuda ia cursor: pointer → la manito indica que se puede tocar. */
   .grilla-influencias .capa-color p {
     font-size: 0.95rem;
     line-height: 1.5;
-  }}
+  }
+/*ENCABEZADO PARA PEGINA PINTURA*/
+  .portada-pintor-bg {
+    position: absolute;
+    inset: 0; /* Ocupa todo el fondo del contenedor */
+    aspect-ratio: auto;
+    background-image: linear-gradient(to right, rgba(18, 18, 18, 0.92) 32%, rgba(18, 18, 18, 0.25) 70%, rgba(18, 18, 18, 0) 100%),
+                      url('../img/pintor/encabezado.jpg');
+    background-position: center;
+  }
+
+  .portada-pintor-contenido {
+    min-height: 480px;
+    z-index: 1;
+  }
 
 /* CORRECCIÓN y CAMBIO y — MENÚ HORIZONTAL (media queries).
    Desde 992px el menú se ve en una fila (navbar-expand-lg en el HTML).

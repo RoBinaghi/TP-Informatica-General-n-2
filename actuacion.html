@@ -73,49 +73,57 @@
       Elegí una portada para entrar.</p>
 
     
-    <section>
-<h2>Papeles protagónicos en el Cine</h2>
-     <div class="my-5">
+<section>
+  <h2>Papeles protagónicos en el Cine</h2>
+  <div class="my-5">
 
-  <div class="position-relative">
-    
-   
-    <button type="button" id="btnPrev" class="btn btn-dark btn-flecha flecha-izq" aria-label="Anterior">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    </button>
-   
-    <div class="carrusel-vertical" id="carruselPosters">
+    <!-- Contenedor general con fondo negro y puntas redondeadas -->
+    <div class="tira-cine bg-black rounded overflow-hidden ">
+      
+      <!-- Borde superior de la tira de cine (imagen repetida horizontalmente) -->
+      <div class="tira-cine-borde"></div>
 
-    <div class="poster-item" >
-      <img src="img/actuacion/the-man-who-fell-to-earth.jpg" class="rounded shadow-sm" alt="The Man Who Fell to Earth">
-    </div>
-
-    <div class="poster-item ">
-      <img src="img/actuacion/just-a-gigolo.jpg" class="rounded shadow-sm" alt="Just a gigolo">
-    </div>
-
-    <div class="poster-item">
-      <img src="img/actuacion/merry-christmas-mr-lawrence.jpg" class="rounded shadow-sm" alt="Merry Christmas, Mr. Lawrence">
-    </div>
-
-    
-    <div class="poster-item ">
-      <img src="img/actuacion/the-hunger.jpg" class="rounded shadow-sm" alt="The Hunger">
-    </div>
-
+      <!-- Carrusel con tus botones y pósters intactos -->
+      <div class="position-relative py-3 px-2">
+        <button type="button" id="btnPrev" class="btn btn-dark btn-flecha flecha-izq" aria-label="Anterior">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
        
-    <div class="poster-item" >
-      <img src="img/actuacion/labyrinth.jpg" class="rounded shadow-sm" alt="Labyrinth">
+        <div class="carrusel-vertical" id="carruselPosters">
+          <div class="poster-item">
+            <img src="img/actuacion/the-man-who-fell-to-earth.jpg" class="rounded-1 shadow-sm" alt="The Man Who Fell to Earth">
+          </div>
+
+          <div class="poster-item">
+            <img src="img/actuacion/just-a-gigolo.jpg" class="rounded-1 shadow-sm" alt="Just a gigolo">
+          </div>
+
+          <div class="poster-item">
+            <img src="img/actuacion/merry-christmas-mr-lawrence.jpg" class="rounded-1 shadow-sm" alt="Merry Christmas, Mr. Lawrence">
+          </div>
+
+          <div class="poster-item">
+            <img src="img/actuacion/the-hunger.jpg" class="rounded-1 shadow-sm" alt="The Hunger">
+          </div>
+
+          <div class="poster-item">
+            <img src="img/actuacion/labyrinth.jpg" class="rounded-1 shadow-sm" alt="Labyrinth">
+          </div>
+        </div>
+     
+        <button type="button" id="btnNext" class="btn btn-dark btn-flecha flecha-der" aria-label="Siguiente">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+
+      <!-- Borde inferior de la tira de cine -->
+      <div class="tira-cine-borde"></div>
+
     </div>
- </div>
- 
-    <button type="button" id="btnNext" class="btn btn-dark btn-flecha flecha-der" aria-label="Siguiente">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    </button>
 
-</div>
+    <!-- #panelDetalle queda exactamente igual acá abajo -->
+    <div id="panelDetalle" class="card text-bg-dark border-secondary mt-4 p-4 d-none">
 
-<div id="panelDetalle" class="card text-bg-dark border-secondary mt-4 p-4 d-none">
   <div class="row g-4 align-items-start">
     
 
@@ -146,7 +154,7 @@
 
 <div >
   <!-- Contenedor único: acomoda automáticamente de a 4 por fila -->
-  <div class="row row-cols-2 row-cols-lg-4 g-4">
+  <div class="row row-cols-2 row-cols-md-4 g-4">
 
 
     <div class="col">
@@ -340,9 +348,9 @@
 
       <section>
     <h2>Apariciones, cameos y participaciones breves</h2>
-<div class= my-4">
+<div class= "my-4">
   <!-- 8 fotos: en celular 1 col, en compu 4 cols (2 hileras) -->
-  <div class="row row-cols-2 row-cols-lg-4 g-0 grilla-influencias">
+  <div class="row row-cols-2 row-cols-md-4 g-0 grilla-influencias">
     
     <!-- ================= HILERA 1 (Fotos 1 a 4) ================= -->
 
@@ -382,7 +390,7 @@
     <!-- Foto 4 (Rojo) -->
     <div class="col">
       <div class="ratio ratio-1x1 cuadro-influencia">
-        <img src="img/actuacion/cameos/1982 -the-snowman.jpg" class="w-100 h-100 object-fit-cover" alt="David Bowie 1982 — The Snowman">
+        <img src="img/actuacion/cameos/1982-the-snowman.jpg" class="w-100 h-100 object-fit-cover" alt="David Bowie 1982 — The Snowman">
         <div class="capa-color">
           <h3>1982 — The Snowman</h3>
           <p class="texto-oculto mb-0">James adulto, en una introducción alternativa.</p>
@@ -395,7 +403,7 @@
     <!-- Foto 5 (Azul) -->
     <div class="col">
       <div class="ratio ratio-1x1 cuadro-influencia">
-        <img src="img/actuacion/cameos/1983 -yellowbeard.jpg" class="w-100 h-100 object-fit-cover" alt="David Bowie 1983 — Yellowbeard">
+        <img src="img/actuacion/cameos/1983-yellowbeard.jpg" class="w-100 h-100 object-fit-cover" alt="David Bowie 1983 — Yellowbeard">
         <div class="capa-color">
           <h3>1983 — Yellowbeard</h3>
           <p class="texto-oculto mb-0">The Shark. Cameo sin acreditar.</p>
@@ -440,9 +448,59 @@
 </div>
    </section>
 
-         <section>
-    <h2>En teatro</h2>
-   </section>
+<section class="my-5">
+  <h2>En teatro</h2>
+
+  <div class="row row-cols-1 row-cols-md-3 g-3">
+
+    <!-- Obra 1 -->
+    <div class="col ficha-col principal">
+      <article class="ficha principal">
+        <div class="ficha-foto">
+          <img src="img/actuacion/teatro/1967-1968-pierrot-in-turquoise.jpg" alt="Pierrot in Turquoise / The Looking Glass Murders">
+          <h3>Pierrot in Turquoise / The Looking Glass Murders </h3>
+          <p>1967–1968</p>
+        </div>
+        <div class="ficha-descripcion oculto">
+          <h4 class="ficha-nombre">Pierrot in Turquoise / The Looking Glass Murders</h4>
+          <p>En sus inicios, antes de hacerse famoso, participó en esta obra de teatro y mimo junto a la compañía de su maestro de danza y mimo, Lindsay Kemp. Bowie actuó en el papel de Cloud e interpretó las canciones que compuso para el espectáculo.</p>
+        </div>
+      </article>
+    </div>
+
+    <!-- Obra 2 -->
+    <div class="col ficha-col principal">
+      <article class="ficha principal">
+        <div class="ficha-foto">
+          <img src="img/actuacion/teatro/1980-1981-the-elephant-man-obra.jpg" alt="The Elephant Man">
+           <h3>The Elephant Man — Su gran obra teatral</h3>
+          <p>1980–1981</p>
+        </div>
+        <div class="ficha-descripcion oculto">
+          <h4 class="ficha-nombre">The Elephant Man — Su gran obra teatral</h4>
+          <p>Fue su papel teatral más importante y el único trabajo formal en Broadway. Interpretó a Joseph Merrick (el "Hombre Elefante") en 157 funciones consecutivas.<br>
+          <strong>El dato clave:</strong> Actuó sin ningún tipo de prótesis ni maquillaje especial. Transmitía las severas deformidades del personaje únicamente mediante la contorsión de su cuerpo, posturas físicas extremas y cambios en su tono de voz.</p>
+        </div>
+      </article>
+    </div>
+
+    <!-- Obra 3 -->
+    <div class="col ficha-col principal">
+      <article class="ficha principal">
+        <div class="ficha-foto">
+          <img src="img/actuacion/teatro/2015-lazarus.jpg" alt="Lazarus">
+          <h3>Lazarus — Su legado en el teatro musical</h3>
+          <p>2015</p>
+        </div>
+        <div class="ficha-descripcion oculto">
+          <h4 class="ficha-nombre">Lazarus — Su legado en el teatro musical</h4>
+          <p>Aunque no actuó en ella, en sus últimos meses de vida concibió y coescribió el musical Lazarus junto a Enda Walsh. La obra sirvió como una secuela de la película El hombre que cayó a la Tierra (1976) y se estrenó en Nueva York poco antes de su fallecimiento.</p>
+        </div>
+      </article>
+    </div>
+
+  </div>
+</section>
 
   </main>
 

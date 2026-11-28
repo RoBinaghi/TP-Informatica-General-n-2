@@ -1,61 +1,50 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // 1. Captura de elementos del DOM 
-  const carrusel = document.querySelector("#carruselPinturas");
-  const btnPrev = document.querySelector("#btnPrev");
-  const btnNext = document.querySelector("#btnNext");
+//Galeria de obras que pinto
+// 1\. Datos de las obras en un Array de Objetos 
+const obrasData = [ { titulo: "Obra 1", img: "img/pintura1.jpg", descripcion: "Descripción de la obra 1" }, 
+  { titulo: "Obra 2", img: "img/pintura2.jpg", descripcion: "Descripción de la obra 2" } ]; 
 
-  // 2. Verificación y asignación de eventos 
-  if (carrusel && btnPrev && btnNext) {
-    btnNext.addEventListener("click", () => {
-      carrusel.scrollLeft += 300; // Avanza 300px a la derecha
-    });
+  // 2\. Captura de elementos 
+const carrusel = document.querySelector("#carruselPinturas");
+ const btnPrev = document.querySelector("#btnPrev"); 
+ const btnNext = document.querySelector("#btnNext"); 
+ const tarjetas = document.querySelectorAll(".tarjeta-obra");
 
-    btnPrev.addEventListener("click", () => {
-      carrusel.scrollLeft -= 300; // Retrocede 300px a la izquierda
-    });
-  } // <-- Aquí solo cierra el "if" del carrusel
+ // 3\. Controles del carrusel  
+  if (carrusel && btnPrev && btnNext) 
+    { btnNext.addEventListener("click", () => 
+      { carrusel.scrollLeft += 300; }); 
+      btnPrev.addEventListener("click", () =>
+         { carrusel.scrollLeft -= 300; }); } 
 
-  // 3. Carga dinámica de la obra en el Modal de Bootstrap
-  const modalGaleria = document.querySelector("#modalGaleria");
-
-  if (modalGaleria) {
-    modalGaleria.addEventListener("show.bs.modal", (event) => {
-      const tarjeta = event.relatedTarget;
-      if (!tarjeta) return;
-
-      const imgSrc = tarjeta.getAttribute("data-img");
-      const titulo = tarjeta.getAttribute("data-titulo") || "";
-      const descripcion = tarjeta.getAttribute("data-descripcion") || "";
-
-      const modalImg = modalGaleria.querySelector("#modalImagenAmpliada");
-      const modalTitulo = modalGaleria.querySelector("#modalGaleriaTitulo");
-      const modalDescripcion = modalGaleria.querySelector("#modalGaleriaDescripcion");
-
-      if (modalImg && imgSrc) {
-        modalImg.src = imgSrc;
-        modalImg.alt = titulo;
-      }
-      if (modalTitulo) {
-        modalTitulo.textContent = titulo;
-      }
-      if (modalDescripcion) {
-        modalDescripcion.textContent = descripcion;
-      }
-    });
-  }
-}); // <-- AQUÍ SE CIERRA EL DOMContentLoaded AL FINAL DE TODO
-
-// Activar / desactivar texto en las tarjetas de influencias al hacer clic (ideal para celular)
-const tarjetasInfluencia = document.querySelectorAll('.tarjeta-influencia');
-
-tarjetasInfluencia.forEach((tarjeta) => {
-  tarjeta.addEventListener('click', () => {
-    // Si ya estaba abierta, la cierra; si no, cierra las demás y abre esta
-    const estabaActiva = tarjeta.classList.contains('activa');
-    tarjetasInfluencia.forEach((t) => t.classList.remove('activa'));
+ // 4\. Actualización del modal al hacer clic en cada tarjeta  
     
-    if (!estabaActiva) {
-      tarjeta.classList.add('activa');
-    }
-  });
+ tarjetas.forEach((tarjeta, index) =>  { 
+  tarjeta.addEventListener("click", () =>{ 
+        const modalImg = document.querySelector("#modalImagenAmpliada"); 
+        const modalTitulo = document.querySelector("#modalGaleriaTitulo"); 
+        const modalDescripcion = document.querySelector("#modalGaleriaDescripcion"); 
+        if (modalImg) { 
+          modalImg.src = obrasData[index].img; 
+          modalImg.alt = obrasData[index].titulo; } 
+        if (modalTitulo) { 
+            modalTitulo.textContent = obrasData[index].titulo; } 
+            if (modalDescripcion) { 
+              modalDescripcion.textContent = obrasData[index].descripcion; } 
+            }); 
+          });
+
+          // Activar / desactivar texto en las tarjetas de influencias al hacer clic 
+
+// Capturamos el grupo de tarjetas
+ const tarjetasInfluencia = document.querySelectorAll('.tarjeta-influencia');
+// Recorremos cada tarjeta 
+ tarjetasInfluencia.forEach((tarjeta)=>{ 
+  tarjeta.addEventListener('click', () => { 
+// 1\. Cerramos las demás tarjetas quitando la clase 
+ tarjetasInfluencia.forEach((t) =>{ 
+  if (t !== tarjeta) { 
+    t.classList.remove('activa'); } 
+  }); 
+  // 2\. Alternamos la clase activa usando classList.toggle 
+tarjeta.classList.toggle('activa'); }); 
 });

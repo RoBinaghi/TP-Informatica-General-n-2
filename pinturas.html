@@ -68,10 +68,40 @@
 
   <main class="container">
 
-    <h1 class="titulo-pagina">David Bowie, el pintor</h1>
-<p class="cita">"La pintura era algo que hacía puramente para mí. Nunca tuve que preocuparme por las listas de éxitos, las críticas o las expectativas del público. Era mi espacio privado"
- (Entrevista con The New York Times, 1998).
-</p>
+<!-- Contenedor Hero responsivo -->
+<div class="portada-pintor position-relative rounded overflow-hidden my-4 bg-dark text-white">
+  
+  <!-- Imagen: en celular se ve arriba en proporción 16:9; en compu (md) cubre todo el fondo -->
+  <div class="portada-pintor-bg"></div>
+
+  <!-- Contenido: en celular va debajo de la foto; en compu (md) se superpone a la izquierda -->
+  <div class="portada-pintor-contenido position-relative d-flex flex-column justify-content-between p-4 p-md-5">
+    
+    <!-- Título arriba a la izquierda -->
+    <div class="row">
+      <div class="col-12 col-md-7">
+        <h1 class="display-4 fw-bold titulo-pagina mb-3 mb-md-0">David Bowie, el pintor</h1>
+      </div>
+    </div>
+
+    <!-- Cita abajo a la izquierda -->
+    <div class="row mt-2 mt-md-5 pt-md-5">
+      <div class="col-12 col-md-7">
+        <figure class="ps-3 mb-0 cita">
+          <blockquote class="blockquote mb-2">
+            <p class="fs-6 fs-md-5 fst-italic lh-base mb-0">
+              "La pintura era algo que hacía puramente para mí. Nunca tuve que preocuparme por las listas de éxitos, las críticas o las expectativas del público. Era mi espacio privado."
+            </p>
+          </blockquote>
+          <figcaption class="blockquote-footer text-light opacity-75 mb-0 small">
+            David Bowie, en entrevista con <cite title="The New York Times">The New York Times</cite>, 1998
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+
+  </div>
+</div>
 <section class="py-5 seccion-bowie">
 
   <!-- FILA 1: Texto izquierda / Imagen derecha -->
@@ -92,17 +122,19 @@
     </div>
   </div>
 
-  <!-- FILA 2: Imagen izquierda (en compu) / Texto derecha (en compu) -->
-  <div class="row align-items-center">
+<!-- FILA 2: Imagen izquierda (en compu) / Texto derecha (en compu) -->
+<div class="card text-bg-dark border-secondary p-4">
+  <div class="row align-items-center g-4">
+    
     <!-- En celular va abajo (order-2), en compu a la izquierda (order-md-1) -->
     <div class="col-12 col-md-7 text-center order-2 order-md-1">
       <img src="img/pintor/pintura-david-bowie-1.jpg" 
            alt="Pintura expresionista de David Bowie" 
-           class="img-fluid img-bowie-scroll">
+           class="img-fluid rounded img-bowie-scroll">
     </div> 
 
     <!-- En celular va arriba (order-1), en compu a la derecha (order-md-2) -->
-    <div class="col-12 col-md-5 mb-4 mb-md-0 order-1 order-md-2">
+    <div class="col-12 col-md-5 order-1 order-md-2">
       <p class="fs-5 lh-base">Su producción artística incluye:</p>
       <ul class="fs-5 lh-base">
         <li>Retratos y autorretratos.</li>
@@ -115,17 +147,17 @@
         No tenía una única identidad pictórica. Experimentaba con estilos, materiales y referencias, del mismo modo que lo hacía con la música.
       </p>
     </div>
-  </div>
 
+  </div>
+</div>
 </section>
     
-    <section>
-          <section class="py-5">
+<section class="py-5">
   <!-- Fila principal: Mobile First (1 columna por defecto) y 2 columnas en desktop (lg) -->
   <div class="row g-4 align-items-center">
     
     <!-- COLUMNA IZQUIERDA (Arriba en celular): Texto descriptivo -->
-    <div class="col-12 col-lg-5">
+    <div class="col-12 col-md-5">
       <h2 class="mb-3">¿Qué tipo de pintor era?</h2>
       <p>
         Era un artista visual bastante intuitivo y experimental. Su producción tiene valor para comprender su universo creativo. Hay algo que se repite en sus cuadros y en su música: la identidad, la transformación, la ambigüedad, la figura humana y la fascinación por lo extraño. David Bowie utilizaba la pintura como un refugio terapéutico, un espacio de confrontación interna y un complemento directo para su proceso musical. Más allá de ser un pasatiempo, el arte visual fue la base de su formación académica en la Escuela de Arte de Croydon y una necesidad expresiva que mantuvo en privado durante gran parte de su vida.
@@ -404,30 +436,37 @@
   </div>
 </div></section>
 
-    <section>
-      <h2>Su primera gran exposición: 1995</h2>
-        <div class="row align-items-center">
-    <!-- En celular arriba (12 cols), en compu a la izquierda (5 cols) -->
-    <div class="col-12 col-md-5 mb-4 mb-md-0">
-      <p class="fs-5 lh-base">
-       En abril de 1995 presentó en Londres una exposición titulada New Afro/Pagan and Work: 1975–1995.
-      </p>
-    </div>
+<section class="py-4">
+  <h2 class="mb-4">Su primera gran exposición: 1995</h2>
 
-    <!-- En celular abajo (12 cols), en compu a la derecha (7 cols) -->
-    <div class="col-12 col-md-7 text-center">
-      <img src="img/pintor/pintura-david-bowie-2.jpg" 
-           alt="Obras pictóricas de David Bowie" 
-           class="img-fluid img-bowie-scroll">
+  <div class="card text-bg-dark border-secondary p-4">
+    <div class="row align-items-center g-4">
+      
+      <!-- Columna izquierda: Texto + Lista (en celular arriba, en compu izquierda) -->
+      <div class="col-12 col-md-5">
+        <p class="fs-5 lh-base">
+          En abril de 1995 presentó en Londres una exposición titulada <em>New Afro/Pagan and Work: 1975–1995</em>.
+        </p>
+
+        <h3 class="fs-5 lh-base mt-3 mb-2">Incluía:</h3>
+        <ul class="fs-5 lh-base mb-0">
+          <li>Retratos realizados en distintos momentos.</li>
+          <li>Cabezas escultóricas pintadas en tonos metálicos.</li>
+          <li>Dibujos y trabajos en carbonilla.</li>
+          <li>Dos diseños de papel pintado que utilizó para construir una instalación.</li>
+        </ul>
+      </div>
+
+      <!-- Columna derecha: Imagen (en celular abajo, en compu derecha) -->
+      <div class="col-12 col-md-7 text-center">
+        <img src="img/pintor/pintura-david-bowie-2.jpg" 
+             alt="Obras pictóricas de David Bowie" 
+             class="img-fluid rounded img-bowie-scroll">
+      </div>
+
     </div>
   </div>
-  <p>Incluía:
-Retratos realizados en distintos momentos.
-Cabezas escultóricas pintadas en tonos metálicos.
-Dibujos y trabajos en carbonilla.
-Dos diseños de papel pintado que utilizó para construir una instalación.
-</p>
-    </section>
+</section>
     <section>
       <h2>Bowie y el mundo del arte contemporáneo</h2>
       <p>Bowie no solamente producía arte, sino que participaba activamente de su escena.
@@ -450,7 +489,7 @@ Dos diseños de papel pintado que utilizó para construir una instalación.
     <div class="col">
       <div class="card h-100">
         <div class="ratio ratio-1x1">
-          <img src="img/pintor/david-como-andy-warhol-basquiat.jpg" class="card-img-top object-fit-cover" alt="David Bowie como Andy Warhol en la película Basquiat<">
+          <img src="img/pintor/david-como-andy-warhol-basquiat.jpg" class="card-img-top object-fit-cover" alt="David Bowie como Andy Warhol en la película Basquiat">
         </div>
         <div class="card-body">
           <h3 class="card-title">En 1996 interpretó a Andy Warhol en la película Basquiat</h3>
